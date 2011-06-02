@@ -20,7 +20,7 @@ under the Eclipse Public License.])
 
 # List one file in the package so that the configure script can test
 # whether the package is actually there
-AC_CONFIG_SRCDIR(scip/src/scip.h)
+AC_CONFIG_SRCDIR(scip/src/scip/scip.h)
 
 # Where should everything be installed by default?  Here, we want it
 # to be installed directly in 'bin', 'lib', 'include' subdirectories
@@ -95,6 +95,12 @@ AC_CHECK_FUNC(strerror_r,,
     
 AC_CHECK_HEADER([fenv.h],[EXTRAFLAGS="$EXTRAFLAGS -DROUNDING_FE"],
   [AC_CHECK_HEADER([float.h],[EXTRAFLAGS="$EXTRAFLAGS -DROUNDING_MS"])])
+
+case "$CC" in
+  *gcc* )
+    EXTRAFLAGS="$EXTRAFLAGS -Wno-overlength-strings"
+    ;;
+esac
  
 CFLAGS="$CFLAGS $EXTRAFLAGS"
 CXXFLAGS="$CXXFLAGS $EXTRAFLAGS"
