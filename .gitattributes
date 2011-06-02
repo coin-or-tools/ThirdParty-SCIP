@@ -1,0 +1,11 @@
+* text=auto !eol
+/INSTALL.SCIP -text
+/Makefile.am -text
+/config.guess -text
+/config.sub -text
+/config_scip.h.in -text
+/configure.ac -text
+/depcomp -text
+/install-sh -text
+/ltmain.sh -text
+/missing -text
