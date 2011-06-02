@@ -60,13 +60,14 @@ host_triplet = @host@
 @COIN_HAS_IPOPT_TRUE@am__append_4 = scip/src/nlpi/nlpi_ipopt.cpp
 @COIN_HAS_IPOPT_FALSE@am__append_5 = scip/src/nlpi/nlpi_ipopt_dummy.c
 @COIN_HAS_CPPAD_TRUE@am__append_6 = scip/src/nlpi/exprinterpret_cppad.cpp
+@COIN_HAS_CPPAD_FALSE@am__append_7 = scip/src/nlpi/exprinterpret_none.c
 DIST_COMMON = $(am__configure_deps) $(srcdir)/BuildTools/Makemain.inc \
 	$(srcdir)/Makefile.am $(srcdir)/Makefile.in \
 	$(srcdir)/coinscip-uninstalled.pc.in $(srcdir)/coinscip.pc.in \
 	$(srcdir)/config_scip.h.in $(top_srcdir)/configure compile \
 	config.guess config.sub depcomp install-sh ltmain.sh missing
-@HAVE_EXTERNALS_TRUE@am__append_7 = Dependencies
-@HAVE_EXTERNALS_TRUE@am__append_8 = .Dependencies-stamp
+@HAVE_EXTERNALS_TRUE@am__append_8 = Dependencies
+@HAVE_EXTERNALS_TRUE@am__append_9 = .Dependencies-stamp
 subdir = .
 ACLOCAL_M4 = $(top_srcdir)/aclocal.m4
 am__aclocal_m4_deps = $(top_srcdir)/acinclude.m4 \
@@ -187,7 +188,8 @@ am__libcoinscip_la_SOURCES_DIST = scip/src/scip/branch.c \
 	scip/src/scip/lpi_spx.cpp scip/src/scip/lpi_clp.cpp \
 	scip/src/scip/lpi_none.cpp scip/src/nlpi/nlpi_ipopt.cpp \
 	scip/src/nlpi/nlpi_ipopt_dummy.c \
-	scip/src/nlpi/exprinterpret_cppad.cpp
+	scip/src/nlpi/exprinterpret_cppad.cpp \
+	scip/src/nlpi/exprinterpret_none.c
 am__dirstamp = $(am__leading_dot)dirstamp
 @COIN_HAS_SOPLEX_TRUE@am__objects_1 = scip/src/scip/lpi_spx.lo
 @COIN_HAS_CLP_TRUE@@COIN_HAS_SOPLEX_FALSE@am__objects_2 = scip/src/scip/lpi_clp.lo
@@ -197,6 +199,8 @@ am__dirstamp = $(am__leading_dot)dirstamp
 @COIN_HAS_IPOPT_FALSE@	scip/src/nlpi/nlpi_ipopt_dummy.lo
 @COIN_HAS_CPPAD_TRUE@am__objects_6 =  \
 @COIN_HAS_CPPAD_TRUE@	scip/src/nlpi/exprinterpret_cppad.lo
+@COIN_HAS_CPPAD_FALSE@am__objects_7 =  \
+@COIN_HAS_CPPAD_FALSE@	scip/src/nlpi/exprinterpret_none.lo
 am_libcoinscip_la_OBJECTS = scip/src/scip/branch.lo \
 	scip/src/scip/bitencode.lo scip/src/scip/buffer.lo \
 	scip/src/scip/clock.lo scip/src/scip/conflict.lo \
@@ -300,7 +304,8 @@ am_libcoinscip_la_OBJECTS = scip/src/scip/branch.lo \
 	scip/src/nlpi/intervalarith.lo \
 	scip/src/dijkstra/dijkstra_bh.lo scip/src/xml/xmlparse.lo \
 	$(am__objects_1) $(am__objects_2) $(am__objects_3) \
-	$(am__objects_4) $(am__objects_5) $(am__objects_6)
+	$(am__objects_4) $(am__objects_5) $(am__objects_6) \
+	$(am__objects_7)
 libcoinscip_la_OBJECTS = $(am_libcoinscip_la_OBJECTS)
 depcomp = $(SHELL) $(top_srcdir)/depcomp
 am__depfiles_maybe = depfiles
@@ -524,7 +529,7 @@ sol_cc_compiler = @sol_cc_compiler@
 sysconfdir = @sysconfdir@
 target_alias = @target_alias@
 AUTOMAKE_OPTIONS = foreign
-EXTRA_DIST = $(am__append_7)
+EXTRA_DIST = $(am__append_8)
 lib_LTLIBRARIES = libcoinscip.la
 libcoinscip_la_SOURCES = scip/src/scip/branch.c \
 	scip/src/scip/bitencode.c scip/src/scip/buffer.c \
@@ -623,7 +628,8 @@ libcoinscip_la_SOURCES = scip/src/scip/branch.c \
 	scip/src/nlpi/intervalarith.cpp \
 	scip/src/dijkstra/dijkstra_bh.c scip/src/xml/xmlparse.c \
 	$(am__append_1) $(am__append_2) $(am__append_3) \
-	$(am__append_4) $(am__append_5) $(am__append_6)
+	$(am__append_4) $(am__append_5) $(am__append_6) \
+	$(am__append_7)
 AM_CPPFLAGS = -I`$(CYGPATH_W) $(srcdir)/scip/src` $(SCIPLIB_CFLAGS)
 DEFAULT_INCLUDES = -I. -I`$(CYGPATH_W) $(srcdir)`
 libcoinscip_la_LDFLAGS = $(LT_LDFLAGS)
@@ -633,7 +639,7 @@ libcoinscip_la_LDFLAGS = $(LT_LDFLAGS)
 ########################################################################
 
 # Files that are generated and should be cleaned with make distclean
-DISTCLEANFILES = $(am__append_8) $(VPATH_DISTCLEANFILES)
+DISTCLEANFILES = $(am__append_9) $(VPATH_DISTCLEANFILES)
 DocFiles = README AUTHORS LICENSE
 DocInstallDir = $(datadir)/coin/doc/$(PACKAGE_NAME)
 all: config_scip.h
@@ -1097,6 +1103,8 @@ scip/src/nlpi/nlpi_ipopt_dummy.lo: scip/src/nlpi/$(am__dirstamp) \
 	scip/src/nlpi/$(DEPDIR)/$(am__dirstamp)
 scip/src/nlpi/exprinterpret_cppad.lo: scip/src/nlpi/$(am__dirstamp) \
 	scip/src/nlpi/$(DEPDIR)/$(am__dirstamp)
+scip/src/nlpi/exprinterpret_none.lo: scip/src/nlpi/$(am__dirstamp) \
+	scip/src/nlpi/$(DEPDIR)/$(am__dirstamp)
 libcoinscip.la: $(libcoinscip_la_OBJECTS) $(libcoinscip_la_DEPENDENCIES) 
 	$(CXXLINK) -rpath $(libdir) $(libcoinscip_la_LDFLAGS) $(libcoinscip_la_OBJECTS) $(libcoinscip_la_LIBADD) $(LIBS)
 
@@ -1110,6 +1118,8 @@ mostlyclean-compile:
 	-rm -f scip/src/nlpi/expression.lo
 	-rm -f scip/src/nlpi/exprinterpret_cppad.$(OBJEXT)
 	-rm -f scip/src/nlpi/exprinterpret_cppad.lo
+	-rm -f scip/src/nlpi/exprinterpret_none.$(OBJEXT)
+	-rm -f scip/src/nlpi/exprinterpret_none.lo
 	-rm -f scip/src/nlpi/intervalarith.$(OBJEXT)
 	-rm -f scip/src/nlpi/intervalarith.lo
 	-rm -f scip/src/nlpi/nlpi.$(OBJEXT)
@@ -1446,6 +1456,7 @@ distclean-compile:
 @AMDEP_TRUE@@am__include@ @am__quote@scip/src/dijkstra/$(DEPDIR)/dijkstra_bh.Plo@am__quote@
 @AMDEP_TRUE@@am__include@ @am__quote@scip/src/nlpi/$(DEPDIR)/expression.Plo@am__quote@
 @AMDEP_TRUE@@am__include@ @am__quote@scip/src/nlpi/$(DEPDIR)/exprinterpret_cppad.Plo@am__quote@
+@AMDEP_TRUE@@am__include@ @am__quote@scip/src/nlpi/$(DEPDIR)/exprinterpret_none.Plo@am__quote@
 @AMDEP_TRUE@@am__include@ @am__quote@scip/src/nlpi/$(DEPDIR)/intervalarith.Plo@am__quote@
 @AMDEP_TRUE@@am__include@ @am__quote@scip/src/nlpi/$(DEPDIR)/nlpi.Plo@am__quote@
 @AMDEP_TRUE@@am__include@ @am__quote@scip/src/nlpi/$(DEPDIR)/nlpi_ipopt.Plo@am__quote@

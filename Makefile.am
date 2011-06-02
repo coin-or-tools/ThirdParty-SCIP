@@ -194,6 +194,8 @@ endif
 
 if COIN_HAS_CPPAD
 libcoinscip_la_SOURCES += scip/src/nlpi/exprinterpret_cppad.cpp
+else
+libcoinscip_la_SOURCES += scip/src/nlpi/exprinterpret_none.c
 endif
 
 AM_CPPFLAGS = -I`$(CYGPATH_W) $(srcdir)/scip/src` $(SCIPLIB_CFLAGS)
