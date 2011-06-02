@@ -105,7 +105,7 @@ esac
 CFLAGS="$CFLAGS $EXTRAFLAGS"
 CXXFLAGS="$CXXFLAGS $EXTRAFLAGS"
   
-AC_CONFIG_FILES([Makefile])
+AC_CONFIG_FILES([Makefile coinscip.pc coinscip-uninstalled.pc])
 
 # dummy header file to avoid many extra compiler flags
 AC_CONFIG_HEADER([config_scip.h])

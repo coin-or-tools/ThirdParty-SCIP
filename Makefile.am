@@ -8,7 +8,7 @@ AUTOMAKE_OPTIONS = foreign
 
 EXTRA_DIST =
 
-noinst_LTLIBRARIES = libcoinscip.la
+lib_LTLIBRARIES = libcoinscip.la
 
 libcoinscip_la_SOURCES = \
 			scip/src/scip/branch.c \
