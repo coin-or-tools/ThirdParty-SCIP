@@ -472,7 +472,7 @@ ac_includes_default="\
 # include <unistd.h>
 #endif"
 
-ac_subst_vars='SHELL PATH_SEPARATOR PACKAGE_NAME PACKAGE_TARNAME PACKAGE_VERSION PACKAGE_STRING PACKAGE_BUGREPORT exec_prefix prefix program_transform_name bindir sbindir libexecdir datadir sysconfdir sharedstatedir localstatedir libdir includedir oldincludedir infodir mandir build_alias host_alias target_alias DEFS ECHO_C ECHO_N ECHO_T LIBS ALWAYS_FALSE_TRUE ALWAYS_FALSE_FALSE have_svnversion SCIP_SVN_REV build build_cpu build_vendor build_os CDEFS ADD_CFLAGS DBG_CFLAGS OPT_CFLAGS sol_cc_compiler CC CFLAGS LDFLAGS CPPFLAGS ac_ct_CC EXEEXT OBJEXT COIN_CC_IS_CL_TRUE COIN_CC_IS_CL_FALSE MPICC CXXDEFS ADD_CXXFLAGS DBG_CXXFLAGS OPT_CXXFLAGS CXX CXXFLAGS ac_ct_CXX COIN_CXX_IS_CL_TRUE COIN_CXX_IS_CL_FALSE MPICXX INSTALL_PROGRAM INSTALL_SCRIPT INSTALL_DATA CYGPATH_W PACKAGE VERSION ACLOCAL AUTOCONF AUTOMAKE AUTOHEADER MAKEINFO install_sh STRIP ac_ct_STRIP INSTALL_STRIP_PROGRAM mkdir_p AWK SET_MAKE am__leading_dot AMTAR am__tar am__untar DEPDIR am__include am__quote AMDEP_TRUE AMDEP_FALSE AMDEPBACKSLASH CCDEPMODE am__fastdepCC_TRUE am__fastdepCC_FALSE CXXDEPMODE am__fastdepCXX_TRUE am__fastdepCXX_FALSE EGREP LN_S MAINTAINER_MODE_TRUE MAINTAINER_MODE_FALSE MAINT LIBTOOLM4 have_autoconf have_automake have_svn BUILDTOOLSDIR AUX_DIR abs_source_dir abs_lib_dir abs_include_dir abs_bin_dir HAVE_EXTERNALS_TRUE HAVE_EXTERNALS_FALSE host host_cpu host_vendor host_os ECHO AR ac_ct_AR RANLIB ac_ct_RANLIB CPP CXXCPP F77 FFLAGS ac_ct_F77 LIBTOOL ac_c_preproc_warn_flag ac_cxx_preproc_warn_flag RPATH_FLAGS LT_LDFLAGS PKG_CONFIG ac_pt_PKG_CONFIG COIN_HAS_PKGCONFIG_TRUE COIN_HAS_PKGCONFIG_FALSE COIN_PKG_CONFIG_PATH COIN_PKG_CONFIG_PATH_UNINSTALLED SOPLEX_LIBS SOPLEX_CFLAGS SOPLEX_DATA SOPLEX_DEPENDENCIES SOPLEX_LIBS_INSTALLED SOPLEX_CFLAGS_INSTALLED SOPLEX_DATA_INSTALLED SCIPLIB_CFLAGS SCIPLIB_LIBS SCIPLIB_PCLIBS SCIPLIB_PCREQUIRES SCIPLIB_DEPENDENCIES SCIPLIB_CFLAGS_INSTALLED SCIPLIB_LIBS_INSTALLED COIN_HAS_SOPLEX_TRUE COIN_HAS_SOPLEX_FALSE CLP_LIBS CLP_CFLAGS CLP_DATA CLP_DEPENDENCIES CLP_LIBS_INSTALLED CLP_CFLAGS_INSTALLED CLP_DATA_INSTALLED COIN_HAS_CLP_TRUE COIN_HAS_CLP_FALSE IPOPT_LIBS IPOPT_CFLAGS IPOPT_DATA IPOPT_DEPENDENCIES IPOPT_LIBS_INSTALLED IPOPT_CFLAGS_INSTALLED IPOPT_DATA_INSTALLED COIN_HAS_IPOPT_TRUE COIN_HAS_IPOPT_FALSE CPPAD_LIBS CPPAD_CFLAGS CPPAD_DATA CPPAD_DEPENDENCIES CPPAD_LIBS_INSTALLED CPPAD_CFLAGS_INSTALLED CPPAD_DATA_INSTALLED COIN_HAS_CPPAD_TRUE COIN_HAS_CPPAD_FALSE COIN_HAS_ZLIB_TRUE COIN_HAS_ZLIB_FALSE LIBEXT VPATH_DISTCLEANFILES ABSBUILDDIR LIBOBJS LTLIBOBJS'
+ac_subst_vars='SHELL PATH_SEPARATOR PACKAGE_NAME PACKAGE_TARNAME PACKAGE_VERSION PACKAGE_STRING PACKAGE_BUGREPORT exec_prefix prefix program_transform_name bindir sbindir libexecdir datadir sysconfdir sharedstatedir localstatedir libdir includedir oldincludedir infodir mandir build_alias host_alias target_alias DEFS ECHO_C ECHO_N ECHO_T LIBS ALWAYS_FALSE_TRUE ALWAYS_FALSE_FALSE have_svnversion SCIP_SVN_REV build build_cpu build_vendor build_os CDEFS ADD_CFLAGS DBG_CFLAGS OPT_CFLAGS sol_cc_compiler CC CFLAGS LDFLAGS CPPFLAGS ac_ct_CC EXEEXT OBJEXT COIN_CC_IS_CL_TRUE COIN_CC_IS_CL_FALSE MPICC CXXDEFS ADD_CXXFLAGS DBG_CXXFLAGS OPT_CXXFLAGS CXX CXXFLAGS ac_ct_CXX COIN_CXX_IS_CL_TRUE COIN_CXX_IS_CL_FALSE MPICXX INSTALL_PROGRAM INSTALL_SCRIPT INSTALL_DATA CYGPATH_W PACKAGE VERSION ACLOCAL AUTOCONF AUTOMAKE AUTOHEADER MAKEINFO install_sh STRIP ac_ct_STRIP INSTALL_STRIP_PROGRAM mkdir_p AWK SET_MAKE am__leading_dot AMTAR am__tar am__untar DEPDIR am__include am__quote AMDEP_TRUE AMDEP_FALSE AMDEPBACKSLASH CCDEPMODE am__fastdepCC_TRUE am__fastdepCC_FALSE CXXDEPMODE am__fastdepCXX_TRUE am__fastdepCXX_FALSE EGREP LN_S MAINTAINER_MODE_TRUE MAINTAINER_MODE_FALSE MAINT LIBTOOLM4 have_autoconf have_automake have_svn BUILDTOOLSDIR AUX_DIR abs_source_dir abs_lib_dir abs_include_dir abs_bin_dir HAVE_EXTERNALS_TRUE HAVE_EXTERNALS_FALSE host host_cpu host_vendor host_os ECHO AR ac_ct_AR RANLIB ac_ct_RANLIB CPP CXXCPP F77 FFLAGS ac_ct_F77 LIBTOOL ac_c_preproc_warn_flag ac_cxx_preproc_warn_flag RPATH_FLAGS LT_LDFLAGS PKG_CONFIG ac_pt_PKG_CONFIG COIN_HAS_PKGCONFIG_TRUE COIN_HAS_PKGCONFIG_FALSE COIN_PKG_CONFIG_PATH COIN_PKG_CONFIG_PATH_UNINSTALLED SOPLEX_LIBS SOPLEX_CFLAGS SOPLEX_DATA SOPLEX_DEPENDENCIES SOPLEX_LIBS_INSTALLED SOPLEX_CFLAGS_INSTALLED SOPLEX_DATA_INSTALLED COIN_HAS_SOPLEX_TRUE COIN_HAS_SOPLEX_FALSE CLP_LIBS CLP_CFLAGS CLP_DATA CLP_DEPENDENCIES CLP_LIBS_INSTALLED CLP_CFLAGS_INSTALLED CLP_DATA_INSTALLED COIN_HAS_CLP_TRUE COIN_HAS_CLP_FALSE CPXINCDIR CPXLIB COIN_HAS_CPX_TRUE COIN_HAS_CPX_FALSE MSKINCDIR MSKLIB COIN_HAS_MSK_TRUE COIN_HAS_MSK_FALSE XPRINCDIR XPRLIB COIN_HAS_XPR_TRUE COIN_HAS_XPR_FALSE GRBINCDIR GRBLIB COIN_HAS_GRB_TRUE COIN_HAS_GRB_FALSE QSOINCDIR QSOLIB COIN_HAS_QSO_TRUE COIN_HAS_QSO_FALSE SCIPLPI_SPX_TRUE SCIPLPI_SPX_FALSE SCIPLPI_CLP_TRUE SCIPLPI_CLP_FALSE SCIPLPI_CPX_TRUE SCIPLPI_CPX_FALSE SCIPLPI_MSK_TRUE SCIPLPI_MSK_FALSE SCIPLPI_XPR_TRUE SCIPLPI_XPR_FALSE SCIPLPI_GRB_TRUE SCIPLPI_GRB_FALSE SCIPLPI_QSO_TRUE SCIPLPI_QSO_FALSE SCIPLPI_NONE_TRUE SCIPLPI_NONE_FALSE IPOPT_LIBS IPOPT_CFLAGS IPOPT_DATA IPOPT_DEPENDENCIES IPOPT_LIBS_INSTALLED IPOPT_CFLAGS_INSTALLED IPOPT_DATA_INSTALLED SCIPLIB_CFLAGS SCIPLIB_LIBS SCIPLIB_PCLIBS SCIPLIB_PCREQUIRES SCIPLIB_DEPENDENCIES SCIPLIB_CFLAGS_INSTALLED SCIPLIB_LIBS_INSTALLED COIN_HAS_IPOPT_TRUE COIN_HAS_IPOPT_FALSE CPPAD_LIBS CPPAD_CFLAGS CPPAD_DATA CPPAD_DEPENDENCIES CPPAD_LIBS_INSTALLED CPPAD_CFLAGS_INSTALLED CPPAD_DATA_INSTALLED COIN_HAS_CPPAD_TRUE COIN_HAS_CPPAD_FALSE COIN_HAS_ZLIB_TRUE COIN_HAS_ZLIB_FALSE LIBEXT VPATH_DISTCLEANFILES ABSBUILDDIR LIBOBJS LTLIBOBJS'
 ac_subst_files=''
 
 # Initialize some variables set by options.
@@ -1101,6 +1101,18 @@ Optional Features:
   --enable-interpackage-dependencies
                           whether to deduce Makefile dependencies from package
                           linker flags (default: yes)
+  --enable-cplex-libcheck use disable-cplex-libcheck to skip the
+                          link check at configuration time
+  --enable-mosek-libcheck use disable-mosek-libcheck to skip the
+                          link check at configuration time
+  --enable-xpress-libcheck
+                          use disable-xpress-libcheck to skip the
+                          link check at configuration time
+  --enable-gurobi-libcheck
+                          use disable-gurobi-libcheck to skip the
+                          link check at configuration time
+  --enable-qsopt-libcheck use disable-qsopt-libcheck to skip the
+                          link check at configuration time
   --enable-gnu-packages   compile with GNU packages (disabled by default)
 
 Optional Packages:
@@ -1122,6 +1134,18 @@ Optional Packages:
   --with-clp-lib linker flags for using package Clp
   --with-clp-incdir directory with header files for using package Clp
   --with-clp-datadir directory with data files for using package Clp
+  --with-cplex-incdir specify the header file directory for library Cplex
+  --with-cplex-lib specify the flags used to link with the library Cplex
+  --with-mosek-incdir specify the header file directory for library Mosek
+  --with-mosek-lib specify the flags used to link with the library Mosek
+  --with-xpress-incdir specify the header file directory for library Xpress
+  --with-xpress-lib specify the flags used to link with the library Xpress
+  --with-gurobi-incdir specify the header file directory for library Gurobi
+  --with-gurobi-lib specify the flags used to link with the library Gurobi
+  --with-qsopt-incdir specify the header file directory for library QSopt
+  --with-qsopt-lib specify the flags used to link with the library QSopt
+  --with-scip-lpsolver    specify LP solver to use in SCIP (soplex, clp,
+                          cplex, mosek, xpress, gurobi, qsopt, none)
   --with-ipopt-lib linker flags for using package Ipopt
   --with-ipopt-incdir directory with header files for using package Ipopt
   --with-ipopt-datadir directory with data files for using package Ipopt
@@ -6404,7 +6428,7 @@ ia64-*-hpux*)
   ;;
 *-*-irix6*)
   # Find out which ABI we are using.
-  echo '#line 6407 "configure"' > conftest.$ac_ext
+  echo '#line 6431 "configure"' > conftest.$ac_ext
   if { (eval echo "$as_me:$LINENO: \"$ac_compile\"") >&5
   (eval $ac_compile) 2>&5
   ac_status=$?
@@ -7538,7 +7562,7 @@ fi
 
 
 # Provide some information about the compiler.
-echo "$as_me:7541:" \
+echo "$as_me:7565:" \
      "checking for Fortran 77 compiler version" >&5
 ac_compiler=`set X $ac_compile; echo $2`
 { (eval echo "$as_me:$LINENO: \"$ac_compiler --version </dev/null >&5\"") >&5
@@ -8605,11 +8629,11 @@ else
    -e 's:.*FLAGS}\{0,1\} :&$lt_compiler_flag :; t' \
    -e 's: [^ ]*conftest\.: $lt_compiler_flag&:; t' \
    -e 's:$: $lt_compiler_flag:'`
-   (eval echo "\"\$as_me:8608: $lt_compile\"" >&5)
+   (eval echo "\"\$as_me:8632: $lt_compile\"" >&5)
    (eval "$lt_compile" 2>conftest.err)
    ac_status=$?
    cat conftest.err >&5
-   echo "$as_me:8612: \$? = $ac_status" >&5
+   echo "$as_me:8636: \$? = $ac_status" >&5
    if (exit $ac_status) && test -s "$ac_outfile"; then
      # The compiler can only warn and ignore the option if not recognized
      # So say no if there are warnings other than the usual output.
@@ -8873,11 +8897,11 @@ else
    -e 's:.*FLAGS}\{0,1\} :&$lt_compiler_flag :; t' \
    -e 's: [^ ]*conftest\.: $lt_compiler_flag&:; t' \
    -e 's:$: $lt_compiler_flag:'`
-   (eval echo "\"\$as_me:8876: $lt_compile\"" >&5)
+   (eval echo "\"\$as_me:8900: $lt_compile\"" >&5)
    (eval "$lt_compile" 2>conftest.err)
    ac_status=$?
    cat conftest.err >&5
-   echo "$as_me:8880: \$? = $ac_status" >&5
+   echo "$as_me:8904: \$? = $ac_status" >&5
    if (exit $ac_status) && test -s "$ac_outfile"; then
      # The compiler can only warn and ignore the option if not recognized
      # So say no if there are warnings other than the usual output.
@@ -8977,11 +9001,11 @@ else
    -e 's:.*FLAGS}\{0,1\} :&$lt_compiler_flag :; t' \
    -e 's: [^ ]*conftest\.: $lt_compiler_flag&:; t' \
    -e 's:$: $lt_compiler_flag:'`
-   (eval echo "\"\$as_me:8980: $lt_compile\"" >&5)
+   (eval echo "\"\$as_me:9004: $lt_compile\"" >&5)
    (eval "$lt_compile" 2>out/conftest.err)
    ac_status=$?
    cat out/conftest.err >&5
-   echo "$as_me:8984: \$? = $ac_status" >&5
+   echo "$as_me:9008: \$? = $ac_status" >&5
    if (exit $ac_status) && test -s out/conftest2.$ac_objext
    then
      # The compiler can only warn and ignore the option if not recognized
@@ -11322,7 +11346,7 @@ else
   lt_dlunknown=0; lt_dlno_uscore=1; lt_dlneed_uscore=2
   lt_status=$lt_dlunknown
   cat > conftest.$ac_ext <<EOF
-#line 11325 "configure"
+#line 11349 "configure"
 #include "confdefs.h"
 
 #if HAVE_DLFCN_H
@@ -11422,7 +11446,7 @@ else
   lt_dlunknown=0; lt_dlno_uscore=1; lt_dlneed_uscore=2
   lt_status=$lt_dlunknown
   cat > conftest.$ac_ext <<EOF
-#line 11425 "configure"
+#line 11449 "configure"
 #include "confdefs.h"
 
 #if HAVE_DLFCN_H
@@ -13766,11 +13790,11 @@ else
    -e 's:.*FLAGS}\{0,1\} :&$lt_compiler_flag :; t' \
    -e 's: [^ ]*conftest\.: $lt_compiler_flag&:; t' \
    -e 's:$: $lt_compiler_flag:'`
-   (eval echo "\"\$as_me:13769: $lt_compile\"" >&5)
+   (eval echo "\"\$as_me:13793: $lt_compile\"" >&5)
    (eval "$lt_compile" 2>conftest.err)
    ac_status=$?
    cat conftest.err >&5
-   echo "$as_me:13773: \$? = $ac_status" >&5
+   echo "$as_me:13797: \$? = $ac_status" >&5
    if (exit $ac_status) && test -s "$ac_outfile"; then
      # The compiler can only warn and ignore the option if not recognized
      # So say no if there are warnings other than the usual output.
@@ -13870,11 +13894,11 @@ else
    -e 's:.*FLAGS}\{0,1\} :&$lt_compiler_flag :; t' \
    -e 's: [^ ]*conftest\.: $lt_compiler_flag&:; t' \
    -e 's:$: $lt_compiler_flag:'`
-   (eval echo "\"\$as_me:13873: $lt_compile\"" >&5)
+   (eval echo "\"\$as_me:13897: $lt_compile\"" >&5)
    (eval "$lt_compile" 2>out/conftest.err)
    ac_status=$?
    cat out/conftest.err >&5
-   echo "$as_me:13877: \$? = $ac_status" >&5
+   echo "$as_me:13901: \$? = $ac_status" >&5
    if (exit $ac_status) && test -s out/conftest2.$ac_objext
    then
      # The compiler can only warn and ignore the option if not recognized
@@ -15440,11 +15464,11 @@ else
    -e 's:.*FLAGS}\{0,1\} :&$lt_compiler_flag :; t' \
    -e 's: [^ ]*conftest\.: $lt_compiler_flag&:; t' \
    -e 's:$: $lt_compiler_flag:'`
-   (eval echo "\"\$as_me:15443: $lt_compile\"" >&5)
+   (eval echo "\"\$as_me:15467: $lt_compile\"" >&5)
    (eval "$lt_compile" 2>conftest.err)
    ac_status=$?
    cat conftest.err >&5
-   echo "$as_me:15447: \$? = $ac_status" >&5
+   echo "$as_me:15471: \$? = $ac_status" >&5
    if (exit $ac_status) && test -s "$ac_outfile"; then
      # The compiler can only warn and ignore the option if not recognized
      # So say no if there are warnings other than the usual output.
@@ -15544,11 +15568,11 @@ else
    -e 's:.*FLAGS}\{0,1\} :&$lt_compiler_flag :; t' \
    -e 's: [^ ]*conftest\.: $lt_compiler_flag&:; t' \
    -e 's:$: $lt_compiler_flag:'`
-   (eval echo "\"\$as_me:15547: $lt_compile\"" >&5)
+   (eval echo "\"\$as_me:15571: $lt_compile\"" >&5)
    (eval "$lt_compile" 2>out/conftest.err)
    ac_status=$?
    cat out/conftest.err >&5
-   echo "$as_me:15551: \$? = $ac_status" >&5
+   echo "$as_me:15575: \$? = $ac_status" >&5
    if (exit $ac_status) && test -s out/conftest2.$ac_objext
    then
      # The compiler can only warn and ignore the option if not recognized
@@ -17751,11 +17775,11 @@ else
    -e 's:.*FLAGS}\{0,1\} :&$lt_compiler_flag :; t' \
    -e 's: [^ ]*conftest\.: $lt_compiler_flag&:; t' \
    -e 's:$: $lt_compiler_flag:'`
-   (eval echo "\"\$as_me:17754: $lt_compile\"" >&5)
+   (eval echo "\"\$as_me:17778: $lt_compile\"" >&5)
    (eval "$lt_compile" 2>conftest.err)
    ac_status=$?
    cat conftest.err >&5
-   echo "$as_me:17758: \$? = $ac_status" >&5
+   echo "$as_me:17782: \$? = $ac_status" >&5
    if (exit $ac_status) && test -s "$ac_outfile"; then
      # The compiler can only warn and ignore the option if not recognized
      # So say no if there are warnings other than the usual output.
@@ -18019,11 +18043,11 @@ else
    -e 's:.*FLAGS}\{0,1\} :&$lt_compiler_flag :; t' \
    -e 's: [^ ]*conftest\.: $lt_compiler_flag&:; t' \
    -e 's:$: $lt_compiler_flag:'`
-   (eval echo "\"\$as_me:18022: $lt_compile\"" >&5)
+   (eval echo "\"\$as_me:18046: $lt_compile\"" >&5)
    (eval "$lt_compile" 2>conftest.err)
    ac_status=$?
    cat conftest.err >&5
-   echo "$as_me:18026: \$? = $ac_status" >&5
+   echo "$as_me:18050: \$? = $ac_status" >&5
    if (exit $ac_status) && test -s "$ac_outfile"; then
      # The compiler can only warn and ignore the option if not recognized
      # So say no if there are warnings other than the usual output.
@@ -18123,11 +18147,11 @@ else
    -e 's:.*FLAGS}\{0,1\} :&$lt_compiler_flag :; t' \
    -e 's: [^ ]*conftest\.: $lt_compiler_flag&:; t' \
    -e 's:$: $lt_compiler_flag:'`
-   (eval echo "\"\$as_me:18126: $lt_compile\"" >&5)
+   (eval echo "\"\$as_me:18150: $lt_compile\"" >&5)
    (eval "$lt_compile" 2>out/conftest.err)
    ac_status=$?
    cat out/conftest.err >&5
-   echo "$as_me:18130: \$? = $ac_status" >&5
+   echo "$as_me:18154: \$? = $ac_status" >&5
    if (exit $ac_status) && test -s out/conftest2.$ac_objext
    then
      # The compiler can only warn and ignore the option if not recognized
@@ -21046,7 +21070,6 @@ fi
 #############################################################################
 
 # check for some LP solvers
-# TODO check for more than Soplex and Clp and have a configure option to set prefered LP solver
 
 
 # Check whether --enable-pkg-config or --disable-pkg-config was given.
@@ -21286,14 +21309,6 @@ SOPLEX_DATA=
 
 
 
-
-
-
-
-
-
-
-
 #check if user provided LIBS, CFLAGS, or DATA for package or disables use of package
 if test $coin_has_soplex != skipping; then
 
@@ -21306,13 +21321,10 @@ if test "${with_soplex_lib+set}" = set; then
        coin_has_soplex=yes
        SOPLEX_LIBS="$withval"
 
-         SCIPLIB_PCLIBS="$withval $SCIPLIB_PCLIBS"
-         SCIPLIB_LIBS="$withval $SCIPLIB_LIBS"
-
        # if project flags are given by user and we build without pkg-config, then we need to setup the _INSTALLED variables
        if test -z "$PKG_CONFIG" ; then
          SOPLEX_LIBS_INSTALLED="$withval"
-         SCIPLIB_LIBS_INSTALLED="$withval $SCIPLIB_LIBS_INSTALLED"
+
        fi
      fi
 
@@ -21329,11 +21341,11 @@ if test "${with_soplex_incdir+set}" = set; then
      else
        coin_has_soplex=yes
        SOPLEX_CFLAGS="-I`${CYGPATH_W} $withval`"
-       SCIPLIB_CFLAGS="-I`${CYGPATH_W} $withval` $SCIPLIB_CFLAGS"
+
        # if project flags are given by user and we build without pkg-config, then we need to setup the _INSTALLED variables
        if test -z "$PKG_CONFIG" ; then
          SOPLEX_CFLAGS_INSTALLED="$SOPLEX_CFLAGS"
-         SCIPLIB_CFLAGS_INSTALLED="$SOPLEX_CFLAGS $SCIPLIB_CFLAGS_INSTALLED"
+
        fi
      fi
 
@@ -21396,11 +21408,7 @@ echo "${ECHO_T}yes: $SOPLEX_VERSIONS" >&6
           SOPLEX_LIBS=`echo " $SOPLEX_LIBS " | sed -e 's/ \(\/[^ ]*\/\)\([^ ]*\)\.lib / \`$(CYGPATH_W) \1 | sed -e "s|\\\\\\\\\\\\\\\\\\\\|\/|g"\`\2.lib /g'`
         fi
 
-        # augment X_PCREQUIRES, X_CFLAGS, and X_LIBS for each build target X in SCIPLib
-
-          SCIPLIB_PCREQUIRES="coinsoplex $SCIPLIB_PCREQUIRES"
-          SCIPLIB_CFLAGS="$SOPLEX_CFLAGS $SCIPLIB_CFLAGS"
-          SCIPLIB_LIBS="$SOPLEX_LIBS $SCIPLIB_LIBS"
+        # augment X_PCREQUIRES, X_CFLAGS, and X_LIBS for each build target X in
 
 
 
@@ -21636,12 +21644,6 @@ _ACEOF
   fi
 
 
-    SCIPLIB_PCREQUIRES="coinsoplex $SCIPLIB_PCREQUIRES"
-    SCIPLIB_CFLAGS="$SOPLEX_CFLAGS $SCIPLIB_CFLAGS"
-    SCIPLIB_LIBS="$SOPLEX_LIBS $SCIPLIB_LIBS"
-    SCIPLIB_CFLAGS_INSTALLED="$SOPLEX_CFLAGS_INSTALLED $SCIPLIB_CFLAGS_INSTALLED"
-    SCIPLIB_LIBS_INSTALLED="$SOPLEX_LIBS_INSTALLED $SCIPLIB_LIBS_INSTALLED"
-
 
 fi
 
@@ -21689,8 +21691,6 @@ fi;
      # also remove everything of the form `xxx`yyy (may have been added for cygwin/cl)
      SOPLEX_DEPENDENCIES=`echo " $SOPLEX_LIBS" | sed -e 's/ mkl[^ ]*//g' -e 's/ -framework  *[^ ]*//g' -e 's/ -[^ ]*//g' -e 's/\`[^\`]*\`[^ ]* //g'`
 
-       SCIPLIB_DEPENDENCIES=`echo " $SCIPLIB_LIBS " | sed -e 's/ mkl[^ ]*//g' -e 's/ -framework  *[^ ]*//g' -e 's/ -[^ ]*//g' -e 's/\`[^\`]*\`[^ ]* //g'`
-
   fi
 
   if test 1 = 0 ; then  #change this test to enable a bit of debugging output
@@ -21715,13 +21715,6 @@ echo "$as_me: SoPlex DATA   is  $SOPLEX_DATA" >&6;}
 echo "$as_me: SoPlex CFLAGS are $SOPLEX_CFLAGS" >&6;}
     fi
 
-      { echo "$as_me:$LINENO: SCIPLib CFLAGS are $SCIPLIB_CFLAGS" >&5
-echo "$as_me: SCIPLib CFLAGS are $SCIPLIB_CFLAGS" >&6;}
-      { echo "$as_me:$LINENO: SCIPLib LIBS   are $SCIPLIB_LIBS" >&5
-echo "$as_me: SCIPLib LIBS   are $SCIPLIB_LIBS" >&6;}
-      { echo "$as_me:$LINENO: SCIPLib DEPENDENCIES are $SCIPLIB_DEPENDENCIES" >&5
-echo "$as_me: SCIPLib DEPENDENCIES are $SCIPLIB_DEPENDENCIES" >&6;}
-
   fi
 fi
 
@@ -21739,7 +21732,6 @@ fi
 
 
 
-if test "$coin_has_soplex" = no ; then
 
 echo "$as_me:$LINENO: checking for COIN-OR package Clp" >&5
 echo $ECHO_N "checking for COIN-OR package Clp... $ECHO_C" >&6
@@ -21779,14 +21771,6 @@ CLP_DATA=
 
 
 
-
-
-
-
-
-
-
-
 #check if user provided LIBS, CFLAGS, or DATA for package or disables use of package
 if test $coin_has_clp != skipping; then
 
@@ -21799,13 +21783,10 @@ if test "${with_clp_lib+set}" = set; then
        coin_has_clp=yes
        CLP_LIBS="$withval"
 
-         SCIPLIB_PCLIBS="$withval $SCIPLIB_PCLIBS"
-         SCIPLIB_LIBS="$withval $SCIPLIB_LIBS"
-
        # if project flags are given by user and we build without pkg-config, then we need to setup the _INSTALLED variables
        if test -z "$PKG_CONFIG" ; then
          CLP_LIBS_INSTALLED="$withval"
-         SCIPLIB_LIBS_INSTALLED="$withval $SCIPLIB_LIBS_INSTALLED"
+
        fi
      fi
 
@@ -21822,11 +21803,11 @@ if test "${with_clp_incdir+set}" = set; then
      else
        coin_has_clp=yes
        CLP_CFLAGS="-I`${CYGPATH_W} $withval`"
-       SCIPLIB_CFLAGS="-I`${CYGPATH_W} $withval` $SCIPLIB_CFLAGS"
+
        # if project flags are given by user and we build without pkg-config, then we need to setup the _INSTALLED variables
        if test -z "$PKG_CONFIG" ; then
          CLP_CFLAGS_INSTALLED="$CLP_CFLAGS"
-         SCIPLIB_CFLAGS_INSTALLED="$CLP_CFLAGS $SCIPLIB_CFLAGS_INSTALLED"
+
        fi
      fi
 
@@ -21889,11 +21870,7 @@ echo "${ECHO_T}yes: $CLP_VERSIONS" >&6
           CLP_LIBS=`echo " $CLP_LIBS " | sed -e 's/ \(\/[^ ]*\/\)\([^ ]*\)\.lib / \`$(CYGPATH_W) \1 | sed -e "s|\\\\\\\\\\\\\\\\\\\\|\/|g"\`\2.lib /g'`
         fi
 
-        # augment X_PCREQUIRES, X_CFLAGS, and X_LIBS for each build target X in SCIPLib
-
-          SCIPLIB_PCREQUIRES="clp $SCIPLIB_PCREQUIRES"
-          SCIPLIB_CFLAGS="$CLP_CFLAGS $SCIPLIB_CFLAGS"
-          SCIPLIB_LIBS="$CLP_LIBS $SCIPLIB_LIBS"
+        # augment X_PCREQUIRES, X_CFLAGS, and X_LIBS for each build target X in
 
 
 
@@ -22129,12 +22106,6 @@ _ACEOF
   fi
 
 
-    SCIPLIB_PCREQUIRES="clp $SCIPLIB_PCREQUIRES"
-    SCIPLIB_CFLAGS="$CLP_CFLAGS $SCIPLIB_CFLAGS"
-    SCIPLIB_LIBS="$CLP_LIBS $SCIPLIB_LIBS"
-    SCIPLIB_CFLAGS_INSTALLED="$CLP_CFLAGS_INSTALLED $SCIPLIB_CFLAGS_INSTALLED"
-    SCIPLIB_LIBS_INSTALLED="$CLP_LIBS_INSTALLED $SCIPLIB_LIBS_INSTALLED"
-
 
 fi
 
@@ -22182,8 +22153,6 @@ fi;
      # also remove everything of the form `xxx`yyy (may have been added for cygwin/cl)
      CLP_DEPENDENCIES=`echo " $CLP_LIBS" | sed -e 's/ mkl[^ ]*//g' -e 's/ -framework  *[^ ]*//g' -e 's/ -[^ ]*//g' -e 's/\`[^\`]*\`[^ ]* //g'`
 
-       SCIPLIB_DEPENDENCIES=`echo " $SCIPLIB_LIBS " | sed -e 's/ mkl[^ ]*//g' -e 's/ -framework  *[^ ]*//g' -e 's/ -[^ ]*//g' -e 's/\`[^\`]*\`[^ ]* //g'`
-
   fi
 
   if test 1 = 0 ; then  #change this test to enable a bit of debugging output
@@ -22208,13 +22177,6 @@ echo "$as_me: Clp DATA   is  $CLP_DATA" >&6;}
 echo "$as_me: Clp CFLAGS are $CLP_CFLAGS" >&6;}
     fi
 
-      { echo "$as_me:$LINENO: SCIPLib CFLAGS are $SCIPLIB_CFLAGS" >&5
-echo "$as_me: SCIPLib CFLAGS are $SCIPLIB_CFLAGS" >&6;}
-      { echo "$as_me:$LINENO: SCIPLib LIBS   are $SCIPLIB_LIBS" >&5
-echo "$as_me: SCIPLib LIBS   are $SCIPLIB_LIBS" >&6;}
-      { echo "$as_me:$LINENO: SCIPLib DEPENDENCIES are $SCIPLIB_DEPENDENCIES" >&5
-echo "$as_me: SCIPLib DEPENDENCIES are $SCIPLIB_DEPENDENCIES" >&6;}
-
   fi
 fi
 
@@ -22232,19 +22194,1122 @@ fi
 
 
 
-else
+
+  echo "$as_me:$LINENO: checking if user provides library for Cplex" >&5
+echo $ECHO_N "checking if user provides library for Cplex... $ECHO_C" >&6
+
+# Check for header file directory
 
 
-if test 0 = 1; then
-  COIN_HAS_CLP_TRUE=
-  COIN_HAS_CLP_FALSE='#'
+# Check whether --with-cplex-incdir or --without-cplex-incdir was given.
+if test "${with_cplex_incdir+set}" = set; then
+  withval="$with_cplex_incdir"
+  CPXINCDIR=`cd $withval; pwd`
+fi;
+
+# Check for library directory
+
+
+# Check whether --with-cplex-lib or --without-cplex-lib was given.
+if test "${with_cplex_lib+set}" = set; then
+  withval="$with_cplex_lib"
+  CPXLIB=$withval
+fi;
+
+# Switch to disable library check if requested
+
+  # Check whether --enable-cplex-libcheck or --disable-cplex-libcheck was given.
+if test "${enable_cplex_libcheck+set}" = set; then
+  enableval="$enable_cplex_libcheck"
+  cplex_libcheck=$enableval
 else
-  COIN_HAS_CLP_TRUE='#'
-  COIN_HAS_CLP_FALSE=
+  cplex_libcheck=yes
+fi;
+
+# At this point, if we're going to use the library, both LBRYINCDIR and
+# LBRYLIB must be defined and not empty.
+
+  if test x"$CPXINCDIR" != x || test x"$CPXLIB" != x; then
+    if test x"$CPXINCDIR" = x || test x"$CPXLIB" = x; then
+      { { echo "$as_me:$LINENO: error: You need to specify both an include directory and link flags to use library Cplex. Use --with-cplex-incdir of environment variable $CPXINCDIR to specify the include directory. Use --with-cplex-lib or environment variable $CPXLIB to specify link flags." >&5
+echo "$as_me: error: You need to specify both an include directory and link flags to use library Cplex. Use --with-cplex-incdir of environment variable $CPXINCDIR to specify the include directory. Use --with-cplex-lib or environment variable $CPXLIB to specify link flags." >&2;}
+   { (exit 1); exit 1; }; }
+    fi
+    coin_has_cpx=true
+    echo "$as_me:$LINENO: result: yes" >&5
+echo "${ECHO_T}yes" >&6
+  else
+    coin_has_cpx=false
+    echo "$as_me:$LINENO: result: no" >&5
+echo "${ECHO_T}no" >&6
+  fi
+
+# If we have instructions for use, consider header and link checks.
+
+  if test $coin_has_cpx = true; then
+
+# If argument 3 (file) is given, check for the file. Typically this will be a
+# header file, but that's not assumed.
+
+    if test -r $CPXINCDIR/cplex.h; then
+
+  :
+else
+  { { echo "$as_me:$LINENO: error: Cannot find file cplex.h in $CPXINCDIR" >&5
+echo "$as_me: error: Cannot find file cplex.h in $CPXINCDIR" >&2;}
+   { (exit 1); exit 1; }; }
+  :
 fi
 
+
+# Now see if we can link the function. There are arguments for and against
+# assuming argument 3 is a header file declaring the function. A correct
+# function declaration is the main argument in favour. Having to cope with
+# possible dependencies or other oddities are the main arguments against.
+# Force the use of C as the best single choice amongst C++, C, and Fortran.
+# Obviously, this has limits.
+
+    if test x"$cplex_libcheck" != xno; then
+	   coin_save_LIBS="$LIBS"
+	   LIBS="$CPXLIB "
+	   coin_CPX_link=no
+	   ac_ext=c
+ac_cpp='$CPP $CPPFLAGS'
+ac_compile='$CC -c $CFLAGS $CPPFLAGS conftest.$ac_ext >&5'
+ac_link='$CC -o conftest$ac_exeext $CFLAGS $CPPFLAGS $LDFLAGS conftest.$ac_ext $LIBS >&5'
+ac_compiler_gnu=$ac_cv_c_compiler_gnu
+
+	   for fnm in CPXgetstat ; do
+	     echo "$as_me:$LINENO: checking whether symbol $fnm is available with CPX" >&5
+echo $ECHO_N "checking whether symbol $fnm is available with CPX... $ECHO_C" >&6
+	     cat >conftest.$ac_ext <<_ACEOF
+/* confdefs.h.  */
+_ACEOF
+cat confdefs.h >>conftest.$ac_ext
+cat >>conftest.$ac_ext <<_ACEOF
+/* end confdefs.h.  */
+
+int
+main ()
+{
+$fnm()
+  ;
+  return 0;
+}
+_ACEOF
+rm -f conftest.$ac_objext conftest$ac_exeext
+if { (eval echo "$as_me:$LINENO: \"$ac_link\"") >&5
+  (eval $ac_link) 2>conftest.er1
+  ac_status=$?
+  grep -v '^ *+' conftest.er1 >conftest.err
+  rm -f conftest.er1
+  cat conftest.err >&5
+  echo "$as_me:$LINENO: \$? = $ac_status" >&5
+  (exit $ac_status); } &&
+	 { ac_try='test -z "$ac_c_werror_flag"
+			 || test ! -s conftest.err'
+  { (eval echo "$as_me:$LINENO: \"$ac_try\"") >&5
+  (eval $ac_try) 2>&5
+  ac_status=$?
+  echo "$as_me:$LINENO: \$? = $ac_status" >&5
+  (exit $ac_status); }; } &&
+	 { ac_try='test -s conftest$ac_exeext'
+  { (eval echo "$as_me:$LINENO: \"$ac_try\"") >&5
+  (eval $ac_try) 2>&5
+  ac_status=$?
+  echo "$as_me:$LINENO: \$? = $ac_status" >&5
+  (exit $ac_status); }; }; then
+  echo "$as_me:$LINENO: result: yes" >&5
+echo "${ECHO_T}yes" >&6
+		  coin_CPX_link=yes
+		  break
+else
+  echo "$as_me: failed program was:" >&5
+sed 's/^/| /' conftest.$ac_ext >&5
+
+echo "$as_me:$LINENO: result: no" >&5
+echo "${ECHO_T}no" >&6
 fi
-#AC_COIN_CHECK_USER_LIBRARY([Cplex], [CPX],[cplex.h], [CPXgetstat])
+rm -f conftest.err conftest.$ac_objext \
+      conftest$ac_exeext conftest.$ac_ext
+	   done
+	   ac_ext=c
+ac_cpp='$CPP $CPPFLAGS'
+ac_compile='$CC -c $CFLAGS $CPPFLAGS conftest.$ac_ext >&5'
+ac_link='$CC -o conftest$ac_exeext $CFLAGS $CPPFLAGS $LDFLAGS conftest.$ac_ext $LIBS >&5'
+ac_compiler_gnu=$ac_cv_c_compiler_gnu
+
+           LIBS="$coin_save_LIBS"
+	   if test x"$coin_CPX_link" != xyes ; then
+	     { { echo "$as_me:$LINENO: error: Cannot find symbol(s) CPXgetstat with CPX" >&5
+echo "$as_me: error: Cannot find symbol(s) CPXgetstat with CPX" >&2;}
+   { (exit 1); exit 1; }; }
+	   fi
+	 fi
+
+
+# If we make it this far, we've verified the file and linked the function. Add
+# the necessary link flags to _{PC}LIBS and define the preprocessor symbol
+# COIN_HAS_LBRY.
+
+
+
+
+cat >>confdefs.h <<\_ACEOF
+#define COIN_HAS_CPX 1
+_ACEOF
+
+  fi
+
+# Arrange for configure to substitute LBRYINCDIR and LBRYLIB and create the
+# automake conditional. These actions must occur unconditionally.
+
+
+
+
+
+if test $coin_has_cpx = true; then
+  COIN_HAS_CPX_TRUE=
+  COIN_HAS_CPX_FALSE='#'
+else
+  COIN_HAS_CPX_TRUE='#'
+  COIN_HAS_CPX_FALSE=
+fi
+
+
+
+  echo "$as_me:$LINENO: checking if user provides library for Mosek" >&5
+echo $ECHO_N "checking if user provides library for Mosek... $ECHO_C" >&6
+
+# Check for header file directory
+
+
+# Check whether --with-mosek-incdir or --without-mosek-incdir was given.
+if test "${with_mosek_incdir+set}" = set; then
+  withval="$with_mosek_incdir"
+  MSKINCDIR=`cd $withval; pwd`
+fi;
+
+# Check for library directory
+
+
+# Check whether --with-mosek-lib or --without-mosek-lib was given.
+if test "${with_mosek_lib+set}" = set; then
+  withval="$with_mosek_lib"
+  MSKLIB=$withval
+fi;
+
+# Switch to disable library check if requested
+
+  # Check whether --enable-mosek-libcheck or --disable-mosek-libcheck was given.
+if test "${enable_mosek_libcheck+set}" = set; then
+  enableval="$enable_mosek_libcheck"
+  mosek_libcheck=$enableval
+else
+  mosek_libcheck=yes
+fi;
+
+# At this point, if we're going to use the library, both LBRYINCDIR and
+# LBRYLIB must be defined and not empty.
+
+  if test x"$MSKINCDIR" != x || test x"$MSKLIB" != x; then
+    if test x"$MSKINCDIR" = x || test x"$MSKLIB" = x; then
+      { { echo "$as_me:$LINENO: error: You need to specify both an include directory and link flags to use library Mosek. Use --with-mosek-incdir of environment variable $MSKINCDIR to specify the include directory. Use --with-mosek-lib or environment variable $MSKLIB to specify link flags." >&5
+echo "$as_me: error: You need to specify both an include directory and link flags to use library Mosek. Use --with-mosek-incdir of environment variable $MSKINCDIR to specify the include directory. Use --with-mosek-lib or environment variable $MSKLIB to specify link flags." >&2;}
+   { (exit 1); exit 1; }; }
+    fi
+    coin_has_msk=true
+    echo "$as_me:$LINENO: result: yes" >&5
+echo "${ECHO_T}yes" >&6
+  else
+    coin_has_msk=false
+    echo "$as_me:$LINENO: result: no" >&5
+echo "${ECHO_T}no" >&6
+  fi
+
+# If we have instructions for use, consider header and link checks.
+
+  if test $coin_has_msk = true; then
+
+# If argument 3 (file) is given, check for the file. Typically this will be a
+# header file, but that's not assumed.
+
+    if test -r $MSKINCDIR/mosek.h; then
+
+  :
+else
+  { { echo "$as_me:$LINENO: error: Cannot find file mosek.h in $MSKINCDIR" >&5
+echo "$as_me: error: Cannot find file mosek.h in $MSKINCDIR" >&2;}
+   { (exit 1); exit 1; }; }
+  :
+fi
+
+
+# Now see if we can link the function. There are arguments for and against
+# assuming argument 3 is a header file declaring the function. A correct
+# function declaration is the main argument in favour. Having to cope with
+# possible dependencies or other oddities are the main arguments against.
+# Force the use of C as the best single choice amongst C++, C, and Fortran.
+# Obviously, this has limits.
+
+    if test x"$mosek_libcheck" != xno; then
+	   coin_save_LIBS="$LIBS"
+	   LIBS="$MSKLIB "
+	   coin_MSK_link=no
+	   ac_ext=c
+ac_cpp='$CPP $CPPFLAGS'
+ac_compile='$CC -c $CFLAGS $CPPFLAGS conftest.$ac_ext >&5'
+ac_link='$CC -o conftest$ac_exeext $CFLAGS $CPPFLAGS $LDFLAGS conftest.$ac_ext $LIBS >&5'
+ac_compiler_gnu=$ac_cv_c_compiler_gnu
+
+	   for fnm in MSK_makeenv ; do
+	     echo "$as_me:$LINENO: checking whether symbol $fnm is available with MSK" >&5
+echo $ECHO_N "checking whether symbol $fnm is available with MSK... $ECHO_C" >&6
+	     cat >conftest.$ac_ext <<_ACEOF
+/* confdefs.h.  */
+_ACEOF
+cat confdefs.h >>conftest.$ac_ext
+cat >>conftest.$ac_ext <<_ACEOF
+/* end confdefs.h.  */
+
+int
+main ()
+{
+$fnm()
+  ;
+  return 0;
+}
+_ACEOF
+rm -f conftest.$ac_objext conftest$ac_exeext
+if { (eval echo "$as_me:$LINENO: \"$ac_link\"") >&5
+  (eval $ac_link) 2>conftest.er1
+  ac_status=$?
+  grep -v '^ *+' conftest.er1 >conftest.err
+  rm -f conftest.er1
+  cat conftest.err >&5
+  echo "$as_me:$LINENO: \$? = $ac_status" >&5
+  (exit $ac_status); } &&
+	 { ac_try='test -z "$ac_c_werror_flag"
+			 || test ! -s conftest.err'
+  { (eval echo "$as_me:$LINENO: \"$ac_try\"") >&5
+  (eval $ac_try) 2>&5
+  ac_status=$?
+  echo "$as_me:$LINENO: \$? = $ac_status" >&5
+  (exit $ac_status); }; } &&
+	 { ac_try='test -s conftest$ac_exeext'
+  { (eval echo "$as_me:$LINENO: \"$ac_try\"") >&5
+  (eval $ac_try) 2>&5
+  ac_status=$?
+  echo "$as_me:$LINENO: \$? = $ac_status" >&5
+  (exit $ac_status); }; }; then
+  echo "$as_me:$LINENO: result: yes" >&5
+echo "${ECHO_T}yes" >&6
+		  coin_MSK_link=yes
+		  break
+else
+  echo "$as_me: failed program was:" >&5
+sed 's/^/| /' conftest.$ac_ext >&5
+
+echo "$as_me:$LINENO: result: no" >&5
+echo "${ECHO_T}no" >&6
+fi
+rm -f conftest.err conftest.$ac_objext \
+      conftest$ac_exeext conftest.$ac_ext
+	   done
+	   ac_ext=c
+ac_cpp='$CPP $CPPFLAGS'
+ac_compile='$CC -c $CFLAGS $CPPFLAGS conftest.$ac_ext >&5'
+ac_link='$CC -o conftest$ac_exeext $CFLAGS $CPPFLAGS $LDFLAGS conftest.$ac_ext $LIBS >&5'
+ac_compiler_gnu=$ac_cv_c_compiler_gnu
+
+           LIBS="$coin_save_LIBS"
+	   if test x"$coin_MSK_link" != xyes ; then
+	     { { echo "$as_me:$LINENO: error: Cannot find symbol(s) MSK_makeenv with MSK" >&5
+echo "$as_me: error: Cannot find symbol(s) MSK_makeenv with MSK" >&2;}
+   { (exit 1); exit 1; }; }
+	   fi
+	 fi
+
+
+# If we make it this far, we've verified the file and linked the function. Add
+# the necessary link flags to _{PC}LIBS and define the preprocessor symbol
+# COIN_HAS_LBRY.
+
+
+
+
+cat >>confdefs.h <<\_ACEOF
+#define COIN_HAS_MSK 1
+_ACEOF
+
+  fi
+
+# Arrange for configure to substitute LBRYINCDIR and LBRYLIB and create the
+# automake conditional. These actions must occur unconditionally.
+
+
+
+
+
+if test $coin_has_msk = true; then
+  COIN_HAS_MSK_TRUE=
+  COIN_HAS_MSK_FALSE='#'
+else
+  COIN_HAS_MSK_TRUE='#'
+  COIN_HAS_MSK_FALSE=
+fi
+
+
+
+  echo "$as_me:$LINENO: checking if user provides library for Xpress" >&5
+echo $ECHO_N "checking if user provides library for Xpress... $ECHO_C" >&6
+
+# Check for header file directory
+
+
+# Check whether --with-xpress-incdir or --without-xpress-incdir was given.
+if test "${with_xpress_incdir+set}" = set; then
+  withval="$with_xpress_incdir"
+  XPRINCDIR=`cd $withval; pwd`
+fi;
+
+# Check for library directory
+
+
+# Check whether --with-xpress-lib or --without-xpress-lib was given.
+if test "${with_xpress_lib+set}" = set; then
+  withval="$with_xpress_lib"
+  XPRLIB=$withval
+fi;
+
+# Switch to disable library check if requested
+
+  # Check whether --enable-xpress-libcheck or --disable-xpress-libcheck was given.
+if test "${enable_xpress_libcheck+set}" = set; then
+  enableval="$enable_xpress_libcheck"
+  xpress_libcheck=$enableval
+else
+  xpress_libcheck=yes
+fi;
+
+# At this point, if we're going to use the library, both LBRYINCDIR and
+# LBRYLIB must be defined and not empty.
+
+  if test x"$XPRINCDIR" != x || test x"$XPRLIB" != x; then
+    if test x"$XPRINCDIR" = x || test x"$XPRLIB" = x; then
+      { { echo "$as_me:$LINENO: error: You need to specify both an include directory and link flags to use library Xpress. Use --with-xpress-incdir of environment variable $XPRINCDIR to specify the include directory. Use --with-xpress-lib or environment variable $XPRLIB to specify link flags." >&5
+echo "$as_me: error: You need to specify both an include directory and link flags to use library Xpress. Use --with-xpress-incdir of environment variable $XPRINCDIR to specify the include directory. Use --with-xpress-lib or environment variable $XPRLIB to specify link flags." >&2;}
+   { (exit 1); exit 1; }; }
+    fi
+    coin_has_xpr=true
+    echo "$as_me:$LINENO: result: yes" >&5
+echo "${ECHO_T}yes" >&6
+  else
+    coin_has_xpr=false
+    echo "$as_me:$LINENO: result: no" >&5
+echo "${ECHO_T}no" >&6
+  fi
+
+# If we have instructions for use, consider header and link checks.
+
+  if test $coin_has_xpr = true; then
+
+# If argument 3 (file) is given, check for the file. Typically this will be a
+# header file, but that's not assumed.
+
+    if test -r $XPRINCDIR/xprs.h; then
+
+  :
+else
+  { { echo "$as_me:$LINENO: error: Cannot find file xprs.h in $XPRINCDIR" >&5
+echo "$as_me: error: Cannot find file xprs.h in $XPRINCDIR" >&2;}
+   { (exit 1); exit 1; }; }
+  :
+fi
+
+
+# Now see if we can link the function. There are arguments for and against
+# assuming argument 3 is a header file declaring the function. A correct
+# function declaration is the main argument in favour. Having to cope with
+# possible dependencies or other oddities are the main arguments against.
+# Force the use of C as the best single choice amongst C++, C, and Fortran.
+# Obviously, this has limits.
+
+    if test x"$xpress_libcheck" != xno; then
+	   coin_save_LIBS="$LIBS"
+	   LIBS="$XPRLIB "
+	   coin_XPR_link=no
+	   ac_ext=c
+ac_cpp='$CPP $CPPFLAGS'
+ac_compile='$CC -c $CFLAGS $CPPFLAGS conftest.$ac_ext >&5'
+ac_link='$CC -o conftest$ac_exeext $CFLAGS $CPPFLAGS $LDFLAGS conftest.$ac_ext $LIBS >&5'
+ac_compiler_gnu=$ac_cv_c_compiler_gnu
+
+	   for fnm in XPRSinit ; do
+	     echo "$as_me:$LINENO: checking whether symbol $fnm is available with XPR" >&5
+echo $ECHO_N "checking whether symbol $fnm is available with XPR... $ECHO_C" >&6
+	     cat >conftest.$ac_ext <<_ACEOF
+/* confdefs.h.  */
+_ACEOF
+cat confdefs.h >>conftest.$ac_ext
+cat >>conftest.$ac_ext <<_ACEOF
+/* end confdefs.h.  */
+
+int
+main ()
+{
+$fnm()
+  ;
+  return 0;
+}
+_ACEOF
+rm -f conftest.$ac_objext conftest$ac_exeext
+if { (eval echo "$as_me:$LINENO: \"$ac_link\"") >&5
+  (eval $ac_link) 2>conftest.er1
+  ac_status=$?
+  grep -v '^ *+' conftest.er1 >conftest.err
+  rm -f conftest.er1
+  cat conftest.err >&5
+  echo "$as_me:$LINENO: \$? = $ac_status" >&5
+  (exit $ac_status); } &&
+	 { ac_try='test -z "$ac_c_werror_flag"
+			 || test ! -s conftest.err'
+  { (eval echo "$as_me:$LINENO: \"$ac_try\"") >&5
+  (eval $ac_try) 2>&5
+  ac_status=$?
+  echo "$as_me:$LINENO: \$? = $ac_status" >&5
+  (exit $ac_status); }; } &&
+	 { ac_try='test -s conftest$ac_exeext'
+  { (eval echo "$as_me:$LINENO: \"$ac_try\"") >&5
+  (eval $ac_try) 2>&5
+  ac_status=$?
+  echo "$as_me:$LINENO: \$? = $ac_status" >&5
+  (exit $ac_status); }; }; then
+  echo "$as_me:$LINENO: result: yes" >&5
+echo "${ECHO_T}yes" >&6
+		  coin_XPR_link=yes
+		  break
+else
+  echo "$as_me: failed program was:" >&5
+sed 's/^/| /' conftest.$ac_ext >&5
+
+echo "$as_me:$LINENO: result: no" >&5
+echo "${ECHO_T}no" >&6
+fi
+rm -f conftest.err conftest.$ac_objext \
+      conftest$ac_exeext conftest.$ac_ext
+	   done
+	   ac_ext=c
+ac_cpp='$CPP $CPPFLAGS'
+ac_compile='$CC -c $CFLAGS $CPPFLAGS conftest.$ac_ext >&5'
+ac_link='$CC -o conftest$ac_exeext $CFLAGS $CPPFLAGS $LDFLAGS conftest.$ac_ext $LIBS >&5'
+ac_compiler_gnu=$ac_cv_c_compiler_gnu
+
+           LIBS="$coin_save_LIBS"
+	   if test x"$coin_XPR_link" != xyes ; then
+	     { { echo "$as_me:$LINENO: error: Cannot find symbol(s) XPRSinit with XPR" >&5
+echo "$as_me: error: Cannot find symbol(s) XPRSinit with XPR" >&2;}
+   { (exit 1); exit 1; }; }
+	   fi
+	 fi
+
+
+# If we make it this far, we've verified the file and linked the function. Add
+# the necessary link flags to _{PC}LIBS and define the preprocessor symbol
+# COIN_HAS_LBRY.
+
+
+
+
+cat >>confdefs.h <<\_ACEOF
+#define COIN_HAS_XPR 1
+_ACEOF
+
+  fi
+
+# Arrange for configure to substitute LBRYINCDIR and LBRYLIB and create the
+# automake conditional. These actions must occur unconditionally.
+
+
+
+
+
+if test $coin_has_xpr = true; then
+  COIN_HAS_XPR_TRUE=
+  COIN_HAS_XPR_FALSE='#'
+else
+  COIN_HAS_XPR_TRUE='#'
+  COIN_HAS_XPR_FALSE=
+fi
+
+
+
+  echo "$as_me:$LINENO: checking if user provides library for Gurobi" >&5
+echo $ECHO_N "checking if user provides library for Gurobi... $ECHO_C" >&6
+
+# Check for header file directory
+
+
+# Check whether --with-gurobi-incdir or --without-gurobi-incdir was given.
+if test "${with_gurobi_incdir+set}" = set; then
+  withval="$with_gurobi_incdir"
+  GRBINCDIR=`cd $withval; pwd`
+fi;
+
+# Check for library directory
+
+
+# Check whether --with-gurobi-lib or --without-gurobi-lib was given.
+if test "${with_gurobi_lib+set}" = set; then
+  withval="$with_gurobi_lib"
+  GRBLIB=$withval
+fi;
+
+# Switch to disable library check if requested
+
+  # Check whether --enable-gurobi-libcheck or --disable-gurobi-libcheck was given.
+if test "${enable_gurobi_libcheck+set}" = set; then
+  enableval="$enable_gurobi_libcheck"
+  gurobi_libcheck=$enableval
+else
+  gurobi_libcheck=yes
+fi;
+
+# At this point, if we're going to use the library, both LBRYINCDIR and
+# LBRYLIB must be defined and not empty.
+
+  if test x"$GRBINCDIR" != x || test x"$GRBLIB" != x; then
+    if test x"$GRBINCDIR" = x || test x"$GRBLIB" = x; then
+      { { echo "$as_me:$LINENO: error: You need to specify both an include directory and link flags to use library Gurobi. Use --with-gurobi-incdir of environment variable $GRBINCDIR to specify the include directory. Use --with-gurobi-lib or environment variable $GRBLIB to specify link flags." >&5
+echo "$as_me: error: You need to specify both an include directory and link flags to use library Gurobi. Use --with-gurobi-incdir of environment variable $GRBINCDIR to specify the include directory. Use --with-gurobi-lib or environment variable $GRBLIB to specify link flags." >&2;}
+   { (exit 1); exit 1; }; }
+    fi
+    coin_has_grb=true
+    echo "$as_me:$LINENO: result: yes" >&5
+echo "${ECHO_T}yes" >&6
+  else
+    coin_has_grb=false
+    echo "$as_me:$LINENO: result: no" >&5
+echo "${ECHO_T}no" >&6
+  fi
+
+# If we have instructions for use, consider header and link checks.
+
+  if test $coin_has_grb = true; then
+
+# If argument 3 (file) is given, check for the file. Typically this will be a
+# header file, but that's not assumed.
+
+    if test -r $GRBINCDIR/gurobi_c.h; then
+
+  :
+else
+  { { echo "$as_me:$LINENO: error: Cannot find file gurobi_c.h in $GRBINCDIR" >&5
+echo "$as_me: error: Cannot find file gurobi_c.h in $GRBINCDIR" >&2;}
+   { (exit 1); exit 1; }; }
+  :
+fi
+
+
+# Now see if we can link the function. There are arguments for and against
+# assuming argument 3 is a header file declaring the function. A correct
+# function declaration is the main argument in favour. Having to cope with
+# possible dependencies or other oddities are the main arguments against.
+# Force the use of C as the best single choice amongst C++, C, and Fortran.
+# Obviously, this has limits.
+
+    if test x"$gurobi_libcheck" != xno; then
+	   coin_save_LIBS="$LIBS"
+	   LIBS="$GRBLIB "
+	   coin_GRB_link=no
+	   ac_ext=c
+ac_cpp='$CPP $CPPFLAGS'
+ac_compile='$CC -c $CFLAGS $CPPFLAGS conftest.$ac_ext >&5'
+ac_link='$CC -o conftest$ac_exeext $CFLAGS $CPPFLAGS $LDFLAGS conftest.$ac_ext $LIBS >&5'
+ac_compiler_gnu=$ac_cv_c_compiler_gnu
+
+	   for fnm in GRBloadenv ; do
+	     echo "$as_me:$LINENO: checking whether symbol $fnm is available with GRB" >&5
+echo $ECHO_N "checking whether symbol $fnm is available with GRB... $ECHO_C" >&6
+	     cat >conftest.$ac_ext <<_ACEOF
+/* confdefs.h.  */
+_ACEOF
+cat confdefs.h >>conftest.$ac_ext
+cat >>conftest.$ac_ext <<_ACEOF
+/* end confdefs.h.  */
+
+int
+main ()
+{
+$fnm()
+  ;
+  return 0;
+}
+_ACEOF
+rm -f conftest.$ac_objext conftest$ac_exeext
+if { (eval echo "$as_me:$LINENO: \"$ac_link\"") >&5
+  (eval $ac_link) 2>conftest.er1
+  ac_status=$?
+  grep -v '^ *+' conftest.er1 >conftest.err
+  rm -f conftest.er1
+  cat conftest.err >&5
+  echo "$as_me:$LINENO: \$? = $ac_status" >&5
+  (exit $ac_status); } &&
+	 { ac_try='test -z "$ac_c_werror_flag"
+			 || test ! -s conftest.err'
+  { (eval echo "$as_me:$LINENO: \"$ac_try\"") >&5
+  (eval $ac_try) 2>&5
+  ac_status=$?
+  echo "$as_me:$LINENO: \$? = $ac_status" >&5
+  (exit $ac_status); }; } &&
+	 { ac_try='test -s conftest$ac_exeext'
+  { (eval echo "$as_me:$LINENO: \"$ac_try\"") >&5
+  (eval $ac_try) 2>&5
+  ac_status=$?
+  echo "$as_me:$LINENO: \$? = $ac_status" >&5
+  (exit $ac_status); }; }; then
+  echo "$as_me:$LINENO: result: yes" >&5
+echo "${ECHO_T}yes" >&6
+		  coin_GRB_link=yes
+		  break
+else
+  echo "$as_me: failed program was:" >&5
+sed 's/^/| /' conftest.$ac_ext >&5
+
+echo "$as_me:$LINENO: result: no" >&5
+echo "${ECHO_T}no" >&6
+fi
+rm -f conftest.err conftest.$ac_objext \
+      conftest$ac_exeext conftest.$ac_ext
+	   done
+	   ac_ext=c
+ac_cpp='$CPP $CPPFLAGS'
+ac_compile='$CC -c $CFLAGS $CPPFLAGS conftest.$ac_ext >&5'
+ac_link='$CC -o conftest$ac_exeext $CFLAGS $CPPFLAGS $LDFLAGS conftest.$ac_ext $LIBS >&5'
+ac_compiler_gnu=$ac_cv_c_compiler_gnu
+
+           LIBS="$coin_save_LIBS"
+	   if test x"$coin_GRB_link" != xyes ; then
+	     { { echo "$as_me:$LINENO: error: Cannot find symbol(s) GRBloadenv with GRB" >&5
+echo "$as_me: error: Cannot find symbol(s) GRBloadenv with GRB" >&2;}
+   { (exit 1); exit 1; }; }
+	   fi
+	 fi
+
+
+# If we make it this far, we've verified the file and linked the function. Add
+# the necessary link flags to _{PC}LIBS and define the preprocessor symbol
+# COIN_HAS_LBRY.
+
+
+
+
+cat >>confdefs.h <<\_ACEOF
+#define COIN_HAS_GRB 1
+_ACEOF
+
+  fi
+
+# Arrange for configure to substitute LBRYINCDIR and LBRYLIB and create the
+# automake conditional. These actions must occur unconditionally.
+
+
+
+
+
+if test $coin_has_grb = true; then
+  COIN_HAS_GRB_TRUE=
+  COIN_HAS_GRB_FALSE='#'
+else
+  COIN_HAS_GRB_TRUE='#'
+  COIN_HAS_GRB_FALSE=
+fi
+
+
+
+  echo "$as_me:$LINENO: checking if user provides library for QSopt" >&5
+echo $ECHO_N "checking if user provides library for QSopt... $ECHO_C" >&6
+
+# Check for header file directory
+
+
+# Check whether --with-qsopt-incdir or --without-qsopt-incdir was given.
+if test "${with_qsopt_incdir+set}" = set; then
+  withval="$with_qsopt_incdir"
+  QSOINCDIR=`cd $withval; pwd`
+fi;
+
+# Check for library directory
+
+
+# Check whether --with-qsopt-lib or --without-qsopt-lib was given.
+if test "${with_qsopt_lib+set}" = set; then
+  withval="$with_qsopt_lib"
+  QSOLIB=$withval
+fi;
+
+# Switch to disable library check if requested
+
+  # Check whether --enable-qsopt-libcheck or --disable-qsopt-libcheck was given.
+if test "${enable_qsopt_libcheck+set}" = set; then
+  enableval="$enable_qsopt_libcheck"
+  qsopt_libcheck=$enableval
+else
+  qsopt_libcheck=yes
+fi;
+
+# At this point, if we're going to use the library, both LBRYINCDIR and
+# LBRYLIB must be defined and not empty.
+
+  if test x"$QSOINCDIR" != x || test x"$QSOLIB" != x; then
+    if test x"$QSOINCDIR" = x || test x"$QSOLIB" = x; then
+      { { echo "$as_me:$LINENO: error: You need to specify both an include directory and link flags to use library QSopt. Use --with-qsopt-incdir of environment variable $QSOINCDIR to specify the include directory. Use --with-qsopt-lib or environment variable $QSOLIB to specify link flags." >&5
+echo "$as_me: error: You need to specify both an include directory and link flags to use library QSopt. Use --with-qsopt-incdir of environment variable $QSOINCDIR to specify the include directory. Use --with-qsopt-lib or environment variable $QSOLIB to specify link flags." >&2;}
+   { (exit 1); exit 1; }; }
+    fi
+    coin_has_qso=true
+    echo "$as_me:$LINENO: result: yes" >&5
+echo "${ECHO_T}yes" >&6
+  else
+    coin_has_qso=false
+    echo "$as_me:$LINENO: result: no" >&5
+echo "${ECHO_T}no" >&6
+  fi
+
+# If we have instructions for use, consider header and link checks.
+
+  if test $coin_has_qso = true; then
+
+# If argument 3 (file) is given, check for the file. Typically this will be a
+# header file, but that's not assumed.
+
+    if test -r $QSOINCDIR/qsopt.h; then
+
+  :
+else
+  { { echo "$as_me:$LINENO: error: Cannot find file qsopt.h in $QSOINCDIR" >&5
+echo "$as_me: error: Cannot find file qsopt.h in $QSOINCDIR" >&2;}
+   { (exit 1); exit 1; }; }
+  :
+fi
+
+
+# Now see if we can link the function. There are arguments for and against
+# assuming argument 3 is a header file declaring the function. A correct
+# function declaration is the main argument in favour. Having to cope with
+# possible dependencies or other oddities are the main arguments against.
+# Force the use of C as the best single choice amongst C++, C, and Fortran.
+# Obviously, this has limits.
+
+    if test x"$qsopt_libcheck" != xno; then
+	   coin_save_LIBS="$LIBS"
+	   LIBS="$QSOLIB "
+	   coin_QSO_link=no
+	   ac_ext=c
+ac_cpp='$CPP $CPPFLAGS'
+ac_compile='$CC -c $CFLAGS $CPPFLAGS conftest.$ac_ext >&5'
+ac_link='$CC -o conftest$ac_exeext $CFLAGS $CPPFLAGS $LDFLAGS conftest.$ac_ext $LIBS >&5'
+ac_compiler_gnu=$ac_cv_c_compiler_gnu
+
+	   for fnm in QScreate_prob ; do
+	     echo "$as_me:$LINENO: checking whether symbol $fnm is available with QSO" >&5
+echo $ECHO_N "checking whether symbol $fnm is available with QSO... $ECHO_C" >&6
+	     cat >conftest.$ac_ext <<_ACEOF
+/* confdefs.h.  */
+_ACEOF
+cat confdefs.h >>conftest.$ac_ext
+cat >>conftest.$ac_ext <<_ACEOF
+/* end confdefs.h.  */
+
+int
+main ()
+{
+$fnm()
+  ;
+  return 0;
+}
+_ACEOF
+rm -f conftest.$ac_objext conftest$ac_exeext
+if { (eval echo "$as_me:$LINENO: \"$ac_link\"") >&5
+  (eval $ac_link) 2>conftest.er1
+  ac_status=$?
+  grep -v '^ *+' conftest.er1 >conftest.err
+  rm -f conftest.er1
+  cat conftest.err >&5
+  echo "$as_me:$LINENO: \$? = $ac_status" >&5
+  (exit $ac_status); } &&
+	 { ac_try='test -z "$ac_c_werror_flag"
+			 || test ! -s conftest.err'
+  { (eval echo "$as_me:$LINENO: \"$ac_try\"") >&5
+  (eval $ac_try) 2>&5
+  ac_status=$?
+  echo "$as_me:$LINENO: \$? = $ac_status" >&5
+  (exit $ac_status); }; } &&
+	 { ac_try='test -s conftest$ac_exeext'
+  { (eval echo "$as_me:$LINENO: \"$ac_try\"") >&5
+  (eval $ac_try) 2>&5
+  ac_status=$?
+  echo "$as_me:$LINENO: \$? = $ac_status" >&5
+  (exit $ac_status); }; }; then
+  echo "$as_me:$LINENO: result: yes" >&5
+echo "${ECHO_T}yes" >&6
+		  coin_QSO_link=yes
+		  break
+else
+  echo "$as_me: failed program was:" >&5
+sed 's/^/| /' conftest.$ac_ext >&5
+
+echo "$as_me:$LINENO: result: no" >&5
+echo "${ECHO_T}no" >&6
+fi
+rm -f conftest.err conftest.$ac_objext \
+      conftest$ac_exeext conftest.$ac_ext
+	   done
+	   ac_ext=c
+ac_cpp='$CPP $CPPFLAGS'
+ac_compile='$CC -c $CFLAGS $CPPFLAGS conftest.$ac_ext >&5'
+ac_link='$CC -o conftest$ac_exeext $CFLAGS $CPPFLAGS $LDFLAGS conftest.$ac_ext $LIBS >&5'
+ac_compiler_gnu=$ac_cv_c_compiler_gnu
+
+           LIBS="$coin_save_LIBS"
+	   if test x"$coin_QSO_link" != xyes ; then
+	     { { echo "$as_me:$LINENO: error: Cannot find symbol(s) QScreate_prob with QSO" >&5
+echo "$as_me: error: Cannot find symbol(s) QScreate_prob with QSO" >&2;}
+   { (exit 1); exit 1; }; }
+	   fi
+	 fi
+
+
+# If we make it this far, we've verified the file and linked the function. Add
+# the necessary link flags to _{PC}LIBS and define the preprocessor symbol
+# COIN_HAS_LBRY.
+
+
+
+
+cat >>confdefs.h <<\_ACEOF
+#define COIN_HAS_QSO 1
+_ACEOF
+
+  fi
+
+# Arrange for configure to substitute LBRYINCDIR and LBRYLIB and create the
+# automake conditional. These actions must occur unconditionally.
+
+
+
+
+
+if test $coin_has_qso = true; then
+  COIN_HAS_QSO_TRUE=
+  COIN_HAS_QSO_FALSE='#'
+else
+  COIN_HAS_QSO_TRUE='#'
+  COIN_HAS_QSO_FALSE=
+fi
+
+
+
+
+# Check whether --with-scip-lpsolver or --without-scip-lpsolver was given.
+if test "${with_scip_lpsolver+set}" = set; then
+  withval="$with_scip_lpsolver"
+  if test "$withval" = no ; then
+     scip_lpsolver=none
+   else
+     scip_lpsolver="$withval"
+   fi
+else
+  if test "$coin_has_soplex" = yes ; then
+     scip_lpsolver=soplex
+   elif test "$coin_has_clp" = yes ; then
+     scip_lpsolver=clp
+   elif test "$coin_has_cpx" = true ; then
+     scip_lpsolver=cplex
+   elif test "$coin_has_msk" = true ; then
+     scip_lpsolver=mosek
+   elif test "$coin_has_xpr" = true ; then
+     scip_lpsolver=xpress
+   elif test "$coin_has_grb" = true ; then
+     scip_lpsolver=gurobi
+   elif test "$coin_has_qso" = true ; then
+     scip_lpsolver=qsopt
+   else
+     scip_lpsolver=none
+   fi
+
+fi;
+
+case "$scip_lpsolver" in
+  soplex)
+    if test "$coin_has_soplex" = no ; then
+      { { echo "$as_me:$LINENO: error: \"LP solver SoPlex not available." >&5
+echo "$as_me: error: \"LP solver SoPlex not available." >&2;}
+   { (exit 1); exit 1; }; }
+    fi
+    SCIPLIB_CFLAGS="$SCIPLIB_CFLAGS $SOPLEX_CFLAGS"
+    SCIPLIB_LIBS="$SCIPLIB_LIBS $SOPLEX_LIBS"
+    SCIPLIB_LIBS_INSTALLED="$SCIPLIB_LIBS $SOPLEX_LIBS_INSTALLED"
+    SCIPLIB_PCLIBS="$SCIPLIB_PCLIBS $SOPLEX_PCLIBS"
+    SCIPLIB_PCREQUIRED="$SCIPLIB_PCREQUIRED $SOPLEX_PCREQUIRED"
+  ;;
+  clp)
+    if test "$coin_has_clp" = no ; then
+      { { echo "$as_me:$LINENO: error: \"LP solver CLP not available." >&5
+echo "$as_me: error: \"LP solver CLP not available." >&2;}
+   { (exit 1); exit 1; }; }
+    fi
+    SCIPLIB_CFLAGS="$SCIPLIB_CFLAGS $CLP_CFLAGS"
+    SCIPLIB_LIBS="$SCIPLIB_LIBS $CLP_LIBS"
+    SCIPLIB_LIBS_INSTALLED="$SCIPLIB_LIBS $CLP_LIBS_INSTALLED"
+    SCIPLIB_PCLIBS="$SCIPLIB_PCLIBS $CLP_PCLIBS"
+    SCIPLIB_PCREQUIRED="$SCIPLIB_PCREQUIRED $CLP_PCREQUIRED"
+  ;;
+  cplex)
+    if test "$coin_has_cpx" = false ; then
+      { { echo "$as_me:$LINENO: error: \"LP solver CPLEX not available." >&5
+echo "$as_me: error: \"LP solver CPLEX not available." >&2;}
+   { (exit 1); exit 1; }; }
+    fi
+    SCIPLIB_CFLAGS="$SCIPLIB_CFLAGS -I$CPXINCDIR"
+    SCIPLIB_LIBS="$SCIPLIB_LIBS $CPXLIB"
+    SCIPLIB_LIBS_INSTALLED="$SCIPLIB_LIBS $CPXLIB"
+    SCIPLIB_PCLIBS="$SCIPLIB_PCLIBS $CPXLIB"
+  ;;
+  mosek)
+    if test "$coin_has_msk" = false ; then
+      { { echo "$as_me:$LINENO: error: \"LP solver Mosek not available." >&5
+echo "$as_me: error: \"LP solver Mosek not available." >&2;}
+   { (exit 1); exit 1; }; }
+    fi
+    SCIPLIB_CFLAGS="$SCIPLIB_CFLAGS -I$MSKINCDIR"
+    SCIPLIB_LIBS="$SCIPLIB_LIBS $MSKLIB"
+    SCIPLIB_LIBS_INSTALLED="$SCIPLIB_LIBS $MSKLIB"
+    SCIPLIB_PCLIBS="$SCIPLIB_PCLIBS $MSKLIB"
+  ;;
+  xpress)
+    if test "$coin_has_xpr" = false ; then
+      { { echo "$as_me:$LINENO: error: \"LP solver Xpress not available." >&5
+echo "$as_me: error: \"LP solver Xpress not available." >&2;}
+   { (exit 1); exit 1; }; }
+    fi
+    SCIPLIB_CFLAGS="$SCIPLIB_CFLAGS -I$XPRINCDIR"
+    SCIPLIB_LIBS="$SCIPLIB_LIBS $XPRLIB"
+    SCIPLIB_LIBS_INSTALLED="$SCIPLIB_LIBS $XPRLIB"
+    SCIPLIB_PCLIBS="$SCIPLIB_PCLIBS $XPRLIB"
+  ;;
+  gurobi)
+    if test "$coin_has_grb" = false ; then
+      { { echo "$as_me:$LINENO: error: \"LP solver Gurobi not available." >&5
+echo "$as_me: error: \"LP solver Gurobi not available." >&2;}
+   { (exit 1); exit 1; }; }
+    fi
+    SCIPLIB_CFLAGS="$SCIPLIB_CFLAGS -I$GRBINCDIR"
+    SCIPLIB_LIBS="$SCIPLIB_LIBS $GRBLIB"
+    SCIPLIB_LIBS_INSTALLED="$SCIPLIB_LIBS $GRBLIB"
+    SCIPLIB_PCLIBS="$SCIPLIB_PCLIBS $GRBLIB"
+  ;;
+  qsopt)
+    if test "$coin_has_qso" = false ; then
+      { { echo "$as_me:$LINENO: error: \"LP solver QSopt not available." >&5
+echo "$as_me: error: \"LP solver QSopt not available." >&2;}
+   { (exit 1); exit 1; }; }
+    fi
+    SCIPLIB_CFLAGS="$SCIPLIB_CFLAGS -I$QSOINCDIR"
+    SCIPLIB_LIBS="$SCIPLIB_LIBS $QSOLIB"
+    SCIPLIB_LIBS_INSTALLED="$SCIPLIB_LIBS $QSOLIB"
+    SCIPLIB_PCLIBS="$SCIPLIB_PCLIBS $QSOLIB"
+  ;;
+  none)
+  ;;
+  *)
+    { { echo "$as_me:$LINENO: error: LP solver $scip_lpsolver unknown." >&5
+echo "$as_me: error: LP solver $scip_lpsolver unknown." >&2;}
+   { (exit 1); exit 1; }; }
+  ;;
+esac
+{ echo "$as_me:$LINENO: build with LP solver $scip_lpsolver" >&5
+echo "$as_me: build with LP solver $scip_lpsolver" >&6;}
+
+
+if test $scip_lpsolver = soplex; then
+  SCIPLPI_SPX_TRUE=
+  SCIPLPI_SPX_FALSE='#'
+else
+  SCIPLPI_SPX_TRUE='#'
+  SCIPLPI_SPX_FALSE=
+fi
+
+
+
+if test $scip_lpsolver = clp; then
+  SCIPLPI_CLP_TRUE=
+  SCIPLPI_CLP_FALSE='#'
+else
+  SCIPLPI_CLP_TRUE='#'
+  SCIPLPI_CLP_FALSE=
+fi
+
+
+
+if test $scip_lpsolver = cplex; then
+  SCIPLPI_CPX_TRUE=
+  SCIPLPI_CPX_FALSE='#'
+else
+  SCIPLPI_CPX_TRUE='#'
+  SCIPLPI_CPX_FALSE=
+fi
+
+
+
+if test $scip_lpsolver = mosek; then
+  SCIPLPI_MSK_TRUE=
+  SCIPLPI_MSK_FALSE='#'
+else
+  SCIPLPI_MSK_TRUE='#'
+  SCIPLPI_MSK_FALSE=
+fi
+
+
+
+if test $scip_lpsolver = xpress; then
+  SCIPLPI_XPR_TRUE=
+  SCIPLPI_XPR_FALSE='#'
+else
+  SCIPLPI_XPR_TRUE='#'
+  SCIPLPI_XPR_FALSE=
+fi
+
+
+
+if test $scip_lpsolver = gurobi; then
+  SCIPLPI_GRB_TRUE=
+  SCIPLPI_GRB_FALSE='#'
+else
+  SCIPLPI_GRB_TRUE='#'
+  SCIPLPI_GRB_FALSE=
+fi
+
+
+
+if test $scip_lpsolver = qsopt; then
+  SCIPLPI_QSO_TRUE=
+  SCIPLPI_QSO_FALSE='#'
+else
+  SCIPLPI_QSO_TRUE='#'
+  SCIPLPI_QSO_FALSE=
+fi
+
+
+
+if test $scip_lpsolver = none; then
+  SCIPLPI_NONE_TRUE=
+  SCIPLPI_NONE_FALSE='#'
+else
+  SCIPLPI_NONE_TRUE='#'
+  SCIPLPI_NONE_FALSE=
+fi
+
 
 # check for NLP solvers
 
@@ -24479,10 +25544,94 @@ echo "$as_me: error: conditional \"COIN_HAS_CLP\" was never defined.
 Usually this means the macro was only invoked conditionally." >&2;}
    { (exit 1); exit 1; }; }
 fi
-if test -z "${COIN_HAS_CLP_TRUE}" && test -z "${COIN_HAS_CLP_FALSE}"; then
-  { { echo "$as_me:$LINENO: error: conditional \"COIN_HAS_CLP\" was never defined.
+if test -z "${COIN_HAS_CPX_TRUE}" && test -z "${COIN_HAS_CPX_FALSE}"; then
+  { { echo "$as_me:$LINENO: error: conditional \"COIN_HAS_CPX\" was never defined.
 Usually this means the macro was only invoked conditionally." >&5
-echo "$as_me: error: conditional \"COIN_HAS_CLP\" was never defined.
+echo "$as_me: error: conditional \"COIN_HAS_CPX\" was never defined.
+Usually this means the macro was only invoked conditionally." >&2;}
+   { (exit 1); exit 1; }; }
+fi
+if test -z "${COIN_HAS_MSK_TRUE}" && test -z "${COIN_HAS_MSK_FALSE}"; then
+  { { echo "$as_me:$LINENO: error: conditional \"COIN_HAS_MSK\" was never defined.
+Usually this means the macro was only invoked conditionally." >&5
+echo "$as_me: error: conditional \"COIN_HAS_MSK\" was never defined.
+Usually this means the macro was only invoked conditionally." >&2;}
+   { (exit 1); exit 1; }; }
+fi
+if test -z "${COIN_HAS_XPR_TRUE}" && test -z "${COIN_HAS_XPR_FALSE}"; then
+  { { echo "$as_me:$LINENO: error: conditional \"COIN_HAS_XPR\" was never defined.
+Usually this means the macro was only invoked conditionally." >&5
+echo "$as_me: error: conditional \"COIN_HAS_XPR\" was never defined.
+Usually this means the macro was only invoked conditionally." >&2;}
+   { (exit 1); exit 1; }; }
+fi
+if test -z "${COIN_HAS_GRB_TRUE}" && test -z "${COIN_HAS_GRB_FALSE}"; then
+  { { echo "$as_me:$LINENO: error: conditional \"COIN_HAS_GRB\" was never defined.
+Usually this means the macro was only invoked conditionally." >&5
+echo "$as_me: error: conditional \"COIN_HAS_GRB\" was never defined.
+Usually this means the macro was only invoked conditionally." >&2;}
+   { (exit 1); exit 1; }; }
+fi
+if test -z "${COIN_HAS_QSO_TRUE}" && test -z "${COIN_HAS_QSO_FALSE}"; then
+  { { echo "$as_me:$LINENO: error: conditional \"COIN_HAS_QSO\" was never defined.
+Usually this means the macro was only invoked conditionally." >&5
+echo "$as_me: error: conditional \"COIN_HAS_QSO\" was never defined.
+Usually this means the macro was only invoked conditionally." >&2;}
+   { (exit 1); exit 1; }; }
+fi
+if test -z "${SCIPLPI_SPX_TRUE}" && test -z "${SCIPLPI_SPX_FALSE}"; then
+  { { echo "$as_me:$LINENO: error: conditional \"SCIPLPI_SPX\" was never defined.
+Usually this means the macro was only invoked conditionally." >&5
+echo "$as_me: error: conditional \"SCIPLPI_SPX\" was never defined.
+Usually this means the macro was only invoked conditionally." >&2;}
+   { (exit 1); exit 1; }; }
+fi
+if test -z "${SCIPLPI_CLP_TRUE}" && test -z "${SCIPLPI_CLP_FALSE}"; then
+  { { echo "$as_me:$LINENO: error: conditional \"SCIPLPI_CLP\" was never defined.
+Usually this means the macro was only invoked conditionally." >&5
+echo "$as_me: error: conditional \"SCIPLPI_CLP\" was never defined.
+Usually this means the macro was only invoked conditionally." >&2;}
+   { (exit 1); exit 1; }; }
+fi
+if test -z "${SCIPLPI_CPX_TRUE}" && test -z "${SCIPLPI_CPX_FALSE}"; then
+  { { echo "$as_me:$LINENO: error: conditional \"SCIPLPI_CPX\" was never defined.
+Usually this means the macro was only invoked conditionally." >&5
+echo "$as_me: error: conditional \"SCIPLPI_CPX\" was never defined.
+Usually this means the macro was only invoked conditionally." >&2;}
+   { (exit 1); exit 1; }; }
+fi
+if test -z "${SCIPLPI_MSK_TRUE}" && test -z "${SCIPLPI_MSK_FALSE}"; then
+  { { echo "$as_me:$LINENO: error: conditional \"SCIPLPI_MSK\" was never defined.
+Usually this means the macro was only invoked conditionally." >&5
+echo "$as_me: error: conditional \"SCIPLPI_MSK\" was never defined.
+Usually this means the macro was only invoked conditionally." >&2;}
+   { (exit 1); exit 1; }; }
+fi
+if test -z "${SCIPLPI_XPR_TRUE}" && test -z "${SCIPLPI_XPR_FALSE}"; then
+  { { echo "$as_me:$LINENO: error: conditional \"SCIPLPI_XPR\" was never defined.
+Usually this means the macro was only invoked conditionally." >&5
+echo "$as_me: error: conditional \"SCIPLPI_XPR\" was never defined.
+Usually this means the macro was only invoked conditionally." >&2;}
+   { (exit 1); exit 1; }; }
+fi
+if test -z "${SCIPLPI_GRB_TRUE}" && test -z "${SCIPLPI_GRB_FALSE}"; then
+  { { echo "$as_me:$LINENO: error: conditional \"SCIPLPI_GRB\" was never defined.
+Usually this means the macro was only invoked conditionally." >&5
+echo "$as_me: error: conditional \"SCIPLPI_GRB\" was never defined.
+Usually this means the macro was only invoked conditionally." >&2;}
+   { (exit 1); exit 1; }; }
+fi
+if test -z "${SCIPLPI_QSO_TRUE}" && test -z "${SCIPLPI_QSO_FALSE}"; then
+  { { echo "$as_me:$LINENO: error: conditional \"SCIPLPI_QSO\" was never defined.
+Usually this means the macro was only invoked conditionally." >&5
+echo "$as_me: error: conditional \"SCIPLPI_QSO\" was never defined.
+Usually this means the macro was only invoked conditionally." >&2;}
+   { (exit 1); exit 1; }; }
+fi
+if test -z "${SCIPLPI_NONE_TRUE}" && test -z "${SCIPLPI_NONE_FALSE}"; then
+  { { echo "$as_me:$LINENO: error: conditional \"SCIPLPI_NONE\" was never defined.
+Usually this means the macro was only invoked conditionally." >&5
+echo "$as_me: error: conditional \"SCIPLPI_NONE\" was never defined.
 Usually this means the macro was only invoked conditionally." >&2;}
    { (exit 1); exit 1; }; }
 fi
@@ -25171,13 +26320,6 @@ s,@SOPLEX_DEPENDENCIES@,$SOPLEX_DEPENDENCIES,;t t
 s,@SOPLEX_LIBS_INSTALLED@,$SOPLEX_LIBS_INSTALLED,;t t
 s,@SOPLEX_CFLAGS_INSTALLED@,$SOPLEX_CFLAGS_INSTALLED,;t t
 s,@SOPLEX_DATA_INSTALLED@,$SOPLEX_DATA_INSTALLED,;t t
-s,@SCIPLIB_CFLAGS@,$SCIPLIB_CFLAGS,;t t
-s,@SCIPLIB_LIBS@,$SCIPLIB_LIBS,;t t
-s,@SCIPLIB_PCLIBS@,$SCIPLIB_PCLIBS,;t t
-s,@SCIPLIB_PCREQUIRES@,$SCIPLIB_PCREQUIRES,;t t
-s,@SCIPLIB_DEPENDENCIES@,$SCIPLIB_DEPENDENCIES,;t t
-s,@SCIPLIB_CFLAGS_INSTALLED@,$SCIPLIB_CFLAGS_INSTALLED,;t t
-s,@SCIPLIB_LIBS_INSTALLED@,$SCIPLIB_LIBS_INSTALLED,;t t
 s,@COIN_HAS_SOPLEX_TRUE@,$COIN_HAS_SOPLEX_TRUE,;t t
 s,@COIN_HAS_SOPLEX_FALSE@,$COIN_HAS_SOPLEX_FALSE,;t t
 s,@CLP_LIBS@,$CLP_LIBS,;t t
@@ -25189,6 +26331,42 @@ s,@CLP_CFLAGS_INSTALLED@,$CLP_CFLAGS_INSTALLED,;t t
 s,@CLP_DATA_INSTALLED@,$CLP_DATA_INSTALLED,;t t
 s,@COIN_HAS_CLP_TRUE@,$COIN_HAS_CLP_TRUE,;t t
 s,@COIN_HAS_CLP_FALSE@,$COIN_HAS_CLP_FALSE,;t t
+s,@CPXINCDIR@,$CPXINCDIR,;t t
+s,@CPXLIB@,$CPXLIB,;t t
+s,@COIN_HAS_CPX_TRUE@,$COIN_HAS_CPX_TRUE,;t t
+s,@COIN_HAS_CPX_FALSE@,$COIN_HAS_CPX_FALSE,;t t
+s,@MSKINCDIR@,$MSKINCDIR,;t t
+s,@MSKLIB@,$MSKLIB,;t t
+s,@COIN_HAS_MSK_TRUE@,$COIN_HAS_MSK_TRUE,;t t
+s,@COIN_HAS_MSK_FALSE@,$COIN_HAS_MSK_FALSE,;t t
+s,@XPRINCDIR@,$XPRINCDIR,;t t
+s,@XPRLIB@,$XPRLIB,;t t
+s,@COIN_HAS_XPR_TRUE@,$COIN_HAS_XPR_TRUE,;t t
+s,@COIN_HAS_XPR_FALSE@,$COIN_HAS_XPR_FALSE,;t t
+s,@GRBINCDIR@,$GRBINCDIR,;t t
+s,@GRBLIB@,$GRBLIB,;t t
+s,@COIN_HAS_GRB_TRUE@,$COIN_HAS_GRB_TRUE,;t t
+s,@COIN_HAS_GRB_FALSE@,$COIN_HAS_GRB_FALSE,;t t
+s,@QSOINCDIR@,$QSOINCDIR,;t t
+s,@QSOLIB@,$QSOLIB,;t t
+s,@COIN_HAS_QSO_TRUE@,$COIN_HAS_QSO_TRUE,;t t
+s,@COIN_HAS_QSO_FALSE@,$COIN_HAS_QSO_FALSE,;t t
+s,@SCIPLPI_SPX_TRUE@,$SCIPLPI_SPX_TRUE,;t t
+s,@SCIPLPI_SPX_FALSE@,$SCIPLPI_SPX_FALSE,;t t
+s,@SCIPLPI_CLP_TRUE@,$SCIPLPI_CLP_TRUE,;t t
+s,@SCIPLPI_CLP_FALSE@,$SCIPLPI_CLP_FALSE,;t t
+s,@SCIPLPI_CPX_TRUE@,$SCIPLPI_CPX_TRUE,;t t
+s,@SCIPLPI_CPX_FALSE@,$SCIPLPI_CPX_FALSE,;t t
+s,@SCIPLPI_MSK_TRUE@,$SCIPLPI_MSK_TRUE,;t t
+s,@SCIPLPI_MSK_FALSE@,$SCIPLPI_MSK_FALSE,;t t
+s,@SCIPLPI_XPR_TRUE@,$SCIPLPI_XPR_TRUE,;t t
+s,@SCIPLPI_XPR_FALSE@,$SCIPLPI_XPR_FALSE,;t t
+s,@SCIPLPI_GRB_TRUE@,$SCIPLPI_GRB_TRUE,;t t
+s,@SCIPLPI_GRB_FALSE@,$SCIPLPI_GRB_FALSE,;t t
+s,@SCIPLPI_QSO_TRUE@,$SCIPLPI_QSO_TRUE,;t t
+s,@SCIPLPI_QSO_FALSE@,$SCIPLPI_QSO_FALSE,;t t
+s,@SCIPLPI_NONE_TRUE@,$SCIPLPI_NONE_TRUE,;t t
+s,@SCIPLPI_NONE_FALSE@,$SCIPLPI_NONE_FALSE,;t t
 s,@IPOPT_LIBS@,$IPOPT_LIBS,;t t
 s,@IPOPT_CFLAGS@,$IPOPT_CFLAGS,;t t
 s,@IPOPT_DATA@,$IPOPT_DATA,;t t
@@ -25196,6 +26374,13 @@ s,@IPOPT_DEPENDENCIES@,$IPOPT_DEPENDENCIES,;t t
 s,@IPOPT_LIBS_INSTALLED@,$IPOPT_LIBS_INSTALLED,;t t
 s,@IPOPT_CFLAGS_INSTALLED@,$IPOPT_CFLAGS_INSTALLED,;t t
 s,@IPOPT_DATA_INSTALLED@,$IPOPT_DATA_INSTALLED,;t t
+s,@SCIPLIB_CFLAGS@,$SCIPLIB_CFLAGS,;t t
+s,@SCIPLIB_LIBS@,$SCIPLIB_LIBS,;t t
+s,@SCIPLIB_PCLIBS@,$SCIPLIB_PCLIBS,;t t
+s,@SCIPLIB_PCREQUIRES@,$SCIPLIB_PCREQUIRES,;t t
+s,@SCIPLIB_DEPENDENCIES@,$SCIPLIB_DEPENDENCIES,;t t
+s,@SCIPLIB_CFLAGS_INSTALLED@,$SCIPLIB_CFLAGS_INSTALLED,;t t
+s,@SCIPLIB_LIBS_INSTALLED@,$SCIPLIB_LIBS_INSTALLED,;t t
 s,@COIN_HAS_IPOPT_TRUE@,$COIN_HAS_IPOPT_TRUE,;t t
 s,@COIN_HAS_IPOPT_FALSE@,$COIN_HAS_IPOPT_FALSE,;t t
 s,@CPPAD_LIBS@,$CPPAD_LIBS,;t t

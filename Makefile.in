@@ -53,18 +53,23 @@ POST_UNINSTALL = :
 build_triplet = @build@
 host_triplet = @host@
 
-# add SOPLEX or CLP as linear solver, if available
-@COIN_HAS_SOPLEX_TRUE@am__append_1 = scip/src/scip/lpi_spx.cpp
-@COIN_HAS_CLP_TRUE@@COIN_HAS_SOPLEX_FALSE@am__append_2 = scip/src/scip/lpi_clp.cpp
-@COIN_HAS_CLP_FALSE@@COIN_HAS_SOPLEX_FALSE@am__append_3 = scip/src/scip/lpi_none.cpp
+# add LP solver interface
+@SCIPLPI_SPX_TRUE@am__append_1 = scip/src/scip/lpi_spx.cpp
+@SCIPLPI_CLP_TRUE@am__append_2 = scip/src/scip/lpi_clp.cpp
+@SCIPLPI_CPX_TRUE@am__append_3 = scip/src/scip/lpi_cpx.c
+@SCIPLPI_MSK_TRUE@am__append_4 = scip/src/scip/lpi_msk.c
+@SCIPLPI_XPR_TRUE@am__append_5 = scip/src/scip/lpi_xprs.c
+@SCIPLPI_GRB_TRUE@am__append_6 = scip/src/scip/lpi_grb.c
+@SCIPLPI_QSO_TRUE@am__append_7 = scip/src/scip/lpi_qso.c
+@SCIPLPI_NONE_TRUE@am__append_8 = scip/src/scip/lpi_none.c
 
 # add IPOPT as nonlinear solver, if available
-@COIN_HAS_IPOPT_TRUE@am__append_4 = scip/src/nlpi/nlpi_ipopt.cpp
-@COIN_HAS_IPOPT_FALSE@am__append_5 = scip/src/nlpi/nlpi_ipopt_dummy.c
+@COIN_HAS_IPOPT_TRUE@am__append_9 = scip/src/nlpi/nlpi_ipopt.cpp
+@COIN_HAS_IPOPT_FALSE@am__append_10 = scip/src/nlpi/nlpi_ipopt_dummy.c
 
 # use CppAD for expression evaluation, if available
-@COIN_HAS_CPPAD_TRUE@am__append_6 = scip/src/nlpi/exprinterpret_cppad.cpp
-@COIN_HAS_CPPAD_FALSE@am__append_7 = scip/src/nlpi/exprinterpret_none.c
+@COIN_HAS_CPPAD_TRUE@am__append_11 = scip/src/nlpi/exprinterpret_cppad.cpp
+@COIN_HAS_CPPAD_FALSE@am__append_12 = scip/src/nlpi/exprinterpret_none.c
 DIST_COMMON = $(am__configure_deps) $(srcdir)/BuildTools/Makemain.inc \
 	$(srcdir)/Makefile.am $(srcdir)/Makefile.in \
 	$(srcdir)/coinscip-uninstalled.pc.in $(srcdir)/coinscip.pc.in \
@@ -73,8 +78,8 @@ DIST_COMMON = $(am__configure_deps) $(srcdir)/BuildTools/Makemain.inc \
 	$(thirdpartyscipinclude_HEADERS) $(top_srcdir)/configure \
 	compile config.guess config.sub depcomp install-sh ltmain.sh \
 	missing
-@HAVE_EXTERNALS_TRUE@am__append_8 = Dependencies
-@HAVE_EXTERNALS_TRUE@am__append_9 = .Dependencies-stamp
+@HAVE_EXTERNALS_TRUE@am__append_13 = Dependencies
+@HAVE_EXTERNALS_TRUE@am__append_14 = .Dependencies-stamp
 subdir = .
 ACLOCAL_M4 = $(top_srcdir)/aclocal.m4
 am__aclocal_m4_deps = $(top_srcdir)/acinclude.m4 \
@@ -196,20 +201,27 @@ am__libcoinscip_la_SOURCES_DIST = scip/src/scip/branch.c \
 	scip/src/nlpi/intervalarith.cpp \
 	scip/src/dijkstra/dijkstra_bh.c scip/src/xml/xmlparse.c \
 	scip/src/scip/lpi_spx.cpp scip/src/scip/lpi_clp.cpp \
-	scip/src/scip/lpi_none.cpp scip/src/nlpi/nlpi_ipopt.cpp \
-	scip/src/nlpi/nlpi_ipopt_dummy.c \
+	scip/src/scip/lpi_cpx.c scip/src/scip/lpi_msk.c \
+	scip/src/scip/lpi_xprs.c scip/src/scip/lpi_grb.c \
+	scip/src/scip/lpi_qso.c scip/src/scip/lpi_none.c \
+	scip/src/nlpi/nlpi_ipopt.cpp scip/src/nlpi/nlpi_ipopt_dummy.c \
 	scip/src/nlpi/exprinterpret_cppad.cpp \
 	scip/src/nlpi/exprinterpret_none.c
 am__dirstamp = $(am__leading_dot)dirstamp
-@COIN_HAS_SOPLEX_TRUE@am__objects_1 = scip/src/scip/lpi_spx.lo
-@COIN_HAS_CLP_TRUE@@COIN_HAS_SOPLEX_FALSE@am__objects_2 = scip/src/scip/lpi_clp.lo
-@COIN_HAS_CLP_FALSE@@COIN_HAS_SOPLEX_FALSE@am__objects_3 = scip/src/scip/lpi_none.lo
-@COIN_HAS_IPOPT_TRUE@am__objects_4 = scip/src/nlpi/nlpi_ipopt.lo
-@COIN_HAS_IPOPT_FALSE@am__objects_5 =  \
+@SCIPLPI_SPX_TRUE@am__objects_1 = scip/src/scip/lpi_spx.lo
+@SCIPLPI_CLP_TRUE@am__objects_2 = scip/src/scip/lpi_clp.lo
+@SCIPLPI_CPX_TRUE@am__objects_3 = scip/src/scip/lpi_cpx.lo
+@SCIPLPI_MSK_TRUE@am__objects_4 = scip/src/scip/lpi_msk.lo
+@SCIPLPI_XPR_TRUE@am__objects_5 = scip/src/scip/lpi_xprs.lo
+@SCIPLPI_GRB_TRUE@am__objects_6 = scip/src/scip/lpi_grb.lo
+@SCIPLPI_QSO_TRUE@am__objects_7 = scip/src/scip/lpi_qso.lo
+@SCIPLPI_NONE_TRUE@am__objects_8 = scip/src/scip/lpi_none.lo
+@COIN_HAS_IPOPT_TRUE@am__objects_9 = scip/src/nlpi/nlpi_ipopt.lo
+@COIN_HAS_IPOPT_FALSE@am__objects_10 =  \
 @COIN_HAS_IPOPT_FALSE@	scip/src/nlpi/nlpi_ipopt_dummy.lo
-@COIN_HAS_CPPAD_TRUE@am__objects_6 =  \
+@COIN_HAS_CPPAD_TRUE@am__objects_11 =  \
 @COIN_HAS_CPPAD_TRUE@	scip/src/nlpi/exprinterpret_cppad.lo
-@COIN_HAS_CPPAD_FALSE@am__objects_7 =  \
+@COIN_HAS_CPPAD_FALSE@am__objects_12 =  \
 @COIN_HAS_CPPAD_FALSE@	scip/src/nlpi/exprinterpret_none.lo
 am_libcoinscip_la_OBJECTS = scip/src/scip/branch.lo \
 	scip/src/scip/bitencode.lo scip/src/scip/buffer.lo \
@@ -315,7 +327,8 @@ am_libcoinscip_la_OBJECTS = scip/src/scip/branch.lo \
 	scip/src/dijkstra/dijkstra_bh.lo scip/src/xml/xmlparse.lo \
 	$(am__objects_1) $(am__objects_2) $(am__objects_3) \
 	$(am__objects_4) $(am__objects_5) $(am__objects_6) \
-	$(am__objects_7)
+	$(am__objects_7) $(am__objects_8) $(am__objects_9) \
+	$(am__objects_10) $(am__objects_11) $(am__objects_12)
 libcoinscip_la_OBJECTS = $(am_libcoinscip_la_OBJECTS)
 depcomp = $(SHELL) $(top_srcdir)/depcomp
 am__depfiles_maybe = depfiles
@@ -393,12 +406,22 @@ COIN_HAS_CLP_FALSE = @COIN_HAS_CLP_FALSE@
 COIN_HAS_CLP_TRUE = @COIN_HAS_CLP_TRUE@
 COIN_HAS_CPPAD_FALSE = @COIN_HAS_CPPAD_FALSE@
 COIN_HAS_CPPAD_TRUE = @COIN_HAS_CPPAD_TRUE@
+COIN_HAS_CPX_FALSE = @COIN_HAS_CPX_FALSE@
+COIN_HAS_CPX_TRUE = @COIN_HAS_CPX_TRUE@
+COIN_HAS_GRB_FALSE = @COIN_HAS_GRB_FALSE@
+COIN_HAS_GRB_TRUE = @COIN_HAS_GRB_TRUE@
 COIN_HAS_IPOPT_FALSE = @COIN_HAS_IPOPT_FALSE@
 COIN_HAS_IPOPT_TRUE = @COIN_HAS_IPOPT_TRUE@
+COIN_HAS_MSK_FALSE = @COIN_HAS_MSK_FALSE@
+COIN_HAS_MSK_TRUE = @COIN_HAS_MSK_TRUE@
 COIN_HAS_PKGCONFIG_FALSE = @COIN_HAS_PKGCONFIG_FALSE@
 COIN_HAS_PKGCONFIG_TRUE = @COIN_HAS_PKGCONFIG_TRUE@
+COIN_HAS_QSO_FALSE = @COIN_HAS_QSO_FALSE@
+COIN_HAS_QSO_TRUE = @COIN_HAS_QSO_TRUE@
 COIN_HAS_SOPLEX_FALSE = @COIN_HAS_SOPLEX_FALSE@
 COIN_HAS_SOPLEX_TRUE = @COIN_HAS_SOPLEX_TRUE@
+COIN_HAS_XPR_FALSE = @COIN_HAS_XPR_FALSE@
+COIN_HAS_XPR_TRUE = @COIN_HAS_XPR_TRUE@
 COIN_HAS_ZLIB_FALSE = @COIN_HAS_ZLIB_FALSE@
 COIN_HAS_ZLIB_TRUE = @COIN_HAS_ZLIB_TRUE@
 COIN_PKG_CONFIG_PATH = @COIN_PKG_CONFIG_PATH@
@@ -412,6 +435,8 @@ CPPAD_DEPENDENCIES = @CPPAD_DEPENDENCIES@
 CPPAD_LIBS = @CPPAD_LIBS@
 CPPAD_LIBS_INSTALLED = @CPPAD_LIBS_INSTALLED@
 CPPFLAGS = @CPPFLAGS@
+CPXINCDIR = @CPXINCDIR@
+CPXLIB = @CPXLIB@
 CXX = @CXX@
 CXXCPP = @CXXCPP@
 CXXDEFS = @CXXDEFS@
@@ -430,6 +455,8 @@ EGREP = @EGREP@
 EXEEXT = @EXEEXT@
 F77 = @F77@
 FFLAGS = @FFLAGS@
+GRBINCDIR = @GRBINCDIR@
+GRBLIB = @GRBLIB@
 HAVE_EXTERNALS_FALSE = @HAVE_EXTERNALS_FALSE@
 HAVE_EXTERNALS_TRUE = @HAVE_EXTERNALS_TRUE@
 INSTALL_DATA = @INSTALL_DATA@
@@ -458,6 +485,8 @@ MAINTAINER_MODE_TRUE = @MAINTAINER_MODE_TRUE@
 MAKEINFO = @MAKEINFO@
 MPICC = @MPICC@
 MPICXX = @MPICXX@
+MSKINCDIR = @MSKINCDIR@
+MSKLIB = @MSKLIB@
 OBJEXT = @OBJEXT@
 OPT_CFLAGS = @OPT_CFLAGS@
 OPT_CXXFLAGS = @OPT_CXXFLAGS@
@@ -469,6 +498,8 @@ PACKAGE_TARNAME = @PACKAGE_TARNAME@
 PACKAGE_VERSION = @PACKAGE_VERSION@
 PATH_SEPARATOR = @PATH_SEPARATOR@
 PKG_CONFIG = @PKG_CONFIG@
+QSOINCDIR = @QSOINCDIR@
+QSOLIB = @QSOLIB@
 RANLIB = @RANLIB@
 RPATH_FLAGS = @RPATH_FLAGS@
 SCIPLIB_CFLAGS = @SCIPLIB_CFLAGS@
@@ -478,6 +509,22 @@ SCIPLIB_LIBS = @SCIPLIB_LIBS@
 SCIPLIB_LIBS_INSTALLED = @SCIPLIB_LIBS_INSTALLED@
 SCIPLIB_PCLIBS = @SCIPLIB_PCLIBS@
 SCIPLIB_PCREQUIRES = @SCIPLIB_PCREQUIRES@
+SCIPLPI_CLP_FALSE = @SCIPLPI_CLP_FALSE@
+SCIPLPI_CLP_TRUE = @SCIPLPI_CLP_TRUE@
+SCIPLPI_CPX_FALSE = @SCIPLPI_CPX_FALSE@
+SCIPLPI_CPX_TRUE = @SCIPLPI_CPX_TRUE@
+SCIPLPI_GRB_FALSE = @SCIPLPI_GRB_FALSE@
+SCIPLPI_GRB_TRUE = @SCIPLPI_GRB_TRUE@
+SCIPLPI_MSK_FALSE = @SCIPLPI_MSK_FALSE@
+SCIPLPI_MSK_TRUE = @SCIPLPI_MSK_TRUE@
+SCIPLPI_NONE_FALSE = @SCIPLPI_NONE_FALSE@
+SCIPLPI_NONE_TRUE = @SCIPLPI_NONE_TRUE@
+SCIPLPI_QSO_FALSE = @SCIPLPI_QSO_FALSE@
+SCIPLPI_QSO_TRUE = @SCIPLPI_QSO_TRUE@
+SCIPLPI_SPX_FALSE = @SCIPLPI_SPX_FALSE@
+SCIPLPI_SPX_TRUE = @SCIPLPI_SPX_TRUE@
+SCIPLPI_XPR_FALSE = @SCIPLPI_XPR_FALSE@
+SCIPLPI_XPR_TRUE = @SCIPLPI_XPR_TRUE@
 SCIP_SVN_REV = @SCIP_SVN_REV@
 SET_MAKE = @SET_MAKE@
 SHELL = @SHELL@
@@ -491,6 +538,8 @@ SOPLEX_LIBS_INSTALLED = @SOPLEX_LIBS_INSTALLED@
 STRIP = @STRIP@
 VERSION = @VERSION@
 VPATH_DISTCLEANFILES = @VPATH_DISTCLEANFILES@
+XPRINCDIR = @XPRINCDIR@
+XPRLIB = @XPRLIB@
 abs_bin_dir = @abs_bin_dir@
 abs_include_dir = @abs_include_dir@
 abs_lib_dir = @abs_lib_dir@
@@ -547,7 +596,7 @@ sol_cc_compiler = @sol_cc_compiler@
 sysconfdir = @sysconfdir@
 target_alias = @target_alias@
 AUTOMAKE_OPTIONS = foreign
-EXTRA_DIST = $(am__append_8)
+EXTRA_DIST = $(am__append_13)
 lib_LTLIBRARIES = libcoinscip.la
 libcoinscip_la_SOURCES = scip/src/scip/branch.c \
 	scip/src/scip/bitencode.c scip/src/scip/buffer.c \
@@ -647,7 +696,8 @@ libcoinscip_la_SOURCES = scip/src/scip/branch.c \
 	scip/src/dijkstra/dijkstra_bh.c scip/src/xml/xmlparse.c \
 	$(am__append_1) $(am__append_2) $(am__append_3) \
 	$(am__append_4) $(am__append_5) $(am__append_6) \
-	$(am__append_7)
+	$(am__append_7) $(am__append_8) $(am__append_9) \
+	$(am__append_10) $(am__append_11) $(am__append_12)
 AM_CPPFLAGS = -I`$(CYGPATH_W) $(srcdir)/scip/src` $(SCIPLIB_CFLAGS)
 DEFAULT_INCLUDES = -I. -I`$(CYGPATH_W) $(srcdir)`
 libcoinscip_la_LDFLAGS = $(LT_LDFLAGS)
@@ -892,7 +942,7 @@ pkgconfiglib_DATA = coinscip.pc
 ########################################################################
 
 # Files that are generated and should be cleaned with make distclean
-DISTCLEANFILES = $(am__append_9) $(VPATH_DISTCLEANFILES)
+DISTCLEANFILES = $(am__append_14) $(VPATH_DISTCLEANFILES)
 DocFiles = README AUTHORS LICENSE
 DocInstallDir = $(datadir)/coin/doc/$(PACKAGE_NAME)
 all: config_scip.h
@@ -1348,6 +1398,16 @@ scip/src/scip/lpi_spx.lo: scip/src/scip/$(am__dirstamp) \
 	scip/src/scip/$(DEPDIR)/$(am__dirstamp)
 scip/src/scip/lpi_clp.lo: scip/src/scip/$(am__dirstamp) \
 	scip/src/scip/$(DEPDIR)/$(am__dirstamp)
+scip/src/scip/lpi_cpx.lo: scip/src/scip/$(am__dirstamp) \
+	scip/src/scip/$(DEPDIR)/$(am__dirstamp)
+scip/src/scip/lpi_msk.lo: scip/src/scip/$(am__dirstamp) \
+	scip/src/scip/$(DEPDIR)/$(am__dirstamp)
+scip/src/scip/lpi_xprs.lo: scip/src/scip/$(am__dirstamp) \
+	scip/src/scip/$(DEPDIR)/$(am__dirstamp)
+scip/src/scip/lpi_grb.lo: scip/src/scip/$(am__dirstamp) \
+	scip/src/scip/$(DEPDIR)/$(am__dirstamp)
+scip/src/scip/lpi_qso.lo: scip/src/scip/$(am__dirstamp) \
+	scip/src/scip/$(DEPDIR)/$(am__dirstamp)
 scip/src/scip/lpi_none.lo: scip/src/scip/$(am__dirstamp) \
 	scip/src/scip/$(DEPDIR)/$(am__dirstamp)
 scip/src/nlpi/nlpi_ipopt.lo: scip/src/nlpi/$(am__dirstamp) \
@@ -1551,10 +1611,20 @@ mostlyclean-compile:
 	-rm -f scip/src/scip/lp.lo
 	-rm -f scip/src/scip/lpi_clp.$(OBJEXT)
 	-rm -f scip/src/scip/lpi_clp.lo
+	-rm -f scip/src/scip/lpi_cpx.$(OBJEXT)
+	-rm -f scip/src/scip/lpi_cpx.lo
+	-rm -f scip/src/scip/lpi_grb.$(OBJEXT)
+	-rm -f scip/src/scip/lpi_grb.lo
+	-rm -f scip/src/scip/lpi_msk.$(OBJEXT)
+	-rm -f scip/src/scip/lpi_msk.lo
 	-rm -f scip/src/scip/lpi_none.$(OBJEXT)
 	-rm -f scip/src/scip/lpi_none.lo
+	-rm -f scip/src/scip/lpi_qso.$(OBJEXT)
+	-rm -f scip/src/scip/lpi_qso.lo
 	-rm -f scip/src/scip/lpi_spx.$(OBJEXT)
 	-rm -f scip/src/scip/lpi_spx.lo
+	-rm -f scip/src/scip/lpi_xprs.$(OBJEXT)
+	-rm -f scip/src/scip/lpi_xprs.lo
 	-rm -f scip/src/scip/mem.$(OBJEXT)
 	-rm -f scip/src/scip/mem.lo
 	-rm -f scip/src/scip/message.$(OBJEXT)
@@ -1799,8 +1869,13 @@ distclean-compile:
 @AMDEP_TRUE@@am__include@ @am__quote@scip/src/scip/$(DEPDIR)/intervalarith.Plo@am__quote@
 @AMDEP_TRUE@@am__include@ @am__quote@scip/src/scip/$(DEPDIR)/lp.Plo@am__quote@
 @AMDEP_TRUE@@am__include@ @am__quote@scip/src/scip/$(DEPDIR)/lpi_clp.Plo@am__quote@
+@AMDEP_TRUE@@am__include@ @am__quote@scip/src/scip/$(DEPDIR)/lpi_cpx.Plo@am__quote@
+@AMDEP_TRUE@@am__include@ @am__quote@scip/src/scip/$(DEPDIR)/lpi_grb.Plo@am__quote@
+@AMDEP_TRUE@@am__include@ @am__quote@scip/src/scip/$(DEPDIR)/lpi_msk.Plo@am__quote@
 @AMDEP_TRUE@@am__include@ @am__quote@scip/src/scip/$(DEPDIR)/lpi_none.Plo@am__quote@
+@AMDEP_TRUE@@am__include@ @am__quote@scip/src/scip/$(DEPDIR)/lpi_qso.Plo@am__quote@
 @AMDEP_TRUE@@am__include@ @am__quote@scip/src/scip/$(DEPDIR)/lpi_spx.Plo@am__quote@
+@AMDEP_TRUE@@am__include@ @am__quote@scip/src/scip/$(DEPDIR)/lpi_xprs.Plo@am__quote@
 @AMDEP_TRUE@@am__include@ @am__quote@scip/src/scip/$(DEPDIR)/mem.Plo@am__quote@
 @AMDEP_TRUE@@am__include@ @am__quote@scip/src/scip/$(DEPDIR)/message.Plo@am__quote@
 @AMDEP_TRUE@@am__include@ @am__quote@scip/src/scip/$(DEPDIR)/misc.Plo@am__quote@

@@ -174,15 +174,30 @@ libcoinscip_la_SOURCES = \
   scip/src/dijkstra/dijkstra_bh.c \
   scip/src/xml/xmlparse.c
 
-# add SOPLEX or CLP as linear solver, if available
-if COIN_HAS_SOPLEX
-libcoinscip_la_SOURCES += scip/src/scip/lpi_spx.cpp
-else
-if COIN_HAS_CLP
-libcoinscip_la_SOURCES += scip/src/scip/lpi_clp.cpp
-else
-libcoinscip_la_SOURCES += scip/src/scip/lpi_none.cpp
+# add LP solver interface
+if SCIPLPI_SPX
+  libcoinscip_la_SOURCES += scip/src/scip/lpi_spx.cpp
 endif
+if SCIPLPI_CLP
+  libcoinscip_la_SOURCES += scip/src/scip/lpi_clp.cpp
+endif
+if SCIPLPI_CPX
+  libcoinscip_la_SOURCES += scip/src/scip/lpi_cpx.c
+endif
+if SCIPLPI_MSK
+  libcoinscip_la_SOURCES += scip/src/scip/lpi_msk.c
+endif
+if SCIPLPI_XPR
+  libcoinscip_la_SOURCES += scip/src/scip/lpi_xprs.c
+endif
+if SCIPLPI_GRB
+  libcoinscip_la_SOURCES += scip/src/scip/lpi_grb.c
+endif
+if SCIPLPI_QSO
+  libcoinscip_la_SOURCES += scip/src/scip/lpi_qso.c
+endif
+if SCIPLPI_NONE
+  libcoinscip_la_SOURCES += scip/src/scip/lpi_none.c
 endif
 
 # add IPOPT as nonlinear solver, if available
