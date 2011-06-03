@@ -28,6 +28,8 @@
 #                    Documentation installation                        #
 ########################################################################
 
+
+
 srcdir = @srcdir@
 top_srcdir = @top_srcdir@
 VPATH = @srcdir@
@@ -51,21 +53,26 @@ POST_UNINSTALL = :
 build_triplet = @build@
 host_triplet = @host@
 
-# add SOPLEX or CLP as linear solver
+# add SOPLEX or CLP as linear solver, if available
 @COIN_HAS_SOPLEX_TRUE@am__append_1 = scip/src/scip/lpi_spx.cpp
 @COIN_HAS_CLP_TRUE@@COIN_HAS_SOPLEX_FALSE@am__append_2 = scip/src/scip/lpi_clp.cpp
 @COIN_HAS_CLP_FALSE@@COIN_HAS_SOPLEX_FALSE@am__append_3 = scip/src/scip/lpi_none.cpp
 
-# add IPOPT as nonlinear solver
+# add IPOPT as nonlinear solver, if available
 @COIN_HAS_IPOPT_TRUE@am__append_4 = scip/src/nlpi/nlpi_ipopt.cpp
 @COIN_HAS_IPOPT_FALSE@am__append_5 = scip/src/nlpi/nlpi_ipopt_dummy.c
+
+# use CppAD for expression evaluation, if available
 @COIN_HAS_CPPAD_TRUE@am__append_6 = scip/src/nlpi/exprinterpret_cppad.cpp
 @COIN_HAS_CPPAD_FALSE@am__append_7 = scip/src/nlpi/exprinterpret_none.c
 DIST_COMMON = $(am__configure_deps) $(srcdir)/BuildTools/Makemain.inc \
 	$(srcdir)/Makefile.am $(srcdir)/Makefile.in \
 	$(srcdir)/coinscip-uninstalled.pc.in $(srcdir)/coinscip.pc.in \
-	$(srcdir)/config_scip.h.in $(top_srcdir)/configure compile \
-	config.guess config.sub depcomp install-sh ltmain.sh missing
+	$(srcdir)/config_scip.h.in $(thirdpartybmsinclude_HEADERS) \
+	$(thirdpartynlpiinclude_HEADERS) \
+	$(thirdpartyscipinclude_HEADERS) $(top_srcdir)/configure \
+	compile config.guess config.sub depcomp install-sh ltmain.sh \
+	missing
 @HAVE_EXTERNALS_TRUE@am__append_8 = Dependencies
 @HAVE_EXTERNALS_TRUE@am__append_9 = .Dependencies-stamp
 subdir = .
@@ -85,7 +92,10 @@ am__vpath_adj = case $$p in \
     *) f=$$p;; \
   esac;
 am__strip_dir = `echo $$p | sed -e 's|^.*/||'`;
-am__installdirs = "$(DESTDIR)$(libdir)"
+am__installdirs = "$(DESTDIR)$(libdir)" "$(DESTDIR)$(pkgconfiglibdir)" \
+	"$(DESTDIR)$(thirdpartybmsincludedir)" \
+	"$(DESTDIR)$(thirdpartynlpiincludedir)" \
+	"$(DESTDIR)$(thirdpartyscipincludedir)"
 libLTLIBRARIES_INSTALL = $(INSTALL)
 LTLIBRARIES = $(lib_LTLIBRARIES)
 libcoinscip_la_LIBADD =
@@ -327,6 +337,14 @@ CXXLINK = $(LIBTOOL) --tag=CXX --mode=link $(CXXLD) $(AM_CXXFLAGS) \
 	$(CXXFLAGS) $(AM_LDFLAGS) $(LDFLAGS) -o $@
 SOURCES = $(libcoinscip_la_SOURCES)
 DIST_SOURCES = $(am__libcoinscip_la_SOURCES_DIST)
+pkgconfiglibDATA_INSTALL = $(INSTALL_DATA)
+DATA = $(pkgconfiglib_DATA)
+thirdpartybmsincludeHEADERS_INSTALL = $(INSTALL_HEADER)
+thirdpartynlpiincludeHEADERS_INSTALL = $(INSTALL_HEADER)
+thirdpartyscipincludeHEADERS_INSTALL = $(INSTALL_HEADER)
+HEADERS = $(thirdpartybmsinclude_HEADERS) \
+	$(thirdpartynlpiinclude_HEADERS) \
+	$(thirdpartyscipinclude_HEADERS)
 ETAGS = etags
 CTAGS = ctags
 DISTFILES = $(DIST_COMMON) $(DIST_SOURCES) $(TEXINFOS) $(EXTRA_DIST)
@@ -633,6 +651,241 @@ libcoinscip_la_SOURCES = scip/src/scip/branch.c \
 AM_CPPFLAGS = -I`$(CYGPATH_W) $(srcdir)/scip/src` $(SCIPLIB_CFLAGS)
 DEFAULT_INCLUDES = -I. -I`$(CYGPATH_W) $(srcdir)`
 libcoinscip_la_LDFLAGS = $(LT_LDFLAGS)
+thirdpartyscipincludedir = $(includedir)/coin/ThirdParty/scip
+thirdpartyscipinclude_HEADERS = \
+  scip/src/scip/branch_allfullstrong.h \
+  scip/src/scip/branch_fullstrong.h \
+  scip/src/scip/branch_inference.h \
+  scip/src/scip/branch_leastinf.h \
+  scip/src/scip/branch_mostinf.h \
+  scip/src/scip/branch_pscost.h \
+  scip/src/scip/branch_random.h \
+  scip/src/scip/branch_relpscost.h \
+  scip/src/scip/buffer.h \
+  scip/src/scip/clock.h \
+  scip/src/scip/cons_and.h \
+  scip/src/scip/cons_binpack.h \
+  scip/src/scip/cons_bounddisjunction.h \
+  scip/src/scip/cons_conjunction.h \
+  scip/src/scip/cons_countsols.h \
+  scip/src/scip/cons_cumulative.h \
+  scip/src/scip/cons_eqknapsack.h \
+  scip/src/scip/cons_indicator.h \
+  scip/src/scip/cons_integral.h \
+  scip/src/scip/cons_invarknapsack.h \
+  scip/src/scip/cons_knapsack.h \
+  scip/src/scip/cons_linear.h \
+  scip/src/scip/cons_linking.h \
+  scip/src/scip/cons_logicor.h \
+  scip/src/scip/cons_orbitope.h \
+  scip/src/scip/cons_or.h \
+  scip/src/scip/cons_quadratic.h \
+  scip/src/scip/cons_setppc.h \
+  scip/src/scip/cons_soc.h \
+  scip/src/scip/cons_sos1.h \
+  scip/src/scip/cons_sos2.h \
+  scip/src/scip/cons_varbound.h \
+  scip/src/scip/cons_xor.h \
+  scip/src/scip/def.h \
+  scip/src/scip/dialog_default.h \
+  scip/src/scip/disp_default.h \
+  scip/src/scip/heur_actconsdiving.h \
+  scip/src/scip/heur_coefdiving.h \
+  scip/src/scip/heur_crossover.h \
+  scip/src/scip/heur_dins.h \
+  scip/src/scip/heur_feaspump.h \
+  scip/src/scip/heur_fixandinfer.h \
+  scip/src/scip/heur_fracdiving.h \
+  scip/src/scip/heur_guideddiving.h \
+  scip/src/scip/heur_intdiving.h \
+  scip/src/scip/heur_intshifting.h \
+  scip/src/scip/heur_linesearchdiving.h \
+  scip/src/scip/heur_localbranching.h \
+  scip/src/scip/heur_mutation.h \
+  scip/src/scip/heur_objpscostdiving.h \
+  scip/src/scip/heur_octane.h \
+  scip/src/scip/heur_oneopt.h \
+  scip/src/scip/heur_pscostdiving.h \
+  scip/src/scip/heur_rens.h \
+  scip/src/scip/heur_rins.h \
+  scip/src/scip/heur_rootsoldiving.h \
+  scip/src/scip/heur_rounding.h \
+  scip/src/scip/heur_shiftandpropagate.h \
+  scip/src/scip/heur_shifting.h \
+  scip/src/scip/heur_simplerounding.h \
+  scip/src/scip/heur_subnlp.h \
+  scip/src/scip/heur_trivial.h \
+  scip/src/scip/heur_trysol.h \
+  scip/src/scip/heur_twoopt.h \
+  scip/src/scip/heur_undercover.h \
+  scip/src/scip/heur_veclendiving.h \
+  scip/src/scip/heur_zirounding.h \
+  scip/src/scip/intervalarith.h \
+  scip/src/scip/lpi.h \
+  scip/src/scip/message.h \
+  scip/src/scip/nodesel_bfs.h \
+  scip/src/scip/nodesel_dfs.h \
+  scip/src/scip/nodesel_estimate.h \
+  scip/src/scip/nodesel_hybridestim.h \
+  scip/src/scip/nodesel_restartdfs.h \
+  scip/src/scip/presol_boundshift.h \
+  scip/src/scip/presol_dualfix.h \
+  scip/src/scip/presol_implics.h \
+  scip/src/scip/presol_inttobinary.h \
+  scip/src/scip/presol_probing.h \
+  scip/src/scip/presol_trivial.h \
+  scip/src/scip/prop_pseudoobj.h \
+  scip/src/scip/prop_rootredcost.h \
+  scip/src/scip/prop_vbounds.h \
+  scip/src/scip/pub_branch.h \
+  scip/src/scip/pub_conflict.h \
+  scip/src/scip/pub_cons.h \
+  scip/src/scip/pub_cutpool.h \
+  scip/src/scip/pub_dialog.h \
+  scip/src/scip/pub_disp.h \
+  scip/src/scip/pub_event.h \
+  scip/src/scip/pub_expression.h \
+  scip/src/scip/pub_fileio.h \
+  scip/src/scip/pub_heur.h \
+  scip/src/scip/pub_implics.h \
+  scip/src/scip/pub_lp.h \
+  scip/src/scip/pub_message.h \
+  scip/src/scip/pub_misc.h \
+  scip/src/scip/pub_nlp.h \
+  scip/src/scip/pub_nodesel.h \
+  scip/src/scip/pub_paramset.h \
+  scip/src/scip/pub_presol.h \
+  scip/src/scip/pub_pricer.h \
+  scip/src/scip/pub_prop.h \
+  scip/src/scip/pub_reader.h \
+  scip/src/scip/pub_relax.h \
+  scip/src/scip/pub_sepa.h \
+  scip/src/scip/pub_sol.h \
+  scip/src/scip/pub_tree.h \
+  scip/src/scip/pub_var.h \
+  scip/src/scip/reader_ccg.h \
+  scip/src/scip/reader_cip.h \
+  scip/src/scip/reader_cnf.h \
+  scip/src/scip/reader_fix.h \
+  scip/src/scip/reader_fzn.h \
+  scip/src/scip/reader_gms.h \
+  scip/src/scip/reader_lp.h \
+  scip/src/scip/reader_mps.h \
+  scip/src/scip/reader_opb.h \
+  scip/src/scip/reader_pip.h \
+  scip/src/scip/reader_ppm.h \
+  scip/src/scip/reader_rlp.h \
+  scip/src/scip/reader_sol.h \
+  scip/src/scip/reader_wbo.h \
+  scip/src/scip/reader_zpl.h \
+  scip/src/scip/scipdefplugins.h \
+  scip/src/scip/scip.h \
+  scip/src/scip/scipshell.h \
+  scip/src/scip/sepa_cgmip.h \
+  scip/src/scip/sepa_clique.h \
+  scip/src/scip/sepa_cmir.h \
+  scip/src/scip/sepa_flowcover.h \
+  scip/src/scip/sepa_gomory.h \
+  scip/src/scip/sepa_impliedbounds.h \
+  scip/src/scip/sepa_intobj.h \
+  scip/src/scip/sepa_mcf.h \
+  scip/src/scip/sepa_oddcycle.h \
+  scip/src/scip/sepa_rapidlearning.h \
+  scip/src/scip/sepa_redcost.h \
+  scip/src/scip/sepa_strongcg.h \
+  scip/src/scip/sepa_zerohalf.h \
+  scip/src/scip/struct_branch.h \
+  scip/src/scip/struct_buffer.h \
+  scip/src/scip/struct_clock.h \
+  scip/src/scip/struct_conflict.h \
+  scip/src/scip/struct_cons.h \
+  scip/src/scip/struct_cutpool.h \
+  scip/src/scip/struct_dialog.h \
+  scip/src/scip/struct_disp.h \
+  scip/src/scip/struct_event.h \
+  scip/src/scip/struct_heur.h \
+  scip/src/scip/struct_history.h \
+  scip/src/scip/struct_implics.h \
+  scip/src/scip/struct_lp.h \
+  scip/src/scip/struct_mem.h \
+  scip/src/scip/struct_message.h \
+  scip/src/scip/struct_misc.h \
+  scip/src/scip/struct_nlp.h \
+  scip/src/scip/struct_nodesel.h \
+  scip/src/scip/struct_paramset.h \
+  scip/src/scip/struct_presol.h \
+  scip/src/scip/struct_pricer.h \
+  scip/src/scip/struct_pricestore.h \
+  scip/src/scip/struct_primal.h \
+  scip/src/scip/struct_prob.h \
+  scip/src/scip/struct_prop.h \
+  scip/src/scip/struct_reader.h \
+  scip/src/scip/struct_relax.h \
+  scip/src/scip/struct_scip.h \
+  scip/src/scip/struct_sepa.h \
+  scip/src/scip/struct_sepastore.h \
+  scip/src/scip/struct_set.h \
+  scip/src/scip/struct_sol.h \
+  scip/src/scip/struct_stat.h \
+  scip/src/scip/struct_tree.h \
+  scip/src/scip/struct_var.h \
+  scip/src/scip/struct_vbc.h \
+  scip/src/scip/type_branch.h \
+  scip/src/scip/type_buffer.h \
+  scip/src/scip/type_clock.h \
+  scip/src/scip/type_conflict.h \
+  scip/src/scip/type_cons.h \
+  scip/src/scip/type_cutpool.h \
+  scip/src/scip/type_dialog.h \
+  scip/src/scip/type_disp.h \
+  scip/src/scip/type_event.h \
+  scip/src/scip/type_heur.h \
+  scip/src/scip/type_history.h \
+  scip/src/scip/type_implics.h \
+  scip/src/scip/type_interrupt.h \
+  scip/src/scip/type_lp.h \
+  scip/src/scip/type_lpi.h \
+  scip/src/scip/type_mem.h \
+  scip/src/scip/type_message.h \
+  scip/src/scip/type_misc.h \
+  scip/src/scip/type_nlp.h \
+  scip/src/scip/type_nodesel.h \
+  scip/src/scip/type_paramset.h \
+  scip/src/scip/type_presol.h \
+  scip/src/scip/type_pricer.h \
+  scip/src/scip/type_pricestore.h \
+  scip/src/scip/type_primal.h \
+  scip/src/scip/type_prob.h \
+  scip/src/scip/type_prop.h \
+  scip/src/scip/type_reader.h \
+  scip/src/scip/type_relax.h \
+  scip/src/scip/type_result.h \
+  scip/src/scip/type_retcode.h \
+  scip/src/scip/type_scip.h \
+  scip/src/scip/type_sepa.h \
+  scip/src/scip/type_sepastore.h \
+  scip/src/scip/type_set.h \
+  scip/src/scip/type_sol.h \
+  scip/src/scip/type_stat.h \
+  scip/src/scip/type_tree.h \
+  scip/src/scip/type_var.h \
+  scip/src/scip/type_vbc.h
+
+thirdpartybmsincludedir = $(includedir)/coin/ThirdParty/blockmemshell
+thirdpartybmsinclude_HEADERS = scip/src/blockmemshell/memory.h
+thirdpartynlpiincludedir = $(includedir)/coin/ThirdParty/nlpi
+thirdpartynlpiinclude_HEADERS = \
+  scip/src/nlpi/exprinterpret.h \
+  scip/src/nlpi/nlpi_ipopt.h \
+  scip/src/nlpi/pub_expression.h \
+  scip/src/nlpi/struct_expression.h \
+  scip/src/nlpi/struct_nlpi.h \
+  scip/src/nlpi/type_expression.h \
+  scip/src/nlpi/type_exprinterpret.h \
+  scip/src/nlpi/type_nlpi.h
+
+pkgconfiglibdir = $(libdir)/pkgconfig
+pkgconfiglib_DATA = coinscip.pc
 
 ########################################################################
 #                         Maintainer Stuff                             #
@@ -1685,6 +1938,74 @@ clean-libtool:
 distclean-libtool:
 	-rm -f libtool
 uninstall-info-am:
+install-pkgconfiglibDATA: $(pkgconfiglib_DATA)
+	@$(NORMAL_INSTALL)
+	test -z "$(pkgconfiglibdir)" || $(mkdir_p) "$(DESTDIR)$(pkgconfiglibdir)"
+	@list='$(pkgconfiglib_DATA)'; for p in $$list; do \
+	  if test -f "$$p"; then d=; else d="$(srcdir)/"; fi; \
+	  f=$(am__strip_dir) \
+	  echo " $(pkgconfiglibDATA_INSTALL) '$$d$$p' '$(DESTDIR)$(pkgconfiglibdir)/$$f'"; \
+	  $(pkgconfiglibDATA_INSTALL) "$$d$$p" "$(DESTDIR)$(pkgconfiglibdir)/$$f"; \
+	done
+
+uninstall-pkgconfiglibDATA:
+	@$(NORMAL_UNINSTALL)
+	@list='$(pkgconfiglib_DATA)'; for p in $$list; do \
+	  f=$(am__strip_dir) \
+	  echo " rm -f '$(DESTDIR)$(pkgconfiglibdir)/$$f'"; \
+	  rm -f "$(DESTDIR)$(pkgconfiglibdir)/$$f"; \
+	done
+install-thirdpartybmsincludeHEADERS: $(thirdpartybmsinclude_HEADERS)
+	@$(NORMAL_INSTALL)
+	test -z "$(thirdpartybmsincludedir)" || $(mkdir_p) "$(DESTDIR)$(thirdpartybmsincludedir)"
+	@list='$(thirdpartybmsinclude_HEADERS)'; for p in $$list; do \
+	  if test -f "$$p"; then d=; else d="$(srcdir)/"; fi; \
+	  f=$(am__strip_dir) \
+	  echo " $(thirdpartybmsincludeHEADERS_INSTALL) '$$d$$p' '$(DESTDIR)$(thirdpartybmsincludedir)/$$f'"; \
+	  $(thirdpartybmsincludeHEADERS_INSTALL) "$$d$$p" "$(DESTDIR)$(thirdpartybmsincludedir)/$$f"; \
+	done
+
+uninstall-thirdpartybmsincludeHEADERS:
+	@$(NORMAL_UNINSTALL)
+	@list='$(thirdpartybmsinclude_HEADERS)'; for p in $$list; do \
+	  f=$(am__strip_dir) \
+	  echo " rm -f '$(DESTDIR)$(thirdpartybmsincludedir)/$$f'"; \
+	  rm -f "$(DESTDIR)$(thirdpartybmsincludedir)/$$f"; \
+	done
+install-thirdpartynlpiincludeHEADERS: $(thirdpartynlpiinclude_HEADERS)
+	@$(NORMAL_INSTALL)
+	test -z "$(thirdpartynlpiincludedir)" || $(mkdir_p) "$(DESTDIR)$(thirdpartynlpiincludedir)"
+	@list='$(thirdpartynlpiinclude_HEADERS)'; for p in $$list; do \
+	  if test -f "$$p"; then d=; else d="$(srcdir)/"; fi; \
+	  f=$(am__strip_dir) \
+	  echo " $(thirdpartynlpiincludeHEADERS_INSTALL) '$$d$$p' '$(DESTDIR)$(thirdpartynlpiincludedir)/$$f'"; \
+	  $(thirdpartynlpiincludeHEADERS_INSTALL) "$$d$$p" "$(DESTDIR)$(thirdpartynlpiincludedir)/$$f"; \
+	done
+
+uninstall-thirdpartynlpiincludeHEADERS:
+	@$(NORMAL_UNINSTALL)
+	@list='$(thirdpartynlpiinclude_HEADERS)'; for p in $$list; do \
+	  f=$(am__strip_dir) \
+	  echo " rm -f '$(DESTDIR)$(thirdpartynlpiincludedir)/$$f'"; \
+	  rm -f "$(DESTDIR)$(thirdpartynlpiincludedir)/$$f"; \
+	done
+install-thirdpartyscipincludeHEADERS: $(thirdpartyscipinclude_HEADERS)
+	@$(NORMAL_INSTALL)
+	test -z "$(thirdpartyscipincludedir)" || $(mkdir_p) "$(DESTDIR)$(thirdpartyscipincludedir)"
+	@list='$(thirdpartyscipinclude_HEADERS)'; for p in $$list; do \
+	  if test -f "$$p"; then d=; else d="$(srcdir)/"; fi; \
+	  f=$(am__strip_dir) \
+	  echo " $(thirdpartyscipincludeHEADERS_INSTALL) '$$d$$p' '$(DESTDIR)$(thirdpartyscipincludedir)/$$f'"; \
+	  $(thirdpartyscipincludeHEADERS_INSTALL) "$$d$$p" "$(DESTDIR)$(thirdpartyscipincludedir)/$$f"; \
+	done
+
+uninstall-thirdpartyscipincludeHEADERS:
+	@$(NORMAL_UNINSTALL)
+	@list='$(thirdpartyscipinclude_HEADERS)'; for p in $$list; do \
+	  f=$(am__strip_dir) \
+	  echo " rm -f '$(DESTDIR)$(thirdpartyscipincludedir)/$$f'"; \
+	  rm -f "$(DESTDIR)$(thirdpartyscipincludedir)/$$f"; \
+	done
 
 ID: $(HEADERS) $(SOURCES) $(LISP) $(TAGS_FILES)
 	list='$(SOURCES) $(HEADERS) $(LISP) $(TAGS_FILES)'; \
@@ -1737,7 +2058,7 @@ distclean-tags:
 distdir: $(DISTFILES)
 	$(am__remove_distdir)
 	mkdir $(distdir)
-	$(mkdir_p) $(distdir)/. $(distdir)/BuildTools
+	$(mkdir_p) $(distdir)/. $(distdir)/BuildTools $(distdir)/scip/src/blockmemshell $(distdir)/scip/src/nlpi $(distdir)/scip/src/scip
 	@srcdirstrip=`echo "$(srcdir)" | sed 's|.|.|g'`; \
 	topsrcdirstrip=`echo "$(top_srcdir)" | sed 's|.|.|g'`; \
 	list='$(DISTFILES)'; for file in $$list; do \
@@ -1863,9 +2184,9 @@ distcleancheck: distclean
 	       exit 1; } >&2
 check-am: all-am
 check: check-am
-all-am: Makefile $(LTLIBRARIES) config_scip.h
+all-am: Makefile $(LTLIBRARIES) $(DATA) $(HEADERS) config_scip.h
 installdirs:
-	for dir in "$(DESTDIR)$(libdir)"; do \
+	for dir in "$(DESTDIR)$(libdir)" "$(DESTDIR)$(pkgconfiglibdir)" "$(DESTDIR)$(thirdpartybmsincludedir)" "$(DESTDIR)$(thirdpartynlpiincludedir)" "$(DESTDIR)$(thirdpartyscipincludedir)"; do \
 	  test -z "$$dir" || $(mkdir_p) "$$dir"; \
 	done
 install: install-am
@@ -1927,7 +2248,10 @@ info: info-am
 
 info-am:
 
-install-data-am:
+install-data-am: install-pkgconfiglibDATA \
+	install-thirdpartybmsincludeHEADERS \
+	install-thirdpartynlpiincludeHEADERS \
+	install-thirdpartyscipincludeHEADERS
 
 install-exec-am: install-libLTLIBRARIES
 
@@ -1957,7 +2281,11 @@ ps: ps-am
 
 ps-am:
 
-uninstall-am: uninstall-info-am uninstall-libLTLIBRARIES
+uninstall-am: uninstall-info-am uninstall-libLTLIBRARIES \
+	uninstall-pkgconfiglibDATA \
+	uninstall-thirdpartybmsincludeHEADERS \
+	uninstall-thirdpartynlpiincludeHEADERS \
+	uninstall-thirdpartyscipincludeHEADERS
 
 .PHONY: CTAGS GTAGS all all-am am--refresh check check-am clean \
 	clean-generic clean-libLTLIBRARIES clean-libtool ctags dist \
@@ -1967,13 +2295,22 @@ uninstall-am: uninstall-info-am uninstall-libLTLIBRARIES
 	distdir distuninstallcheck dvi dvi-am html html-am info \
 	info-am install install-am install-data install-data-am \
 	install-exec install-exec-am install-info install-info-am \
-	install-libLTLIBRARIES install-man install-strip installcheck \
+	install-libLTLIBRARIES install-man install-pkgconfiglibDATA \
+	install-strip install-thirdpartybmsincludeHEADERS \
+	install-thirdpartynlpiincludeHEADERS \
+	install-thirdpartyscipincludeHEADERS installcheck \
 	installcheck-am installdirs maintainer-clean \
 	maintainer-clean-generic mostlyclean mostlyclean-compile \
 	mostlyclean-generic mostlyclean-libtool pdf pdf-am ps ps-am \
 	tags uninstall uninstall-am uninstall-info-am \
-	uninstall-libLTLIBRARIES
+	uninstall-libLTLIBRARIES uninstall-pkgconfiglibDATA \
+	uninstall-thirdpartybmsincludeHEADERS \
+	uninstall-thirdpartynlpiincludeHEADERS \
+	uninstall-thirdpartyscipincludeHEADERS
 
+
+test:
+	@echo "No test available for SCIP."
 
 install-doc: $(DocFiles)
 	test -z "$(DocInstallDir)" || $(mkdir_p) "$(DESTDIR)$(DocInstallDir)"
