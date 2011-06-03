@@ -52,6 +52,18 @@ AM_PROG_CC_C_O
 AC_COIN_INIT_AUTO_TOOLS
 
 #############################################################################
+#                         Check SCIP version number                         #
+#############################################################################
+
+AC_MSG_CHECKING([SCIP version])
+scipver=`awk '/define SCIP_VERSION/ {print $3}' ${srcdir}/scip/src/scip/def.h`
+scipsubver=`awk '/define SCIP_SUBVERSION/ {print $3}' ${srcdir}/scip/src/scip/def.h`
+AC_MSG_RESULT([${scipver}.${scipsubver}])
+if test $scipver -lt 200 -o $scipver -ge 210 ; then
+  AC_MSG_ERROR(["Incorrect SCIP version. This build system is made for SCIP 2.0.x"])
+fi
+
+#############################################################################
 #                       Check for external libraries                        #
 #############################################################################
 
@@ -104,7 +116,11 @@ esac
  
 CFLAGS="$CFLAGS $EXTRAFLAGS"
 CXXFLAGS="$CXXFLAGS $EXTRAFLAGS"
-  
+
+#############################################################################
+#                                Finish up                                  #
+#############################################################################
+
 AC_CONFIG_FILES([Makefile coinscip.pc coinscip-uninstalled.pc])
 
 # dummy header file to avoid many extra compiler flags
