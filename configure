@@ -2849,7 +2849,7 @@ if test x"$CFLAGS" = x; then
       *)
         coin_opt_cflags="-O3"
         coin_add_cflags="-pipe"
-        coin_dbg_cflags="-g"
+        coin_dbg_cflags="-g -O0"
         coin_warn_cflags="-Wimplicit -Wparentheses -Wsequence-point -Wreturn-type -Wcast-qual -Wall -Wno-unknown-pragmas -Wno-long-long"
         case $build in
           *-darwin*)
@@ -3783,7 +3783,7 @@ if test x"$CXXFLAGS" = x; then
 # ToDo decide about unroll-loops
         coin_opt_cxxflags="-O3"
         coin_add_cxxflags="-pipe"
-        coin_dbg_cxxflags="-g"
+        coin_dbg_cxxflags="-g -O0"
         coin_warn_cxxflags="-Wparentheses -Wreturn-type -Wcast-qual -Wall -Wpointer-arith -Wwrite-strings -Wconversion -Wno-unknown-pragmas -Wno-long-long"
         case $build in
           *-darwin*)
@@ -23151,7 +23151,7 @@ echo "$as_me: error: \"LP solver SoPlex not available." >&2;}
     SCIPLIB_LIBS="$SCIPLIB_LIBS $SOPLEX_LIBS"
     SCIPLIB_LIBS_INSTALLED="$SCIPLIB_LIBS $SOPLEX_LIBS_INSTALLED"
     SCIPLIB_PCLIBS="$SCIPLIB_PCLIBS $SOPLEX_PCLIBS"
-    SCIPLIB_PCREQUIRED="$SCIPLIB_PCREQUIRED $SOPLEX_PCREQUIRED"
+    SCIPLIB_PCREQUIRES="$SCIPLIB_PCREQUIRED $SOPLEX_PCREQUIRED"
   ;;
   clp)
     if test "$coin_has_clp" = no ; then
@@ -23163,7 +23163,7 @@ echo "$as_me: error: \"LP solver CLP not available." >&2;}
     SCIPLIB_LIBS="$SCIPLIB_LIBS $CLP_LIBS"
     SCIPLIB_LIBS_INSTALLED="$SCIPLIB_LIBS $CLP_LIBS_INSTALLED"
     SCIPLIB_PCLIBS="$SCIPLIB_PCLIBS $CLP_PCLIBS"
-    SCIPLIB_PCREQUIRED="$SCIPLIB_PCREQUIRED $CLP_PCREQUIRED"
+    SCIPLIB_PCREQUIRES="$SCIPLIB_PCREQUIRED $CLP_PCREQUIRED"
   ;;
   cplex)
     if test "$coin_has_cpx" = false ; then
