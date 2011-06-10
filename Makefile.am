@@ -289,6 +289,7 @@ thirdpartyscipinclude_HEADERS = \
   scip/src/scip/heur_undercover.h \
   scip/src/scip/heur_veclendiving.h \
   scip/src/scip/heur_zirounding.h \
+  scip/src/scip/implics.h \
   scip/src/scip/intervalarith.h \
   scip/src/scip/lpi.h \
   scip/src/scip/message.h \
