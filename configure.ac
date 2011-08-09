@@ -10,7 +10,7 @@
 
 AC_PREREQ(2.59)
 
-AC_INIT([ThirdPartyScip],[1.0.1],[http://projects.coin-or.org/BuildTools/newticket])
+AC_INIT([ThirdPartyScip],[1.0],[http://projects.coin-or.org/BuildTools/newticket])
 
 AC_COPYRIGHT([
 Copyright 2011 Stefan Vigerske and others.
@@ -28,7 +28,7 @@ AC_CONFIG_SRCDIR(scip/src/scip/scip.h)
 # /usr/local.
 AC_PREFIX_DEFAULT([`pwd`])
 
-AC_COIN_PROJECTDIR_INIT(SCIP,1:1:0)
+AC_COIN_PROJECTDIR_INIT(SCIP)
 
 #############################################################################
 #                         Standard build tool stuff                         #
