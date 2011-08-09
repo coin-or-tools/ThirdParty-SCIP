@@ -289,10 +289,12 @@ thirdpartyscipinclude_HEADERS = \
   scip/src/scip/heur_undercover.h \
   scip/src/scip/heur_veclendiving.h \
   scip/src/scip/heur_zirounding.h \
+  scip/src/scip/history.h \
   scip/src/scip/implics.h \
   scip/src/scip/intervalarith.h \
   scip/src/scip/lpi.h \
   scip/src/scip/message.h \
+  scip/src/scip/misc.h \
   scip/src/scip/nodesel_bfs.h \
   scip/src/scip/nodesel_dfs.h \
   scip/src/scip/nodesel_estimate.h \
@@ -364,6 +366,7 @@ thirdpartyscipinclude_HEADERS = \
   scip/src/scip/sepa_redcost.h \
   scip/src/scip/sepa_strongcg.h \
   scip/src/scip/sepa_zerohalf.h \
+  scip/src/scip/set.h \
   scip/src/scip/struct_branch.h \
   scip/src/scip/struct_buffer.h \
   scip/src/scip/struct_clock.h \
@@ -400,6 +403,7 @@ thirdpartyscipinclude_HEADERS = \
   scip/src/scip/struct_tree.h \
   scip/src/scip/struct_var.h \
   scip/src/scip/struct_vbc.h \
+  scip/src/scip/tree.h \
   scip/src/scip/type_branch.h \
   scip/src/scip/type_buffer.h \
   scip/src/scip/type_clock.h \
