@@ -186,8 +186,11 @@ AM_CONDITIONAL(SCIPLPI_QSO, test $scip_lpsolver = qsopt)
 AM_CONDITIONAL(SCIPLPI_NONE, test $scip_lpsolver = none)
 
 # check for NLP solvers
-#AC_COIN_CHECK_PACKAGE(Ipopt, ipopt != 3.9trunk, SCIPLib)
-AM_CONDITIONAL(COIN_HAS_IPOPT, test 0 = 1)
+if test $scipver -ge 202 ; then
+  AC_COIN_CHECK_PACKAGE(Ipopt, ipopt, SCIPLib)
+else
+  AM_CONDITIONAL(COIN_HAS_IPOPT, test 0 = 1)
+fi
 
 # check for CppAD
 AC_COIN_CHECK_PACKAGE(CppAD, cppad, SCIPLib)
