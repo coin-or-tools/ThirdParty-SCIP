@@ -9,6 +9,9 @@
 /* Define to 1 if the Cplex package is available */
 #undef COIN_HAS_CPX
 
+/* Define to 1 if GMP is available */
+#undef COIN_HAS_GMP
+
 /* Define to 1 if the Gurobi package is available */
 #undef COIN_HAS_GRB
 
@@ -20,6 +23,9 @@
 
 /* Define to 1 if the QSopt package is available */
 #undef COIN_HAS_QSO
+
+/* Define to 1 if readline is available */
+#undef COIN_HAS_READLINE
 
 /* Define to 1 if the SoPlex package is available */
 #undef COIN_HAS_SOPLEX
@@ -39,11 +45,17 @@
 /* Define to 1 if you have the <dlfcn.h> header file. */
 #undef HAVE_DLFCN_H
 
+/* Define to 1 if you have the <gmp.h> header file. */
+#undef HAVE_GMP_H
+
 /* Define to 1 if you have the <inttypes.h> header file. */
 #undef HAVE_INTTYPES_H
 
 /* Define to 1 if you have the <memory.h> header file. */
 #undef HAVE_MEMORY_H
+
+/* Define to 1 if you have the <readline/readline.h> header file. */
+#undef HAVE_READLINE_READLINE_H
 
 /* Define to 1 if you have the <stdint.h> header file. */
 #undef HAVE_STDINT_H

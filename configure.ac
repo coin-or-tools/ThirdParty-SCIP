@@ -204,6 +204,16 @@ if test $coin_has_zlib = "yes"; then
   EXTRAFLAGS="$EXTRAFLAGS -DWITH_ZLIB"  
 fi
 
+AC_COIN_CHECK_GMP(SCIPLib)
+if test $coin_has_gmp = yes; then
+  EXTRAFLAGS="$EXTRAFLAGS -DWITH_GMP"  
+fi
+
+AC_COIN_CHECK_GNU_READLINE(SCIPLib)
+if test $coin_has_readline = yes; then
+  EXTRAFLAGS="$EXTRAFLAGS -DWITH_READLINE"  
+fi
+
 AC_CHECK_MEMBER(struct sigaction.sa_handler,,
   [EXTRAFLAGS="$EXTRAFLAGS -DNO_SIGACTION"],
   [#include <signal.h>])
