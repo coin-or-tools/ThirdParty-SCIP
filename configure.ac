@@ -47,8 +47,6 @@ AC_COIN_PROG_CC
 AC_COIN_PROG_CXX
 
 # Initialize automake
-AM_INIT_AUTOMAKE([subdir-objects])
-AM_PROG_CC_C_O
 AC_COIN_INIT_AUTO_TOOLS
 
 #############################################################################
@@ -59,9 +57,9 @@ AC_MSG_CHECKING([SCIP version])
 scipver=`awk '/define SCIP_VERSION/ {print $3}' ${srcdir}/scip/src/scip/def.h`
 scipsubver=`awk '/define SCIP_SUBVERSION/ {print $3}' ${srcdir}/scip/src/scip/def.h`
 AC_MSG_RESULT([${scipver}.${scipsubver}])
-if test $scipver -lt 200 -o $scipver -ge 210 ; then
-  AC_MSG_ERROR(["Incorrect SCIP version. This build system is made for SCIP 2.0.x"])
-fi
+#if test $scipver -lt 210 -o $scipver -ge 220 ; then
+#  AC_MSG_ERROR(["Incorrect SCIP version. This build system is made for SCIP 2.1.x"])
+#fi
 
 #############################################################################
 #                       Check for external libraries                        #
@@ -198,6 +196,8 @@ AC_COIN_CHECK_PACKAGE(CppAD, cppad, SCIPLib)
 #############################################################################
 #                       Check for system header and libraries               #
 #############################################################################
+
+EXTRAFLAGS="-DNPARASCIP"
 
 AC_COIN_CHECK_GNU_ZLIB(SCIPlib)
 if test $coin_has_zlib = "yes"; then
