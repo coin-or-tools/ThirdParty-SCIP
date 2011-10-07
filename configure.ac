@@ -57,9 +57,9 @@ AC_MSG_CHECKING([SCIP version])
 scipver=`awk '/define SCIP_VERSION/ {print $3}' ${srcdir}/scip/src/scip/def.h`
 scipsubver=`awk '/define SCIP_SUBVERSION/ {print $3}' ${srcdir}/scip/src/scip/def.h`
 AC_MSG_RESULT([${scipver}.${scipsubver}])
-#if test $scipver -lt 210 -o $scipver -ge 220 ; then
-#  AC_MSG_ERROR(["Incorrect SCIP version. This build system is made for SCIP 2.1.x"])
-#fi
+if test $scipver -lt 210 -o $scipver -ge 220 ; then
+  AC_MSG_ERROR(["Incorrect SCIP version. This build system is made for SCIP 2.1.x"])
+fi
 
 #############################################################################
 #                       Check for external libraries                        #
