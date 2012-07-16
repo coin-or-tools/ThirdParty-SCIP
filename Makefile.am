@@ -1,4 +1,4 @@
-# Copyright (C) 2011 Stefan Vigerske
+# Copyright (C) 2011-2012 Stefan Vigerske
 # All Rights Reserved.
 # This file is distributed under the Eclipse Public License.
 
@@ -88,6 +88,7 @@ libcoinscip_la_SOURCES = \
   scip/src/scip/cons_soc.c \
   scip/src/scip/cons_sos1.c \
   scip/src/scip/cons_sos2.c \
+  scip/src/scip/cons_superindicator.c \
   scip/src/scip/cons_varbound.c \
   scip/src/scip/cons_xor.c \
   scip/src/scip/dialog_default.c \
@@ -106,6 +107,7 @@ libcoinscip_la_SOURCES = \
   scip/src/scip/heur_linesearchdiving.c \
   scip/src/scip/heur_localbranching.c \
   scip/src/scip/heur_mutation.c \
+  scip/src/scip/heur_nlpdiving.c \
   scip/src/scip/heur_objpscostdiving.c \
   scip/src/scip/heur_octane.c \
   scip/src/scip/heur_oneopt.c \
@@ -124,17 +126,25 @@ libcoinscip_la_SOURCES = \
   scip/src/scip/heur_undercover.c \
   scip/src/scip/heur_vbounds.c \
   scip/src/scip/heur_veclendiving.c \
+  scip/src/scip/heur_zeroobj.c \
   scip/src/scip/heur_zirounding.c \
+  scip/src/scip/message_default.c \
   scip/src/scip/nodesel_bfs.c \
   scip/src/scip/nodesel_dfs.c \
   scip/src/scip/nodesel_estimate.c \
   scip/src/scip/nodesel_hybridestim.c \
   scip/src/scip/nodesel_restartdfs.c \
   scip/src/scip/presol_boundshift.c \
+  scip/src/scip/presol_components.c \
+  scip/src/scip/presol_convertinttobin.c \
+  scip/src/scip/presol_domcol.c \
   scip/src/scip/presol_dualfix.c \
+  scip/src/scip/presol_gateextraction.c \
   scip/src/scip/presol_implics.c \
   scip/src/scip/presol_inttobinary.c \
   scip/src/scip/presol_trivial.c \
+  scip/src/scip/prop_genvbounds.c \
+  scip/src/scip/prop_obbt.c \
   scip/src/scip/prop_probing.c \
   scip/src/scip/prop_pseudoobj.c \
   scip/src/scip/prop_redcost.c \
@@ -150,6 +160,7 @@ libcoinscip_la_SOURCES = \
   scip/src/scip/reader_lp.c \
   scip/src/scip/reader_mps.c \
   scip/src/scip/reader_opb.c \
+  scip/src/scip/reader_osil.c \
   scip/src/scip/reader_pip.c \
   scip/src/scip/reader_ppm.c \
   scip/src/scip/reader_rlp.c \
@@ -176,7 +187,7 @@ libcoinscip_la_SOURCES = \
   scip/src/nlpi/expr.c \
   scip/src/nlpi/nlpi.c \
   scip/src/nlpi/nlpioracle.c \
-  scip/src/dijkstra/dijkstra_bh.c \
+  scip/src/dijkstra/dijkstra.c \
   scip/src/xml/xmlparse.c
 
 # add LP solver interface
@@ -260,6 +271,7 @@ thirdpartyscipinclude_HEADERS = \
   scip/src/scip/cons_soc.h \
   scip/src/scip/cons_sos1.h \
   scip/src/scip/cons_sos2.h \
+  scip/src/scip/cons_superindicator.h \
   scip/src/scip/cons_varbound.h \
   scip/src/scip/cons_xor.h \
   scip/src/scip/def.h \
@@ -280,6 +292,7 @@ thirdpartyscipinclude_HEADERS = \
   scip/src/scip/heur_linesearchdiving.h \
   scip/src/scip/heur_localbranching.h \
   scip/src/scip/heur_mutation.h \
+  scip/src/scip/heur_nlpdiving.h \
   scip/src/scip/heur_objpscostdiving.h \
   scip/src/scip/heur_octane.h \
   scip/src/scip/heur_oneopt.h \
@@ -298,12 +311,14 @@ thirdpartyscipinclude_HEADERS = \
   scip/src/scip/heur_undercover.h \
   scip/src/scip/heur_vbounds.h \
   scip/src/scip/heur_veclendiving.h \
+  scip/src/scip/heur_zeroobj.h \
   scip/src/scip/heur_zirounding.h \
   scip/src/scip/history.h \
   scip/src/scip/implics.h \
   scip/src/scip/intervalarith.h \
   scip/src/scip/lpi.h \
   scip/src/scip/message.h \
+  scip/src/scip/message_default.h \
   scip/src/scip/misc.h \
   scip/src/scip/nodesel_bfs.h \
   scip/src/scip/nodesel_dfs.h \
@@ -311,10 +326,16 @@ thirdpartyscipinclude_HEADERS = \
   scip/src/scip/nodesel_hybridestim.h \
   scip/src/scip/nodesel_restartdfs.h \
   scip/src/scip/presol_boundshift.h \
+  scip/src/scip/presol_components.h \
+  scip/src/scip/presol_convertinttobin.h \
+  scip/src/scip/presol_domcol.h \
   scip/src/scip/presol_dualfix.h \
+  scip/src/scip/presol_gateextraction.h \
   scip/src/scip/presol_implics.h \
   scip/src/scip/presol_inttobinary.h \
   scip/src/scip/presol_trivial.h \
+  scip/src/scip/prop_genvbounds.h \
+  scip/src/scip/prop_obbt.h \
   scip/src/scip/prop_probing.h \
   scip/src/scip/prop_pseudoobj.h \
   scip/src/scip/prop_redcost.h \
@@ -355,6 +376,7 @@ thirdpartyscipinclude_HEADERS = \
   scip/src/scip/reader_lp.h \
   scip/src/scip/reader_mps.h \
   scip/src/scip/reader_opb.h \
+  scip/src/scip/reader_osil.h \
   scip/src/scip/reader_pip.h \
   scip/src/scip/reader_ppm.h \
   scip/src/scip/reader_rlp.h \
