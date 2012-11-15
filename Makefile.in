@@ -66,10 +66,6 @@ host_triplet = @host@
 # add IPOPT as nonlinear solver, if available
 @COIN_HAS_IPOPT_TRUE@am__append_9 = scip/src/nlpi/nlpi_ipopt.cpp
 @COIN_HAS_IPOPT_FALSE@am__append_10 = scip/src/nlpi/nlpi_ipopt_dummy.c
-
-# use CppAD for expression evaluation, if available
-@COIN_HAS_CPPAD_TRUE@am__append_11 = scip/src/nlpi/exprinterpret_cppad.cpp
-@COIN_HAS_CPPAD_FALSE@am__append_12 = scip/src/nlpi/exprinterpret_none.c
 DIST_COMMON = $(am__configure_deps) $(srcdir)/BuildTools/Makemain.inc \
 	$(srcdir)/Makefile.am $(srcdir)/Makefile.in \
 	$(srcdir)/coinscip-uninstalled.pc.in $(srcdir)/coinscip.pc.in \
@@ -78,8 +74,8 @@ DIST_COMMON = $(am__configure_deps) $(srcdir)/BuildTools/Makemain.inc \
 	$(thirdpartyscipinclude_HEADERS) $(top_srcdir)/configure \
 	compile config.guess config.sub depcomp install-sh ltmain.sh \
 	missing
-@HAVE_EXTERNALS_TRUE@am__append_13 = Dependencies
-@HAVE_EXTERNALS_TRUE@am__append_14 = .Dependencies-stamp
+@HAVE_EXTERNALS_TRUE@am__append_11 = Dependencies
+@HAVE_EXTERNALS_TRUE@am__append_12 = .Dependencies-stamp
 subdir = .
 ACLOCAL_M4 = $(top_srcdir)/aclocal.m4
 am__aclocal_m4_deps = $(top_srcdir)/acinclude.m4 \
@@ -208,14 +204,13 @@ am__libcoinscip_la_SOURCES_DIST = scip/src/scip/bitencode.c \
 	scip/src/tclique/tclique_graph.c \
 	scip/src/blockmemshell/memory.c scip/src/nlpi/expr.c \
 	scip/src/nlpi/nlpi.c scip/src/nlpi/nlpioracle.c \
+	scip/src/nlpi/exprinterpret_cppad.cpp \
 	scip/src/dijkstra/dijkstra.c scip/src/xml/xmlparse.c \
 	scip/src/scip/lpi_spx.cpp scip/src/scip/lpi_clp.cpp \
 	scip/src/scip/lpi_cpx.c scip/src/scip/lpi_msk.c \
 	scip/src/scip/lpi_xprs.c scip/src/scip/lpi_grb.c \
 	scip/src/scip/lpi_qso.c scip/src/scip/lpi_none.c \
-	scip/src/nlpi/nlpi_ipopt.cpp scip/src/nlpi/nlpi_ipopt_dummy.c \
-	scip/src/nlpi/exprinterpret_cppad.cpp \
-	scip/src/nlpi/exprinterpret_none.c
+	scip/src/nlpi/nlpi_ipopt.cpp scip/src/nlpi/nlpi_ipopt_dummy.c
 @SCIPLPI_SPX_TRUE@am__objects_1 = lpi_spx.lo
 @SCIPLPI_CLP_TRUE@am__objects_2 = lpi_clp.lo
 @SCIPLPI_CPX_TRUE@am__objects_3 = lpi_cpx.lo
@@ -226,8 +221,6 @@ am__libcoinscip_la_SOURCES_DIST = scip/src/scip/bitencode.c \
 @SCIPLPI_NONE_TRUE@am__objects_8 = lpi_none.lo
 @COIN_HAS_IPOPT_TRUE@am__objects_9 = nlpi_ipopt.lo
 @COIN_HAS_IPOPT_FALSE@am__objects_10 = nlpi_ipopt_dummy.lo
-@COIN_HAS_CPPAD_TRUE@am__objects_11 = exprinterpret_cppad.lo
-@COIN_HAS_CPPAD_FALSE@am__objects_12 = exprinterpret_none.lo
 am_libcoinscip_la_OBJECTS = bitencode.lo branch.lo buffer.lo clock.lo \
 	conflict.lo cons.lo cutpool.lo debug.lo dialog.lo disp.lo \
 	event.lo fileio.lo heur.lo history.lo implics.lo interrupt.lo \
@@ -278,11 +271,11 @@ am_libcoinscip_la_OBJECTS = bitencode.lo branch.lo buffer.lo clock.lo \
 	sepa_mcf.lo sepa_oddcycle.lo sepa_rapidlearning.lo \
 	sepa_strongcg.lo sepa_zerohalf.lo tclique_branch.lo \
 	tclique_coloring.lo tclique_graph.lo memory.lo expr.lo nlpi.lo \
-	nlpioracle.lo dijkstra.lo xmlparse.lo $(am__objects_1) \
-	$(am__objects_2) $(am__objects_3) $(am__objects_4) \
-	$(am__objects_5) $(am__objects_6) $(am__objects_7) \
-	$(am__objects_8) $(am__objects_9) $(am__objects_10) \
-	$(am__objects_11) $(am__objects_12)
+	nlpioracle.lo exprinterpret_cppad.lo dijkstra.lo xmlparse.lo \
+	$(am__objects_1) $(am__objects_2) $(am__objects_3) \
+	$(am__objects_4) $(am__objects_5) $(am__objects_6) \
+	$(am__objects_7) $(am__objects_8) $(am__objects_9) \
+	$(am__objects_10)
 libcoinscip_la_OBJECTS = $(am_libcoinscip_la_OBJECTS)
 depcomp = $(SHELL) $(top_srcdir)/depcomp
 am__depfiles_maybe = depfiles
@@ -358,8 +351,6 @@ COIN_CXX_IS_CL_FALSE = @COIN_CXX_IS_CL_FALSE@
 COIN_CXX_IS_CL_TRUE = @COIN_CXX_IS_CL_TRUE@
 COIN_HAS_CLP_FALSE = @COIN_HAS_CLP_FALSE@
 COIN_HAS_CLP_TRUE = @COIN_HAS_CLP_TRUE@
-COIN_HAS_CPPAD_FALSE = @COIN_HAS_CPPAD_FALSE@
-COIN_HAS_CPPAD_TRUE = @COIN_HAS_CPPAD_TRUE@
 COIN_HAS_CPX_FALSE = @COIN_HAS_CPX_FALSE@
 COIN_HAS_CPX_TRUE = @COIN_HAS_CPX_TRUE@
 COIN_HAS_GRB_FALSE = @COIN_HAS_GRB_FALSE@
@@ -381,13 +372,6 @@ COIN_HAS_ZLIB_TRUE = @COIN_HAS_ZLIB_TRUE@
 COIN_PKG_CONFIG_PATH = @COIN_PKG_CONFIG_PATH@
 COIN_PKG_CONFIG_PATH_UNINSTALLED = @COIN_PKG_CONFIG_PATH_UNINSTALLED@
 CPP = @CPP@
-CPPAD_CFLAGS = @CPPAD_CFLAGS@
-CPPAD_CFLAGS_INSTALLED = @CPPAD_CFLAGS_INSTALLED@
-CPPAD_DATA = @CPPAD_DATA@
-CPPAD_DATA_INSTALLED = @CPPAD_DATA_INSTALLED@
-CPPAD_DEPENDENCIES = @CPPAD_DEPENDENCIES@
-CPPAD_LIBS = @CPPAD_LIBS@
-CPPAD_LIBS_INSTALLED = @CPPAD_LIBS_INSTALLED@
 CPPFLAGS = @CPPFLAGS@
 CPXINCDIR = @CPXINCDIR@
 CPXLIB = @CPXLIB@
@@ -550,7 +534,7 @@ sol_cc_compiler = @sol_cc_compiler@
 sysconfdir = @sysconfdir@
 target_alias = @target_alias@
 AUTOMAKE_OPTIONS = foreign
-EXTRA_DIST = $(am__append_13)
+EXTRA_DIST = $(am__append_11)
 lib_LTLIBRARIES = libcoinscip.la
 libcoinscip_la_SOURCES = scip/src/scip/bitencode.c \
 	scip/src/scip/branch.c scip/src/scip/buffer.c \
@@ -656,11 +640,12 @@ libcoinscip_la_SOURCES = scip/src/scip/bitencode.c \
 	scip/src/tclique/tclique_graph.c \
 	scip/src/blockmemshell/memory.c scip/src/nlpi/expr.c \
 	scip/src/nlpi/nlpi.c scip/src/nlpi/nlpioracle.c \
+	scip/src/nlpi/exprinterpret_cppad.cpp \
 	scip/src/dijkstra/dijkstra.c scip/src/xml/xmlparse.c \
 	$(am__append_1) $(am__append_2) $(am__append_3) \
 	$(am__append_4) $(am__append_5) $(am__append_6) \
 	$(am__append_7) $(am__append_8) $(am__append_9) \
-	$(am__append_10) $(am__append_11) $(am__append_12)
+	$(am__append_10)
 AM_CPPFLAGS = -I`$(CYGPATH_W) $(srcdir)/scip/src` $(SCIPLIB_CFLAGS)
 DEFAULT_INCLUDES = -I. -I`$(CYGPATH_W) $(srcdir)`
 libcoinscip_la_LDFLAGS = $(LT_LDFLAGS)
@@ -929,7 +914,7 @@ pkgconfiglib_DATA = coinscip.pc
 ########################################################################
 
 # Files that are generated and should be cleaned with make distclean
-DISTCLEANFILES = $(am__append_14) $(VPATH_DISTCLEANFILES)
+DISTCLEANFILES = $(am__append_12) $(VPATH_DISTCLEANFILES)
 DocFiles = README AUTHORS LICENSE
 DocInstallDir = $(datadir)/coin/doc/$(PACKAGE_NAME)
 all: config_scip.h
@@ -1077,7 +1062,6 @@ distclean-compile:
 @AMDEP_TRUE@@am__include@ @am__quote@./$(DEPDIR)/event.Plo@am__quote@
 @AMDEP_TRUE@@am__include@ @am__quote@./$(DEPDIR)/expr.Plo@am__quote@
 @AMDEP_TRUE@@am__include@ @am__quote@./$(DEPDIR)/exprinterpret_cppad.Plo@am__quote@
-@AMDEP_TRUE@@am__include@ @am__quote@./$(DEPDIR)/exprinterpret_none.Plo@am__quote@
 @AMDEP_TRUE@@am__include@ @am__quote@./$(DEPDIR)/fileio.Plo@am__quote@
 @AMDEP_TRUE@@am__include@ @am__quote@./$(DEPDIR)/heur.Plo@am__quote@
 @AMDEP_TRUE@@am__include@ @am__quote@./$(DEPDIR)/heur_actconsdiving.Plo@am__quote@
@@ -2534,13 +2518,6 @@ nlpi_ipopt_dummy.lo: scip/src/nlpi/nlpi_ipopt_dummy.c
 @AMDEP_TRUE@@am__fastdepCC_FALSE@	DEPDIR=$(DEPDIR) $(CCDEPMODE) $(depcomp) @AMDEPBACKSLASH@
 @am__fastdepCC_FALSE@	$(LIBTOOL) --tag=CC --mode=compile $(CC) $(DEFS) $(DEFAULT_INCLUDES) $(INCLUDES) $(AM_CPPFLAGS) $(CPPFLAGS) $(AM_CFLAGS) $(CFLAGS) -c -o nlpi_ipopt_dummy.lo `test -f 'scip/src/nlpi/nlpi_ipopt_dummy.c' || echo '$(srcdir)/'`scip/src/nlpi/nlpi_ipopt_dummy.c
 
-exprinterpret_none.lo: scip/src/nlpi/exprinterpret_none.c
-@am__fastdepCC_TRUE@	if $(LIBTOOL) --tag=CC --mode=compile $(CC) $(DEFS) $(DEFAULT_INCLUDES) $(INCLUDES) $(AM_CPPFLAGS) $(CPPFLAGS) $(AM_CFLAGS) $(CFLAGS) -MT exprinterpret_none.lo -MD -MP -MF "$(DEPDIR)/exprinterpret_none.Tpo" -c -o exprinterpret_none.lo `test -f 'scip/src/nlpi/exprinterpret_none.c' || echo '$(srcdir)/'`scip/src/nlpi/exprinterpret_none.c; \
-@am__fastdepCC_TRUE@	then mv -f "$(DEPDIR)/exprinterpret_none.Tpo" "$(DEPDIR)/exprinterpret_none.Plo"; else rm -f "$(DEPDIR)/exprinterpret_none.Tpo"; exit 1; fi
-@AMDEP_TRUE@@am__fastdepCC_FALSE@	source='scip/src/nlpi/exprinterpret_none.c' object='exprinterpret_none.lo' libtool=yes @AMDEPBACKSLASH@
-@AMDEP_TRUE@@am__fastdepCC_FALSE@	DEPDIR=$(DEPDIR) $(CCDEPMODE) $(depcomp) @AMDEPBACKSLASH@
-@am__fastdepCC_FALSE@	$(LIBTOOL) --tag=CC --mode=compile $(CC) $(DEFS) $(DEFAULT_INCLUDES) $(INCLUDES) $(AM_CPPFLAGS) $(CPPFLAGS) $(AM_CFLAGS) $(CFLAGS) -c -o exprinterpret_none.lo `test -f 'scip/src/nlpi/exprinterpret_none.c' || echo '$(srcdir)/'`scip/src/nlpi/exprinterpret_none.c
-
 .cpp.o:
 @am__fastdepCXX_TRUE@	if $(CXXCOMPILE) -MT $@ -MD -MP -MF "$(DEPDIR)/$*.Tpo" -c -o $@ $<; \
 @am__fastdepCXX_TRUE@	then mv -f "$(DEPDIR)/$*.Tpo" "$(DEPDIR)/$*.Po"; else rm -f "$(DEPDIR)/$*.Tpo"; exit 1; fi
@@ -2562,6 +2539,13 @@ exprinterpret_none.lo: scip/src/nlpi/exprinterpret_none.c
 @AMDEP_TRUE@@am__fastdepCXX_FALSE@	DEPDIR=$(DEPDIR) $(CXXDEPMODE) $(depcomp) @AMDEPBACKSLASH@
 @am__fastdepCXX_FALSE@	$(LTCXXCOMPILE) -c -o $@ $<
 
+exprinterpret_cppad.lo: scip/src/nlpi/exprinterpret_cppad.cpp
+@am__fastdepCXX_TRUE@	if $(LIBTOOL) --tag=CXX --mode=compile $(CXX) $(DEFS) $(DEFAULT_INCLUDES) $(INCLUDES) $(AM_CPPFLAGS) $(CPPFLAGS) $(AM_CXXFLAGS) $(CXXFLAGS) -MT exprinterpret_cppad.lo -MD -MP -MF "$(DEPDIR)/exprinterpret_cppad.Tpo" -c -o exprinterpret_cppad.lo `test -f 'scip/src/nlpi/exprinterpret_cppad.cpp' || echo '$(srcdir)/'`scip/src/nlpi/exprinterpret_cppad.cpp; \
+@am__fastdepCXX_TRUE@	then mv -f "$(DEPDIR)/exprinterpret_cppad.Tpo" "$(DEPDIR)/exprinterpret_cppad.Plo"; else rm -f "$(DEPDIR)/exprinterpret_cppad.Tpo"; exit 1; fi
+@AMDEP_TRUE@@am__fastdepCXX_FALSE@	source='scip/src/nlpi/exprinterpret_cppad.cpp' object='exprinterpret_cppad.lo' libtool=yes @AMDEPBACKSLASH@
+@AMDEP_TRUE@@am__fastdepCXX_FALSE@	DEPDIR=$(DEPDIR) $(CXXDEPMODE) $(depcomp) @AMDEPBACKSLASH@
+@am__fastdepCXX_FALSE@	$(LIBTOOL) --tag=CXX --mode=compile $(CXX) $(DEFS) $(DEFAULT_INCLUDES) $(INCLUDES) $(AM_CPPFLAGS) $(CPPFLAGS) $(AM_CXXFLAGS) $(CXXFLAGS) -c -o exprinterpret_cppad.lo `test -f 'scip/src/nlpi/exprinterpret_cppad.cpp' || echo '$(srcdir)/'`scip/src/nlpi/exprinterpret_cppad.cpp
+
 lpi_spx.lo: scip/src/scip/lpi_spx.cpp
 @am__fastdepCXX_TRUE@	if $(LIBTOOL) --tag=CXX --mode=compile $(CXX) $(DEFS) $(DEFAULT_INCLUDES) $(INCLUDES) $(AM_CPPFLAGS) $(CPPFLAGS) $(AM_CXXFLAGS) $(CXXFLAGS) -MT lpi_spx.lo -MD -MP -MF "$(DEPDIR)/lpi_spx.Tpo" -c -o lpi_spx.lo `test -f 'scip/src/scip/lpi_spx.cpp' || echo '$(srcdir)/'`scip/src/scip/lpi_spx.cpp; \
 @am__fastdepCXX_TRUE@	then mv -f "$(DEPDIR)/lpi_spx.Tpo" "$(DEPDIR)/lpi_spx.Plo"; else rm -f "$(DEPDIR)/lpi_spx.Tpo"; exit 1; fi
@@ -2582,13 +2566,6 @@ nlpi_ipopt.lo: scip/src/nlpi/nlpi_ipopt.cpp
 @AMDEP_TRUE@@am__fastdepCXX_FALSE@	source='scip/src/nlpi/nlpi_ipopt.cpp' object='nlpi_ipopt.lo' libtool=yes @AMDEPBACKSLASH@
 @AMDEP_TRUE@@am__fastdepCXX_FALSE@	DEPDIR=$(DEPDIR) $(CXXDEPMODE) $(depcomp) @AMDEPBACKSLASH@
 @am__fastdepCXX_FALSE@	$(LIBTOOL) --tag=CXX --mode=compile $(CXX) $(DEFS) $(DEFAULT_INCLUDES) $(INCLUDES) $(AM_CPPFLAGS) $(CPPFLAGS) $(AM_CXXFLAGS) $(CXXFLAGS) -c -o nlpi_ipopt.lo `test -f 'scip/src/nlpi/nlpi_ipopt.cpp' || echo '$(srcdir)/'`scip/src/nlpi/nlpi_ipopt.cpp
-
-exprinterpret_cppad.lo: scip/src/nlpi/exprinterpret_cppad.cpp
-@am__fastdepCXX_TRUE@	if $(LIBTOOL) --tag=CXX --mode=compile $(CXX) $(DEFS) $(DEFAULT_INCLUDES) $(INCLUDES) $(AM_CPPFLAGS) $(CPPFLAGS) $(AM_CXXFLAGS) $(CXXFLAGS) -MT exprinterpret_cppad.lo -MD -MP -MF "$(DEPDIR)/exprinterpret_cppad.Tpo" -c -o exprinterpret_cppad.lo `test -f 'scip/src/nlpi/exprinterpret_cppad.cpp' || echo '$(srcdir)/'`scip/src/nlpi/exprinterpret_cppad.cpp; \
-@am__fastdepCXX_TRUE@	then mv -f "$(DEPDIR)/exprinterpret_cppad.Tpo" "$(DEPDIR)/exprinterpret_cppad.Plo"; else rm -f "$(DEPDIR)/exprinterpret_cppad.Tpo"; exit 1; fi
-@AMDEP_TRUE@@am__fastdepCXX_FALSE@	source='scip/src/nlpi/exprinterpret_cppad.cpp' object='exprinterpret_cppad.lo' libtool=yes @AMDEPBACKSLASH@
-@AMDEP_TRUE@@am__fastdepCXX_FALSE@	DEPDIR=$(DEPDIR) $(CXXDEPMODE) $(depcomp) @AMDEPBACKSLASH@
-@am__fastdepCXX_FALSE@	$(LIBTOOL) --tag=CXX --mode=compile $(CXX) $(DEFS) $(DEFAULT_INCLUDES) $(INCLUDES) $(AM_CPPFLAGS) $(CPPFLAGS) $(AM_CXXFLAGS) $(CXXFLAGS) -c -o exprinterpret_cppad.lo `test -f 'scip/src/nlpi/exprinterpret_cppad.cpp' || echo '$(srcdir)/'`scip/src/nlpi/exprinterpret_cppad.cpp
 
 mostlyclean-libtool:
 	-rm -f *.lo

@@ -3,9 +3,6 @@
 /* Define to 1 if the Clp package is available */
 #undef COIN_HAS_CLP
 
-/* Define to 1 if the CppAD package is available */
-#undef COIN_HAS_CPPAD
-
 /* Define to 1 if the Cplex package is available */
 #undef COIN_HAS_CPX
 

@@ -187,6 +187,7 @@ libcoinscip_la_SOURCES = \
   scip/src/nlpi/expr.c \
   scip/src/nlpi/nlpi.c \
   scip/src/nlpi/nlpioracle.c \
+  scip/src/nlpi/exprinterpret_cppad.cpp \
   scip/src/dijkstra/dijkstra.c \
   scip/src/xml/xmlparse.c
 
@@ -221,13 +222,6 @@ if COIN_HAS_IPOPT
 libcoinscip_la_SOURCES += scip/src/nlpi/nlpi_ipopt.cpp
 else
 libcoinscip_la_SOURCES += scip/src/nlpi/nlpi_ipopt_dummy.c
-endif
-
-# use CppAD for expression evaluation, if available
-if COIN_HAS_CPPAD
-libcoinscip_la_SOURCES += scip/src/nlpi/exprinterpret_cppad.cpp
-else
-libcoinscip_la_SOURCES += scip/src/nlpi/exprinterpret_none.c
 endif
 
 AM_CPPFLAGS = -I`$(CYGPATH_W) $(srcdir)/scip/src` $(SCIPLIB_CFLAGS)

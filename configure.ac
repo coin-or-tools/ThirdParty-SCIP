@@ -190,9 +190,6 @@ else
   AM_CONDITIONAL(COIN_HAS_IPOPT, test 0 = 1)
 fi
 
-# check for CppAD
-AC_COIN_CHECK_PACKAGE(CppAD, cppad, SCIPLib)
-
 #############################################################################
 #                       Check for system header and libraries               #
 #############################################################################
