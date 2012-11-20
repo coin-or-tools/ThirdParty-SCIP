@@ -184,17 +184,34 @@ AM_CONDITIONAL(SCIPLPI_QSO, test $scip_lpsolver = qsopt)
 AM_CONDITIONAL(SCIPLPI_NONE, test $scip_lpsolver = none)
 
 # check for NLP solvers
-if test $scipver -ge 202 ; then
-  AC_COIN_CHECK_PACKAGE(Ipopt, ipopt, SCIPLib)
-else
-  AM_CONDITIONAL(COIN_HAS_IPOPT, test 0 = 1)
-fi
+AC_COIN_CHECK_PACKAGE(Ipopt, ipopt, SCIPLib)
 
 #############################################################################
 #                       Check for system header and libraries               #
 #############################################################################
 
-EXTRAFLAGS="-DNPARASCIP"
+EXTRAFLAGS=""
+
+AC_ARG_ENABLE([scip-threadsafe],
+  AS_HELP_STRING([--disable-scip-threadsafe],[do not build SCIP threadsafe (default=auto)]),
+  [scip_threadsafe=$enableval],
+  [scip_threadsafe=auto])  
+
+if test $scip_threadsafe = yes || test $scip_threadsafe = auto ; then 
+  AC_CHECK_LIB([pthread],[pthread_create],
+               [SCIPLIB_LIBS="-lpthread $SCIPLIB_LIBS"
+                SCIPLIB_PCLIBS="-lpthread $SCIPLIB_PCLIBS"
+               ],
+               [if test $scip_threadsafe = auto ; then
+                  AC_MSG_ERROR([--enable-cbc-parallel selected, but -lpthreads unavailable])
+                else
+                  AC_MSG_NOTICE([no pthreads, SCIP will not be threadsafe])
+                  EXTRAFLAGS="$EXTRAFLAGS -DNPARASCIP"
+                fi
+               ])
+else
+  EXTRAFLAGS="$EXTRAFLAGS -DNPARASCIP"
+fi
 
 AC_COIN_CHECK_GNU_ZLIB(SCIPlib)
 if test $coin_has_zlib = "yes"; then
