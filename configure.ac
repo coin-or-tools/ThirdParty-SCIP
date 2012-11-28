@@ -202,8 +202,8 @@ if test $scip_threadsafe = yes || test $scip_threadsafe = auto ; then
                [SCIPLIB_LIBS="-lpthread $SCIPLIB_LIBS"
                 SCIPLIB_PCLIBS="-lpthread $SCIPLIB_PCLIBS"
                ],
-               [if test $scip_threadsafe = auto ; then
-                  AC_MSG_ERROR([--enable-cbc-parallel selected, but -lpthreads unavailable])
+               [if test $scip_threadsafe = yes ; then
+                  AC_MSG_ERROR([--scip-threadsafe selected, but -lpthreads unavailable])
                 else
                   AC_MSG_NOTICE([no pthreads, SCIP will not be threadsafe])
                   EXTRAFLAGS="$EXTRAFLAGS -DNPARASCIP"

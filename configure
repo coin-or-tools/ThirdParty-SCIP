@@ -23489,9 +23489,9 @@ if test $ac_cv_lib_pthread_pthread_create = yes; then
                 SCIPLIB_PCLIBS="-lpthread $SCIPLIB_PCLIBS"
 
 else
-  if test $scip_threadsafe = auto ; then
-                  { { echo "$as_me:$LINENO: error: --enable-cbc-parallel selected, but -lpthreads unavailable" >&5
-echo "$as_me: error: --enable-cbc-parallel selected, but -lpthreads unavailable" >&2;}
+  if test $scip_threadsafe = yes ; then
+                  { { echo "$as_me:$LINENO: error: --scip-threadsafe selected, but -lpthreads unavailable" >&5
+echo "$as_me: error: --scip-threadsafe selected, but -lpthreads unavailable" >&2;}
    { (exit 1); exit 1; }; }
                 else
                   { echo "$as_me:$LINENO: no pthreads, SCIP will not be threadsafe" >&5
