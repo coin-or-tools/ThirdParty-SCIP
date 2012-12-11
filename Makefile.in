@@ -891,7 +891,8 @@ thirdpartyscipinclude_HEADERS = \
   scip/src/scip/type_tree.h \
   scip/src/scip/type_var.h \
   scip/src/scip/type_vbc.h \
-  scip/src/scip/var.h
+  scip/src/scip/var.h \
+  scip/src/scip/githash.c
 
 thirdpartybmsincludedir = $(includedir)/coin/ThirdParty/blockmemshell
 thirdpartybmsinclude_HEADERS = scip/src/blockmemshell/memory.h
