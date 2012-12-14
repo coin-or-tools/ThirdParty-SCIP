@@ -713,7 +713,7 @@ static LPISW_DECL_LPIISINFINITY((*lpiIsInfinity)) = NULL;
 static LPISW_DECL_LPIREADLP((*lpiReadLP)) = NULL;
 static LPISW_DECL_LPIWRITELP((*lpiWriteLP)) = NULL;
 
-static SCIP_LPISW_LPSOLVER currentsolver = -1;
+static SCIP_LPISW_LPSOLVER currentsolver = SCIP_LPISW_NSOLVERS;
 
 /** macro to set static function pointers to LPI functions of a particular solver
  */
@@ -905,6 +905,7 @@ SCIP_RETCODE SCIPlpiSwitchSetSolver(
          return SCIP_PLUGINNOTFOUND;
 #endif
       }
+      default: ;
    }
    SCIPerrorMessage("Unknown LP solver id %d\n", lpsolver);
 
