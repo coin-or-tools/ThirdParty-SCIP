@@ -96,6 +96,9 @@
 /* Define to the version of this package. */
 #undef PACKAGE_VERSION
 
+/* Default LP solver in SCIP */
+#undef SCIP_LPISW_LPDEFAULT
+
 /* SVN revision number of project */
 #undef SCIP_SVN_REV
 

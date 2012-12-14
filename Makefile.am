@@ -10,6 +10,12 @@ EXTRA_DIST =
 
 lib_LTLIBRARIES = libcoinscip.la
 
+AM_CPPFLAGS = -I`$(CYGPATH_W) $(srcdir)/scip/src` $(SCIPLIB_CFLAGS)
+
+DEFAULT_INCLUDES = -I. -I`$(CYGPATH_W) $(srcdir)`
+
+libcoinscip_la_LDFLAGS = $(LT_LDFLAGS)
+
 libcoinscip_la_SOURCES = \
   scip/src/scip/bitencode.c \
   scip/src/scip/branch.c \
@@ -191,31 +197,35 @@ libcoinscip_la_SOURCES = \
   scip/src/dijkstra/dijkstra.c \
   scip/src/xml/xmlparse.c
 
-# add LP solver interface
-if SCIPLPI_SPX
-  libcoinscip_la_SOURCES += scip/src/scip/lpi_spx.cpp
+# add LP solver interfaces
+libcoinscip_la_SOURCES += lpiswitch.c lpiswitch_init.cpp lpiswitch_none.c
+if COIN_HAS_SOPLEX
+  libcoinscip_la_SOURCES += lpiswitch_spx.cpp
+endif  
+if COIN_HAS_CLP
+  libcoinscip_la_SOURCES += lpiswitch_clp.cpp
 endif
-if SCIPLPI_CLP
-  libcoinscip_la_SOURCES += scip/src/scip/lpi_clp.cpp
+if COIN_HAS_CPX
+  libcoinscip_la_SOURCES += lpiswitch_cpx.c
+  AM_CPPFLAGS += -I`$(CYGPATH_W) $(CPXINCDIR)`
 endif
-if SCIPLPI_CPX
-  libcoinscip_la_SOURCES += scip/src/scip/lpi_cpx.c
+if COIN_HAS_MSK
+  libcoinscip_la_SOURCES += lpiswitch_msk.c
+  AM_CPPFLAGS += -I`$(CYGPATH_W) $(MSKINCDIR)`
 endif
-if SCIPLPI_MSK
-  libcoinscip_la_SOURCES += scip/src/scip/lpi_msk.c
+if COIN_HAS_XPR
+  libcoinscip_la_SOURCES += lpiswitch_xprs.c
+  AM_CPPFLAGS += -I`$(CYGPATH_W) $(XPRINCDIR)`
 endif
-if SCIPLPI_XPR
-  libcoinscip_la_SOURCES += scip/src/scip/lpi_xprs.c
+if COIN_HAS_GRB
+  libcoinscip_la_SOURCES += lpiswitch_grb.c
+  AM_CPPFLAGS += -I`$(CYGPATH_W) $(GRBINCDIR)`
 endif
-if SCIPLPI_GRB
-  libcoinscip_la_SOURCES += scip/src/scip/lpi_grb.c
+if COIN_HAS_QSO
+  libcoinscip_la_SOURCES += lpiswitch_qso.c
+  AM_CPPFLAGS += -I`$(CYGPATH_W) $(QSOINCDIR)`
 endif
-if SCIPLPI_QSO
-  libcoinscip_la_SOURCES += scip/src/scip/lpi_qso.c
-endif
-if SCIPLPI_NONE
-  libcoinscip_la_SOURCES += scip/src/scip/lpi_none.c
-endif
+
 
 # add IPOPT as nonlinear solver, if available
 if COIN_HAS_IPOPT
@@ -224,11 +234,8 @@ else
 libcoinscip_la_SOURCES += scip/src/nlpi/nlpi_ipopt_dummy.c
 endif
 
-AM_CPPFLAGS = -I`$(CYGPATH_W) $(srcdir)/scip/src` $(SCIPLIB_CFLAGS)
-
-DEFAULT_INCLUDES = -I. -I`$(CYGPATH_W) $(srcdir)`
-
-libcoinscip_la_LDFLAGS = $(LT_LDFLAGS)
+thirdpartyincludedir = $(includedir)/coin/ThirdParty
+thirdpartyinclude_HEADERS = lpiswitch.h
 
 thirdpartyscipincludedir = $(includedir)/coin/ThirdParty/scip
 thirdpartyscipinclude_HEADERS = \

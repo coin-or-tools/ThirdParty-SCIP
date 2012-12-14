@@ -13,7 +13,7 @@ AC_PREREQ(2.59)
 AC_INIT([ThirdPartyScip],[trunk],[http://projects.coin-or.org/BuildTools/newticket])
 
 AC_COPYRIGHT([
-Copyright 2011 Stefan Vigerske and others.
+Copyright 2011-2012 Stefan Vigerske and others.
 All Rights Reserved.
 This file is part of the open source package COIN-OR which is distributed
 under the Eclipse Public License.])
@@ -66,17 +66,17 @@ fi
 #############################################################################
 
 # check for some LP solvers
-AC_COIN_CHECK_PACKAGE(SoPlex, coinsoplex)
-AC_COIN_CHECK_PACKAGE(Clp, clp)
-AC_COIN_CHECK_USER_LIBRARY([Cplex], [CPX],[cplex.h],   [CPXgetstat])
-AC_COIN_CHECK_USER_LIBRARY([Mosek], [MSK],[mosek.h],   [MSK_makeenv])
-AC_COIN_CHECK_USER_LIBRARY([Xpress],[XPR],[xprs.h],    [XPRSinit])
-AC_COIN_CHECK_USER_LIBRARY([Gurobi],[GRB],[gurobi_c.h],[GRBloadenv])
-AC_COIN_CHECK_USER_LIBRARY([QSopt], [QSO],[qsopt.h],   [QScreate_prob])
+AC_COIN_CHECK_PACKAGE(SoPlex, coinsoplex, SCIPLib)
+AC_COIN_CHECK_PACKAGE(Clp, clp, SCIPLib)
+AC_COIN_CHECK_USER_LIBRARY([Cplex], [CPX],[cplex.h],   [CPXgetstat],,   [SCIPLib])
+AC_COIN_CHECK_USER_LIBRARY([Mosek], [MSK],[mosek.h],   [MSK_makeenv],,  [SCIPLib])
+AC_COIN_CHECK_USER_LIBRARY([Xpress],[XPR],[xprs.h],    [XPRSinit],,     [SCIPLib])
+AC_COIN_CHECK_USER_LIBRARY([Gurobi],[GRB],[gurobi_c.h],[GRBloadenv],,   [SCIPLib])
+AC_COIN_CHECK_USER_LIBRARY([QSopt], [QSO],[qsopt.h],   [QScreate_prob],,[SCIPLib])
 
 AC_ARG_WITH([scip-lpsolver],
   AS_HELP_STRING([--with-scip-lpsolver],
-    [specify LP solver to use in SCIP (soplex, clp, cplex, mosek, xpress, gurobi, qsopt, none)]),
+    [specify default LP solver to use in SCIP (soplex, clp, cplex, mosek, xpress, gurobi, qsopt, none)]),
   [if test "$withval" = no ; then
      scip_lpsolver=none
    else
@@ -100,88 +100,58 @@ AC_ARG_WITH([scip-lpsolver],
      scip_lpsolver=none
    fi
   ])
-  
+
 case "$scip_lpsolver" in
   soplex)
     if test "$coin_has_soplex" = no ; then
       AC_MSG_ERROR(["LP solver SoPlex not available.])
     fi
-    SCIPLIB_CFLAGS="$SCIPLIB_CFLAGS $SOPLEX_CFLAGS"
-    SCIPLIB_LIBS="$SCIPLIB_LIBS $SOPLEX_LIBS"
-    SCIPLIB_LIBS_INSTALLED="$SCIPLIB_LIBS $SOPLEX_LIBS_INSTALLED"
-    SCIPLIB_PCLIBS="$SCIPLIB_PCLIBS $SOPLEX_PCLIBS"
-    SCIPLIB_PCREQUIRES="$SCIPLIB_PCREQUIRES $SOPLEX_PCREQUIRES"
+    AC_DEFINE(SCIP_LPISW_LPDEFAULT, SCIP_LPISW_SOPLEX, [Default LP solver in SCIP])
   ;;
   clp)
     if test "$coin_has_clp" = no ; then
       AC_MSG_ERROR(["LP solver CLP not available.])
     fi
-    SCIPLIB_CFLAGS="$SCIPLIB_CFLAGS $CLP_CFLAGS"
-    SCIPLIB_LIBS="$SCIPLIB_LIBS $CLP_LIBS"
-    SCIPLIB_LIBS_INSTALLED="$SCIPLIB_LIBS $CLP_LIBS_INSTALLED"
-    SCIPLIB_PCLIBS="$SCIPLIB_PCLIBS $CLP_PCLIBS"
-    SCIPLIB_PCREQUIRES="$SCIPLIB_PCREQUIRES $CLP_PCREQUIRES"
+    AC_DEFINE(SCIP_LPISW_LPDEFAULT, SCIP_LPISW_CLP, [Default LP solver in SCIP])
   ;;
   cplex)
     if test "$coin_has_cpx" = false ; then
       AC_MSG_ERROR(["LP solver CPLEX not available.])
     fi
-    SCIPLIB_CFLAGS="$SCIPLIB_CFLAGS -I$CPXINCDIR"
-    SCIPLIB_LIBS="$SCIPLIB_LIBS $CPXLIB"
-    SCIPLIB_LIBS_INSTALLED="$SCIPLIB_LIBS $CPXLIB"
-    SCIPLIB_PCLIBS="$SCIPLIB_PCLIBS $CPXLIB"
+    AC_DEFINE(SCIP_LPISW_LPDEFAULT, SCIP_LPISW_CPLEX, [Default LP solver in SCIP])
   ;;
   mosek)
     if test "$coin_has_msk" = false ; then
       AC_MSG_ERROR(["LP solver Mosek not available.])
     fi
-    SCIPLIB_CFLAGS="$SCIPLIB_CFLAGS -I$MSKINCDIR"
-    SCIPLIB_LIBS="$SCIPLIB_LIBS $MSKLIB"
-    SCIPLIB_LIBS_INSTALLED="$SCIPLIB_LIBS $MSKLIB"
-    SCIPLIB_PCLIBS="$SCIPLIB_PCLIBS $MSKLIB"
+    AC_DEFINE(SCIP_LPISW_LPDEFAULT, SCIP_LPISW_MOSEK, [Default LP solver in SCIP])
   ;;
   xpress)
     if test "$coin_has_xpr" = false ; then
       AC_MSG_ERROR(["LP solver Xpress not available.])
     fi
-    SCIPLIB_CFLAGS="$SCIPLIB_CFLAGS -I$XPRINCDIR"
-    SCIPLIB_LIBS="$SCIPLIB_LIBS $XPRLIB"
-    SCIPLIB_LIBS_INSTALLED="$SCIPLIB_LIBS $XPRLIB"
-    SCIPLIB_PCLIBS="$SCIPLIB_PCLIBS $XPRLIB"
+    AC_DEFINE(SCIP_LPISW_LPDEFAULT, SCIP_LPISW_XPRESS, [Default LP solver in SCIP])
   ;;
   gurobi)
     if test "$coin_has_grb" = false ; then
       AC_MSG_ERROR(["LP solver Gurobi not available.])
     fi
-    SCIPLIB_CFLAGS="$SCIPLIB_CFLAGS -I$GRBINCDIR"
-    SCIPLIB_LIBS="$SCIPLIB_LIBS $GRBLIB"
-    SCIPLIB_LIBS_INSTALLED="$SCIPLIB_LIBS $GRBLIB"
-    SCIPLIB_PCLIBS="$SCIPLIB_PCLIBS $GRBLIB"
+    AC_DEFINE(SCIP_LPISW_LPDEFAULT, SCIP_LPISW_GUROBI, [Default LP solver in SCIP])
   ;;
   qsopt)
     if test "$coin_has_qso" = false ; then
       AC_MSG_ERROR(["LP solver QSopt not available.])
     fi
-    SCIPLIB_CFLAGS="$SCIPLIB_CFLAGS -I$QSOINCDIR"
-    SCIPLIB_LIBS="$SCIPLIB_LIBS $QSOLIB"
-    SCIPLIB_LIBS_INSTALLED="$SCIPLIB_LIBS $QSOLIB"
-    SCIPLIB_PCLIBS="$SCIPLIB_PCLIBS $QSOLIB"
+    AC_DEFINE(SCIP_LPISW_LPDEFAULT, SCIP_LPISW_QSOPT, [Default LP solver in SCIP])
   ;;
   none)
+    AC_DEFINE(SCIP_LPISW_LPDEFAULT, SCIP_LPISW_NONE, [Default LP solver in SCIP])
   ;;
   *)
     AC_MSG_ERROR([LP solver $scip_lpsolver unknown.])
   ;;
 esac
-AC_MSG_NOTICE([build with LP solver $scip_lpsolver])
-AM_CONDITIONAL(SCIPLPI_SPX, test $scip_lpsolver = soplex)
-AM_CONDITIONAL(SCIPLPI_CLP, test $scip_lpsolver = clp)
-AM_CONDITIONAL(SCIPLPI_CPX, test $scip_lpsolver = cplex)
-AM_CONDITIONAL(SCIPLPI_MSK, test $scip_lpsolver = mosek)
-AM_CONDITIONAL(SCIPLPI_XPR, test $scip_lpsolver = xpress)
-AM_CONDITIONAL(SCIPLPI_GRB, test $scip_lpsolver = gurobi)
-AM_CONDITIONAL(SCIPLPI_QSO, test $scip_lpsolver = qsopt)
-AM_CONDITIONAL(SCIPLPI_NONE, test $scip_lpsolver = none)
+AC_MSG_NOTICE([default LP solver is $scip_lpsolver])
 
 # check for NLP solvers
 AC_COIN_CHECK_PACKAGE(Ipopt, ipopt, SCIPLib)
@@ -259,7 +229,6 @@ CXXFLAGS="$CXXFLAGS $EXTRAFLAGS"
 
 AC_CONFIG_FILES([Makefile coinscip.pc coinscip-uninstalled.pc])
 
-# dummy header file to avoid many extra compiler flags
 AC_CONFIG_HEADER([config_scip.h])
  
 AC_COIN_FINALIZE

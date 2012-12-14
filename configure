@@ -9,7 +9,7 @@
 # gives unlimited permission to copy, distribute and modify it.
 #
 #
-# Copyright 2011 Stefan Vigerske and others.
+# Copyright 2011-2012 Stefan Vigerske and others.
 # All Rights Reserved.
 # This file is part of the open source package COIN-OR which is distributed
 # under the Eclipse Public License.
@@ -472,7 +472,7 @@ ac_includes_default="\
 # include <unistd.h>
 #endif"
 
-ac_subst_vars='SHELL PATH_SEPARATOR PACKAGE_NAME PACKAGE_TARNAME PACKAGE_VERSION PACKAGE_STRING PACKAGE_BUGREPORT exec_prefix prefix program_transform_name bindir sbindir libexecdir datadir sysconfdir sharedstatedir localstatedir libdir includedir oldincludedir infodir mandir build_alias host_alias target_alias DEFS ECHO_C ECHO_N ECHO_T LIBS ALWAYS_FALSE_TRUE ALWAYS_FALSE_FALSE have_svnversion SCIP_SVN_REV build build_cpu build_vendor build_os CDEFS ADD_CFLAGS DBG_CFLAGS OPT_CFLAGS sol_cc_compiler CC CFLAGS LDFLAGS CPPFLAGS ac_ct_CC EXEEXT OBJEXT COIN_CC_IS_CL_TRUE COIN_CC_IS_CL_FALSE MPICC CXXDEFS ADD_CXXFLAGS DBG_CXXFLAGS OPT_CXXFLAGS CXX CXXFLAGS ac_ct_CXX COIN_CXX_IS_CL_TRUE COIN_CXX_IS_CL_FALSE MPICXX EGREP LN_S INSTALL_PROGRAM INSTALL_SCRIPT INSTALL_DATA CYGPATH_W PACKAGE VERSION ACLOCAL AUTOCONF AUTOMAKE AUTOHEADER MAKEINFO install_sh STRIP ac_ct_STRIP INSTALL_STRIP_PROGRAM mkdir_p AWK SET_MAKE am__leading_dot AMTAR am__tar am__untar DEPDIR am__include am__quote AMDEP_TRUE AMDEP_FALSE AMDEPBACKSLASH CCDEPMODE am__fastdepCC_TRUE am__fastdepCC_FALSE CXXDEPMODE am__fastdepCXX_TRUE am__fastdepCXX_FALSE MAINTAINER_MODE_TRUE MAINTAINER_MODE_FALSE MAINT LIBTOOLM4 have_autoconf have_automake have_svn BUILDTOOLSDIR AUX_DIR abs_source_dir abs_lib_dir abs_include_dir abs_bin_dir HAVE_EXTERNALS_TRUE HAVE_EXTERNALS_FALSE host host_cpu host_vendor host_os ECHO AR ac_ct_AR RANLIB ac_ct_RANLIB CPP CXXCPP F77 FFLAGS ac_ct_F77 LIBTOOL ac_c_preproc_warn_flag ac_cxx_preproc_warn_flag RPATH_FLAGS LT_LDFLAGS PKG_CONFIG ac_pt_PKG_CONFIG COIN_HAS_PKGCONFIG_TRUE COIN_HAS_PKGCONFIG_FALSE COIN_PKG_CONFIG_PATH COIN_PKG_CONFIG_PATH_UNINSTALLED SOPLEX_LIBS SOPLEX_CFLAGS SOPLEX_DATA SOPLEX_DEPENDENCIES SOPLEX_LIBS_INSTALLED SOPLEX_CFLAGS_INSTALLED SOPLEX_DATA_INSTALLED COIN_HAS_SOPLEX_TRUE COIN_HAS_SOPLEX_FALSE CLP_LIBS CLP_CFLAGS CLP_DATA CLP_DEPENDENCIES CLP_LIBS_INSTALLED CLP_CFLAGS_INSTALLED CLP_DATA_INSTALLED COIN_HAS_CLP_TRUE COIN_HAS_CLP_FALSE CPXINCDIR CPXLIB COIN_HAS_CPX_TRUE COIN_HAS_CPX_FALSE MSKINCDIR MSKLIB COIN_HAS_MSK_TRUE COIN_HAS_MSK_FALSE XPRINCDIR XPRLIB COIN_HAS_XPR_TRUE COIN_HAS_XPR_FALSE GRBINCDIR GRBLIB COIN_HAS_GRB_TRUE COIN_HAS_GRB_FALSE QSOINCDIR QSOLIB COIN_HAS_QSO_TRUE COIN_HAS_QSO_FALSE SCIPLPI_SPX_TRUE SCIPLPI_SPX_FALSE SCIPLPI_CLP_TRUE SCIPLPI_CLP_FALSE SCIPLPI_CPX_TRUE SCIPLPI_CPX_FALSE SCIPLPI_MSK_TRUE SCIPLPI_MSK_FALSE SCIPLPI_XPR_TRUE SCIPLPI_XPR_FALSE SCIPLPI_GRB_TRUE SCIPLPI_GRB_FALSE SCIPLPI_QSO_TRUE SCIPLPI_QSO_FALSE SCIPLPI_NONE_TRUE SCIPLPI_NONE_FALSE IPOPT_LIBS IPOPT_CFLAGS IPOPT_DATA IPOPT_DEPENDENCIES IPOPT_LIBS_INSTALLED IPOPT_CFLAGS_INSTALLED IPOPT_DATA_INSTALLED SCIPLIB_CFLAGS SCIPLIB_LIBS SCIPLIB_PCLIBS SCIPLIB_PCREQUIRES SCIPLIB_DEPENDENCIES SCIPLIB_CFLAGS_INSTALLED SCIPLIB_LIBS_INSTALLED COIN_HAS_IPOPT_TRUE COIN_HAS_IPOPT_FALSE COIN_HAS_ZLIB_TRUE COIN_HAS_ZLIB_FALSE LIBEXT VPATH_DISTCLEANFILES ABSBUILDDIR LIBOBJS LTLIBOBJS'
+ac_subst_vars='SHELL PATH_SEPARATOR PACKAGE_NAME PACKAGE_TARNAME PACKAGE_VERSION PACKAGE_STRING PACKAGE_BUGREPORT exec_prefix prefix program_transform_name bindir sbindir libexecdir datadir sysconfdir sharedstatedir localstatedir libdir includedir oldincludedir infodir mandir build_alias host_alias target_alias DEFS ECHO_C ECHO_N ECHO_T LIBS ALWAYS_FALSE_TRUE ALWAYS_FALSE_FALSE have_svnversion SCIP_SVN_REV build build_cpu build_vendor build_os CDEFS ADD_CFLAGS DBG_CFLAGS OPT_CFLAGS sol_cc_compiler CC CFLAGS LDFLAGS CPPFLAGS ac_ct_CC EXEEXT OBJEXT COIN_CC_IS_CL_TRUE COIN_CC_IS_CL_FALSE MPICC CXXDEFS ADD_CXXFLAGS DBG_CXXFLAGS OPT_CXXFLAGS CXX CXXFLAGS ac_ct_CXX COIN_CXX_IS_CL_TRUE COIN_CXX_IS_CL_FALSE MPICXX EGREP LN_S INSTALL_PROGRAM INSTALL_SCRIPT INSTALL_DATA CYGPATH_W PACKAGE VERSION ACLOCAL AUTOCONF AUTOMAKE AUTOHEADER MAKEINFO install_sh STRIP ac_ct_STRIP INSTALL_STRIP_PROGRAM mkdir_p AWK SET_MAKE am__leading_dot AMTAR am__tar am__untar DEPDIR am__include am__quote AMDEP_TRUE AMDEP_FALSE AMDEPBACKSLASH CCDEPMODE am__fastdepCC_TRUE am__fastdepCC_FALSE CXXDEPMODE am__fastdepCXX_TRUE am__fastdepCXX_FALSE MAINTAINER_MODE_TRUE MAINTAINER_MODE_FALSE MAINT LIBTOOLM4 have_autoconf have_automake have_svn BUILDTOOLSDIR AUX_DIR abs_source_dir abs_lib_dir abs_include_dir abs_bin_dir HAVE_EXTERNALS_TRUE HAVE_EXTERNALS_FALSE host host_cpu host_vendor host_os ECHO AR ac_ct_AR RANLIB ac_ct_RANLIB CPP CXXCPP F77 FFLAGS ac_ct_F77 LIBTOOL ac_c_preproc_warn_flag ac_cxx_preproc_warn_flag RPATH_FLAGS LT_LDFLAGS PKG_CONFIG ac_pt_PKG_CONFIG COIN_HAS_PKGCONFIG_TRUE COIN_HAS_PKGCONFIG_FALSE COIN_PKG_CONFIG_PATH COIN_PKG_CONFIG_PATH_UNINSTALLED SOPLEX_LIBS SOPLEX_CFLAGS SOPLEX_DATA SOPLEX_DEPENDENCIES SOPLEX_LIBS_INSTALLED SOPLEX_CFLAGS_INSTALLED SOPLEX_DATA_INSTALLED SCIPLIB_CFLAGS SCIPLIB_LIBS SCIPLIB_PCLIBS SCIPLIB_PCREQUIRES SCIPLIB_DEPENDENCIES SCIPLIB_CFLAGS_INSTALLED SCIPLIB_LIBS_INSTALLED COIN_HAS_SOPLEX_TRUE COIN_HAS_SOPLEX_FALSE CLP_LIBS CLP_CFLAGS CLP_DATA CLP_DEPENDENCIES CLP_LIBS_INSTALLED CLP_CFLAGS_INSTALLED CLP_DATA_INSTALLED COIN_HAS_CLP_TRUE COIN_HAS_CLP_FALSE CPXINCDIR CPXLIB COIN_HAS_CPX_TRUE COIN_HAS_CPX_FALSE MSKINCDIR MSKLIB COIN_HAS_MSK_TRUE COIN_HAS_MSK_FALSE XPRINCDIR XPRLIB COIN_HAS_XPR_TRUE COIN_HAS_XPR_FALSE GRBINCDIR GRBLIB COIN_HAS_GRB_TRUE COIN_HAS_GRB_FALSE QSOINCDIR QSOLIB COIN_HAS_QSO_TRUE COIN_HAS_QSO_FALSE IPOPT_LIBS IPOPT_CFLAGS IPOPT_DATA IPOPT_DEPENDENCIES IPOPT_LIBS_INSTALLED IPOPT_CFLAGS_INSTALLED IPOPT_DATA_INSTALLED COIN_HAS_IPOPT_TRUE COIN_HAS_IPOPT_FALSE COIN_HAS_ZLIB_TRUE COIN_HAS_ZLIB_FALSE LIBEXT VPATH_DISTCLEANFILES ABSBUILDDIR LIBOBJS LTLIBOBJS'
 ac_subst_files=''
 
 # Initialize some variables set by options.
@@ -1146,8 +1146,8 @@ Optional Packages:
   --with-gurobi-lib specify the flags used to link with the library Gurobi
   --with-qsopt-incdir specify the header file directory for library QSopt
   --with-qsopt-lib specify the flags used to link with the library QSopt
-  --with-scip-lpsolver    specify LP solver to use in SCIP (soplex, clp,
-                          cplex, mosek, xpress, gurobi, qsopt, none)
+  --with-scip-lpsolver    specify default LP solver to use in SCIP (soplex,
+                          clp, cplex, mosek, xpress, gurobi, qsopt, none)
   --with-ipopt-lib linker flags for using package Ipopt
   --with-ipopt-incdir directory with header files for using package Ipopt
   --with-ipopt-datadir directory with data files for using package Ipopt
@@ -1287,7 +1287,7 @@ This configure script is free software; the Free Software Foundation
 gives unlimited permission to copy, distribute and modify it.
 
 
-Copyright 2011 Stefan Vigerske and others.
+Copyright 2011-2012 Stefan Vigerske and others.
 All Rights Reserved.
 This file is part of the open source package COIN-OR which is distributed
 under the Eclipse Public License.
@@ -20856,6 +20856,14 @@ SOPLEX_DATA=
 
 
 
+
+
+
+
+
+
+
+
 #check if user provided LIBS, CFLAGS, or DATA for package or disables use of package
 if test $coin_has_soplex != skipping; then
 
@@ -20869,10 +20877,13 @@ if test "${with_soplex_lib+set}" = set; then
        SOPLEX_LIBS="$withval"
        SOPLEX_PCLIBS="$withval"
 
+         SCIPLIB_PCLIBS="$withval $SCIPLIB_PCLIBS"
+         SCIPLIB_LIBS="$withval $SCIPLIB_LIBS"
+
        # if project flags are given by user and we build without pkg-config, then we need to setup the _INSTALLED variables
        if test -z "$PKG_CONFIG" ; then
          SOPLEX_LIBS_INSTALLED="$withval"
-
+         SCIPLIB_LIBS_INSTALLED="$withval $SCIPLIB_LIBS_INSTALLED"
        fi
      fi
 
@@ -20889,11 +20900,11 @@ if test "${with_soplex_incdir+set}" = set; then
      else
        coin_has_soplex=yes
        SOPLEX_CFLAGS="-I`${CYGPATH_W} $withval`"
-
+       SCIPLIB_CFLAGS="-I`${CYGPATH_W} $withval` $SCIPLIB_CFLAGS"
        # if project flags are given by user and we build without pkg-config, then we need to setup the _INSTALLED variables
        if test -z "$PKG_CONFIG" ; then
          SOPLEX_CFLAGS_INSTALLED="$SOPLEX_CFLAGS"
-
+         SCIPLIB_CFLAGS_INSTALLED="$SOPLEX_CFLAGS $SCIPLIB_CFLAGS_INSTALLED"
        fi
      fi
 
@@ -20957,7 +20968,11 @@ echo "${ECHO_T}yes: $SOPLEX_VERSIONS" >&6
         fi
         SOPLEX_PCREQUIRES="coinsoplex"
 
-        # augment X_PCREQUIRES, X_CFLAGS, and X_LIBS for each build target X in
+        # augment X_PCREQUIRES, X_CFLAGS, and X_LIBS for each build target X in SCIPLib
+
+          SCIPLIB_PCREQUIRES="coinsoplex $SCIPLIB_PCREQUIRES"
+          SCIPLIB_CFLAGS="$SOPLEX_CFLAGS $SCIPLIB_CFLAGS"
+          SCIPLIB_LIBS="$SOPLEX_LIBS $SCIPLIB_LIBS"
 
 
 
@@ -21202,6 +21217,12 @@ _ACEOF
 
   SOPLEX_PCREQUIRES="coinsoplex"
 
+    SCIPLIB_PCREQUIRES="coinsoplex $SCIPLIB_PCREQUIRES"
+    SCIPLIB_CFLAGS="$SOPLEX_CFLAGS $SCIPLIB_CFLAGS"
+    SCIPLIB_LIBS="$SOPLEX_LIBS $SCIPLIB_LIBS"
+    SCIPLIB_CFLAGS_INSTALLED="$SOPLEX_CFLAGS_INSTALLED $SCIPLIB_CFLAGS_INSTALLED"
+    SCIPLIB_LIBS_INSTALLED="$SOPLEX_LIBS_INSTALLED $SCIPLIB_LIBS_INSTALLED"
+
 
 fi
 
@@ -21249,6 +21270,8 @@ fi;
      # also remove everything of the form `xxx`yyy (may have been added for cygwin/cl)
      SOPLEX_DEPENDENCIES=`echo " $SOPLEX_LIBS" | sed -e 's/ mkl[^ ]*//g' -e 's/ libiomp5[^ ]*//g' -e 's/ wsock32[^ ]*//g' -e 's/ -framework  *[^ ]*//g' -e 's/ -[^ ]*//g' -e 's/\`[^\`]*\`[^ ]* //g'`
 
+       SCIPLIB_DEPENDENCIES=`echo " $SCIPLIB_LIBS " | sed -e 's/ mkl[^ ]*//g' -e 's/ libiomp5[^ ]*//g' -e 's/ wsock32[^ ]*//g' -e 's/ -framework  *[^ ]*//g' -e 's/ -[^ ]*//g' -e 's/\`[^\`]*\`[^ ]* //g'`
+
   fi
 
   if test 1 = 0 ; then  #change this test to enable a bit of debugging output
@@ -21276,6 +21299,13 @@ echo "$as_me: SoPlex PCLIBS are $SOPLEX_PCLIBS" >&6;}
       { echo "$as_me:$LINENO: SoPlex PCREQUIRES are $SOPLEX_PCREQUIRES" >&5
 echo "$as_me: SoPlex PCREQUIRES are $SOPLEX_PCREQUIRES" >&6;}
     fi
+
+      { echo "$as_me:$LINENO: SCIPLib CFLAGS are $SCIPLIB_CFLAGS" >&5
+echo "$as_me: SCIPLib CFLAGS are $SCIPLIB_CFLAGS" >&6;}
+      { echo "$as_me:$LINENO: SCIPLib LIBS   are $SCIPLIB_LIBS" >&5
+echo "$as_me: SCIPLib LIBS   are $SCIPLIB_LIBS" >&6;}
+      { echo "$as_me:$LINENO: SCIPLib DEPENDENCIES are $SCIPLIB_DEPENDENCIES" >&5
+echo "$as_me: SCIPLib DEPENDENCIES are $SCIPLIB_DEPENDENCIES" >&6;}
 
   fi
 fi
@@ -21337,6 +21367,14 @@ CLP_DATA=
 
 
 
+
+
+
+
+
+
+
+
 #check if user provided LIBS, CFLAGS, or DATA for package or disables use of package
 if test $coin_has_clp != skipping; then
 
@@ -21350,10 +21388,13 @@ if test "${with_clp_lib+set}" = set; then
        CLP_LIBS="$withval"
        CLP_PCLIBS="$withval"
 
+         SCIPLIB_PCLIBS="$withval $SCIPLIB_PCLIBS"
+         SCIPLIB_LIBS="$withval $SCIPLIB_LIBS"
+
        # if project flags are given by user and we build without pkg-config, then we need to setup the _INSTALLED variables
        if test -z "$PKG_CONFIG" ; then
          CLP_LIBS_INSTALLED="$withval"
-
+         SCIPLIB_LIBS_INSTALLED="$withval $SCIPLIB_LIBS_INSTALLED"
        fi
      fi
 
@@ -21370,11 +21411,11 @@ if test "${with_clp_incdir+set}" = set; then
      else
        coin_has_clp=yes
        CLP_CFLAGS="-I`${CYGPATH_W} $withval`"
-
+       SCIPLIB_CFLAGS="-I`${CYGPATH_W} $withval` $SCIPLIB_CFLAGS"
        # if project flags are given by user and we build without pkg-config, then we need to setup the _INSTALLED variables
        if test -z "$PKG_CONFIG" ; then
          CLP_CFLAGS_INSTALLED="$CLP_CFLAGS"
-
+         SCIPLIB_CFLAGS_INSTALLED="$CLP_CFLAGS $SCIPLIB_CFLAGS_INSTALLED"
        fi
      fi
 
@@ -21438,7 +21479,11 @@ echo "${ECHO_T}yes: $CLP_VERSIONS" >&6
         fi
         CLP_PCREQUIRES="clp"
 
-        # augment X_PCREQUIRES, X_CFLAGS, and X_LIBS for each build target X in
+        # augment X_PCREQUIRES, X_CFLAGS, and X_LIBS for each build target X in SCIPLib
+
+          SCIPLIB_PCREQUIRES="clp $SCIPLIB_PCREQUIRES"
+          SCIPLIB_CFLAGS="$CLP_CFLAGS $SCIPLIB_CFLAGS"
+          SCIPLIB_LIBS="$CLP_LIBS $SCIPLIB_LIBS"
 
 
 
@@ -21683,6 +21728,12 @@ _ACEOF
 
   CLP_PCREQUIRES="clp"
 
+    SCIPLIB_PCREQUIRES="clp $SCIPLIB_PCREQUIRES"
+    SCIPLIB_CFLAGS="$CLP_CFLAGS $SCIPLIB_CFLAGS"
+    SCIPLIB_LIBS="$CLP_LIBS $SCIPLIB_LIBS"
+    SCIPLIB_CFLAGS_INSTALLED="$CLP_CFLAGS_INSTALLED $SCIPLIB_CFLAGS_INSTALLED"
+    SCIPLIB_LIBS_INSTALLED="$CLP_LIBS_INSTALLED $SCIPLIB_LIBS_INSTALLED"
+
 
 fi
 
@@ -21730,6 +21781,8 @@ fi;
      # also remove everything of the form `xxx`yyy (may have been added for cygwin/cl)
      CLP_DEPENDENCIES=`echo " $CLP_LIBS" | sed -e 's/ mkl[^ ]*//g' -e 's/ libiomp5[^ ]*//g' -e 's/ wsock32[^ ]*//g' -e 's/ -framework  *[^ ]*//g' -e 's/ -[^ ]*//g' -e 's/\`[^\`]*\`[^ ]* //g'`
 
+       SCIPLIB_DEPENDENCIES=`echo " $SCIPLIB_LIBS " | sed -e 's/ mkl[^ ]*//g' -e 's/ libiomp5[^ ]*//g' -e 's/ wsock32[^ ]*//g' -e 's/ -framework  *[^ ]*//g' -e 's/ -[^ ]*//g' -e 's/\`[^\`]*\`[^ ]* //g'`
+
   fi
 
   if test 1 = 0 ; then  #change this test to enable a bit of debugging output
@@ -21757,6 +21810,13 @@ echo "$as_me: Clp PCLIBS are $CLP_PCLIBS" >&6;}
       { echo "$as_me:$LINENO: Clp PCREQUIRES are $CLP_PCREQUIRES" >&5
 echo "$as_me: Clp PCREQUIRES are $CLP_PCREQUIRES" >&6;}
     fi
+
+      { echo "$as_me:$LINENO: SCIPLib CFLAGS are $SCIPLIB_CFLAGS" >&5
+echo "$as_me: SCIPLib CFLAGS are $SCIPLIB_CFLAGS" >&6;}
+      { echo "$as_me:$LINENO: SCIPLib LIBS   are $SCIPLIB_LIBS" >&5
+echo "$as_me: SCIPLib LIBS   are $SCIPLIB_LIBS" >&6;}
+      { echo "$as_me:$LINENO: SCIPLib DEPENDENCIES are $SCIPLIB_DEPENDENCIES" >&5
+echo "$as_me: SCIPLib DEPENDENCIES are $SCIPLIB_DEPENDENCIES" >&6;}
 
   fi
 fi
@@ -21930,9 +21990,13 @@ echo "$as_me: error: Cannot find symbol(s) CPXgetstat with CPX" >&2;}
 
 
 # If we make it this far, we've verified the file and linked the function. Add
-# the necessary link flags to _{PC}LIBS and define the preprocessor symbol
+# the necessary link flags to SCIPLib_{PC}LIBS and define the preprocessor symbol
 # COIN_HAS_LBRY.
 
+
+      SCIPLIB_LIBS="$CPXLIB $SCIPLIB_LIBS"
+      SCIPLIB_PCLIBS="$CPXLIB $SCIPLIB_PCLIBS"
+      SCIPLIB_LIBS_INSTALLED="$CPXLIB $SCIPLIB_LIBS_INSTALLED"
 
 
 
@@ -22113,9 +22177,13 @@ echo "$as_me: error: Cannot find symbol(s) MSK_makeenv with MSK" >&2;}
 
 
 # If we make it this far, we've verified the file and linked the function. Add
-# the necessary link flags to _{PC}LIBS and define the preprocessor symbol
+# the necessary link flags to SCIPLib_{PC}LIBS and define the preprocessor symbol
 # COIN_HAS_LBRY.
 
+
+      SCIPLIB_LIBS="$MSKLIB $SCIPLIB_LIBS"
+      SCIPLIB_PCLIBS="$MSKLIB $SCIPLIB_PCLIBS"
+      SCIPLIB_LIBS_INSTALLED="$MSKLIB $SCIPLIB_LIBS_INSTALLED"
 
 
 
@@ -22296,9 +22364,13 @@ echo "$as_me: error: Cannot find symbol(s) XPRSinit with XPR" >&2;}
 
 
 # If we make it this far, we've verified the file and linked the function. Add
-# the necessary link flags to _{PC}LIBS and define the preprocessor symbol
+# the necessary link flags to SCIPLib_{PC}LIBS and define the preprocessor symbol
 # COIN_HAS_LBRY.
 
+
+      SCIPLIB_LIBS="$XPRLIB $SCIPLIB_LIBS"
+      SCIPLIB_PCLIBS="$XPRLIB $SCIPLIB_PCLIBS"
+      SCIPLIB_LIBS_INSTALLED="$XPRLIB $SCIPLIB_LIBS_INSTALLED"
 
 
 
@@ -22479,9 +22551,13 @@ echo "$as_me: error: Cannot find symbol(s) GRBloadenv with GRB" >&2;}
 
 
 # If we make it this far, we've verified the file and linked the function. Add
-# the necessary link flags to _{PC}LIBS and define the preprocessor symbol
+# the necessary link flags to SCIPLib_{PC}LIBS and define the preprocessor symbol
 # COIN_HAS_LBRY.
 
+
+      SCIPLIB_LIBS="$GRBLIB $SCIPLIB_LIBS"
+      SCIPLIB_PCLIBS="$GRBLIB $SCIPLIB_PCLIBS"
+      SCIPLIB_LIBS_INSTALLED="$GRBLIB $SCIPLIB_LIBS_INSTALLED"
 
 
 
@@ -22662,9 +22738,13 @@ echo "$as_me: error: Cannot find symbol(s) QScreate_prob with QSO" >&2;}
 
 
 # If we make it this far, we've verified the file and linked the function. Add
-# the necessary link flags to _{PC}LIBS and define the preprocessor symbol
+# the necessary link flags to SCIPLib_{PC}LIBS and define the preprocessor symbol
 # COIN_HAS_LBRY.
 
+
+      SCIPLIB_LIBS="$QSOLIB $SCIPLIB_LIBS"
+      SCIPLIB_PCLIBS="$QSOLIB $SCIPLIB_PCLIBS"
+      SCIPLIB_LIBS_INSTALLED="$QSOLIB $SCIPLIB_LIBS_INSTALLED"
 
 
 
@@ -22728,11 +22808,11 @@ case "$scip_lpsolver" in
 echo "$as_me: error: \"LP solver SoPlex not available." >&2;}
    { (exit 1); exit 1; }; }
     fi
-    SCIPLIB_CFLAGS="$SCIPLIB_CFLAGS $SOPLEX_CFLAGS"
-    SCIPLIB_LIBS="$SCIPLIB_LIBS $SOPLEX_LIBS"
-    SCIPLIB_LIBS_INSTALLED="$SCIPLIB_LIBS $SOPLEX_LIBS_INSTALLED"
-    SCIPLIB_PCLIBS="$SCIPLIB_PCLIBS $SOPLEX_PCLIBS"
-    SCIPLIB_PCREQUIRES="$SCIPLIB_PCREQUIRES $SOPLEX_PCREQUIRES"
+
+cat >>confdefs.h <<\_ACEOF
+#define SCIP_LPISW_LPDEFAULT SCIP_LPISW_SOPLEX
+_ACEOF
+
   ;;
   clp)
     if test "$coin_has_clp" = no ; then
@@ -22740,11 +22820,11 @@ echo "$as_me: error: \"LP solver SoPlex not available." >&2;}
 echo "$as_me: error: \"LP solver CLP not available." >&2;}
    { (exit 1); exit 1; }; }
     fi
-    SCIPLIB_CFLAGS="$SCIPLIB_CFLAGS $CLP_CFLAGS"
-    SCIPLIB_LIBS="$SCIPLIB_LIBS $CLP_LIBS"
-    SCIPLIB_LIBS_INSTALLED="$SCIPLIB_LIBS $CLP_LIBS_INSTALLED"
-    SCIPLIB_PCLIBS="$SCIPLIB_PCLIBS $CLP_PCLIBS"
-    SCIPLIB_PCREQUIRES="$SCIPLIB_PCREQUIRES $CLP_PCREQUIRES"
+
+cat >>confdefs.h <<\_ACEOF
+#define SCIP_LPISW_LPDEFAULT SCIP_LPISW_CLP
+_ACEOF
+
   ;;
   cplex)
     if test "$coin_has_cpx" = false ; then
@@ -22752,10 +22832,11 @@ echo "$as_me: error: \"LP solver CLP not available." >&2;}
 echo "$as_me: error: \"LP solver CPLEX not available." >&2;}
    { (exit 1); exit 1; }; }
     fi
-    SCIPLIB_CFLAGS="$SCIPLIB_CFLAGS -I$CPXINCDIR"
-    SCIPLIB_LIBS="$SCIPLIB_LIBS $CPXLIB"
-    SCIPLIB_LIBS_INSTALLED="$SCIPLIB_LIBS $CPXLIB"
-    SCIPLIB_PCLIBS="$SCIPLIB_PCLIBS $CPXLIB"
+
+cat >>confdefs.h <<\_ACEOF
+#define SCIP_LPISW_LPDEFAULT SCIP_LPISW_CPLEX
+_ACEOF
+
   ;;
   mosek)
     if test "$coin_has_msk" = false ; then
@@ -22763,10 +22844,11 @@ echo "$as_me: error: \"LP solver CPLEX not available." >&2;}
 echo "$as_me: error: \"LP solver Mosek not available." >&2;}
    { (exit 1); exit 1; }; }
     fi
-    SCIPLIB_CFLAGS="$SCIPLIB_CFLAGS -I$MSKINCDIR"
-    SCIPLIB_LIBS="$SCIPLIB_LIBS $MSKLIB"
-    SCIPLIB_LIBS_INSTALLED="$SCIPLIB_LIBS $MSKLIB"
-    SCIPLIB_PCLIBS="$SCIPLIB_PCLIBS $MSKLIB"
+
+cat >>confdefs.h <<\_ACEOF
+#define SCIP_LPISW_LPDEFAULT SCIP_LPISW_MOSEK
+_ACEOF
+
   ;;
   xpress)
     if test "$coin_has_xpr" = false ; then
@@ -22774,10 +22856,11 @@ echo "$as_me: error: \"LP solver Mosek not available." >&2;}
 echo "$as_me: error: \"LP solver Xpress not available." >&2;}
    { (exit 1); exit 1; }; }
     fi
-    SCIPLIB_CFLAGS="$SCIPLIB_CFLAGS -I$XPRINCDIR"
-    SCIPLIB_LIBS="$SCIPLIB_LIBS $XPRLIB"
-    SCIPLIB_LIBS_INSTALLED="$SCIPLIB_LIBS $XPRLIB"
-    SCIPLIB_PCLIBS="$SCIPLIB_PCLIBS $XPRLIB"
+
+cat >>confdefs.h <<\_ACEOF
+#define SCIP_LPISW_LPDEFAULT SCIP_LPISW_XPRESS
+_ACEOF
+
   ;;
   gurobi)
     if test "$coin_has_grb" = false ; then
@@ -22785,10 +22868,11 @@ echo "$as_me: error: \"LP solver Xpress not available." >&2;}
 echo "$as_me: error: \"LP solver Gurobi not available." >&2;}
    { (exit 1); exit 1; }; }
     fi
-    SCIPLIB_CFLAGS="$SCIPLIB_CFLAGS -I$GRBINCDIR"
-    SCIPLIB_LIBS="$SCIPLIB_LIBS $GRBLIB"
-    SCIPLIB_LIBS_INSTALLED="$SCIPLIB_LIBS $GRBLIB"
-    SCIPLIB_PCLIBS="$SCIPLIB_PCLIBS $GRBLIB"
+
+cat >>confdefs.h <<\_ACEOF
+#define SCIP_LPISW_LPDEFAULT SCIP_LPISW_GUROBI
+_ACEOF
+
   ;;
   qsopt)
     if test "$coin_has_qso" = false ; then
@@ -22796,12 +22880,18 @@ echo "$as_me: error: \"LP solver Gurobi not available." >&2;}
 echo "$as_me: error: \"LP solver QSopt not available." >&2;}
    { (exit 1); exit 1; }; }
     fi
-    SCIPLIB_CFLAGS="$SCIPLIB_CFLAGS -I$QSOINCDIR"
-    SCIPLIB_LIBS="$SCIPLIB_LIBS $QSOLIB"
-    SCIPLIB_LIBS_INSTALLED="$SCIPLIB_LIBS $QSOLIB"
-    SCIPLIB_PCLIBS="$SCIPLIB_PCLIBS $QSOLIB"
+
+cat >>confdefs.h <<\_ACEOF
+#define SCIP_LPISW_LPDEFAULT SCIP_LPISW_QSOPT
+_ACEOF
+
   ;;
   none)
+
+cat >>confdefs.h <<\_ACEOF
+#define SCIP_LPISW_LPDEFAULT SCIP_LPISW_NONE
+_ACEOF
+
   ;;
   *)
     { { echo "$as_me:$LINENO: error: LP solver $scip_lpsolver unknown." >&5
@@ -22809,88 +22899,8 @@ echo "$as_me: error: LP solver $scip_lpsolver unknown." >&2;}
    { (exit 1); exit 1; }; }
   ;;
 esac
-{ echo "$as_me:$LINENO: build with LP solver $scip_lpsolver" >&5
-echo "$as_me: build with LP solver $scip_lpsolver" >&6;}
-
-
-if test $scip_lpsolver = soplex; then
-  SCIPLPI_SPX_TRUE=
-  SCIPLPI_SPX_FALSE='#'
-else
-  SCIPLPI_SPX_TRUE='#'
-  SCIPLPI_SPX_FALSE=
-fi
-
-
-
-if test $scip_lpsolver = clp; then
-  SCIPLPI_CLP_TRUE=
-  SCIPLPI_CLP_FALSE='#'
-else
-  SCIPLPI_CLP_TRUE='#'
-  SCIPLPI_CLP_FALSE=
-fi
-
-
-
-if test $scip_lpsolver = cplex; then
-  SCIPLPI_CPX_TRUE=
-  SCIPLPI_CPX_FALSE='#'
-else
-  SCIPLPI_CPX_TRUE='#'
-  SCIPLPI_CPX_FALSE=
-fi
-
-
-
-if test $scip_lpsolver = mosek; then
-  SCIPLPI_MSK_TRUE=
-  SCIPLPI_MSK_FALSE='#'
-else
-  SCIPLPI_MSK_TRUE='#'
-  SCIPLPI_MSK_FALSE=
-fi
-
-
-
-if test $scip_lpsolver = xpress; then
-  SCIPLPI_XPR_TRUE=
-  SCIPLPI_XPR_FALSE='#'
-else
-  SCIPLPI_XPR_TRUE='#'
-  SCIPLPI_XPR_FALSE=
-fi
-
-
-
-if test $scip_lpsolver = gurobi; then
-  SCIPLPI_GRB_TRUE=
-  SCIPLPI_GRB_FALSE='#'
-else
-  SCIPLPI_GRB_TRUE='#'
-  SCIPLPI_GRB_FALSE=
-fi
-
-
-
-if test $scip_lpsolver = qsopt; then
-  SCIPLPI_QSO_TRUE=
-  SCIPLPI_QSO_FALSE='#'
-else
-  SCIPLPI_QSO_TRUE='#'
-  SCIPLPI_QSO_FALSE=
-fi
-
-
-
-if test $scip_lpsolver = none; then
-  SCIPLPI_NONE_TRUE=
-  SCIPLPI_NONE_FALSE='#'
-else
-  SCIPLPI_NONE_TRUE='#'
-  SCIPLPI_NONE_FALSE=
-fi
-
+{ echo "$as_me:$LINENO: default LP solver is $scip_lpsolver" >&5
+echo "$as_me: default LP solver is $scip_lpsolver" >&6;}
 
 # check for NLP solvers
 
@@ -25057,7 +25067,6 @@ CXXFLAGS="$CXXFLAGS $EXTRAFLAGS"
                               ac_config_files="$ac_config_files Makefile coinscip.pc coinscip-uninstalled.pc"
 
 
-# dummy header file to avoid many extra compiler flags
           ac_config_headers="$ac_config_headers config_scip.h"
 
 
@@ -25340,62 +25349,6 @@ if test -z "${COIN_HAS_QSO_TRUE}" && test -z "${COIN_HAS_QSO_FALSE}"; then
   { { echo "$as_me:$LINENO: error: conditional \"COIN_HAS_QSO\" was never defined.
 Usually this means the macro was only invoked conditionally." >&5
 echo "$as_me: error: conditional \"COIN_HAS_QSO\" was never defined.
-Usually this means the macro was only invoked conditionally." >&2;}
-   { (exit 1); exit 1; }; }
-fi
-if test -z "${SCIPLPI_SPX_TRUE}" && test -z "${SCIPLPI_SPX_FALSE}"; then
-  { { echo "$as_me:$LINENO: error: conditional \"SCIPLPI_SPX\" was never defined.
-Usually this means the macro was only invoked conditionally." >&5
-echo "$as_me: error: conditional \"SCIPLPI_SPX\" was never defined.
-Usually this means the macro was only invoked conditionally." >&2;}
-   { (exit 1); exit 1; }; }
-fi
-if test -z "${SCIPLPI_CLP_TRUE}" && test -z "${SCIPLPI_CLP_FALSE}"; then
-  { { echo "$as_me:$LINENO: error: conditional \"SCIPLPI_CLP\" was never defined.
-Usually this means the macro was only invoked conditionally." >&5
-echo "$as_me: error: conditional \"SCIPLPI_CLP\" was never defined.
-Usually this means the macro was only invoked conditionally." >&2;}
-   { (exit 1); exit 1; }; }
-fi
-if test -z "${SCIPLPI_CPX_TRUE}" && test -z "${SCIPLPI_CPX_FALSE}"; then
-  { { echo "$as_me:$LINENO: error: conditional \"SCIPLPI_CPX\" was never defined.
-Usually this means the macro was only invoked conditionally." >&5
-echo "$as_me: error: conditional \"SCIPLPI_CPX\" was never defined.
-Usually this means the macro was only invoked conditionally." >&2;}
-   { (exit 1); exit 1; }; }
-fi
-if test -z "${SCIPLPI_MSK_TRUE}" && test -z "${SCIPLPI_MSK_FALSE}"; then
-  { { echo "$as_me:$LINENO: error: conditional \"SCIPLPI_MSK\" was never defined.
-Usually this means the macro was only invoked conditionally." >&5
-echo "$as_me: error: conditional \"SCIPLPI_MSK\" was never defined.
-Usually this means the macro was only invoked conditionally." >&2;}
-   { (exit 1); exit 1; }; }
-fi
-if test -z "${SCIPLPI_XPR_TRUE}" && test -z "${SCIPLPI_XPR_FALSE}"; then
-  { { echo "$as_me:$LINENO: error: conditional \"SCIPLPI_XPR\" was never defined.
-Usually this means the macro was only invoked conditionally." >&5
-echo "$as_me: error: conditional \"SCIPLPI_XPR\" was never defined.
-Usually this means the macro was only invoked conditionally." >&2;}
-   { (exit 1); exit 1; }; }
-fi
-if test -z "${SCIPLPI_GRB_TRUE}" && test -z "${SCIPLPI_GRB_FALSE}"; then
-  { { echo "$as_me:$LINENO: error: conditional \"SCIPLPI_GRB\" was never defined.
-Usually this means the macro was only invoked conditionally." >&5
-echo "$as_me: error: conditional \"SCIPLPI_GRB\" was never defined.
-Usually this means the macro was only invoked conditionally." >&2;}
-   { (exit 1); exit 1; }; }
-fi
-if test -z "${SCIPLPI_QSO_TRUE}" && test -z "${SCIPLPI_QSO_FALSE}"; then
-  { { echo "$as_me:$LINENO: error: conditional \"SCIPLPI_QSO\" was never defined.
-Usually this means the macro was only invoked conditionally." >&5
-echo "$as_me: error: conditional \"SCIPLPI_QSO\" was never defined.
-Usually this means the macro was only invoked conditionally." >&2;}
-   { (exit 1); exit 1; }; }
-fi
-if test -z "${SCIPLPI_NONE_TRUE}" && test -z "${SCIPLPI_NONE_FALSE}"; then
-  { { echo "$as_me:$LINENO: error: conditional \"SCIPLPI_NONE\" was never defined.
-Usually this means the macro was only invoked conditionally." >&5
-echo "$as_me: error: conditional \"SCIPLPI_NONE\" was never defined.
 Usually this means the macro was only invoked conditionally." >&2;}
    { (exit 1); exit 1; }; }
 fi
@@ -26070,6 +26023,13 @@ s,@SOPLEX_DEPENDENCIES@,$SOPLEX_DEPENDENCIES,;t t
 s,@SOPLEX_LIBS_INSTALLED@,$SOPLEX_LIBS_INSTALLED,;t t
 s,@SOPLEX_CFLAGS_INSTALLED@,$SOPLEX_CFLAGS_INSTALLED,;t t
 s,@SOPLEX_DATA_INSTALLED@,$SOPLEX_DATA_INSTALLED,;t t
+s,@SCIPLIB_CFLAGS@,$SCIPLIB_CFLAGS,;t t
+s,@SCIPLIB_LIBS@,$SCIPLIB_LIBS,;t t
+s,@SCIPLIB_PCLIBS@,$SCIPLIB_PCLIBS,;t t
+s,@SCIPLIB_PCREQUIRES@,$SCIPLIB_PCREQUIRES,;t t
+s,@SCIPLIB_DEPENDENCIES@,$SCIPLIB_DEPENDENCIES,;t t
+s,@SCIPLIB_CFLAGS_INSTALLED@,$SCIPLIB_CFLAGS_INSTALLED,;t t
+s,@SCIPLIB_LIBS_INSTALLED@,$SCIPLIB_LIBS_INSTALLED,;t t
 s,@COIN_HAS_SOPLEX_TRUE@,$COIN_HAS_SOPLEX_TRUE,;t t
 s,@COIN_HAS_SOPLEX_FALSE@,$COIN_HAS_SOPLEX_FALSE,;t t
 s,@CLP_LIBS@,$CLP_LIBS,;t t
@@ -26101,22 +26061,6 @@ s,@QSOINCDIR@,$QSOINCDIR,;t t
 s,@QSOLIB@,$QSOLIB,;t t
 s,@COIN_HAS_QSO_TRUE@,$COIN_HAS_QSO_TRUE,;t t
 s,@COIN_HAS_QSO_FALSE@,$COIN_HAS_QSO_FALSE,;t t
-s,@SCIPLPI_SPX_TRUE@,$SCIPLPI_SPX_TRUE,;t t
-s,@SCIPLPI_SPX_FALSE@,$SCIPLPI_SPX_FALSE,;t t
-s,@SCIPLPI_CLP_TRUE@,$SCIPLPI_CLP_TRUE,;t t
-s,@SCIPLPI_CLP_FALSE@,$SCIPLPI_CLP_FALSE,;t t
-s,@SCIPLPI_CPX_TRUE@,$SCIPLPI_CPX_TRUE,;t t
-s,@SCIPLPI_CPX_FALSE@,$SCIPLPI_CPX_FALSE,;t t
-s,@SCIPLPI_MSK_TRUE@,$SCIPLPI_MSK_TRUE,;t t
-s,@SCIPLPI_MSK_FALSE@,$SCIPLPI_MSK_FALSE,;t t
-s,@SCIPLPI_XPR_TRUE@,$SCIPLPI_XPR_TRUE,;t t
-s,@SCIPLPI_XPR_FALSE@,$SCIPLPI_XPR_FALSE,;t t
-s,@SCIPLPI_GRB_TRUE@,$SCIPLPI_GRB_TRUE,;t t
-s,@SCIPLPI_GRB_FALSE@,$SCIPLPI_GRB_FALSE,;t t
-s,@SCIPLPI_QSO_TRUE@,$SCIPLPI_QSO_TRUE,;t t
-s,@SCIPLPI_QSO_FALSE@,$SCIPLPI_QSO_FALSE,;t t
-s,@SCIPLPI_NONE_TRUE@,$SCIPLPI_NONE_TRUE,;t t
-s,@SCIPLPI_NONE_FALSE@,$SCIPLPI_NONE_FALSE,;t t
 s,@IPOPT_LIBS@,$IPOPT_LIBS,;t t
 s,@IPOPT_CFLAGS@,$IPOPT_CFLAGS,;t t
 s,@IPOPT_DATA@,$IPOPT_DATA,;t t
@@ -26124,13 +26068,6 @@ s,@IPOPT_DEPENDENCIES@,$IPOPT_DEPENDENCIES,;t t
 s,@IPOPT_LIBS_INSTALLED@,$IPOPT_LIBS_INSTALLED,;t t
 s,@IPOPT_CFLAGS_INSTALLED@,$IPOPT_CFLAGS_INSTALLED,;t t
 s,@IPOPT_DATA_INSTALLED@,$IPOPT_DATA_INSTALLED,;t t
-s,@SCIPLIB_CFLAGS@,$SCIPLIB_CFLAGS,;t t
-s,@SCIPLIB_LIBS@,$SCIPLIB_LIBS,;t t
-s,@SCIPLIB_PCLIBS@,$SCIPLIB_PCLIBS,;t t
-s,@SCIPLIB_PCREQUIRES@,$SCIPLIB_PCREQUIRES,;t t
-s,@SCIPLIB_DEPENDENCIES@,$SCIPLIB_DEPENDENCIES,;t t
-s,@SCIPLIB_CFLAGS_INSTALLED@,$SCIPLIB_CFLAGS_INSTALLED,;t t
-s,@SCIPLIB_LIBS_INSTALLED@,$SCIPLIB_LIBS_INSTALLED,;t t
 s,@COIN_HAS_IPOPT_TRUE@,$COIN_HAS_IPOPT_TRUE,;t t
 s,@COIN_HAS_IPOPT_FALSE@,$COIN_HAS_IPOPT_FALSE,;t t
 s,@COIN_HAS_ZLIB_TRUE@,$COIN_HAS_ZLIB_TRUE,;t t

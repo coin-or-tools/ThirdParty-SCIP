@@ -52,30 +52,32 @@ PRE_UNINSTALL = :
 POST_UNINSTALL = :
 build_triplet = @build@
 host_triplet = @host@
-
-# add LP solver interface
-@SCIPLPI_SPX_TRUE@am__append_1 = scip/src/scip/lpi_spx.cpp
-@SCIPLPI_CLP_TRUE@am__append_2 = scip/src/scip/lpi_clp.cpp
-@SCIPLPI_CPX_TRUE@am__append_3 = scip/src/scip/lpi_cpx.c
-@SCIPLPI_MSK_TRUE@am__append_4 = scip/src/scip/lpi_msk.c
-@SCIPLPI_XPR_TRUE@am__append_5 = scip/src/scip/lpi_xprs.c
-@SCIPLPI_GRB_TRUE@am__append_6 = scip/src/scip/lpi_grb.c
-@SCIPLPI_QSO_TRUE@am__append_7 = scip/src/scip/lpi_qso.c
-@SCIPLPI_NONE_TRUE@am__append_8 = scip/src/scip/lpi_none.c
+@COIN_HAS_SOPLEX_TRUE@am__append_1 = lpiswitch_spx.cpp
+@COIN_HAS_CLP_TRUE@am__append_2 = lpiswitch_clp.cpp
+@COIN_HAS_CPX_TRUE@am__append_3 = lpiswitch_cpx.c
+@COIN_HAS_CPX_TRUE@am__append_4 = -I`$(CYGPATH_W) $(CPXINCDIR)`
+@COIN_HAS_MSK_TRUE@am__append_5 = lpiswitch_msk.c
+@COIN_HAS_MSK_TRUE@am__append_6 = -I`$(CYGPATH_W) $(MSKINCDIR)`
+@COIN_HAS_XPR_TRUE@am__append_7 = lpiswitch_xprs.c
+@COIN_HAS_XPR_TRUE@am__append_8 = -I`$(CYGPATH_W) $(XPRINCDIR)`
+@COIN_HAS_GRB_TRUE@am__append_9 = lpiswitch_grb.c
+@COIN_HAS_GRB_TRUE@am__append_10 = -I`$(CYGPATH_W) $(GRBINCDIR)`
+@COIN_HAS_QSO_TRUE@am__append_11 = lpiswitch_qso.c
+@COIN_HAS_QSO_TRUE@am__append_12 = -I`$(CYGPATH_W) $(QSOINCDIR)`
 
 # add IPOPT as nonlinear solver, if available
-@COIN_HAS_IPOPT_TRUE@am__append_9 = scip/src/nlpi/nlpi_ipopt.cpp
-@COIN_HAS_IPOPT_FALSE@am__append_10 = scip/src/nlpi/nlpi_ipopt_dummy.c
+@COIN_HAS_IPOPT_TRUE@am__append_13 = scip/src/nlpi/nlpi_ipopt.cpp
+@COIN_HAS_IPOPT_FALSE@am__append_14 = scip/src/nlpi/nlpi_ipopt_dummy.c
 DIST_COMMON = $(am__configure_deps) $(srcdir)/BuildTools/Makemain.inc \
 	$(srcdir)/Makefile.am $(srcdir)/Makefile.in \
 	$(srcdir)/coinscip-uninstalled.pc.in $(srcdir)/coinscip.pc.in \
 	$(srcdir)/config_scip.h.in $(thirdpartybmsinclude_HEADERS) \
-	$(thirdpartynlpiinclude_HEADERS) \
+	$(thirdpartyinclude_HEADERS) $(thirdpartynlpiinclude_HEADERS) \
 	$(thirdpartyscipinclude_HEADERS) $(top_srcdir)/configure \
 	compile config.guess config.sub depcomp install-sh ltmain.sh \
 	missing
-@HAVE_EXTERNALS_TRUE@am__append_11 = Dependencies
-@HAVE_EXTERNALS_TRUE@am__append_12 = .Dependencies-stamp
+@HAVE_EXTERNALS_TRUE@am__append_15 = Dependencies
+@HAVE_EXTERNALS_TRUE@am__append_16 = .Dependencies-stamp
 subdir = .
 ACLOCAL_M4 = $(top_srcdir)/aclocal.m4
 am__aclocal_m4_deps = $(top_srcdir)/acinclude.m4 \
@@ -95,6 +97,7 @@ am__vpath_adj = case $$p in \
 am__strip_dir = `echo $$p | sed -e 's|^.*/||'`;
 am__installdirs = "$(DESTDIR)$(libdir)" "$(DESTDIR)$(pkgconfiglibdir)" \
 	"$(DESTDIR)$(thirdpartybmsincludedir)" \
+	"$(DESTDIR)$(thirdpartyincludedir)" \
 	"$(DESTDIR)$(thirdpartynlpiincludedir)" \
 	"$(DESTDIR)$(thirdpartyscipincludedir)"
 libLTLIBRARIES_INSTALL = $(INSTALL)
@@ -206,21 +209,20 @@ am__libcoinscip_la_SOURCES_DIST = scip/src/scip/bitencode.c \
 	scip/src/nlpi/nlpi.c scip/src/nlpi/nlpioracle.c \
 	scip/src/nlpi/exprinterpret_cppad.cpp \
 	scip/src/dijkstra/dijkstra.c scip/src/xml/xmlparse.c \
-	scip/src/scip/lpi_spx.cpp scip/src/scip/lpi_clp.cpp \
-	scip/src/scip/lpi_cpx.c scip/src/scip/lpi_msk.c \
-	scip/src/scip/lpi_xprs.c scip/src/scip/lpi_grb.c \
-	scip/src/scip/lpi_qso.c scip/src/scip/lpi_none.c \
-	scip/src/nlpi/nlpi_ipopt.cpp scip/src/nlpi/nlpi_ipopt_dummy.c
-@SCIPLPI_SPX_TRUE@am__objects_1 = lpi_spx.lo
-@SCIPLPI_CLP_TRUE@am__objects_2 = lpi_clp.lo
-@SCIPLPI_CPX_TRUE@am__objects_3 = lpi_cpx.lo
-@SCIPLPI_MSK_TRUE@am__objects_4 = lpi_msk.lo
-@SCIPLPI_XPR_TRUE@am__objects_5 = lpi_xprs.lo
-@SCIPLPI_GRB_TRUE@am__objects_6 = lpi_grb.lo
-@SCIPLPI_QSO_TRUE@am__objects_7 = lpi_qso.lo
-@SCIPLPI_NONE_TRUE@am__objects_8 = lpi_none.lo
-@COIN_HAS_IPOPT_TRUE@am__objects_9 = nlpi_ipopt.lo
-@COIN_HAS_IPOPT_FALSE@am__objects_10 = nlpi_ipopt_dummy.lo
+	lpiswitch.c lpiswitch_init.cpp lpiswitch_none.c \
+	lpiswitch_spx.cpp lpiswitch_clp.cpp lpiswitch_cpx.c \
+	lpiswitch_msk.c lpiswitch_xprs.c lpiswitch_grb.c \
+	lpiswitch_qso.c scip/src/nlpi/nlpi_ipopt.cpp \
+	scip/src/nlpi/nlpi_ipopt_dummy.c
+@COIN_HAS_SOPLEX_TRUE@am__objects_1 = lpiswitch_spx.lo
+@COIN_HAS_CLP_TRUE@am__objects_2 = lpiswitch_clp.lo
+@COIN_HAS_CPX_TRUE@am__objects_3 = lpiswitch_cpx.lo
+@COIN_HAS_MSK_TRUE@am__objects_4 = lpiswitch_msk.lo
+@COIN_HAS_XPR_TRUE@am__objects_5 = lpiswitch_xprs.lo
+@COIN_HAS_GRB_TRUE@am__objects_6 = lpiswitch_grb.lo
+@COIN_HAS_QSO_TRUE@am__objects_7 = lpiswitch_qso.lo
+@COIN_HAS_IPOPT_TRUE@am__objects_8 = nlpi_ipopt.lo
+@COIN_HAS_IPOPT_FALSE@am__objects_9 = nlpi_ipopt_dummy.lo
 am_libcoinscip_la_OBJECTS = bitencode.lo branch.lo buffer.lo clock.lo \
 	conflict.lo cons.lo cutpool.lo debug.lo dialog.lo disp.lo \
 	event.lo fileio.lo heur.lo history.lo implics.lo interrupt.lo \
@@ -272,10 +274,10 @@ am_libcoinscip_la_OBJECTS = bitencode.lo branch.lo buffer.lo clock.lo \
 	sepa_strongcg.lo sepa_zerohalf.lo tclique_branch.lo \
 	tclique_coloring.lo tclique_graph.lo memory.lo expr.lo nlpi.lo \
 	nlpioracle.lo exprinterpret_cppad.lo dijkstra.lo xmlparse.lo \
+	lpiswitch.lo lpiswitch_init.lo lpiswitch_none.lo \
 	$(am__objects_1) $(am__objects_2) $(am__objects_3) \
 	$(am__objects_4) $(am__objects_5) $(am__objects_6) \
-	$(am__objects_7) $(am__objects_8) $(am__objects_9) \
-	$(am__objects_10)
+	$(am__objects_7) $(am__objects_8) $(am__objects_9)
 libcoinscip_la_OBJECTS = $(am_libcoinscip_la_OBJECTS)
 depcomp = $(SHELL) $(top_srcdir)/depcomp
 am__depfiles_maybe = depfiles
@@ -300,9 +302,10 @@ DIST_SOURCES = $(am__libcoinscip_la_SOURCES_DIST)
 pkgconfiglibDATA_INSTALL = $(INSTALL_DATA)
 DATA = $(pkgconfiglib_DATA)
 thirdpartybmsincludeHEADERS_INSTALL = $(INSTALL_HEADER)
+thirdpartyincludeHEADERS_INSTALL = $(INSTALL_HEADER)
 thirdpartynlpiincludeHEADERS_INSTALL = $(INSTALL_HEADER)
 thirdpartyscipincludeHEADERS_INSTALL = $(INSTALL_HEADER)
-HEADERS = $(thirdpartybmsinclude_HEADERS) \
+HEADERS = $(thirdpartybmsinclude_HEADERS) $(thirdpartyinclude_HEADERS) \
 	$(thirdpartynlpiinclude_HEADERS) \
 	$(thirdpartyscipinclude_HEADERS)
 ETAGS = etags
@@ -447,22 +450,6 @@ SCIPLIB_LIBS = @SCIPLIB_LIBS@
 SCIPLIB_LIBS_INSTALLED = @SCIPLIB_LIBS_INSTALLED@
 SCIPLIB_PCLIBS = @SCIPLIB_PCLIBS@
 SCIPLIB_PCREQUIRES = @SCIPLIB_PCREQUIRES@
-SCIPLPI_CLP_FALSE = @SCIPLPI_CLP_FALSE@
-SCIPLPI_CLP_TRUE = @SCIPLPI_CLP_TRUE@
-SCIPLPI_CPX_FALSE = @SCIPLPI_CPX_FALSE@
-SCIPLPI_CPX_TRUE = @SCIPLPI_CPX_TRUE@
-SCIPLPI_GRB_FALSE = @SCIPLPI_GRB_FALSE@
-SCIPLPI_GRB_TRUE = @SCIPLPI_GRB_TRUE@
-SCIPLPI_MSK_FALSE = @SCIPLPI_MSK_FALSE@
-SCIPLPI_MSK_TRUE = @SCIPLPI_MSK_TRUE@
-SCIPLPI_NONE_FALSE = @SCIPLPI_NONE_FALSE@
-SCIPLPI_NONE_TRUE = @SCIPLPI_NONE_TRUE@
-SCIPLPI_QSO_FALSE = @SCIPLPI_QSO_FALSE@
-SCIPLPI_QSO_TRUE = @SCIPLPI_QSO_TRUE@
-SCIPLPI_SPX_FALSE = @SCIPLPI_SPX_FALSE@
-SCIPLPI_SPX_TRUE = @SCIPLPI_SPX_TRUE@
-SCIPLPI_XPR_FALSE = @SCIPLPI_XPR_FALSE@
-SCIPLPI_XPR_TRUE = @SCIPLPI_XPR_TRUE@
 SCIP_SVN_REV = @SCIP_SVN_REV@
 SET_MAKE = @SET_MAKE@
 SHELL = @SHELL@
@@ -534,8 +521,15 @@ sol_cc_compiler = @sol_cc_compiler@
 sysconfdir = @sysconfdir@
 target_alias = @target_alias@
 AUTOMAKE_OPTIONS = foreign
-EXTRA_DIST = $(am__append_11)
+EXTRA_DIST = $(am__append_15)
 lib_LTLIBRARIES = libcoinscip.la
+AM_CPPFLAGS = -I`$(CYGPATH_W) $(srcdir)/scip/src` $(SCIPLIB_CFLAGS) \
+	$(am__append_4) $(am__append_6) $(am__append_8) \
+	$(am__append_10) $(am__append_12)
+DEFAULT_INCLUDES = -I. -I`$(CYGPATH_W) $(srcdir)`
+libcoinscip_la_LDFLAGS = $(LT_LDFLAGS)
+
+# add LP solver interfaces
 libcoinscip_la_SOURCES = scip/src/scip/bitencode.c \
 	scip/src/scip/branch.c scip/src/scip/buffer.c \
 	scip/src/scip/clock.c scip/src/scip/conflict.c \
@@ -642,13 +636,12 @@ libcoinscip_la_SOURCES = scip/src/scip/bitencode.c \
 	scip/src/nlpi/nlpi.c scip/src/nlpi/nlpioracle.c \
 	scip/src/nlpi/exprinterpret_cppad.cpp \
 	scip/src/dijkstra/dijkstra.c scip/src/xml/xmlparse.c \
+	lpiswitch.c lpiswitch_init.cpp lpiswitch_none.c \
 	$(am__append_1) $(am__append_2) $(am__append_3) \
-	$(am__append_4) $(am__append_5) $(am__append_6) \
-	$(am__append_7) $(am__append_8) $(am__append_9) \
-	$(am__append_10)
-AM_CPPFLAGS = -I`$(CYGPATH_W) $(srcdir)/scip/src` $(SCIPLIB_CFLAGS)
-DEFAULT_INCLUDES = -I. -I`$(CYGPATH_W) $(srcdir)`
-libcoinscip_la_LDFLAGS = $(LT_LDFLAGS)
+	$(am__append_5) $(am__append_7) $(am__append_9) \
+	$(am__append_11) $(am__append_13) $(am__append_14)
+thirdpartyincludedir = $(includedir)/coin/ThirdParty
+thirdpartyinclude_HEADERS = lpiswitch.h
 thirdpartyscipincludedir = $(includedir)/coin/ThirdParty/scip
 thirdpartyscipinclude_HEADERS = \
   scip/src/scip/branch_allfullstrong.h \
@@ -915,7 +908,7 @@ pkgconfiglib_DATA = coinscip.pc
 ########################################################################
 
 # Files that are generated and should be cleaned with make distclean
-DISTCLEANFILES = $(am__append_12) $(VPATH_DISTCLEANFILES)
+DISTCLEANFILES = $(am__append_16) $(VPATH_DISTCLEANFILES)
 DocFiles = README AUTHORS LICENSE
 DocInstallDir = $(datadir)/coin/doc/$(PACKAGE_NAME)
 all: config_scip.h
@@ -1105,14 +1098,16 @@ distclean-compile:
 @AMDEP_TRUE@@am__include@ @am__quote@./$(DEPDIR)/interrupt.Plo@am__quote@
 @AMDEP_TRUE@@am__include@ @am__quote@./$(DEPDIR)/intervalarith.Plo@am__quote@
 @AMDEP_TRUE@@am__include@ @am__quote@./$(DEPDIR)/lp.Plo@am__quote@
-@AMDEP_TRUE@@am__include@ @am__quote@./$(DEPDIR)/lpi_clp.Plo@am__quote@
-@AMDEP_TRUE@@am__include@ @am__quote@./$(DEPDIR)/lpi_cpx.Plo@am__quote@
-@AMDEP_TRUE@@am__include@ @am__quote@./$(DEPDIR)/lpi_grb.Plo@am__quote@
-@AMDEP_TRUE@@am__include@ @am__quote@./$(DEPDIR)/lpi_msk.Plo@am__quote@
-@AMDEP_TRUE@@am__include@ @am__quote@./$(DEPDIR)/lpi_none.Plo@am__quote@
-@AMDEP_TRUE@@am__include@ @am__quote@./$(DEPDIR)/lpi_qso.Plo@am__quote@
-@AMDEP_TRUE@@am__include@ @am__quote@./$(DEPDIR)/lpi_spx.Plo@am__quote@
-@AMDEP_TRUE@@am__include@ @am__quote@./$(DEPDIR)/lpi_xprs.Plo@am__quote@
+@AMDEP_TRUE@@am__include@ @am__quote@./$(DEPDIR)/lpiswitch.Plo@am__quote@
+@AMDEP_TRUE@@am__include@ @am__quote@./$(DEPDIR)/lpiswitch_clp.Plo@am__quote@
+@AMDEP_TRUE@@am__include@ @am__quote@./$(DEPDIR)/lpiswitch_cpx.Plo@am__quote@
+@AMDEP_TRUE@@am__include@ @am__quote@./$(DEPDIR)/lpiswitch_grb.Plo@am__quote@
+@AMDEP_TRUE@@am__include@ @am__quote@./$(DEPDIR)/lpiswitch_init.Plo@am__quote@
+@AMDEP_TRUE@@am__include@ @am__quote@./$(DEPDIR)/lpiswitch_msk.Plo@am__quote@
+@AMDEP_TRUE@@am__include@ @am__quote@./$(DEPDIR)/lpiswitch_none.Plo@am__quote@
+@AMDEP_TRUE@@am__include@ @am__quote@./$(DEPDIR)/lpiswitch_qso.Plo@am__quote@
+@AMDEP_TRUE@@am__include@ @am__quote@./$(DEPDIR)/lpiswitch_spx.Plo@am__quote@
+@AMDEP_TRUE@@am__include@ @am__quote@./$(DEPDIR)/lpiswitch_xprs.Plo@am__quote@
 @AMDEP_TRUE@@am__include@ @am__quote@./$(DEPDIR)/mem.Plo@am__quote@
 @AMDEP_TRUE@@am__include@ @am__quote@./$(DEPDIR)/memory.Plo@am__quote@
 @AMDEP_TRUE@@am__include@ @am__quote@./$(DEPDIR)/message.Plo@am__quote@
@@ -2470,48 +2465,6 @@ xmlparse.lo: scip/src/xml/xmlparse.c
 @AMDEP_TRUE@@am__fastdepCC_FALSE@	DEPDIR=$(DEPDIR) $(CCDEPMODE) $(depcomp) @AMDEPBACKSLASH@
 @am__fastdepCC_FALSE@	$(LIBTOOL) --tag=CC --mode=compile $(CC) $(DEFS) $(DEFAULT_INCLUDES) $(INCLUDES) $(AM_CPPFLAGS) $(CPPFLAGS) $(AM_CFLAGS) $(CFLAGS) -c -o xmlparse.lo `test -f 'scip/src/xml/xmlparse.c' || echo '$(srcdir)/'`scip/src/xml/xmlparse.c
 
-lpi_cpx.lo: scip/src/scip/lpi_cpx.c
-@am__fastdepCC_TRUE@	if $(LIBTOOL) --tag=CC --mode=compile $(CC) $(DEFS) $(DEFAULT_INCLUDES) $(INCLUDES) $(AM_CPPFLAGS) $(CPPFLAGS) $(AM_CFLAGS) $(CFLAGS) -MT lpi_cpx.lo -MD -MP -MF "$(DEPDIR)/lpi_cpx.Tpo" -c -o lpi_cpx.lo `test -f 'scip/src/scip/lpi_cpx.c' || echo '$(srcdir)/'`scip/src/scip/lpi_cpx.c; \
-@am__fastdepCC_TRUE@	then mv -f "$(DEPDIR)/lpi_cpx.Tpo" "$(DEPDIR)/lpi_cpx.Plo"; else rm -f "$(DEPDIR)/lpi_cpx.Tpo"; exit 1; fi
-@AMDEP_TRUE@@am__fastdepCC_FALSE@	source='scip/src/scip/lpi_cpx.c' object='lpi_cpx.lo' libtool=yes @AMDEPBACKSLASH@
-@AMDEP_TRUE@@am__fastdepCC_FALSE@	DEPDIR=$(DEPDIR) $(CCDEPMODE) $(depcomp) @AMDEPBACKSLASH@
-@am__fastdepCC_FALSE@	$(LIBTOOL) --tag=CC --mode=compile $(CC) $(DEFS) $(DEFAULT_INCLUDES) $(INCLUDES) $(AM_CPPFLAGS) $(CPPFLAGS) $(AM_CFLAGS) $(CFLAGS) -c -o lpi_cpx.lo `test -f 'scip/src/scip/lpi_cpx.c' || echo '$(srcdir)/'`scip/src/scip/lpi_cpx.c
-
-lpi_msk.lo: scip/src/scip/lpi_msk.c
-@am__fastdepCC_TRUE@	if $(LIBTOOL) --tag=CC --mode=compile $(CC) $(DEFS) $(DEFAULT_INCLUDES) $(INCLUDES) $(AM_CPPFLAGS) $(CPPFLAGS) $(AM_CFLAGS) $(CFLAGS) -MT lpi_msk.lo -MD -MP -MF "$(DEPDIR)/lpi_msk.Tpo" -c -o lpi_msk.lo `test -f 'scip/src/scip/lpi_msk.c' || echo '$(srcdir)/'`scip/src/scip/lpi_msk.c; \
-@am__fastdepCC_TRUE@	then mv -f "$(DEPDIR)/lpi_msk.Tpo" "$(DEPDIR)/lpi_msk.Plo"; else rm -f "$(DEPDIR)/lpi_msk.Tpo"; exit 1; fi
-@AMDEP_TRUE@@am__fastdepCC_FALSE@	source='scip/src/scip/lpi_msk.c' object='lpi_msk.lo' libtool=yes @AMDEPBACKSLASH@
-@AMDEP_TRUE@@am__fastdepCC_FALSE@	DEPDIR=$(DEPDIR) $(CCDEPMODE) $(depcomp) @AMDEPBACKSLASH@
-@am__fastdepCC_FALSE@	$(LIBTOOL) --tag=CC --mode=compile $(CC) $(DEFS) $(DEFAULT_INCLUDES) $(INCLUDES) $(AM_CPPFLAGS) $(CPPFLAGS) $(AM_CFLAGS) $(CFLAGS) -c -o lpi_msk.lo `test -f 'scip/src/scip/lpi_msk.c' || echo '$(srcdir)/'`scip/src/scip/lpi_msk.c
-
-lpi_xprs.lo: scip/src/scip/lpi_xprs.c
-@am__fastdepCC_TRUE@	if $(LIBTOOL) --tag=CC --mode=compile $(CC) $(DEFS) $(DEFAULT_INCLUDES) $(INCLUDES) $(AM_CPPFLAGS) $(CPPFLAGS) $(AM_CFLAGS) $(CFLAGS) -MT lpi_xprs.lo -MD -MP -MF "$(DEPDIR)/lpi_xprs.Tpo" -c -o lpi_xprs.lo `test -f 'scip/src/scip/lpi_xprs.c' || echo '$(srcdir)/'`scip/src/scip/lpi_xprs.c; \
-@am__fastdepCC_TRUE@	then mv -f "$(DEPDIR)/lpi_xprs.Tpo" "$(DEPDIR)/lpi_xprs.Plo"; else rm -f "$(DEPDIR)/lpi_xprs.Tpo"; exit 1; fi
-@AMDEP_TRUE@@am__fastdepCC_FALSE@	source='scip/src/scip/lpi_xprs.c' object='lpi_xprs.lo' libtool=yes @AMDEPBACKSLASH@
-@AMDEP_TRUE@@am__fastdepCC_FALSE@	DEPDIR=$(DEPDIR) $(CCDEPMODE) $(depcomp) @AMDEPBACKSLASH@
-@am__fastdepCC_FALSE@	$(LIBTOOL) --tag=CC --mode=compile $(CC) $(DEFS) $(DEFAULT_INCLUDES) $(INCLUDES) $(AM_CPPFLAGS) $(CPPFLAGS) $(AM_CFLAGS) $(CFLAGS) -c -o lpi_xprs.lo `test -f 'scip/src/scip/lpi_xprs.c' || echo '$(srcdir)/'`scip/src/scip/lpi_xprs.c
-
-lpi_grb.lo: scip/src/scip/lpi_grb.c
-@am__fastdepCC_TRUE@	if $(LIBTOOL) --tag=CC --mode=compile $(CC) $(DEFS) $(DEFAULT_INCLUDES) $(INCLUDES) $(AM_CPPFLAGS) $(CPPFLAGS) $(AM_CFLAGS) $(CFLAGS) -MT lpi_grb.lo -MD -MP -MF "$(DEPDIR)/lpi_grb.Tpo" -c -o lpi_grb.lo `test -f 'scip/src/scip/lpi_grb.c' || echo '$(srcdir)/'`scip/src/scip/lpi_grb.c; \
-@am__fastdepCC_TRUE@	then mv -f "$(DEPDIR)/lpi_grb.Tpo" "$(DEPDIR)/lpi_grb.Plo"; else rm -f "$(DEPDIR)/lpi_grb.Tpo"; exit 1; fi
-@AMDEP_TRUE@@am__fastdepCC_FALSE@	source='scip/src/scip/lpi_grb.c' object='lpi_grb.lo' libtool=yes @AMDEPBACKSLASH@
-@AMDEP_TRUE@@am__fastdepCC_FALSE@	DEPDIR=$(DEPDIR) $(CCDEPMODE) $(depcomp) @AMDEPBACKSLASH@
-@am__fastdepCC_FALSE@	$(LIBTOOL) --tag=CC --mode=compile $(CC) $(DEFS) $(DEFAULT_INCLUDES) $(INCLUDES) $(AM_CPPFLAGS) $(CPPFLAGS) $(AM_CFLAGS) $(CFLAGS) -c -o lpi_grb.lo `test -f 'scip/src/scip/lpi_grb.c' || echo '$(srcdir)/'`scip/src/scip/lpi_grb.c
-
-lpi_qso.lo: scip/src/scip/lpi_qso.c
-@am__fastdepCC_TRUE@	if $(LIBTOOL) --tag=CC --mode=compile $(CC) $(DEFS) $(DEFAULT_INCLUDES) $(INCLUDES) $(AM_CPPFLAGS) $(CPPFLAGS) $(AM_CFLAGS) $(CFLAGS) -MT lpi_qso.lo -MD -MP -MF "$(DEPDIR)/lpi_qso.Tpo" -c -o lpi_qso.lo `test -f 'scip/src/scip/lpi_qso.c' || echo '$(srcdir)/'`scip/src/scip/lpi_qso.c; \
-@am__fastdepCC_TRUE@	then mv -f "$(DEPDIR)/lpi_qso.Tpo" "$(DEPDIR)/lpi_qso.Plo"; else rm -f "$(DEPDIR)/lpi_qso.Tpo"; exit 1; fi
-@AMDEP_TRUE@@am__fastdepCC_FALSE@	source='scip/src/scip/lpi_qso.c' object='lpi_qso.lo' libtool=yes @AMDEPBACKSLASH@
-@AMDEP_TRUE@@am__fastdepCC_FALSE@	DEPDIR=$(DEPDIR) $(CCDEPMODE) $(depcomp) @AMDEPBACKSLASH@
-@am__fastdepCC_FALSE@	$(LIBTOOL) --tag=CC --mode=compile $(CC) $(DEFS) $(DEFAULT_INCLUDES) $(INCLUDES) $(AM_CPPFLAGS) $(CPPFLAGS) $(AM_CFLAGS) $(CFLAGS) -c -o lpi_qso.lo `test -f 'scip/src/scip/lpi_qso.c' || echo '$(srcdir)/'`scip/src/scip/lpi_qso.c
-
-lpi_none.lo: scip/src/scip/lpi_none.c
-@am__fastdepCC_TRUE@	if $(LIBTOOL) --tag=CC --mode=compile $(CC) $(DEFS) $(DEFAULT_INCLUDES) $(INCLUDES) $(AM_CPPFLAGS) $(CPPFLAGS) $(AM_CFLAGS) $(CFLAGS) -MT lpi_none.lo -MD -MP -MF "$(DEPDIR)/lpi_none.Tpo" -c -o lpi_none.lo `test -f 'scip/src/scip/lpi_none.c' || echo '$(srcdir)/'`scip/src/scip/lpi_none.c; \
-@am__fastdepCC_TRUE@	then mv -f "$(DEPDIR)/lpi_none.Tpo" "$(DEPDIR)/lpi_none.Plo"; else rm -f "$(DEPDIR)/lpi_none.Tpo"; exit 1; fi
-@AMDEP_TRUE@@am__fastdepCC_FALSE@	source='scip/src/scip/lpi_none.c' object='lpi_none.lo' libtool=yes @AMDEPBACKSLASH@
-@AMDEP_TRUE@@am__fastdepCC_FALSE@	DEPDIR=$(DEPDIR) $(CCDEPMODE) $(depcomp) @AMDEPBACKSLASH@
-@am__fastdepCC_FALSE@	$(LIBTOOL) --tag=CC --mode=compile $(CC) $(DEFS) $(DEFAULT_INCLUDES) $(INCLUDES) $(AM_CPPFLAGS) $(CPPFLAGS) $(AM_CFLAGS) $(CFLAGS) -c -o lpi_none.lo `test -f 'scip/src/scip/lpi_none.c' || echo '$(srcdir)/'`scip/src/scip/lpi_none.c
-
 nlpi_ipopt_dummy.lo: scip/src/nlpi/nlpi_ipopt_dummy.c
 @am__fastdepCC_TRUE@	if $(LIBTOOL) --tag=CC --mode=compile $(CC) $(DEFS) $(DEFAULT_INCLUDES) $(INCLUDES) $(AM_CPPFLAGS) $(CPPFLAGS) $(AM_CFLAGS) $(CFLAGS) -MT nlpi_ipopt_dummy.lo -MD -MP -MF "$(DEPDIR)/nlpi_ipopt_dummy.Tpo" -c -o nlpi_ipopt_dummy.lo `test -f 'scip/src/nlpi/nlpi_ipopt_dummy.c' || echo '$(srcdir)/'`scip/src/nlpi/nlpi_ipopt_dummy.c; \
 @am__fastdepCC_TRUE@	then mv -f "$(DEPDIR)/nlpi_ipopt_dummy.Tpo" "$(DEPDIR)/nlpi_ipopt_dummy.Plo"; else rm -f "$(DEPDIR)/nlpi_ipopt_dummy.Tpo"; exit 1; fi
@@ -2546,20 +2499,6 @@ exprinterpret_cppad.lo: scip/src/nlpi/exprinterpret_cppad.cpp
 @AMDEP_TRUE@@am__fastdepCXX_FALSE@	source='scip/src/nlpi/exprinterpret_cppad.cpp' object='exprinterpret_cppad.lo' libtool=yes @AMDEPBACKSLASH@
 @AMDEP_TRUE@@am__fastdepCXX_FALSE@	DEPDIR=$(DEPDIR) $(CXXDEPMODE) $(depcomp) @AMDEPBACKSLASH@
 @am__fastdepCXX_FALSE@	$(LIBTOOL) --tag=CXX --mode=compile $(CXX) $(DEFS) $(DEFAULT_INCLUDES) $(INCLUDES) $(AM_CPPFLAGS) $(CPPFLAGS) $(AM_CXXFLAGS) $(CXXFLAGS) -c -o exprinterpret_cppad.lo `test -f 'scip/src/nlpi/exprinterpret_cppad.cpp' || echo '$(srcdir)/'`scip/src/nlpi/exprinterpret_cppad.cpp
-
-lpi_spx.lo: scip/src/scip/lpi_spx.cpp
-@am__fastdepCXX_TRUE@	if $(LIBTOOL) --tag=CXX --mode=compile $(CXX) $(DEFS) $(DEFAULT_INCLUDES) $(INCLUDES) $(AM_CPPFLAGS) $(CPPFLAGS) $(AM_CXXFLAGS) $(CXXFLAGS) -MT lpi_spx.lo -MD -MP -MF "$(DEPDIR)/lpi_spx.Tpo" -c -o lpi_spx.lo `test -f 'scip/src/scip/lpi_spx.cpp' || echo '$(srcdir)/'`scip/src/scip/lpi_spx.cpp; \
-@am__fastdepCXX_TRUE@	then mv -f "$(DEPDIR)/lpi_spx.Tpo" "$(DEPDIR)/lpi_spx.Plo"; else rm -f "$(DEPDIR)/lpi_spx.Tpo"; exit 1; fi
-@AMDEP_TRUE@@am__fastdepCXX_FALSE@	source='scip/src/scip/lpi_spx.cpp' object='lpi_spx.lo' libtool=yes @AMDEPBACKSLASH@
-@AMDEP_TRUE@@am__fastdepCXX_FALSE@	DEPDIR=$(DEPDIR) $(CXXDEPMODE) $(depcomp) @AMDEPBACKSLASH@
-@am__fastdepCXX_FALSE@	$(LIBTOOL) --tag=CXX --mode=compile $(CXX) $(DEFS) $(DEFAULT_INCLUDES) $(INCLUDES) $(AM_CPPFLAGS) $(CPPFLAGS) $(AM_CXXFLAGS) $(CXXFLAGS) -c -o lpi_spx.lo `test -f 'scip/src/scip/lpi_spx.cpp' || echo '$(srcdir)/'`scip/src/scip/lpi_spx.cpp
-
-lpi_clp.lo: scip/src/scip/lpi_clp.cpp
-@am__fastdepCXX_TRUE@	if $(LIBTOOL) --tag=CXX --mode=compile $(CXX) $(DEFS) $(DEFAULT_INCLUDES) $(INCLUDES) $(AM_CPPFLAGS) $(CPPFLAGS) $(AM_CXXFLAGS) $(CXXFLAGS) -MT lpi_clp.lo -MD -MP -MF "$(DEPDIR)/lpi_clp.Tpo" -c -o lpi_clp.lo `test -f 'scip/src/scip/lpi_clp.cpp' || echo '$(srcdir)/'`scip/src/scip/lpi_clp.cpp; \
-@am__fastdepCXX_TRUE@	then mv -f "$(DEPDIR)/lpi_clp.Tpo" "$(DEPDIR)/lpi_clp.Plo"; else rm -f "$(DEPDIR)/lpi_clp.Tpo"; exit 1; fi
-@AMDEP_TRUE@@am__fastdepCXX_FALSE@	source='scip/src/scip/lpi_clp.cpp' object='lpi_clp.lo' libtool=yes @AMDEPBACKSLASH@
-@AMDEP_TRUE@@am__fastdepCXX_FALSE@	DEPDIR=$(DEPDIR) $(CXXDEPMODE) $(depcomp) @AMDEPBACKSLASH@
-@am__fastdepCXX_FALSE@	$(LIBTOOL) --tag=CXX --mode=compile $(CXX) $(DEFS) $(DEFAULT_INCLUDES) $(INCLUDES) $(AM_CPPFLAGS) $(CPPFLAGS) $(AM_CXXFLAGS) $(CXXFLAGS) -c -o lpi_clp.lo `test -f 'scip/src/scip/lpi_clp.cpp' || echo '$(srcdir)/'`scip/src/scip/lpi_clp.cpp
 
 nlpi_ipopt.lo: scip/src/nlpi/nlpi_ipopt.cpp
 @am__fastdepCXX_TRUE@	if $(LIBTOOL) --tag=CXX --mode=compile $(CXX) $(DEFS) $(DEFAULT_INCLUDES) $(INCLUDES) $(AM_CPPFLAGS) $(CPPFLAGS) $(AM_CXXFLAGS) $(CXXFLAGS) -MT nlpi_ipopt.lo -MD -MP -MF "$(DEPDIR)/nlpi_ipopt.Tpo" -c -o nlpi_ipopt.lo `test -f 'scip/src/nlpi/nlpi_ipopt.cpp' || echo '$(srcdir)/'`scip/src/nlpi/nlpi_ipopt.cpp; \
@@ -2610,6 +2549,23 @@ uninstall-thirdpartybmsincludeHEADERS:
 	  f=$(am__strip_dir) \
 	  echo " rm -f '$(DESTDIR)$(thirdpartybmsincludedir)/$$f'"; \
 	  rm -f "$(DESTDIR)$(thirdpartybmsincludedir)/$$f"; \
+	done
+install-thirdpartyincludeHEADERS: $(thirdpartyinclude_HEADERS)
+	@$(NORMAL_INSTALL)
+	test -z "$(thirdpartyincludedir)" || $(mkdir_p) "$(DESTDIR)$(thirdpartyincludedir)"
+	@list='$(thirdpartyinclude_HEADERS)'; for p in $$list; do \
+	  if test -f "$$p"; then d=; else d="$(srcdir)/"; fi; \
+	  f=$(am__strip_dir) \
+	  echo " $(thirdpartyincludeHEADERS_INSTALL) '$$d$$p' '$(DESTDIR)$(thirdpartyincludedir)/$$f'"; \
+	  $(thirdpartyincludeHEADERS_INSTALL) "$$d$$p" "$(DESTDIR)$(thirdpartyincludedir)/$$f"; \
+	done
+
+uninstall-thirdpartyincludeHEADERS:
+	@$(NORMAL_UNINSTALL)
+	@list='$(thirdpartyinclude_HEADERS)'; for p in $$list; do \
+	  f=$(am__strip_dir) \
+	  echo " rm -f '$(DESTDIR)$(thirdpartyincludedir)/$$f'"; \
+	  rm -f "$(DESTDIR)$(thirdpartyincludedir)/$$f"; \
 	done
 install-thirdpartynlpiincludeHEADERS: $(thirdpartynlpiinclude_HEADERS)
 	@$(NORMAL_INSTALL)
@@ -2825,7 +2781,7 @@ check-am: all-am
 check: check-am
 all-am: Makefile $(LTLIBRARIES) $(DATA) $(HEADERS) config_scip.h
 installdirs:
-	for dir in "$(DESTDIR)$(libdir)" "$(DESTDIR)$(pkgconfiglibdir)" "$(DESTDIR)$(thirdpartybmsincludedir)" "$(DESTDIR)$(thirdpartynlpiincludedir)" "$(DESTDIR)$(thirdpartyscipincludedir)"; do \
+	for dir in "$(DESTDIR)$(libdir)" "$(DESTDIR)$(pkgconfiglibdir)" "$(DESTDIR)$(thirdpartybmsincludedir)" "$(DESTDIR)$(thirdpartyincludedir)" "$(DESTDIR)$(thirdpartynlpiincludedir)" "$(DESTDIR)$(thirdpartyscipincludedir)"; do \
 	  test -z "$$dir" || $(mkdir_p) "$$dir"; \
 	done
 install: install-am
@@ -2877,6 +2833,7 @@ info-am:
 
 install-data-am: install-pkgconfiglibDATA \
 	install-thirdpartybmsincludeHEADERS \
+	install-thirdpartyincludeHEADERS \
 	install-thirdpartynlpiincludeHEADERS \
 	install-thirdpartyscipincludeHEADERS
 
@@ -2911,6 +2868,7 @@ ps-am:
 uninstall-am: uninstall-info-am uninstall-libLTLIBRARIES \
 	uninstall-pkgconfiglibDATA \
 	uninstall-thirdpartybmsincludeHEADERS \
+	uninstall-thirdpartyincludeHEADERS \
 	uninstall-thirdpartynlpiincludeHEADERS \
 	uninstall-thirdpartyscipincludeHEADERS
 
@@ -2924,6 +2882,7 @@ uninstall-am: uninstall-info-am uninstall-libLTLIBRARIES \
 	install-exec install-exec-am install-info install-info-am \
 	install-libLTLIBRARIES install-man install-pkgconfiglibDATA \
 	install-strip install-thirdpartybmsincludeHEADERS \
+	install-thirdpartyincludeHEADERS \
 	install-thirdpartynlpiincludeHEADERS \
 	install-thirdpartyscipincludeHEADERS installcheck \
 	installcheck-am installdirs maintainer-clean \
@@ -2932,6 +2891,7 @@ uninstall-am: uninstall-info-am uninstall-libLTLIBRARIES \
 	tags uninstall uninstall-am uninstall-info-am \
 	uninstall-libLTLIBRARIES uninstall-pkgconfiglibDATA \
 	uninstall-thirdpartybmsincludeHEADERS \
+	uninstall-thirdpartyincludeHEADERS \
 	uninstall-thirdpartynlpiincludeHEADERS \
 	uninstall-thirdpartyscipincludeHEADERS
 
