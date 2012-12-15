@@ -28,7 +28,7 @@ enum SCIP_LPISW_LPSolver
 };
 typedef enum SCIP_LPISW_LPSolver SCIP_LPISW_LPSOLVER;
 
-const char* const SCIP_LPISW_SOLVERNAMES[SCIP_LPISW_NSOLVERS] =
+static const char* const SCIP_LPISW_SOLVERNAMES[SCIP_LPISW_NSOLVERS] =
 { "clp", "cplex", "gurobi", "mosek", "none", "qsopt", "soplex", "xpress" };
 
 /** gets enum of currently used LP solver */
