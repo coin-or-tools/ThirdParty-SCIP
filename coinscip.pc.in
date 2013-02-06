@@ -7,6 +7,6 @@ Name: SCIP
 Description: Solving Constraint Integer Programs
 URL: https://projects.coin-or.org/BuildTools
 Version: @PACKAGE_VERSION@
-Libs: -L${libdir} -lcoinscip @SCIPLIB_PCLIBS@
+Libs: -L${libdir} -lcoinsciplpis -lcoinscip @SCIPLIB_PCLIBS@
 Cflags: -I${includedir}
 Requires: @SCIPLIB_PCREQUIRES@
