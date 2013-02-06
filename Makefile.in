@@ -209,20 +209,9 @@ am__libcoinscip_la_SOURCES_DIST = scip/src/scip/bitencode.c \
 	scip/src/nlpi/nlpi.c scip/src/nlpi/nlpioracle.c \
 	scip/src/nlpi/exprinterpret_cppad.cpp \
 	scip/src/dijkstra/dijkstra.c scip/src/xml/xmlparse.c \
-	lpiswitch.c lpiswitch_init.cpp lpiswitch_none.c \
-	lpiswitch_spx.cpp lpiswitch_clp.cpp lpiswitch_cpx.c \
-	lpiswitch_msk.c lpiswitch_xprs.c lpiswitch_grb.c \
-	lpiswitch_qso.c scip/src/nlpi/nlpi_ipopt.cpp \
-	scip/src/nlpi/nlpi_ipopt_dummy.c
-@COIN_HAS_SOPLEX_TRUE@am__objects_1 = lpiswitch_spx.lo
-@COIN_HAS_CLP_TRUE@am__objects_2 = lpiswitch_clp.lo
-@COIN_HAS_CPX_TRUE@am__objects_3 = lpiswitch_cpx.lo
-@COIN_HAS_MSK_TRUE@am__objects_4 = lpiswitch_msk.lo
-@COIN_HAS_XPR_TRUE@am__objects_5 = lpiswitch_xprs.lo
-@COIN_HAS_GRB_TRUE@am__objects_6 = lpiswitch_grb.lo
-@COIN_HAS_QSO_TRUE@am__objects_7 = lpiswitch_qso.lo
-@COIN_HAS_IPOPT_TRUE@am__objects_8 = nlpi_ipopt.lo
-@COIN_HAS_IPOPT_FALSE@am__objects_9 = nlpi_ipopt_dummy.lo
+	scip/src/nlpi/nlpi_ipopt.cpp scip/src/nlpi/nlpi_ipopt_dummy.c
+@COIN_HAS_IPOPT_TRUE@am__objects_1 = nlpi_ipopt.lo
+@COIN_HAS_IPOPT_FALSE@am__objects_2 = nlpi_ipopt_dummy.lo
 am_libcoinscip_la_OBJECTS = bitencode.lo branch.lo buffer.lo clock.lo \
 	conflict.lo cons.lo cutpool.lo debug.lo dialog.lo disp.lo \
 	event.lo fileio.lo heur.lo history.lo implics.lo interrupt.lo \
@@ -274,11 +263,25 @@ am_libcoinscip_la_OBJECTS = bitencode.lo branch.lo buffer.lo clock.lo \
 	sepa_strongcg.lo sepa_zerohalf.lo tclique_branch.lo \
 	tclique_coloring.lo tclique_graph.lo memory.lo expr.lo nlpi.lo \
 	nlpioracle.lo exprinterpret_cppad.lo dijkstra.lo xmlparse.lo \
-	lpiswitch.lo lpiswitch_init.lo lpiswitch_none.lo \
-	$(am__objects_1) $(am__objects_2) $(am__objects_3) \
-	$(am__objects_4) $(am__objects_5) $(am__objects_6) \
-	$(am__objects_7) $(am__objects_8) $(am__objects_9)
+	$(am__objects_1) $(am__objects_2)
 libcoinscip_la_OBJECTS = $(am_libcoinscip_la_OBJECTS)
+libcoinsciplpis_la_LIBADD =
+am__libcoinsciplpis_la_SOURCES_DIST = lpiswitch.c lpiswitch_init.cpp \
+	lpiswitch_none.c lpiswitch_spx.cpp lpiswitch_clp.cpp \
+	lpiswitch_cpx.c lpiswitch_msk.c lpiswitch_xprs.c \
+	lpiswitch_grb.c lpiswitch_qso.c
+@COIN_HAS_SOPLEX_TRUE@am__objects_3 = lpiswitch_spx.lo
+@COIN_HAS_CLP_TRUE@am__objects_4 = lpiswitch_clp.lo
+@COIN_HAS_CPX_TRUE@am__objects_5 = lpiswitch_cpx.lo
+@COIN_HAS_MSK_TRUE@am__objects_6 = lpiswitch_msk.lo
+@COIN_HAS_XPR_TRUE@am__objects_7 = lpiswitch_xprs.lo
+@COIN_HAS_GRB_TRUE@am__objects_8 = lpiswitch_grb.lo
+@COIN_HAS_QSO_TRUE@am__objects_9 = lpiswitch_qso.lo
+am_libcoinsciplpis_la_OBJECTS = lpiswitch.lo lpiswitch_init.lo \
+	lpiswitch_none.lo $(am__objects_3) $(am__objects_4) \
+	$(am__objects_5) $(am__objects_6) $(am__objects_7) \
+	$(am__objects_8) $(am__objects_9)
+libcoinsciplpis_la_OBJECTS = $(am_libcoinsciplpis_la_OBJECTS)
 depcomp = $(SHELL) $(top_srcdir)/depcomp
 am__depfiles_maybe = depfiles
 COMPILE = $(CC) $(DEFS) $(DEFAULT_INCLUDES) $(INCLUDES) $(AM_CPPFLAGS) \
@@ -297,8 +300,9 @@ LTCXXCOMPILE = $(LIBTOOL) --tag=CXX --mode=compile $(CXX) $(DEFS) \
 CXXLD = $(CXX)
 CXXLINK = $(LIBTOOL) --tag=CXX --mode=link $(CXXLD) $(AM_CXXFLAGS) \
 	$(CXXFLAGS) $(AM_LDFLAGS) $(LDFLAGS) -o $@
-SOURCES = $(libcoinscip_la_SOURCES)
-DIST_SOURCES = $(am__libcoinscip_la_SOURCES_DIST)
+SOURCES = $(libcoinscip_la_SOURCES) $(libcoinsciplpis_la_SOURCES)
+DIST_SOURCES = $(am__libcoinscip_la_SOURCES_DIST) \
+	$(am__libcoinsciplpis_la_SOURCES_DIST)
 pkgconfiglibDATA_INSTALL = $(INSTALL_DATA)
 DATA = $(pkgconfiglib_DATA)
 thirdpartybmsincludeHEADERS_INSTALL = $(INSTALL_HEADER)
@@ -522,14 +526,13 @@ sysconfdir = @sysconfdir@
 target_alias = @target_alias@
 AUTOMAKE_OPTIONS = foreign
 EXTRA_DIST = $(am__append_15)
-lib_LTLIBRARIES = libcoinscip.la
+lib_LTLIBRARIES = libcoinscip.la libcoinsciplpis.la
 AM_CPPFLAGS = -I`$(CYGPATH_W) $(srcdir)/scip/src` $(SCIPLIB_CFLAGS) \
 	$(am__append_4) $(am__append_6) $(am__append_8) \
 	$(am__append_10) $(am__append_12)
 DEFAULT_INCLUDES = -I. -I`$(CYGPATH_W) $(srcdir)`
 libcoinscip_la_LDFLAGS = $(LT_LDFLAGS)
-
-# add LP solver interfaces
+libcoinsciplpis_la_LDFLAGS = $(LT_LDFLAGS)
 libcoinscip_la_SOURCES = scip/src/scip/bitencode.c \
 	scip/src/scip/branch.c scip/src/scip/buffer.c \
 	scip/src/scip/clock.c scip/src/scip/conflict.c \
@@ -636,10 +639,13 @@ libcoinscip_la_SOURCES = scip/src/scip/bitencode.c \
 	scip/src/nlpi/nlpi.c scip/src/nlpi/nlpioracle.c \
 	scip/src/nlpi/exprinterpret_cppad.cpp \
 	scip/src/dijkstra/dijkstra.c scip/src/xml/xmlparse.c \
-	lpiswitch.c lpiswitch_init.cpp lpiswitch_none.c \
-	$(am__append_1) $(am__append_2) $(am__append_3) \
-	$(am__append_5) $(am__append_7) $(am__append_9) \
-	$(am__append_11) $(am__append_13) $(am__append_14)
+	$(am__append_13) $(am__append_14)
+
+# LP solver interfaces
+libcoinsciplpis_la_SOURCES = lpiswitch.c lpiswitch_init.cpp \
+	lpiswitch_none.c $(am__append_1) $(am__append_2) \
+	$(am__append_3) $(am__append_5) $(am__append_7) \
+	$(am__append_9) $(am__append_11)
 thirdpartyincludedir = $(includedir)/coin/ThirdParty
 thirdpartyinclude_HEADERS = lpiswitch.h
 thirdpartyscipincludedir = $(includedir)/coin/ThirdParty/scip
@@ -999,6 +1005,8 @@ clean-libLTLIBRARIES:
 	done
 libcoinscip.la: $(libcoinscip_la_OBJECTS) $(libcoinscip_la_DEPENDENCIES) 
 	$(CXXLINK) -rpath $(libdir) $(libcoinscip_la_LDFLAGS) $(libcoinscip_la_OBJECTS) $(libcoinscip_la_LIBADD) $(LIBS)
+libcoinsciplpis.la: $(libcoinsciplpis_la_OBJECTS) $(libcoinsciplpis_la_DEPENDENCIES) 
+	$(CXXLINK) -rpath $(libdir) $(libcoinsciplpis_la_LDFLAGS) $(libcoinsciplpis_la_OBJECTS) $(libcoinsciplpis_la_LIBADD) $(LIBS)
 
 mostlyclean-compile:
 	-rm -f *.$(OBJEXT)

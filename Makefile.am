@@ -8,13 +8,14 @@ AUTOMAKE_OPTIONS = foreign
 
 EXTRA_DIST =
 
-lib_LTLIBRARIES = libcoinscip.la
+lib_LTLIBRARIES = libcoinscip.la libcoinsciplpis.la
 
 AM_CPPFLAGS = -I`$(CYGPATH_W) $(srcdir)/scip/src` $(SCIPLIB_CFLAGS)
 
 DEFAULT_INCLUDES = -I. -I`$(CYGPATH_W) $(srcdir)`
 
 libcoinscip_la_LDFLAGS = $(LT_LDFLAGS)
+libcoinsciplpis_la_LDFLAGS = $(LT_LDFLAGS)
 
 libcoinscip_la_SOURCES = \
   scip/src/scip/bitencode.c \
@@ -197,32 +198,32 @@ libcoinscip_la_SOURCES = \
   scip/src/dijkstra/dijkstra.c \
   scip/src/xml/xmlparse.c
 
-# add LP solver interfaces
-libcoinscip_la_SOURCES += lpiswitch.c lpiswitch_init.cpp lpiswitch_none.c
+# LP solver interfaces
+libcoinsciplpis_la_SOURCES = lpiswitch.c lpiswitch_init.cpp lpiswitch_none.c
 if COIN_HAS_SOPLEX
-  libcoinscip_la_SOURCES += lpiswitch_spx.cpp
+  libcoinsciplpis_la_SOURCES += lpiswitch_spx.cpp
 endif  
 if COIN_HAS_CLP
-  libcoinscip_la_SOURCES += lpiswitch_clp.cpp
+  libcoinsciplpis_la_SOURCES += lpiswitch_clp.cpp
 endif
 if COIN_HAS_CPX
-  libcoinscip_la_SOURCES += lpiswitch_cpx.c
+  libcoinsciplpis_la_SOURCES += lpiswitch_cpx.c
   AM_CPPFLAGS += -I`$(CYGPATH_W) $(CPXINCDIR)`
 endif
 if COIN_HAS_MSK
-  libcoinscip_la_SOURCES += lpiswitch_msk.c
+  libcoinsciplpis_la_SOURCES += lpiswitch_msk.c
   AM_CPPFLAGS += -I`$(CYGPATH_W) $(MSKINCDIR)`
 endif
 if COIN_HAS_XPR
-  libcoinscip_la_SOURCES += lpiswitch_xprs.c
+  libcoinsciplpis_la_SOURCES += lpiswitch_xprs.c
   AM_CPPFLAGS += -I`$(CYGPATH_W) $(XPRINCDIR)`
 endif
 if COIN_HAS_GRB
-  libcoinscip_la_SOURCES += lpiswitch_grb.c
+  libcoinsciplpis_la_SOURCES += lpiswitch_grb.c
   AM_CPPFLAGS += -I`$(CYGPATH_W) $(GRBINCDIR)`
 endif
 if COIN_HAS_QSO
-  libcoinscip_la_SOURCES += lpiswitch_qso.c
+  libcoinsciplpis_la_SOURCES += lpiswitch_qso.c
   AM_CPPFLAGS += -I`$(CYGPATH_W) $(QSOINCDIR)`
 endif
 
