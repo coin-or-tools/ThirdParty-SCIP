@@ -240,6 +240,7 @@ thirdpartyinclude_HEADERS = lpiswitch.h
 
 thirdpartyscipincludedir = $(includedir)/coin/ThirdParty/scip
 thirdpartyscipinclude_HEADERS = \
+  scip/src/scip/bitencode.h \
   scip/src/scip/branch_allfullstrong.h \
   scip/src/scip/branch_fullstrong.h \
   scip/src/scip/branch_inference.h \
