@@ -52,7 +52,8 @@ PRE_UNINSTALL = :
 POST_UNINSTALL = :
 build_triplet = @build@
 host_triplet = @host@
-@COIN_HAS_SOPLEX_TRUE@am__append_1 = lpiswitch_spx.cpp
+@COIN_HAS_SOPLEX_TRUE@am__append_1 = scip/src/scip/bitencode.c \
+@COIN_HAS_SOPLEX_TRUE@	lpiswitch_spx.cpp
 @COIN_HAS_CLP_TRUE@am__append_2 = lpiswitch_clp.cpp
 @COIN_HAS_CPX_TRUE@am__append_3 = lpiswitch_cpx.c
 @COIN_HAS_CPX_TRUE@am__append_4 = -I`$(CYGPATH_W) $(CPXINCDIR)`
@@ -267,10 +268,10 @@ am_libcoinscip_la_OBJECTS = bitencode.lo branch.lo buffer.lo clock.lo \
 libcoinscip_la_OBJECTS = $(am_libcoinscip_la_OBJECTS)
 libcoinsciplpis_la_LIBADD =
 am__libcoinsciplpis_la_SOURCES_DIST = lpiswitch.c lpiswitch_init.cpp \
-	lpiswitch_none.c lpiswitch_spx.cpp lpiswitch_clp.cpp \
-	lpiswitch_cpx.c lpiswitch_msk.c lpiswitch_xprs.c \
-	lpiswitch_grb.c lpiswitch_qso.c
-@COIN_HAS_SOPLEX_TRUE@am__objects_3 = lpiswitch_spx.lo
+	lpiswitch_none.c scip/src/scip/bitencode.c lpiswitch_spx.cpp \
+	lpiswitch_clp.cpp lpiswitch_cpx.c lpiswitch_msk.c \
+	lpiswitch_xprs.c lpiswitch_grb.c lpiswitch_qso.c
+@COIN_HAS_SOPLEX_TRUE@am__objects_3 = bitencode.lo lpiswitch_spx.lo
 @COIN_HAS_CLP_TRUE@am__objects_4 = lpiswitch_clp.lo
 @COIN_HAS_CPX_TRUE@am__objects_5 = lpiswitch_cpx.lo
 @COIN_HAS_MSK_TRUE@am__objects_6 = lpiswitch_msk.lo
@@ -2904,6 +2905,9 @@ uninstall-am: uninstall-info-am uninstall-libLTLIBRARIES \
 	uninstall-thirdpartynlpiincludeHEADERS \
 	uninstall-thirdpartyscipincludeHEADERS
 
+@COIN_HAS_SOPLEX_TRUE@  # for static builds, we need bitencode also in the lpis library,
+@COIN_HAS_SOPLEX_TRUE@  # because it is listed after the scip lib on the linker line but
+@COIN_HAS_SOPLEX_TRUE@  # has functions that only lpi_spx is using
 
 test:
 	@echo "No test available for SCIP."
