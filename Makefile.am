@@ -201,6 +201,10 @@ libcoinscip_la_SOURCES = \
 # LP solver interfaces
 libcoinsciplpis_la_SOURCES = lpiswitch.c lpiswitch_init.cpp lpiswitch_none.c
 if COIN_HAS_SOPLEX
+  # for static builds, we need bitencode also in the lpis library,
+  # because it is listed after the scip lib on the linker line but
+  # has functions that only lpi_spx is using
+  libcoinsciplpis_la_SOURCES += scip/src/scip/bitencode.c
   libcoinsciplpis_la_SOURCES += lpiswitch_spx.cpp
 endif  
 if COIN_HAS_CLP
