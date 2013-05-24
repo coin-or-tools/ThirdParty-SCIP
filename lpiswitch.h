@@ -41,6 +41,10 @@ SCIP_RETCODE SCIPlpiSwitchSetSolver(
    SCIP_LPISW_LPSOLVER   lpsolver            /**< LP Solver to use */
    );
 
+/** sets static function pointers to LPI functions of default solver (determined during configure) */
+extern
+SCIP_RETCODE SCIPlpiSwitchSetDefaultSolver();
+
 #ifdef __cplusplus
 }
 #endif

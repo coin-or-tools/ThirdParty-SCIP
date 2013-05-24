@@ -912,6 +912,14 @@ SCIP_RETCODE SCIPlpiSwitchSetSolver(
    return SCIP_ERROR;
 }
 
+/** sets static function pointers to LPI functions of default solver (determined during configure) */
+SCIP_RETCODE SCIPlpiSwitchSetDefaultSolver()
+{
+   SCIP_CALL( SCIPlpiSwitchSetSolver(SCIP_LPISW_LPDEFAULT) );
+
+   return SCIP_OKAY;
+}
+
 /*
  * our implementation of the SCIP LPI
  * calls whatever has been set in our function pointers
