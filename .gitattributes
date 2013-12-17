@@ -1,4 +1,19 @@
 * text=auto !eol
+1.2/INSTALL.SCIP -text
+1.2/Makefile.am -text
+1.2/Makefile.in -text
+1.2/coinscip-uninstalled.pc.in -text
+1.2/coinscip.pc.in -text
+1.2/compile -text
+1.2/config.guess -text
+1.2/config.sub -text
+1.2/config_scip.h.in -text
+1.2/configure -text
+1.2/configure.ac -text
+1.2/depcomp -text
+1.2/install-sh -text
+1.2/ltmain.sh -text
+1.2/missing -text
 /INSTALL.SCIP -text
 /Makefile.am -text
 /Makefile.in -text
