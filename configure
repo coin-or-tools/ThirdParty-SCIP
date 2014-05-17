@@ -24949,19 +24949,6 @@ case "$CC" in
     ;;
 esac
 
-# SoPlex requires C++ 2011 standard (or -DSOPLEX_LEGACY)
-if test "$coin_has_soplex" = yes ; then
-case "$CXX" in
-  cl* | */cl* | CL* | */CL* ) ;;
-  icl* | */icl* | ICL* | */ICL* )  # Intel on Windows
-    CXXFLAGS="$CXXFLAGS -Qstd=c++0x"
-    ;;
-  * )  # GCC, clang, Intel on Linux, ...
-    CXXFLAGS="$CXXFLAGS -std=c++0x"
-    ;;
-esac
-fi
-
 CFLAGS="$CFLAGS $EXTRAFLAGS"
 CXXFLAGS="$CXXFLAGS $EXTRAFLAGS"
 
