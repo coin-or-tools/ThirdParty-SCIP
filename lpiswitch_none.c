@@ -9,4 +9,4 @@
 #define LPISW_RENAME_SUFFIX None
 #include "lpiswitch_rename.h"
 
-#include "scip/lpi_none.c"
+#include "lpi/lpi_none.c"

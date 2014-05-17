@@ -43,6 +43,7 @@ libcoinscip_la_SOURCES = \
   scip/src/scip/nodesel.c \
   scip/src/scip/paramset.c \
   scip/src/scip/presol.c \
+  scip/src/scip/presolve.c \
   scip/src/scip/pricer.c \
   scip/src/scip/pricestore.c \
   scip/src/scip/primal.c \
@@ -65,6 +66,7 @@ libcoinscip_la_SOURCES = \
   scip/src/scip/var.c \
   scip/src/scip/vbc.c \
   scip/src/scip/branch_allfullstrong.c \
+  scip/src/scip/branch_cloud.c \
   scip/src/scip/branch_fullstrong.c \
   scip/src/scip/branch_inference.c \
   scip/src/scip/branch_leastinf.c \
@@ -105,6 +107,7 @@ libcoinscip_la_SOURCES = \
   scip/src/scip/heur_coefdiving.c \
   scip/src/scip/heur_crossover.c \
   scip/src/scip/heur_dins.c \
+  scip/src/scip/heur_dualval.c \
   scip/src/scip/heur_feaspump.c \
   scip/src/scip/heur_fixandinfer.c \
   scip/src/scip/heur_fracdiving.c \
@@ -118,7 +121,9 @@ libcoinscip_la_SOURCES = \
   scip/src/scip/heur_objpscostdiving.c \
   scip/src/scip/heur_octane.c \
   scip/src/scip/heur_oneopt.c \
+  scip/src/scip/heur_proximity.c \
   scip/src/scip/heur_pscostdiving.c \
+  scip/src/scip/heur_randrounding.c \
   scip/src/scip/heur_rens.c \
   scip/src/scip/heur_rins.c \
   scip/src/scip/heur_rootsoldiving.c \
@@ -127,9 +132,9 @@ libcoinscip_la_SOURCES = \
   scip/src/scip/heur_shifting.c \
   scip/src/scip/heur_simplerounding.c \
   scip/src/scip/heur_subnlp.c \
-  scip/src/scip/heur_twoopt.c \
   scip/src/scip/heur_trivial.c \
   scip/src/scip/heur_trysol.c \
+  scip/src/scip/heur_twoopt.c \
   scip/src/scip/heur_undercover.c \
   scip/src/scip/heur_vbounds.c \
   scip/src/scip/heur_veclendiving.c \
@@ -137,19 +142,22 @@ libcoinscip_la_SOURCES = \
   scip/src/scip/heur_zirounding.c \
   scip/src/scip/message_default.c \
   scip/src/scip/nodesel_bfs.c \
+  scip/src/scip/nodesel_breadthfirst.c \
   scip/src/scip/nodesel_dfs.c \
   scip/src/scip/nodesel_estimate.c \
   scip/src/scip/nodesel_hybridestim.c \
   scip/src/scip/nodesel_restartdfs.c \
+  scip/src/scip/nodesel_uct.c \
   scip/src/scip/presol_boundshift.c \
   scip/src/scip/presol_components.c \
   scip/src/scip/presol_convertinttobin.c \
   scip/src/scip/presol_domcol.c \
-  scip/src/scip/presol_dualfix.c \
+  scip/src/scip/presol_dualinfer.c \
   scip/src/scip/presol_gateextraction.c \
   scip/src/scip/presol_implics.c \
   scip/src/scip/presol_inttobinary.c \
   scip/src/scip/presol_trivial.c \
+  scip/src/scip/prop_dualfix.c \
   scip/src/scip/prop_genvbounds.c \
   scip/src/scip/prop_obbt.c \
   scip/src/scip/prop_probing.c \
@@ -169,6 +177,7 @@ libcoinscip_la_SOURCES = \
   scip/src/scip/reader_opb.c \
   scip/src/scip/reader_osil.c \
   scip/src/scip/reader_pip.c \
+  scip/src/scip/reader_pbm.c \
   scip/src/scip/reader_ppm.c \
   scip/src/scip/reader_rlp.c \
   scip/src/scip/reader_sol.c \
@@ -246,6 +255,7 @@ thirdpartyscipincludedir = $(includedir)/coin/ThirdParty/scip
 thirdpartyscipinclude_HEADERS = \
   scip/src/scip/bitencode.h \
   scip/src/scip/branch_allfullstrong.h \
+  scip/src/scip/branch_cloud.h \
   scip/src/scip/branch_fullstrong.h \
   scip/src/scip/branch_inference.h \
   scip/src/scip/branch_leastinf.h \
@@ -290,6 +300,7 @@ thirdpartyscipinclude_HEADERS = \
   scip/src/scip/heur_coefdiving.h \
   scip/src/scip/heur_crossover.h \
   scip/src/scip/heur_dins.h \
+  scip/src/scip/heur_dualval.h \
   scip/src/scip/heur_feaspump.h \
   scip/src/scip/heur_fixandinfer.h \
   scip/src/scip/heur_fracdiving.h \
@@ -303,7 +314,9 @@ thirdpartyscipinclude_HEADERS = \
   scip/src/scip/heur_objpscostdiving.h \
   scip/src/scip/heur_octane.h \
   scip/src/scip/heur_oneopt.h \
+  scip/src/scip/heur_proximity.h \
   scip/src/scip/heur_pscostdiving.h \
+  scip/src/scip/heur_randrounding.h \
   scip/src/scip/heur_rens.h \
   scip/src/scip/heur_rins.h \
   scip/src/scip/heur_rootsoldiving.h \
@@ -323,24 +336,26 @@ thirdpartyscipinclude_HEADERS = \
   scip/src/scip/history.h \
   scip/src/scip/implics.h \
   scip/src/scip/intervalarith.h \
-  scip/src/scip/lpi.h \
   scip/src/scip/message.h \
   scip/src/scip/message_default.h \
   scip/src/scip/misc.h \
   scip/src/scip/nodesel_bfs.h \
+  scip/src/scip/nodesel_breadthfirst.h \
   scip/src/scip/nodesel_dfs.h \
   scip/src/scip/nodesel_estimate.h \
   scip/src/scip/nodesel_hybridestim.h \
   scip/src/scip/nodesel_restartdfs.h \
+  scip/src/scip/nodesel_uct.h \
   scip/src/scip/presol_boundshift.h \
   scip/src/scip/presol_components.h \
   scip/src/scip/presol_convertinttobin.h \
   scip/src/scip/presol_domcol.h \
-  scip/src/scip/presol_dualfix.h \
+  scip/src/scip/presol_dualinfer.h \
   scip/src/scip/presol_gateextraction.h \
   scip/src/scip/presol_implics.h \
   scip/src/scip/presol_inttobinary.h \
   scip/src/scip/presol_trivial.h \
+  scip/src/scip/prop_dualfix.h \
   scip/src/scip/prop_genvbounds.h \
   scip/src/scip/prop_obbt.h \
   scip/src/scip/prop_probing.h \
@@ -385,6 +400,7 @@ thirdpartyscipinclude_HEADERS = \
   scip/src/scip/reader_opb.h \
   scip/src/scip/reader_osil.h \
   scip/src/scip/reader_pip.h \
+  scip/src/scip/reader_pbm.h \
   scip/src/scip/reader_ppm.h \
   scip/src/scip/reader_rlp.h \
   scip/src/scip/reader_sol.h \
@@ -458,7 +474,6 @@ thirdpartyscipinclude_HEADERS = \
   scip/src/scip/type_implics.h \
   scip/src/scip/type_interrupt.h \
   scip/src/scip/type_lp.h \
-  scip/src/scip/type_lpi.h \
   scip/src/scip/type_mem.h \
   scip/src/scip/type_message.h \
   scip/src/scip/type_misc.h \
@@ -486,7 +501,9 @@ thirdpartyscipinclude_HEADERS = \
   scip/src/scip/type_var.h \
   scip/src/scip/type_vbc.h \
   scip/src/scip/var.h \
-  scip/src/scip/githash.c
+  scip/src/scip/githash.c \
+  scip/src/lpi/lpi.h \
+  scip/src/lpi/type_lpi.h
 
 thirdpartybmsincludedir = $(includedir)/coin/ThirdParty/blockmemshell
 thirdpartybmsinclude_HEADERS = scip/src/blockmemshell/memory.h

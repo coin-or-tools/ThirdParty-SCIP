@@ -57,8 +57,8 @@ AC_MSG_CHECKING([SCIP version])
 scipver=`awk '/define SCIP_VERSION/ {print $3}' ${srcdir}/scip/src/scip/def.h`
 scipsubver=`awk '/define SCIP_SUBVERSION/ {print $3}' ${srcdir}/scip/src/scip/def.h`
 AC_MSG_RESULT([${scipver}.${scipsubver}])
-if test $scipver -lt 300 -o $scipver -ge 310 ; then
-  AC_MSG_ERROR(["Incorrect SCIP version. This build system is made for SCIP 3.0.x"])
+if test $scipver -lt 310 -o $scipver -ge 320 ; then
+  AC_MSG_ERROR(["Incorrect SCIP version. This build system is made for SCIP 3.1.x"])
 fi
 
 #############################################################################
@@ -160,7 +160,7 @@ AC_COIN_CHECK_PACKAGE(Ipopt, ipopt, SCIPLib)
 #                       Check for system header and libraries               #
 #############################################################################
 
-EXTRAFLAGS=""
+EXTRAFLAGS="-DWITH_SCIPDEF"
 
 AC_ARG_ENABLE([scip-threadsafe],
   AS_HELP_STRING([--disable-scip-threadsafe],[do not build SCIP threadsafe (default=auto)]),
@@ -219,7 +219,20 @@ case "$CC" in
     EXTRAFLAGS="$EXTRAFLAGS -Wno-overlength-strings"
     ;;
 esac
- 
+
+# SoPlex requires C++ 2011 standard (or -DSOPLEX_LEGACY)
+if test "$coin_has_soplex" = yes ; then
+case "$CXX" in
+  cl* | */cl* | CL* | */CL* ) ;;
+  icl* | */icl* | ICL* | */ICL* )  # Intel on Windows
+    CXXFLAGS="$CXXFLAGS -Qstd=c++0x"
+    ;;
+  * )  # GCC, clang, Intel on Linux, ...
+    CXXFLAGS="$CXXFLAGS -std=c++0x"
+    ;;
+esac
+fi
+
 CFLAGS="$CFLAGS $EXTRAFLAGS"
 CXXFLAGS="$CXXFLAGS $EXTRAFLAGS"
 

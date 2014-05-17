@@ -9,4 +9,4 @@
 #define LPISW_RENAME_SUFFIX Mosek
 #include "lpiswitch_rename.h"
 
-#include "scip/lpi_msk.c"
+#include "lpi/lpi_msk.c"

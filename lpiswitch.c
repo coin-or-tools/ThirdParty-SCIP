@@ -21,7 +21,7 @@
 #define LPISW_RENAME_SUFFIX Clp
 #include "lpiswitch_rename.h"
 #undef __SCIP_LPI_H__
-#include "scip/lpi.h"
+#include "lpi/lpi.h"
 #include "lpiswitch_unrename.h"
 #endif
 
@@ -30,7 +30,7 @@
 #define LPISW_RENAME_SUFFIX Cplex
 #include "lpiswitch_rename.h"
 #undef __SCIP_LPI_H__
-#include "scip/lpi.h"
+#include "lpi/lpi.h"
 #include "lpiswitch_unrename.h"
 #endif
 
@@ -39,7 +39,7 @@
 #define LPISW_RENAME_SUFFIX Gurobi
 #include "lpiswitch_rename.h"
 #undef __SCIP_LPI_H__
-#include "scip/lpi.h"
+#include "lpi/lpi.h"
 #include "lpiswitch_unrename.h"
 #endif
 
@@ -48,7 +48,7 @@
 #define LPISW_RENAME_SUFFIX Mosek
 #include "lpiswitch_rename.h"
 #undef __SCIP_LPI_H__
-#include "scip/lpi.h"
+#include "lpi/lpi.h"
 #include "lpiswitch_unrename.h"
 #endif
 
@@ -57,7 +57,7 @@
 #define LPISW_RENAME_SUFFIX Qsopt
 #include "lpiswitch_rename.h"
 #undef __SCIP_LPI_H__
-#include "scip/lpi.h"
+#include "lpi/lpi.h"
 #include "lpiswitch_unrename.h"
 #endif
 
@@ -65,7 +65,7 @@
 #define LPISW_RENAME_SUFFIX None
 #include "lpiswitch_rename.h"
 #undef __SCIP_LPI_H__
-#include "scip/lpi.h"
+#include "lpi/lpi.h"
 #include "lpiswitch_unrename.h"
 
 #ifdef COIN_HAS_SOPLEX
@@ -73,7 +73,7 @@
 #define LPISW_RENAME_SUFFIX Soplex
 #include "lpiswitch_rename.h"
 #undef __SCIP_LPI_H__
-#include "scip/lpi.h"
+#include "lpi/lpi.h"
 #include "lpiswitch_unrename.h"
 #endif
 
@@ -82,7 +82,7 @@
 #define LPISW_RENAME_SUFFIX Xpress
 #include "lpiswitch_rename.h"
 #undef __SCIP_LPI_H__
-#include "scip/lpi.h"
+#include "lpi/lpi.h"
 #include "lpiswitch_unrename.h"
 #endif
 
@@ -577,6 +577,24 @@
    const char*           fname               \
    )
 
+#define LPISW_DECL_LPIGETNORMS(x) SCIP_RETCODE x ( \
+   SCIP_LPI*             lpi,                \
+   BMS_BLKMEM*           blkmem,             \
+   SCIP_LPINORMS**       lpinorms            \
+   )
+
+#define LPISW_DECL_LPISETNORMS(x) SCIP_RETCODE x ( \
+   SCIP_LPI*             lpi,                \
+   BMS_BLKMEM*           blkmem,             \
+   SCIP_LPINORMS*        lpinorms            \
+   )
+
+#define LPISW_DECL_LPIFREENORMS(x) SCIP_RETCODE x ( \
+   SCIP_LPI*             lpi,                \
+   BMS_BLKMEM*           blkmem,             \
+   SCIP_LPINORMS**       lpinorms            \
+   )
+
 #define LPISW_DECL_LPIGETINTPAR(x) SCIP_RETCODE x ( \
    SCIP_LPI*             lpi,                \
    SCIP_LPPARAM          type,               \
@@ -704,6 +722,9 @@ static LPISW_DECL_LPIFREESTATE((*lpiFreeState)) = NULL;
 static LPISW_DECL_LPIHASSTATEBASIS((*lpiHasStateBasis)) = NULL;
 static LPISW_DECL_LPIREADSTATE((*lpiReadState)) = NULL;
 static LPISW_DECL_LPIWRITESTATE((*lpiWriteState)) = NULL;
+static LPISW_DECL_LPIGETNORMS((*lpiGetNorms)) = NULL;
+static LPISW_DECL_LPISETNORMS((*lpiSetNorms)) = NULL;
+static LPISW_DECL_LPIFREENORMS((*lpiFreeNorms)) = NULL;
 static LPISW_DECL_LPIGETINTPAR((*lpiGetIntpar)) = NULL;
 static LPISW_DECL_LPISETINTPAR((*lpiSetIntpar)) = NULL;
 static LPISW_DECL_LPIGETREALPAR((*lpiGetRealpar)) = NULL;
@@ -791,7 +812,6 @@ static SCIP_LPISW_LPSOLVER currentsolver = SCIP_LPISW_NSOLVERS;
    lpiGetBInvCol = SCIPlpiGetBInvCol ## x ; \
    lpiGetBasisInd = SCIPlpiGetBasisInd ## x ; \
    lpiGetBInvARow = SCIPlpiGetBInvARow ## x ; \
-   lpiGetBInvRow = SCIPlpiGetBInvRow ## x ; \
    lpiGetBInvACol = SCIPlpiGetBInvACol ## x ; \
    lpiGetState = SCIPlpiGetState ## x ; \
    lpiSetState = SCIPlpiSetState ## x ; \
@@ -800,6 +820,9 @@ static SCIP_LPISW_LPSOLVER currentsolver = SCIP_LPISW_NSOLVERS;
    lpiHasStateBasis = SCIPlpiHasStateBasis ## x ; \
    lpiReadState = SCIPlpiReadState ## x ; \
    lpiWriteState = SCIPlpiWriteState ## x ; \
+   lpiGetNorms = SCIPlpiGetNorms ## x ; \
+   lpiSetNorms = SCIPlpiSetNorms ## x ; \
+   lpiFreeNorms = SCIPlpiFreeNorms ## x ; \
    lpiGetIntpar = SCIPlpiGetIntpar ## x ; \
    lpiSetIntpar = SCIPlpiSetIntpar ## x ; \
    lpiGetRealpar = SCIPlpiGetRealpar ## x ; \
@@ -926,7 +949,7 @@ SCIP_RETCODE SCIPlpiSwitchSetDefaultSolver()
  */
 
 #undef __SCIP_LPI_H__
-#include "scip/lpi.h"
+#include "lpi/lpi.h"
 
 /** gets name and version of LP solver */
 const char* SCIPlpiGetSolverName(
@@ -1786,6 +1809,38 @@ SCIP_RETCODE SCIPlpiWriteState(
    )
 {
    return (*lpiWriteState)(lpi, fname);
+}
+
+/** stores LPi pricing norms into lpinorms object */
+SCIP_RETCODE SCIPlpiGetNorms(
+   SCIP_LPI*             lpi,                /**< LP interface structure */
+   BMS_BLKMEM*           blkmem,             /**< block memory */
+   SCIP_LPINORMS**       lpinorms            /**< pointer to LPi pricing norms information */
+   )
+{
+   return (*lpiGetNorms)(lpi, blkmem, lpinorms);
+}
+
+/** loads LPi pricing norms into solver; note that the LP might have been extended with additional
+ *  columns and rows since the norms were stored with SCIPlpiGetNorms()
+ */
+SCIP_RETCODE SCIPlpiSetNorms(
+   SCIP_LPI*             lpi,                /**< LP interface structure */
+   BMS_BLKMEM*           blkmem,             /**< block memory */
+   SCIP_LPINORMS*        lpinorms            /**< LPi pricing norms information */
+   )
+{
+   return (*lpiSetNorms)(lpi, blkmem, lpinorms);
+}
+
+/** frees LPi pricing norms information */
+SCIP_RETCODE SCIPlpiFreeNorms(
+   SCIP_LPI*             lpi,                /**< LP interface structure */
+   BMS_BLKMEM*           blkmem,             /**< block memory */
+   SCIP_LPINORMS**       lpinorms            /**< pointer to LPi pricing norms information */
+   )
+{
+   return (*lpiFreeNorms)(lpi, blkmem, lpinorms);
 }
 
 /** gets integer parameter of LP */

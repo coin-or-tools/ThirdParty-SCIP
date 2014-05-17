@@ -9,4 +9,4 @@
 #define LPISW_RENAME_SUFFIX Gurobi
 #include "lpiswitch_rename.h"
 
-#include "scip/lpi_grb.c"
+#include "lpi/lpi_grb.c"

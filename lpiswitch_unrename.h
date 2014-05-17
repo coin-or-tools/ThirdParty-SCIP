@@ -81,7 +81,6 @@
 #undef SCIPlpiGetBInvCol
 #undef SCIPlpiGetBasisInd
 #undef SCIPlpiGetBInvARow
-#undef SCIPlpiGetBInvRow
 #undef SCIPlpiGetBInvACol
 #undef SCIPlpiGetState
 #undef SCIPlpiSetState
@@ -90,6 +89,9 @@
 #undef SCIPlpiHasStateBasis
 #undef SCIPlpiReadState
 #undef SCIPlpiWriteState
+#undef SCIPlpiGetNorms
+#undef SCIPlpiSetNorms
+#undef SCIPlpiFreeNorms
 #undef SCIPlpiGetIntpar
 #undef SCIPlpiSetIntpar
 #undef SCIPlpiGetRealpar

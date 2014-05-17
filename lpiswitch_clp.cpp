@@ -8,4 +8,4 @@
 #define LPISW_RENAME_SUFFIX Clp
 #include "lpiswitch_rename.h"
 
-#include "scip/lpi_clp.cpp"
+#include "lpi/lpi_clp.cpp"

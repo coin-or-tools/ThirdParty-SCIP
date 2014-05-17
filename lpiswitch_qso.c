@@ -9,4 +9,4 @@
 #define LPISW_RENAME_SUFFIX Qsopt
 #include "lpiswitch_rename.h"
 
-#include "scip/lpi_qso.c"
+#include "lpi/lpi_qso.c"

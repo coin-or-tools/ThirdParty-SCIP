@@ -9,4 +9,4 @@
 #define LPISW_RENAME_SUFFIX Cplex
 #include "lpiswitch_rename.h"
 
-#include "scip/lpi_cpx.c"
+#include "lpi/lpi_cpx.c"

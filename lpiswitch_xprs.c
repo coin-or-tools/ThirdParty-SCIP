@@ -9,4 +9,4 @@
 #define LPISW_RENAME_SUFFIX Xpress
 #include "lpiswitch_rename.h"
 
-#include "scip/lpi_xprs.c"
+#include "lpi/lpi_xprs.c"
