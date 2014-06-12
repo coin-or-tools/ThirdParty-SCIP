@@ -346,6 +346,7 @@ thirdpartyscipinclude_HEADERS = \
   scip/src/scip/nodesel_hybridestim.h \
   scip/src/scip/nodesel_restartdfs.h \
   scip/src/scip/nodesel_uct.h \
+  scip/src/scip/presolve.h \
   scip/src/scip/presol_boundshift.h \
   scip/src/scip/presol_components.h \
   scip/src/scip/presol_convertinttobin.h \
@@ -372,6 +373,7 @@ thirdpartyscipinclude_HEADERS = \
   scip/src/scip/pub_event.h \
   scip/src/scip/pub_fileio.h \
   scip/src/scip/pub_heur.h \
+  scip/src/scip/pub_history.h \
   scip/src/scip/pub_implics.h \
   scip/src/scip/pub_lp.h \
   scip/src/scip/pub_message.h \
