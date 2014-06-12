@@ -501,9 +501,7 @@ thirdpartyscipinclude_HEADERS = \
   scip/src/scip/type_var.h \
   scip/src/scip/type_vbc.h \
   scip/src/scip/var.h \
-  scip/src/scip/githash.c \
-  scip/src/lpi/lpi.h \
-  scip/src/lpi/type_lpi.h
+  scip/src/scip/githash.c
 
 thirdpartybmsincludedir = $(includedir)/coin/ThirdParty/blockmemshell
 thirdpartybmsinclude_HEADERS = scip/src/blockmemshell/memory.h
@@ -518,6 +516,11 @@ thirdpartynlpiinclude_HEADERS = \
   scip/src/nlpi/type_expr.h \
   scip/src/nlpi/type_exprinterpret.h \
   scip/src/nlpi/type_nlpi.h
+
+thirdpartylpiincludedir = $(includedir)/coin/ThirdParty/lpi
+thirdpartylpiinclude_HEADERS = \
+  scip/src/lpi/lpi.h \
+  scip/src/lpi/type_lpi.h
 
 pkgconfiglibdir = $(libdir)/pkgconfig
 pkgconfiglib_DATA = coinscip.pc

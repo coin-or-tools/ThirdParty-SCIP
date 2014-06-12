@@ -73,7 +73,8 @@ DIST_COMMON = $(am__configure_deps) $(srcdir)/BuildTools/Makemain.inc \
 	$(srcdir)/Makefile.am $(srcdir)/Makefile.in \
 	$(srcdir)/coinscip-uninstalled.pc.in $(srcdir)/coinscip.pc.in \
 	$(srcdir)/config_scip.h.in $(thirdpartybmsinclude_HEADERS) \
-	$(thirdpartyinclude_HEADERS) $(thirdpartynlpiinclude_HEADERS) \
+	$(thirdpartyinclude_HEADERS) $(thirdpartylpiinclude_HEADERS) \
+	$(thirdpartynlpiinclude_HEADERS) \
 	$(thirdpartyscipinclude_HEADERS) $(top_srcdir)/configure \
 	compile config.guess config.sub depcomp install-sh ltmain.sh \
 	missing
@@ -99,6 +100,7 @@ am__strip_dir = `echo $$p | sed -e 's|^.*/||'`;
 am__installdirs = "$(DESTDIR)$(libdir)" "$(DESTDIR)$(pkgconfiglibdir)" \
 	"$(DESTDIR)$(thirdpartybmsincludedir)" \
 	"$(DESTDIR)$(thirdpartyincludedir)" \
+	"$(DESTDIR)$(thirdpartylpiincludedir)" \
 	"$(DESTDIR)$(thirdpartynlpiincludedir)" \
 	"$(DESTDIR)$(thirdpartyscipincludedir)"
 libLTLIBRARIES_INSTALL = $(INSTALL)
@@ -314,9 +316,11 @@ pkgconfiglibDATA_INSTALL = $(INSTALL_DATA)
 DATA = $(pkgconfiglib_DATA)
 thirdpartybmsincludeHEADERS_INSTALL = $(INSTALL_HEADER)
 thirdpartyincludeHEADERS_INSTALL = $(INSTALL_HEADER)
+thirdpartylpiincludeHEADERS_INSTALL = $(INSTALL_HEADER)
 thirdpartynlpiincludeHEADERS_INSTALL = $(INSTALL_HEADER)
 thirdpartyscipincludeHEADERS_INSTALL = $(INSTALL_HEADER)
 HEADERS = $(thirdpartybmsinclude_HEADERS) $(thirdpartyinclude_HEADERS) \
+	$(thirdpartylpiinclude_HEADERS) \
 	$(thirdpartynlpiinclude_HEADERS) \
 	$(thirdpartyscipinclude_HEADERS)
 ETAGS = etags
@@ -911,9 +915,7 @@ thirdpartyscipinclude_HEADERS = \
   scip/src/scip/type_var.h \
   scip/src/scip/type_vbc.h \
   scip/src/scip/var.h \
-  scip/src/scip/githash.c \
-  scip/src/lpi/lpi.h \
-  scip/src/lpi/type_lpi.h
+  scip/src/scip/githash.c
 
 thirdpartybmsincludedir = $(includedir)/coin/ThirdParty/blockmemshell
 thirdpartybmsinclude_HEADERS = scip/src/blockmemshell/memory.h
@@ -927,6 +929,11 @@ thirdpartynlpiinclude_HEADERS = \
   scip/src/nlpi/type_expr.h \
   scip/src/nlpi/type_exprinterpret.h \
   scip/src/nlpi/type_nlpi.h
+
+thirdpartylpiincludedir = $(includedir)/coin/ThirdParty/lpi
+thirdpartylpiinclude_HEADERS = \
+  scip/src/lpi/lpi.h \
+  scip/src/lpi/type_lpi.h
 
 pkgconfiglibdir = $(libdir)/pkgconfig
 pkgconfiglib_DATA = coinscip.pc
@@ -2669,6 +2676,23 @@ uninstall-thirdpartyincludeHEADERS:
 	  echo " rm -f '$(DESTDIR)$(thirdpartyincludedir)/$$f'"; \
 	  rm -f "$(DESTDIR)$(thirdpartyincludedir)/$$f"; \
 	done
+install-thirdpartylpiincludeHEADERS: $(thirdpartylpiinclude_HEADERS)
+	@$(NORMAL_INSTALL)
+	test -z "$(thirdpartylpiincludedir)" || $(mkdir_p) "$(DESTDIR)$(thirdpartylpiincludedir)"
+	@list='$(thirdpartylpiinclude_HEADERS)'; for p in $$list; do \
+	  if test -f "$$p"; then d=; else d="$(srcdir)/"; fi; \
+	  f=$(am__strip_dir) \
+	  echo " $(thirdpartylpiincludeHEADERS_INSTALL) '$$d$$p' '$(DESTDIR)$(thirdpartylpiincludedir)/$$f'"; \
+	  $(thirdpartylpiincludeHEADERS_INSTALL) "$$d$$p" "$(DESTDIR)$(thirdpartylpiincludedir)/$$f"; \
+	done
+
+uninstall-thirdpartylpiincludeHEADERS:
+	@$(NORMAL_UNINSTALL)
+	@list='$(thirdpartylpiinclude_HEADERS)'; for p in $$list; do \
+	  f=$(am__strip_dir) \
+	  echo " rm -f '$(DESTDIR)$(thirdpartylpiincludedir)/$$f'"; \
+	  rm -f "$(DESTDIR)$(thirdpartylpiincludedir)/$$f"; \
+	done
 install-thirdpartynlpiincludeHEADERS: $(thirdpartynlpiinclude_HEADERS)
 	@$(NORMAL_INSTALL)
 	test -z "$(thirdpartynlpiincludedir)" || $(mkdir_p) "$(DESTDIR)$(thirdpartynlpiincludedir)"
@@ -2883,7 +2907,7 @@ check-am: all-am
 check: check-am
 all-am: Makefile $(LTLIBRARIES) $(DATA) $(HEADERS) config_scip.h
 installdirs:
-	for dir in "$(DESTDIR)$(libdir)" "$(DESTDIR)$(pkgconfiglibdir)" "$(DESTDIR)$(thirdpartybmsincludedir)" "$(DESTDIR)$(thirdpartyincludedir)" "$(DESTDIR)$(thirdpartynlpiincludedir)" "$(DESTDIR)$(thirdpartyscipincludedir)"; do \
+	for dir in "$(DESTDIR)$(libdir)" "$(DESTDIR)$(pkgconfiglibdir)" "$(DESTDIR)$(thirdpartybmsincludedir)" "$(DESTDIR)$(thirdpartyincludedir)" "$(DESTDIR)$(thirdpartylpiincludedir)" "$(DESTDIR)$(thirdpartynlpiincludedir)" "$(DESTDIR)$(thirdpartyscipincludedir)"; do \
 	  test -z "$$dir" || $(mkdir_p) "$$dir"; \
 	done
 install: install-am
@@ -2936,6 +2960,7 @@ info-am:
 install-data-am: install-pkgconfiglibDATA \
 	install-thirdpartybmsincludeHEADERS \
 	install-thirdpartyincludeHEADERS \
+	install-thirdpartylpiincludeHEADERS \
 	install-thirdpartynlpiincludeHEADERS \
 	install-thirdpartyscipincludeHEADERS
 
@@ -2971,6 +2996,7 @@ uninstall-am: uninstall-info-am uninstall-libLTLIBRARIES \
 	uninstall-pkgconfiglibDATA \
 	uninstall-thirdpartybmsincludeHEADERS \
 	uninstall-thirdpartyincludeHEADERS \
+	uninstall-thirdpartylpiincludeHEADERS \
 	uninstall-thirdpartynlpiincludeHEADERS \
 	uninstall-thirdpartyscipincludeHEADERS
 
@@ -2985,6 +3011,7 @@ uninstall-am: uninstall-info-am uninstall-libLTLIBRARIES \
 	install-libLTLIBRARIES install-man install-pkgconfiglibDATA \
 	install-strip install-thirdpartybmsincludeHEADERS \
 	install-thirdpartyincludeHEADERS \
+	install-thirdpartylpiincludeHEADERS \
 	install-thirdpartynlpiincludeHEADERS \
 	install-thirdpartyscipincludeHEADERS installcheck \
 	installcheck-am installdirs maintainer-clean \
@@ -2994,6 +3021,7 @@ uninstall-am: uninstall-info-am uninstall-libLTLIBRARIES \
 	uninstall-libLTLIBRARIES uninstall-pkgconfiglibDATA \
 	uninstall-thirdpartybmsincludeHEADERS \
 	uninstall-thirdpartyincludeHEADERS \
+	uninstall-thirdpartylpiincludeHEADERS \
 	uninstall-thirdpartynlpiincludeHEADERS \
 	uninstall-thirdpartyscipincludeHEADERS
 
