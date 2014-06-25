@@ -23,13 +23,14 @@ enum SCIP_LPISW_LPSolver
    SCIP_LPISW_NONE = 4,
    SCIP_LPISW_QSOPT = 5,
    SCIP_LPISW_SOPLEX = 6,
-   SCIP_LPISW_XPRESS = 7,
-   SCIP_LPISW_NSOLVERS = 8
+   SCIP_LPISW_SOPLEX2 = 7,
+   SCIP_LPISW_XPRESS = 8,
+   SCIP_LPISW_NSOLVERS = 9
 };
 typedef enum SCIP_LPISW_LPSolver SCIP_LPISW_LPSOLVER;
 
 static const char* const SCIP_LPISW_SOLVERNAMES[SCIP_LPISW_NSOLVERS] =
-{ "clp", "cplex", "gurobi", "mosek", "none", "qsopt", "soplex", "xpress" };
+{ "clp", "cplex", "gurobi", "mosek", "none", "qsopt", "soplex", "soplex2", "xpress" };
 
 /** gets enum of currently used LP solver */
 extern

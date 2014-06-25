@@ -53,7 +53,7 @@ POST_UNINSTALL = :
 build_triplet = @build@
 host_triplet = @host@
 @COIN_HAS_SOPLEX_TRUE@am__append_1 = scip/src/scip/bitencode.c \
-@COIN_HAS_SOPLEX_TRUE@	lpiswitch_spx.cpp
+@COIN_HAS_SOPLEX_TRUE@	lpiswitch_spx.cpp lpiswitch_spx2.cpp
 @COIN_HAS_CLP_TRUE@am__append_2 = lpiswitch_clp.cpp
 @COIN_HAS_CPX_TRUE@am__append_3 = lpiswitch_cpx.c
 @COIN_HAS_CPX_TRUE@am__append_4 = -I`$(CYGPATH_W) $(CPXINCDIR)`
@@ -277,9 +277,11 @@ libcoinscip_la_OBJECTS = $(am_libcoinscip_la_OBJECTS)
 libcoinsciplpis_la_LIBADD =
 am__libcoinsciplpis_la_SOURCES_DIST = lpiswitch.c lpiswitch_init.cpp \
 	lpiswitch_none.c scip/src/scip/bitencode.c lpiswitch_spx.cpp \
-	lpiswitch_clp.cpp lpiswitch_cpx.c lpiswitch_msk.c \
-	lpiswitch_xprs.c lpiswitch_grb.c lpiswitch_qso.c
-@COIN_HAS_SOPLEX_TRUE@am__objects_3 = bitencode.lo lpiswitch_spx.lo
+	lpiswitch_spx2.cpp lpiswitch_clp.cpp lpiswitch_cpx.c \
+	lpiswitch_msk.c lpiswitch_xprs.c lpiswitch_grb.c \
+	lpiswitch_qso.c
+@COIN_HAS_SOPLEX_TRUE@am__objects_3 = bitencode.lo lpiswitch_spx.lo \
+@COIN_HAS_SOPLEX_TRUE@	lpiswitch_spx2.lo
 @COIN_HAS_CLP_TRUE@am__objects_4 = lpiswitch_clp.lo
 @COIN_HAS_CPX_TRUE@am__objects_5 = lpiswitch_cpx.lo
 @COIN_HAS_MSK_TRUE@am__objects_6 = lpiswitch_msk.lo
@@ -1150,6 +1152,7 @@ distclean-compile:
 @AMDEP_TRUE@@am__include@ @am__quote@./$(DEPDIR)/lpiswitch_none.Plo@am__quote@
 @AMDEP_TRUE@@am__include@ @am__quote@./$(DEPDIR)/lpiswitch_qso.Plo@am__quote@
 @AMDEP_TRUE@@am__include@ @am__quote@./$(DEPDIR)/lpiswitch_spx.Plo@am__quote@
+@AMDEP_TRUE@@am__include@ @am__quote@./$(DEPDIR)/lpiswitch_spx2.Plo@am__quote@
 @AMDEP_TRUE@@am__include@ @am__quote@./$(DEPDIR)/lpiswitch_xprs.Plo@am__quote@
 @AMDEP_TRUE@@am__include@ @am__quote@./$(DEPDIR)/mem.Plo@am__quote@
 @AMDEP_TRUE@@am__include@ @am__quote@./$(DEPDIR)/memory.Plo@am__quote@

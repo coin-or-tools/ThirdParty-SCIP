@@ -76,14 +76,14 @@ AC_COIN_CHECK_USER_LIBRARY([QSopt], [QSO],[qsopt.h],   [QScreate_prob],,[SCIPLib
 
 AC_ARG_WITH([scip-lpsolver],
   AS_HELP_STRING([--with-scip-lpsolver],
-    [specify default LP solver to use in SCIP (soplex, clp, cplex, mosek, xpress, gurobi, qsopt, none)]),
+    [specify default LP solver to use in SCIP (soplex, soplex2, clp, cplex, mosek, xpress, gurobi, qsopt, none)]),
   [if test "$withval" = no ; then
      scip_lpsolver=none
    else
      scip_lpsolver="$withval"
    fi],
   [if test "$coin_has_soplex" = yes ; then
-     scip_lpsolver=soplex
+     scip_lpsolver=soplex2
    elif test "$coin_has_clp" = yes ; then
      scip_lpsolver=clp
    elif test "$coin_has_cpx" = true ; then
@@ -107,6 +107,12 @@ case "$scip_lpsolver" in
       AC_MSG_ERROR(["LP solver SoPlex not available.])
     fi
     AC_DEFINE(SCIP_LPISW_LPDEFAULT, SCIP_LPISW_SOPLEX, [Default LP solver in SCIP])
+  ;;
+  soplex2)
+    if test "$coin_has_soplex" = no ; then
+      AC_MSG_ERROR(["LP solver SoPlex not available.])
+    fi
+    AC_DEFINE(SCIP_LPISW_LPDEFAULT, SCIP_LPISW_SOPLEX2, [Default LP solver in SCIP])
   ;;
   clp)
     if test "$coin_has_clp" = no ; then
