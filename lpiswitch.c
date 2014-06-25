@@ -75,6 +75,13 @@
 #undef __SCIP_LPI_H__
 #include "lpi/lpi.h"
 #include "lpiswitch_unrename.h"
+
+#undef LPISW_RENAME_SUFFIX
+#define LPISW_RENAME_SUFFIX Soplex2
+#include "lpiswitch_rename.h"
+#undef __SCIP_LPI_H__
+#include "lpi/lpi.h"
+#include "lpiswitch_unrename.h"
 #endif
 
 #ifdef COIN_HAS_XPR
@@ -911,6 +918,17 @@ SCIP_RETCODE SCIPlpiSwitchSetSolver(
       {
 #ifdef COIN_HAS_SOPLEX
          LPISW_ASSIGN_FUNCPTRS(Soplex);
+         return SCIP_OKAY;
+#else
+         SCIPerrorMessage("SoPlex not available as LP solver.\n");
+         return SCIP_PLUGINNOTFOUND;
+#endif
+      }
+
+      case SCIP_LPISW_SOPLEX2:
+      {
+#ifdef COIN_HAS_SOPLEX
+         LPISW_ASSIGN_FUNCPTRS(Soplex2);
          return SCIP_OKAY;
 #else
          SCIPerrorMessage("SoPlex not available as LP solver.\n");

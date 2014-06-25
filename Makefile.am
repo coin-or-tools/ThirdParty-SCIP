@@ -214,8 +214,8 @@ if COIN_HAS_SOPLEX
   # because it is listed after the scip lib on the linker line but
   # has functions that only lpi_spx is using
   libcoinsciplpis_la_SOURCES += scip/src/scip/bitencode.c
-  libcoinsciplpis_la_SOURCES += lpiswitch_spx.cpp
-endif  
+  libcoinsciplpis_la_SOURCES += lpiswitch_spx.cpp lpiswitch_spx2.cpp
+endif
 if COIN_HAS_CLP
   libcoinsciplpis_la_SOURCES += lpiswitch_clp.cpp
 endif
