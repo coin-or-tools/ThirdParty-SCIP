@@ -284,6 +284,8 @@ thirdpartyscipinclude_HEADERS = \
   scip/src/scip/branch_inference.h \
   scip/src/scip/branch_leastinf.h \
   scip/src/scip/branch_mostinf.h \
+  scip/src/scip/branch_multaggr.h \
+  scip/src/scip/branch_nodereopt.h \
   scip/src/scip/branch_pscost.h \
   scip/src/scip/branch_random.h \
   scip/src/scip/branch_relpscost.h \
@@ -324,6 +326,7 @@ thirdpartyscipinclude_HEADERS = \
   scip/src/scip/event.h \
   scip/src/scip/event_softtimelimit.h \
   scip/src/scip/heur_actconsdiving.h \
+  scip/src/scip/heur_bound.h \
   scip/src/scip/heur_clique.h \
   scip/src/scip/heur_coefdiving.h \
   scip/src/scip/heur_crossover.h \
@@ -534,6 +537,7 @@ thirdpartyscipinclude_HEADERS = \
   scip/src/scip/type_prob.h \
   scip/src/scip/type_prop.h \
   scip/src/scip/type_reader.h \
+  scip/src/scip/type_reopt.h \
   scip/src/scip/type_relax.h \
   scip/src/scip/type_result.h \
   scip/src/scip/type_retcode.h \
