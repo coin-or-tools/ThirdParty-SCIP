@@ -525,26 +525,34 @@
 #define LPISW_DECL_LPIGETBINVROW(x) SCIP_RETCODE x ( \
    SCIP_LPI*             lpi,                \
    int                   r,                  \
-   SCIP_Real*            coef                \
+   SCIP_Real*            coef,               \
+   int*                  inds,               \
+   int*                  ninds               \
    )
 
 #define LPISW_DECL_LPIGETBINVCOL(x) SCIP_RETCODE x ( \
    SCIP_LPI*             lpi,                \
    int                   c,                  \
-   SCIP_Real*            coef                \
+   SCIP_Real*            coef,               \
+   int*                  inds,               \
+   int*                  ninds               \
    )
 
 #define LPISW_DECL_LPIGETBINVAROW(x) SCIP_RETCODE x ( \
    SCIP_LPI*             lpi,                \
    int                   r,                  \
    const SCIP_Real*      binvrow,            \
-   SCIP_Real*            coef                \
+   SCIP_Real*            coef,               \
+   int*                  inds,               \
+   int*                  ninds               \
    )
 
 #define LPISW_DECL_LPIGETBINVACOL(x) SCIP_RETCODE x ( \
    SCIP_LPI*             lpi,                \
    int                   c,                  \
-   SCIP_Real*            coef                \
+   SCIP_Real*            coef,               \
+   int*                  inds,               \
+   int*                  ninds               \
    )
 
 #define LPISW_DECL_LPIGETSTATE(x) SCIP_RETCODE x ( \
@@ -1721,10 +1729,13 @@ SCIP_RETCODE SCIPlpiGetBasisInd(
 SCIP_RETCODE SCIPlpiGetBInvRow(
    SCIP_LPI*             lpi,                /**< LP interface structure */
    int                   r,                  /**< row number */
-   SCIP_Real*            coef                /**< pointer to store the coefficients of the row */
+   SCIP_Real*            coef,               /**< pointer to store the coefficients of the row */
+   int*                  inds,               /**< array to store the non-zero indices, or NULL */
+   int*                  ninds               /**< pointer to store the number of non-zero indices, or NULL
+                                               *  (-1: if we do not store sparsity informations) */
    )
 {
-   return (*lpiGetBInvRow)(lpi, r, coef);
+   return (*lpiGetBInvRow)(lpi, r, coef, inds, ninds);
 }
 
 /** get dense column of inverse basis matrix B^-1 */
@@ -1735,10 +1746,13 @@ SCIP_RETCODE SCIPlpiGetBInvCol(
                                               *   B^-1 column numbers to the row and column numbers of the LP!
                                               *   c must be between 0 and nrows-1, since the basis has the size
                                               *   nrows * nrows */
-   SCIP_Real*            coef                /**< pointer to store the coefficients of the column */
+   SCIP_Real*            coef,               /**< pointer to store the coefficients of the column */
+   int*                  inds,               /**< array to store the non-zero indices, or NULL */
+   int*                  ninds               /**< pointer to store the number of non-zero indices, or NULL
+                                               *  (-1: if we do not store sparsity informations) */
    )
 {
-   return (*lpiGetBInvCol)(lpi, c, coef);
+   return (*lpiGetBInvCol)(lpi, c, coef, inds, ninds);
 }
 
 /** get dense row of inverse basis matrix times constraint matrix B^-1 * A */
@@ -1746,20 +1760,26 @@ SCIP_RETCODE SCIPlpiGetBInvARow(
    SCIP_LPI*             lpi,                /**< LP interface structure */
    int                   r,                  /**< row number */
    const SCIP_Real*      binvrow,            /**< row in (A_B)^-1 from prior call to SCIPlpiGetBInvRow(), or NULL */
-   SCIP_Real*            coef                /**< vector to return coefficients */
+   SCIP_Real*            coef,               /**< vector to return coefficients */
+   int*                  inds,               /**< array to store the non-zero indices, or NULL */
+   int*                  ninds               /**< pointer to store the number of non-zero indices, or NULL
+                                               *  (-1: if we do not store sparsity informations) */
    )
 {
-   return (*lpiGetBInvARow)(lpi, r, binvrow, coef);
+   return (*lpiGetBInvARow)(lpi, r, binvrow, coef, inds, ninds);
 }
 
 /** get dense column of inverse basis matrix times constraint matrix B^-1 * A */
 SCIP_RETCODE SCIPlpiGetBInvACol(
    SCIP_LPI*             lpi,                /**< LP interface structure */
    int                   c,                  /**< column number */
-   SCIP_Real*            coef                /**< vector to return coefficients */
+   SCIP_Real*            coef,               /**< vector to return coefficients */
+   int*                  inds,               /**< array to store the non-zero indices, or NULL */
+   int*                  ninds               /**< pointer to store the number of non-zero indices, or NULL
+                                               *  (-1: if we do not store sparsity informations) */
    )
 {
-   return (*lpiGetBInvACol)(lpi, c, coef);
+   return (*lpiGetBInvACol)(lpi, c, coef, inds, ninds);
 }
 
 /** stores LPi state (like basis information) into lpistate object */

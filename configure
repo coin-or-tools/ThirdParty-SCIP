@@ -20526,9 +20526,9 @@ scipver=`awk '/define SCIP_VERSION/ {print $3}' ${srcdir}/scip/src/scip/def.h`
 scipsubver=`awk '/define SCIP_SUBVERSION/ {print $3}' ${srcdir}/scip/src/scip/def.h`
 echo "$as_me:$LINENO: result: ${scipver}.${scipsubver}" >&5
 echo "${ECHO_T}${scipver}.${scipsubver}" >&6
-if test $scipver -lt 310 -o $scipver -ge 320 ; then
-  { { echo "$as_me:$LINENO: error: \"Incorrect SCIP version. This build system is made for SCIP 3.1.x\"" >&5
-echo "$as_me: error: \"Incorrect SCIP version. This build system is made for SCIP 3.1.x\"" >&2;}
+if test $scipver -lt 320 -o $scipver -ge 330 ; then
+  { { echo "$as_me:$LINENO: error: \"Incorrect SCIP version. This build system is made for SCIP 3.2.x\"" >&5
+echo "$as_me: error: \"Incorrect SCIP version. This build system is made for SCIP 3.2.x\"" >&2;}
    { (exit 1); exit 1; }; }
 fi
 
