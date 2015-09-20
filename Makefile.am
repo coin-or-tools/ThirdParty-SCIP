@@ -320,6 +320,7 @@ thirdpartyscipinclude_HEADERS = \
   scip/src/scip/cons_superindicator.h \
   scip/src/scip/cons_varbound.h \
   scip/src/scip/cons_xor.h \
+  scip/src/scip/debug.h \
   scip/src/scip/def.h \
   scip/src/scip/dialog_default.h \
   scip/src/scip/disp_default.h \
