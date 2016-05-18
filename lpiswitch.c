@@ -848,7 +848,7 @@ static SCIP_LPISW_LPSOLVER currentsolver = SCIP_LPISW_NSOLVERS;
    lpiWriteLP = SCIPlpiWriteLP ## x ;
 
 /** gets enum of currently used LP solver */
-SCIP_LPISW_LPSOLVER SCIPlpiSwitchGetCurrentSolver()
+SCIP_LPISW_LPSOLVER SCIPlpiSwitchGetCurrentSolver(void)
 {
    return currentsolver;
 }
@@ -962,7 +962,7 @@ SCIP_RETCODE SCIPlpiSwitchSetSolver(
 }
 
 /** sets static function pointers to LPI functions of default solver (determined during configure) */
-SCIP_RETCODE SCIPlpiSwitchSetDefaultSolver()
+SCIP_RETCODE SCIPlpiSwitchSetDefaultSolver(void)
 {
    SCIP_CALL( SCIPlpiSwitchSetSolver(SCIP_LPISW_LPDEFAULT) );
 
