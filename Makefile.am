@@ -17,6 +17,12 @@ DEFAULT_INCLUDES = -I. -I`$(CYGPATH_W) $(srcdir)`
 libcoinscip_la_LDFLAGS = $(LT_LDFLAGS)
 libcoinsciplpis_la_LDFLAGS = $(LT_LDFLAGS)
 
+# List all additionally required libraries
+if DEPENDENCY_LINKING
+libcoinsciplpis_la_LIBADD = $(SCIPLIB_LIBS)
+libcoinscip_la_LIBADD = libcoinsciplpis.la
+endif
+
 libcoinscip_la_SOURCES = \
   scip/src/scip/bitencode.c \
   scip/src/scip/branch.c \
