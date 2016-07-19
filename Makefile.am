@@ -237,7 +237,8 @@ libcoinscip_la_SOURCES = \
   scip/src/xml/xmlparse.c
 
 # LP solver interfaces
-libcoinsciplpis_la_SOURCES = lpiswitch.c lpiswitch_init.cpp lpiswitch_none.c
+libcoinsciplpis_la_SOURCES = lpiswitch.c lpiswitch_init.cpp lpiswitch_none.c \
+   scip/src/blockmemshell/memory.c scip/src/scip/message.c
 if COIN_HAS_SOPLEX
   # for static builds, we need bitencode also in the lpis library,
   # because it is listed after the scip lib on the linker line but

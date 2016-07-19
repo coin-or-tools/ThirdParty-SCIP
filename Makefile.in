@@ -303,10 +303,11 @@ am__DEPENDENCIES_1 =
 @DEPENDENCY_LINKING_TRUE@libcoinsciplpis_la_DEPENDENCIES =  \
 @DEPENDENCY_LINKING_TRUE@	$(am__DEPENDENCIES_1)
 am__libcoinsciplpis_la_SOURCES_DIST = lpiswitch.c lpiswitch_init.cpp \
-	lpiswitch_none.c scip/src/scip/bitencode.c lpiswitch_spx.cpp \
-	lpiswitch_spx2.cpp lpiswitch_clp.cpp lpiswitch_cpx.c \
-	lpiswitch_msk.c lpiswitch_xprs.c lpiswitch_grb.c \
-	lpiswitch_qso.c
+	lpiswitch_none.c scip/src/blockmemshell/memory.c \
+	scip/src/scip/message.c scip/src/scip/bitencode.c \
+	lpiswitch_spx.cpp lpiswitch_spx2.cpp lpiswitch_clp.cpp \
+	lpiswitch_cpx.c lpiswitch_msk.c lpiswitch_xprs.c \
+	lpiswitch_grb.c lpiswitch_qso.c
 @COIN_HAS_SOPLEX_TRUE@am__objects_3 = bitencode.lo lpiswitch_spx.lo \
 @COIN_HAS_SOPLEX_TRUE@	lpiswitch_spx2.lo
 @COIN_HAS_CLP_TRUE@am__objects_4 = lpiswitch_clp.lo
@@ -316,9 +317,9 @@ am__libcoinsciplpis_la_SOURCES_DIST = lpiswitch.c lpiswitch_init.cpp \
 @COIN_HAS_GRB_TRUE@am__objects_8 = lpiswitch_grb.lo
 @COIN_HAS_QSO_TRUE@am__objects_9 = lpiswitch_qso.lo
 am_libcoinsciplpis_la_OBJECTS = lpiswitch.lo lpiswitch_init.lo \
-	lpiswitch_none.lo $(am__objects_3) $(am__objects_4) \
-	$(am__objects_5) $(am__objects_6) $(am__objects_7) \
-	$(am__objects_8) $(am__objects_9)
+	lpiswitch_none.lo memory.lo message.lo $(am__objects_3) \
+	$(am__objects_4) $(am__objects_5) $(am__objects_6) \
+	$(am__objects_7) $(am__objects_8) $(am__objects_9)
 libcoinsciplpis_la_OBJECTS = $(am_libcoinsciplpis_la_OBJECTS)
 depcomp = $(SHELL) $(top_srcdir)/depcomp
 am__depfiles_maybe = depfiles
@@ -709,7 +710,8 @@ libcoinscip_la_SOURCES = scip/src/scip/bitencode.c \
 
 # LP solver interfaces
 libcoinsciplpis_la_SOURCES = lpiswitch.c lpiswitch_init.cpp \
-	lpiswitch_none.c $(am__append_1) $(am__append_2) \
+	lpiswitch_none.c scip/src/blockmemshell/memory.c \
+	scip/src/scip/message.c $(am__append_1) $(am__append_2) \
 	$(am__append_3) $(am__append_5) $(am__append_7) \
 	$(am__append_9) $(am__append_11)
 thirdpartyincludedir = $(includedir)/coin/ThirdParty
