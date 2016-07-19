@@ -17,6 +17,12 @@ DEFAULT_INCLUDES = -I. -I`$(CYGPATH_W) $(srcdir)`
 libcoinscip_la_LDFLAGS = $(LT_LDFLAGS)
 libcoinsciplpis_la_LDFLAGS = $(LT_LDFLAGS)
 
+# List all additionally required libraries
+if DEPENDENCY_LINKING
+libcoinsciplpis_la_LIBADD = $(SCIPLIB_LIBS)
+libcoinscip_la_LIBADD = libcoinsciplpis.la
+endif
+
 libcoinscip_la_SOURCES = \
   scip/src/scip/bitencode.c \
   scip/src/scip/branch.c \
@@ -231,7 +237,8 @@ libcoinscip_la_SOURCES = \
   scip/src/xml/xmlparse.c
 
 # LP solver interfaces
-libcoinsciplpis_la_SOURCES = lpiswitch.c lpiswitch_init.cpp lpiswitch_none.c
+libcoinsciplpis_la_SOURCES = lpiswitch.c lpiswitch_init.cpp lpiswitch_none.c \
+   scip/src/blockmemshell/memory.c scip/src/scip/message.c
 if COIN_HAS_SOPLEX
   # for static builds, we need bitencode also in the lpis library,
   # because it is listed after the scip lib on the linker line but
@@ -320,6 +327,7 @@ thirdpartyscipinclude_HEADERS = \
   scip/src/scip/cons_superindicator.h \
   scip/src/scip/cons_varbound.h \
   scip/src/scip/cons_xor.h \
+  scip/src/scip/debug.h \
   scip/src/scip/def.h \
   scip/src/scip/dialog_default.h \
   scip/src/scip/disp_default.h \
