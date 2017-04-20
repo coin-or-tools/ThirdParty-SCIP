@@ -11,6 +11,7 @@
 #define SCIPlpiGetSolverName EVALCONCAT(SCIPlpiGetSolverName,LPISW_RENAME_SUFFIX)
 #define SCIPlpiGetSolverDesc EVALCONCAT(SCIPlpiGetSolverDesc,LPISW_RENAME_SUFFIX)
 #define SCIPlpiGetSolverPointer EVALCONCAT(SCIPlpiGetSolverPointer,LPISW_RENAME_SUFFIX)
+#define SCIPlpiSetIntegralityInformation EVALCONCAT(SCIPlpiSetIntegralityInformation,LPISW_RENAME_SUFFIX)
 #define SCIPlpiCreate EVALCONCAT(SCIPlpiCreate,LPISW_RENAME_SUFFIX)
 #define SCIPlpiFree EVALCONCAT(SCIPlpiFree,LPISW_RENAME_SUFFIX)
 #define SCIPlpiLoadColLP EVALCONCAT(SCIPlpiLoadColLP,LPISW_RENAME_SUFFIX)

@@ -57,8 +57,8 @@ AC_MSG_CHECKING([SCIP version])
 scipver=`awk '/define SCIP_VERSION/ {print $3}' ${srcdir}/scip/src/scip/def.h`
 scipsubver=`awk '/define SCIP_SUBVERSION/ {print $3}' ${srcdir}/scip/src/scip/def.h`
 AC_MSG_RESULT([${scipver}.${scipsubver}])
-if test $scipver -lt 320 -o $scipver -ge 330 ; then
-  AC_MSG_ERROR(["Incorrect SCIP version. This build system is made for SCIP 3.2.x"])
+if test $scipver -lt 400 -o $scipver -ge 410 ; then
+  AC_MSG_ERROR(["Incorrect SCIP version. This build system is made for SCIP 4.0.x"])
 fi
 
 #############################################################################
@@ -106,7 +106,7 @@ case "$scip_lpsolver" in
     if test "$coin_has_soplex" = no ; then
       AC_MSG_ERROR(["LP solver SoPlex not available.])
     fi
-    AC_DEFINE(SCIP_LPISW_LPDEFAULT, SCIP_LPISW_SOPLEX, [Default LP solver in SCIP])
+    AC_DEFINE(SCIP_LPISW_LPDEFAULT, SCIP_LPISW_SOPLEX2, [Default LP solver in SCIP])
   ;;
   soplex2)
     if test "$coin_has_soplex" = no ; then
@@ -225,6 +225,8 @@ case "$CC" in
     EXTRAFLAGS="$EXTRAFLAGS -Wno-overlength-strings"
     ;;
 esac
+
+EXTRAFLAGS="$EXTRAFLAGS -DTPI_NONE"
 
 CFLAGS="$CFLAGS $EXTRAFLAGS"
 CXXFLAGS="$CXXFLAGS $EXTRAFLAGS"

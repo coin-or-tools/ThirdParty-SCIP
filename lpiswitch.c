@@ -103,6 +103,12 @@
 
 #define LPISW_DECL_LPIGETSOLVERPOINTER(x) void* x (SCIP_LPI* lpi)
 
+#define LPISW_DECL_LPISETINTEGRALITYINFORMATION(x) SCIP_RETCODE x ( \
+   SCIP_LPI*             lpi,       \
+   int                   ncols,     \
+   int*                  intInfo    \
+   )
+
 #define LPISW_DECL_LPICREATE(x) SCIP_RETCODE x ( \
    SCIP_LPI**            lpi,         \
    SCIP_MESSAGEHDLR*     messagehdlr, \
@@ -210,8 +216,8 @@
 #define LPISW_DECL_LPICHGOBJ(x) SCIP_RETCODE x ( \
    SCIP_LPI*             lpi,    \
    int                   ncols,  \
-   int*                  ind,    \
-   SCIP_Real*            obj     \
+   const int*            ind,    \
+   const SCIP_Real*      obj     \
    )
 
 #define LPISW_DECL_LPISCALEROW(x) SCIP_RETCODE x ( \
@@ -513,8 +519,8 @@
 
 #define LPISW_DECL_LPISETBASE(x) SCIP_RETCODE x ( \
    SCIP_LPI*             lpi,                \
-   int*                  cstat,              \
-   int*                  rstat               \
+   const int*            cstat,              \
+   const int*            rstat               \
    )
 
 #define LPISW_DECL_LPIGETBASISIND(x) SCIP_RETCODE x ( \
@@ -564,7 +570,7 @@
 #define LPISW_DECL_LPISETSTATE(x) SCIP_RETCODE x ( \
    SCIP_LPI*             lpi,                \
    BMS_BLKMEM*           blkmem,             \
-   SCIP_LPISTATE*        lpistate            \
+   const SCIP_LPISTATE*  lpistate            \
    )
 
 #define LPISW_DECL_LPICLEARSTATE(x) SCIP_RETCODE x ( \
@@ -601,7 +607,7 @@
 #define LPISW_DECL_LPISETNORMS(x) SCIP_RETCODE x ( \
    SCIP_LPI*             lpi,                \
    BMS_BLKMEM*           blkmem,             \
-   SCIP_LPINORMS*        lpinorms            \
+   const SCIP_LPINORMS*  lpinorms            \
    )
 
 #define LPISW_DECL_LPIFREENORMS(x) SCIP_RETCODE x ( \
@@ -660,6 +666,7 @@
 static LPISW_DECL_LPIGETSOLVERNAME((*lpiGetSolverName)) = NULL;
 static LPISW_DECL_LPIGETSOLVERDESC((*lpiGetSolverDesc)) = NULL;
 static LPISW_DECL_LPIGETSOLVERPOINTER((*lpiGetSolverPointer)) = NULL;
+static LPISW_DECL_LPISETINTEGRALITYINFORMATION((*lpiSetIntegralityInformation)) = NULL;
 static LPISW_DECL_LPICREATE((*lpiCreate)) = NULL;
 static LPISW_DECL_LPIFREE((*lpiFree)) = NULL;
 static LPISW_DECL_LPILOADCOLLP((*lpiLoadColLP)) = NULL;
@@ -757,6 +764,7 @@ static SCIP_LPISW_LPSOLVER currentsolver = SCIP_LPISW_NSOLVERS;
    lpiGetSolverName = SCIPlpiGetSolverName ## x ; \
    lpiGetSolverDesc = SCIPlpiGetSolverDesc ## x ; \
    lpiGetSolverPointer = SCIPlpiGetSolverPointer ## x ; \
+   lpiSetIntegralityInformation = SCIPlpiSetIntegralityInformation ## x ; \
    lpiCreate = SCIPlpiCreate ## x ; \
    lpiFree = SCIPlpiFree ## x ; \
    lpiLoadColLP = SCIPlpiLoadColLP ## x ; \
@@ -1017,6 +1025,16 @@ SCIP_RETCODE SCIPlpiCreate(
    return (*lpiCreate)(lpi, messagehdlr, name, objsen);
 }
 
+/** pass integrality information about variables to the solver */
+SCIP_RETCODE SCIPlpiSetIntegralityInformation(
+   SCIP_LPI*             lpi,                /**< pointer to an LP interface structure */
+   int                   ncols,              /**< length of integrality array */
+   int*                  intInfo             /**< integrality array (0: continuous, 1: integer) */
+   )
+{
+   return (*lpiSetIntegralityInformation)(lpi, ncols, intInfo);
+}
+
 /** deletes an LP problem object */
 SCIP_RETCODE SCIPlpiFree(
    SCIP_LPI**            lpi                 /**< pointer to an LP interface structure */
@@ -1178,8 +1196,8 @@ SCIP_RETCODE SCIPlpiChgObjsen(
 SCIP_RETCODE SCIPlpiChgObj(
    SCIP_LPI*             lpi,                /**< LP interface structure */
    int                   ncols,              /**< number of columns to change objective value for */
-   int*                  ind,                /**< column indices to change objective value for */
-   SCIP_Real*            obj                 /**< new objective values for columns */
+   const int*            ind,                /**< column indices to change objective value for */
+   const SCIP_Real*      obj                 /**< new objective values for columns */
    )
 {
    return (*lpiChgObj)(lpi, ncols, ind, obj);
@@ -1709,8 +1727,8 @@ SCIP_RETCODE SCIPlpiGetBase(
 /** sets current basis status for columns and rows */
 SCIP_RETCODE SCIPlpiSetBase(
    SCIP_LPI*             lpi,                /**< LP interface structure */
-   int*                  cstat,              /**< array with column basis status */
-   int*                  rstat               /**< array with row basis status */
+   const int*            cstat,              /**< array with column basis status */
+   const int*            rstat               /**< array with row basis status */
    )
 {
    return (*lpiSetBase)(lpi, cstat, rstat);
@@ -1798,7 +1816,7 @@ SCIP_RETCODE SCIPlpiGetState(
 SCIP_RETCODE SCIPlpiSetState(
    SCIP_LPI*             lpi,                /**< LP interface structure */
    BMS_BLKMEM*           blkmem,             /**< block memory */
-   SCIP_LPISTATE*        lpistate            /**< LPi state information (like basis information) */
+   const SCIP_LPISTATE*  lpistate            /**< LPi state information (like basis information) */
    )
 {
    return (*lpiSetState)(lpi, blkmem, lpistate);
@@ -1865,7 +1883,7 @@ SCIP_RETCODE SCIPlpiGetNorms(
 SCIP_RETCODE SCIPlpiSetNorms(
    SCIP_LPI*             lpi,                /**< LP interface structure */
    BMS_BLKMEM*           blkmem,             /**< block memory */
-   SCIP_LPINORMS*        lpinorms            /**< LPi pricing norms information */
+   const SCIP_LPINORMS*  lpinorms            /**< LPi pricing norms information */
    )
 {
    return (*lpiSetNorms)(lpi, blkmem, lpinorms);

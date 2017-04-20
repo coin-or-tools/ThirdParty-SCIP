@@ -108,16 +108,18 @@ LTLIBRARIES = $(lib_LTLIBRARIES)
 @DEPENDENCY_LINKING_TRUE@libcoinscip_la_DEPENDENCIES =  \
 @DEPENDENCY_LINKING_TRUE@	libcoinsciplpis.la
 am__libcoinscip_la_SOURCES_DIST = scip/src/scip/bitencode.c \
-	scip/src/scip/branch.c scip/src/scip/clock.c \
-	scip/src/scip/compr.c scip/src/scip/conflict.c \
+	scip/src/scip/boundstore.c scip/src/scip/branch.c \
+	scip/src/scip/clock.c scip/src/scip/compr.c \
+	scip/src/scip/concurrent.c scip/src/scip/concsolver.c \
+	scip/src/scip/conflict.c scip/src/scip/conflictstore.c \
 	scip/src/scip/cons.c scip/src/scip/cutpool.c \
-	scip/src/scip/debug.c scip/src/scip/dialog.c \
-	scip/src/scip/disp.c scip/src/scip/dive.c \
+	scip/src/scip/cuts.c scip/src/scip/debug.c \
+	scip/src/scip/dialog.c scip/src/scip/disp.c \
 	scip/src/scip/event.c scip/src/scip/fileio.c \
-	scip/src/scip/heur.c scip/src/scip/history.c \
-	scip/src/scip/implics.c scip/src/scip/interrupt.c \
-	scip/src/scip/intervalarith.c scip/src/scip/lp.c \
-	scip/src/scip/matrix.c scip/src/scip/mem.c \
+	scip/src/scip/heur.c scip/src/scip/heuristics.c \
+	scip/src/scip/history.c scip/src/scip/implics.c \
+	scip/src/scip/interrupt.c scip/src/scip/intervalarith.c \
+	scip/src/scip/lp.c scip/src/scip/matrix.c scip/src/scip/mem.c \
 	scip/src/scip/message.c scip/src/scip/misc.c \
 	scip/src/scip/nlp.c scip/src/scip/nodesel.c \
 	scip/src/scip/paramset.c scip/src/scip/presol.c \
@@ -126,12 +128,14 @@ am__libcoinscip_la_SOURCES_DIST = scip/src/scip/bitencode.c \
 	scip/src/scip/prob.c scip/src/scip/prop.c \
 	scip/src/scip/reader.c scip/src/scip/relax.c \
 	scip/src/scip/reopt.c scip/src/scip/retcode.c \
-	scip/src/scip/scip.c scip/src/scip/scipdefplugins.c \
-	scip/src/scip/scipgithash.c scip/src/scip/scipshell.c \
-	scip/src/scip/sepa.c scip/src/scip/sepastore.c \
-	scip/src/scip/set.c scip/src/scip/sol.c scip/src/scip/solve.c \
-	scip/src/scip/stat.c scip/src/scip/tree.c scip/src/scip/var.c \
-	scip/src/scip/visual.c scip/src/scip/branch_allfullstrong.c \
+	scip/src/scip/scip.c scip/src/scip/scipbuildflags.c \
+	scip/src/scip/scipdefplugins.c scip/src/scip/scipgithash.c \
+	scip/src/scip/scipshell.c scip/src/scip/sepa.c \
+	scip/src/scip/sepastore.c scip/src/scip/set.c \
+	scip/src/scip/sol.c scip/src/scip/solve.c scip/src/scip/stat.c \
+	scip/src/scip/syncstore.c scip/src/scip/tree.c \
+	scip/src/scip/var.c scip/src/scip/visual.c \
+	scip/src/scip/branch_allfullstrong.c \
 	scip/src/scip/branch_cloud.c \
 	scip/src/scip/branch_distribution.c \
 	scip/src/scip/branch_fullstrong.c \
@@ -141,9 +145,12 @@ am__libcoinscip_la_SOURCES_DIST = scip/src/scip/bitencode.c \
 	scip/src/scip/branch_nodereopt.c scip/src/scip/branch_pscost.c \
 	scip/src/scip/branch_random.c scip/src/scip/branch_relpscost.c \
 	scip/src/scip/compr_largestrepr.c \
-	scip/src/scip/compr_weakcompr.c scip/src/scip/cons_abspower.c \
+	scip/src/scip/compr_weakcompr.c \
+	scip/src/scip/concsolver_scip.c scip/src/scip/cons_abspower.c \
 	scip/src/scip/cons_and.c scip/src/scip/cons_bivariate.c \
 	scip/src/scip/cons_bounddisjunction.c \
+	scip/src/scip/cons_cardinality.c \
+	scip/src/scip/cons_components.c \
 	scip/src/scip/cons_conjunction.c \
 	scip/src/scip/cons_countsols.c scip/src/scip/cons_cumulative.c \
 	scip/src/scip/cons_disjunction.c \
@@ -158,32 +165,38 @@ am__libcoinscip_la_SOURCES_DIST = scip/src/scip/bitencode.c \
 	scip/src/scip/cons_sos2.c scip/src/scip/cons_superindicator.c \
 	scip/src/scip/cons_varbound.c scip/src/scip/cons_xor.c \
 	scip/src/scip/dialog_default.c scip/src/scip/disp_default.c \
+	scip/src/scip/event_globalbnd.c \
 	scip/src/scip/event_softtimelimit.c \
+	scip/src/scip/event_solvingphase.c \
 	scip/src/scip/heur_actconsdiving.c scip/src/scip/heur_bound.c \
 	scip/src/scip/heur_clique.c scip/src/scip/heur_coefdiving.c \
+	scip/src/scip/heur_completesol.c \
 	scip/src/scip/heur_crossover.c scip/src/scip/heur_dins.c \
 	scip/src/scip/heur_distributiondiving.c \
 	scip/src/scip/heur_dualval.c scip/src/scip/heur_feaspump.c \
 	scip/src/scip/heur_fixandinfer.c \
-	scip/src/scip/heur_fracdiving.c \
+	scip/src/scip/heur_fracdiving.c scip/src/scip/heur_gins.c \
 	scip/src/scip/heur_guideddiving.c \
 	scip/src/scip/heur_indicator.c scip/src/scip/heur_intdiving.c \
 	scip/src/scip/heur_intshifting.c \
 	scip/src/scip/heur_linesearchdiving.c \
 	scip/src/scip/heur_localbranching.c \
-	scip/src/scip/heur_mutation.c scip/src/scip/heur_nlpdiving.c \
+	scip/src/scip/heur_lpface.c scip/src/scip/heur_locks.c \
+	scip/src/scip/heur_multistart.c scip/src/scip/heur_mutation.c \
+	scip/src/scip/heur_nlpdiving.c \
 	scip/src/scip/heur_objpscostdiving.c \
 	scip/src/scip/heur_octane.c scip/src/scip/heur_ofins.c \
 	scip/src/scip/heur_oneopt.c scip/src/scip/heur_proximity.c \
 	scip/src/scip/heur_pscostdiving.c \
 	scip/src/scip/heur_randrounding.c scip/src/scip/heur_rens.c \
-	scip/src/scip/heur_reoptsols.c scip/src/scip/heur_rins.c \
-	scip/src/scip/heur_rootsoldiving.c \
+	scip/src/scip/heur_reoptsols.c scip/src/scip/heur_repair.c \
+	scip/src/scip/heur_rins.c scip/src/scip/heur_rootsoldiving.c \
 	scip/src/scip/heur_rounding.c \
 	scip/src/scip/heur_shiftandpropagate.c \
 	scip/src/scip/heur_shifting.c \
 	scip/src/scip/heur_simplerounding.c \
-	scip/src/scip/heur_subnlp.c scip/src/scip/heur_trivial.c \
+	scip/src/scip/heur_subnlp.c scip/src/scip/heur_sync.c \
+	scip/src/scip/heur_trivial.c \
 	scip/src/scip/heur_trivialnegation.c \
 	scip/src/scip/heur_trysol.c scip/src/scip/heur_twoopt.c \
 	scip/src/scip/heur_undercover.c scip/src/scip/heur_vbounds.c \
@@ -195,35 +208,38 @@ am__libcoinscip_la_SOURCES_DIST = scip/src/scip/bitencode.c \
 	scip/src/scip/nodesel_hybridestim.c \
 	scip/src/scip/nodesel_restartdfs.c scip/src/scip/nodesel_uct.c \
 	scip/src/scip/presol_boundshift.c \
-	scip/src/scip/presol_components.c \
 	scip/src/scip/presol_convertinttobin.c \
 	scip/src/scip/presol_domcol.c scip/src/scip/presol_dualagg.c \
+	scip/src/scip/presol_dualcomp.c \
 	scip/src/scip/presol_dualinfer.c \
 	scip/src/scip/presol_gateextraction.c \
 	scip/src/scip/presol_implfree.c scip/src/scip/presol_implics.c \
 	scip/src/scip/presol_inttobinary.c \
-	scip/src/scip/presol_redvub.c scip/src/scip/presol_stuffing.c \
-	scip/src/scip/presol_trivial.c \
+	scip/src/scip/presol_qpkktref.c scip/src/scip/presol_redvub.c \
+	scip/src/scip/presol_stuffing.c scip/src/scip/presol_trivial.c \
 	scip/src/scip/presol_tworowbnd.c scip/src/scip/prop_dualfix.c \
-	scip/src/scip/prop_genvbounds.c scip/src/scip/prop_obbt.c \
-	scip/src/scip/prop_probing.c scip/src/scip/prop_pseudoobj.c \
-	scip/src/scip/prop_redcost.c scip/src/scip/prop_rootredcost.c \
+	scip/src/scip/prop_genvbounds.c scip/src/scip/prop_nlobbt.c \
+	scip/src/scip/prop_obbt.c scip/src/scip/prop_probing.c \
+	scip/src/scip/prop_pseudoobj.c scip/src/scip/prop_redcost.c \
+	scip/src/scip/prop_rootredcost.c scip/src/scip/prop_sync.c \
 	scip/src/scip/prop_vbounds.c scip/src/scip/reader_bnd.c \
 	scip/src/scip/reader_ccg.c scip/src/scip/reader_cip.c \
 	scip/src/scip/reader_cnf.c scip/src/scip/reader_diff.c \
 	scip/src/scip/reader_fix.c scip/src/scip/reader_fzn.c \
 	scip/src/scip/reader_gms.c scip/src/scip/reader_lp.c \
-	scip/src/scip/reader_mps.c scip/src/scip/reader_opb.c \
-	scip/src/scip/reader_osil.c scip/src/scip/reader_pbm.c \
-	scip/src/scip/reader_pip.c scip/src/scip/reader_ppm.c \
-	scip/src/scip/reader_rlp.c scip/src/scip/reader_sol.c \
-	scip/src/scip/reader_wbo.c scip/src/scip/reader_zpl.c \
-	scip/src/scip/sepa_cgmip.c scip/src/scip/sepa_clique.c \
-	scip/src/scip/sepa_closecuts.c scip/src/scip/sepa_cmir.c \
+	scip/src/scip/reader_mps.c scip/src/scip/reader_mst.c \
+	scip/src/scip/reader_opb.c scip/src/scip/reader_osil.c \
+	scip/src/scip/reader_pbm.c scip/src/scip/reader_pip.c \
+	scip/src/scip/reader_ppm.c scip/src/scip/reader_rlp.c \
+	scip/src/scip/reader_sol.c scip/src/scip/reader_wbo.c \
+	scip/src/scip/reader_zpl.c scip/src/scip/sepa_cgmip.c \
+	scip/src/scip/sepa_clique.c scip/src/scip/sepa_closecuts.c \
+	scip/src/scip/sepa_cmir.c scip/src/scip/sepa_convexproj.c \
 	scip/src/scip/sepa_disjunctive.c scip/src/scip/sepa_eccuts.c \
-	scip/src/scip/sepa_flowcover.c scip/src/scip/sepa_gomory.c \
-	scip/src/scip/sepa_impliedbounds.c scip/src/scip/sepa_intobj.c \
-	scip/src/scip/sepa_mcf.c scip/src/scip/sepa_oddcycle.c \
+	scip/src/scip/sepa_flowcover.c scip/src/scip/sepa_gauge.c \
+	scip/src/scip/sepa_gomory.c scip/src/scip/sepa_impliedbounds.c \
+	scip/src/scip/sepa_intobj.c scip/src/scip/sepa_mcf.c \
+	scip/src/scip/sepa_oddcycle.c \
 	scip/src/scip/sepa_rapidlearning.c \
 	scip/src/scip/sepa_strongcg.c scip/src/scip/sepa_zerohalf.c \
 	scip/src/tclique/tclique_branch.c \
@@ -233,70 +249,78 @@ am__libcoinscip_la_SOURCES_DIST = scip/src/scip/bitencode.c \
 	scip/src/nlpi/nlpi.c scip/src/nlpi/nlpioracle.c \
 	scip/src/nlpi/exprinterpret_cppad.cpp \
 	scip/src/dijkstra/dijkstra.c scip/src/xml/xmlparse.c \
-	scip/src/nlpi/nlpi_ipopt.cpp scip/src/nlpi/nlpi_ipopt_dummy.c
+	scip/src/tpi/tpi_none.c scip/src/nlpi/nlpi_ipopt.cpp \
+	scip/src/nlpi/nlpi_ipopt_dummy.c
 @COIN_HAS_IPOPT_TRUE@am__objects_1 = nlpi_ipopt.lo
 @COIN_HAS_IPOPT_FALSE@am__objects_2 = nlpi_ipopt_dummy.lo
-am_libcoinscip_la_OBJECTS = bitencode.lo branch.lo clock.lo compr.lo \
-	conflict.lo cons.lo cutpool.lo debug.lo dialog.lo disp.lo \
-	dive.lo event.lo fileio.lo heur.lo history.lo implics.lo \
-	interrupt.lo intervalarith.lo lp.lo matrix.lo mem.lo \
-	message.lo misc.lo nlp.lo nodesel.lo paramset.lo presol.lo \
-	presolve.lo pricer.lo pricestore.lo primal.lo prob.lo prop.lo \
-	reader.lo relax.lo reopt.lo retcode.lo scip.lo \
-	scipdefplugins.lo scipgithash.lo scipshell.lo sepa.lo \
-	sepastore.lo set.lo sol.lo solve.lo stat.lo tree.lo var.lo \
-	visual.lo branch_allfullstrong.lo branch_cloud.lo \
-	branch_distribution.lo branch_fullstrong.lo \
-	branch_inference.lo branch_leastinf.lo branch_mostinf.lo \
-	branch_multaggr.lo branch_nodereopt.lo branch_pscost.lo \
-	branch_random.lo branch_relpscost.lo compr_largestrepr.lo \
-	compr_weakcompr.lo cons_abspower.lo cons_and.lo \
-	cons_bivariate.lo cons_bounddisjunction.lo cons_conjunction.lo \
-	cons_countsols.lo cons_cumulative.lo cons_disjunction.lo \
-	cons_indicator.lo cons_integral.lo cons_knapsack.lo \
-	cons_linear.lo cons_linking.lo cons_logicor.lo \
-	cons_nonlinear.lo cons_or.lo cons_orbitope.lo \
-	cons_pseudoboolean.lo cons_quadratic.lo cons_setppc.lo \
-	cons_soc.lo cons_sos1.lo cons_sos2.lo cons_superindicator.lo \
-	cons_varbound.lo cons_xor.lo dialog_default.lo disp_default.lo \
-	event_softtimelimit.lo heur_actconsdiving.lo heur_bound.lo \
-	heur_clique.lo heur_coefdiving.lo heur_crossover.lo \
+am_libcoinscip_la_OBJECTS = bitencode.lo boundstore.lo branch.lo \
+	clock.lo compr.lo concurrent.lo concsolver.lo conflict.lo \
+	conflictstore.lo cons.lo cutpool.lo cuts.lo debug.lo dialog.lo \
+	disp.lo event.lo fileio.lo heur.lo heuristics.lo history.lo \
+	implics.lo interrupt.lo intervalarith.lo lp.lo matrix.lo \
+	mem.lo message.lo misc.lo nlp.lo nodesel.lo paramset.lo \
+	presol.lo presolve.lo pricer.lo pricestore.lo primal.lo \
+	prob.lo prop.lo reader.lo relax.lo reopt.lo retcode.lo scip.lo \
+	scipbuildflags.lo scipdefplugins.lo scipgithash.lo \
+	scipshell.lo sepa.lo sepastore.lo set.lo sol.lo solve.lo \
+	stat.lo syncstore.lo tree.lo var.lo visual.lo \
+	branch_allfullstrong.lo branch_cloud.lo branch_distribution.lo \
+	branch_fullstrong.lo branch_inference.lo branch_leastinf.lo \
+	branch_mostinf.lo branch_multaggr.lo branch_nodereopt.lo \
+	branch_pscost.lo branch_random.lo branch_relpscost.lo \
+	compr_largestrepr.lo compr_weakcompr.lo concsolver_scip.lo \
+	cons_abspower.lo cons_and.lo cons_bivariate.lo \
+	cons_bounddisjunction.lo cons_cardinality.lo \
+	cons_components.lo cons_conjunction.lo cons_countsols.lo \
+	cons_cumulative.lo cons_disjunction.lo cons_indicator.lo \
+	cons_integral.lo cons_knapsack.lo cons_linear.lo \
+	cons_linking.lo cons_logicor.lo cons_nonlinear.lo cons_or.lo \
+	cons_orbitope.lo cons_pseudoboolean.lo cons_quadratic.lo \
+	cons_setppc.lo cons_soc.lo cons_sos1.lo cons_sos2.lo \
+	cons_superindicator.lo cons_varbound.lo cons_xor.lo \
+	dialog_default.lo disp_default.lo event_globalbnd.lo \
+	event_softtimelimit.lo event_solvingphase.lo \
+	heur_actconsdiving.lo heur_bound.lo heur_clique.lo \
+	heur_coefdiving.lo heur_completesol.lo heur_crossover.lo \
 	heur_dins.lo heur_distributiondiving.lo heur_dualval.lo \
 	heur_feaspump.lo heur_fixandinfer.lo heur_fracdiving.lo \
-	heur_guideddiving.lo heur_indicator.lo heur_intdiving.lo \
-	heur_intshifting.lo heur_linesearchdiving.lo \
-	heur_localbranching.lo heur_mutation.lo heur_nlpdiving.lo \
+	heur_gins.lo heur_guideddiving.lo heur_indicator.lo \
+	heur_intdiving.lo heur_intshifting.lo heur_linesearchdiving.lo \
+	heur_localbranching.lo heur_lpface.lo heur_locks.lo \
+	heur_multistart.lo heur_mutation.lo heur_nlpdiving.lo \
 	heur_objpscostdiving.lo heur_octane.lo heur_ofins.lo \
 	heur_oneopt.lo heur_proximity.lo heur_pscostdiving.lo \
 	heur_randrounding.lo heur_rens.lo heur_reoptsols.lo \
-	heur_rins.lo heur_rootsoldiving.lo heur_rounding.lo \
-	heur_shiftandpropagate.lo heur_shifting.lo \
-	heur_simplerounding.lo heur_subnlp.lo heur_trivial.lo \
-	heur_trivialnegation.lo heur_trysol.lo heur_twoopt.lo \
-	heur_undercover.lo heur_vbounds.lo heur_veclendiving.lo \
-	heur_zeroobj.lo heur_zirounding.lo message_default.lo \
-	nodesel_bfs.lo nodesel_breadthfirst.lo nodesel_dfs.lo \
-	nodesel_estimate.lo nodesel_hybridestim.lo \
+	heur_repair.lo heur_rins.lo heur_rootsoldiving.lo \
+	heur_rounding.lo heur_shiftandpropagate.lo heur_shifting.lo \
+	heur_simplerounding.lo heur_subnlp.lo heur_sync.lo \
+	heur_trivial.lo heur_trivialnegation.lo heur_trysol.lo \
+	heur_twoopt.lo heur_undercover.lo heur_vbounds.lo \
+	heur_veclendiving.lo heur_zeroobj.lo heur_zirounding.lo \
+	message_default.lo nodesel_bfs.lo nodesel_breadthfirst.lo \
+	nodesel_dfs.lo nodesel_estimate.lo nodesel_hybridestim.lo \
 	nodesel_restartdfs.lo nodesel_uct.lo presol_boundshift.lo \
-	presol_components.lo presol_convertinttobin.lo \
-	presol_domcol.lo presol_dualagg.lo presol_dualinfer.lo \
+	presol_convertinttobin.lo presol_domcol.lo presol_dualagg.lo \
+	presol_dualcomp.lo presol_dualinfer.lo \
 	presol_gateextraction.lo presol_implfree.lo presol_implics.lo \
-	presol_inttobinary.lo presol_redvub.lo presol_stuffing.lo \
-	presol_trivial.lo presol_tworowbnd.lo prop_dualfix.lo \
-	prop_genvbounds.lo prop_obbt.lo prop_probing.lo \
-	prop_pseudoobj.lo prop_redcost.lo prop_rootredcost.lo \
-	prop_vbounds.lo reader_bnd.lo reader_ccg.lo reader_cip.lo \
-	reader_cnf.lo reader_diff.lo reader_fix.lo reader_fzn.lo \
-	reader_gms.lo reader_lp.lo reader_mps.lo reader_opb.lo \
-	reader_osil.lo reader_pbm.lo reader_pip.lo reader_ppm.lo \
-	reader_rlp.lo reader_sol.lo reader_wbo.lo reader_zpl.lo \
-	sepa_cgmip.lo sepa_clique.lo sepa_closecuts.lo sepa_cmir.lo \
-	sepa_disjunctive.lo sepa_eccuts.lo sepa_flowcover.lo \
-	sepa_gomory.lo sepa_impliedbounds.lo sepa_intobj.lo \
-	sepa_mcf.lo sepa_oddcycle.lo sepa_rapidlearning.lo \
-	sepa_strongcg.lo sepa_zerohalf.lo tclique_branch.lo \
-	tclique_coloring.lo tclique_graph.lo memory.lo expr.lo nlpi.lo \
-	nlpioracle.lo exprinterpret_cppad.lo dijkstra.lo xmlparse.lo \
+	presol_inttobinary.lo presol_qpkktref.lo presol_redvub.lo \
+	presol_stuffing.lo presol_trivial.lo presol_tworowbnd.lo \
+	prop_dualfix.lo prop_genvbounds.lo prop_nlobbt.lo prop_obbt.lo \
+	prop_probing.lo prop_pseudoobj.lo prop_redcost.lo \
+	prop_rootredcost.lo prop_sync.lo prop_vbounds.lo reader_bnd.lo \
+	reader_ccg.lo reader_cip.lo reader_cnf.lo reader_diff.lo \
+	reader_fix.lo reader_fzn.lo reader_gms.lo reader_lp.lo \
+	reader_mps.lo reader_mst.lo reader_opb.lo reader_osil.lo \
+	reader_pbm.lo reader_pip.lo reader_ppm.lo reader_rlp.lo \
+	reader_sol.lo reader_wbo.lo reader_zpl.lo sepa_cgmip.lo \
+	sepa_clique.lo sepa_closecuts.lo sepa_cmir.lo \
+	sepa_convexproj.lo sepa_disjunctive.lo sepa_eccuts.lo \
+	sepa_flowcover.lo sepa_gauge.lo sepa_gomory.lo \
+	sepa_impliedbounds.lo sepa_intobj.lo sepa_mcf.lo \
+	sepa_oddcycle.lo sepa_rapidlearning.lo sepa_strongcg.lo \
+	sepa_zerohalf.lo tclique_branch.lo tclique_coloring.lo \
+	tclique_graph.lo memory.lo expr.lo nlpi.lo nlpioracle.lo \
+	exprinterpret_cppad.lo dijkstra.lo xmlparse.lo tpi_none.lo \
 	$(am__objects_1) $(am__objects_2)
 libcoinscip_la_OBJECTS = $(am_libcoinscip_la_OBJECTS)
 am__DEPENDENCIES_1 =
@@ -580,17 +604,21 @@ libcoinsciplpis_la_LDFLAGS = $(LT_LDFLAGS)
 # List all additionally required libraries
 @DEPENDENCY_LINKING_TRUE@libcoinsciplpis_la_LIBADD = $(SCIPLIB_LIBS)
 @DEPENDENCY_LINKING_TRUE@libcoinscip_la_LIBADD = libcoinsciplpis.la
+
+# thread-parallelism interfaces (TODO add at least OpenMP option)
 libcoinscip_la_SOURCES = scip/src/scip/bitencode.c \
-	scip/src/scip/branch.c scip/src/scip/clock.c \
-	scip/src/scip/compr.c scip/src/scip/conflict.c \
+	scip/src/scip/boundstore.c scip/src/scip/branch.c \
+	scip/src/scip/clock.c scip/src/scip/compr.c \
+	scip/src/scip/concurrent.c scip/src/scip/concsolver.c \
+	scip/src/scip/conflict.c scip/src/scip/conflictstore.c \
 	scip/src/scip/cons.c scip/src/scip/cutpool.c \
-	scip/src/scip/debug.c scip/src/scip/dialog.c \
-	scip/src/scip/disp.c scip/src/scip/dive.c \
+	scip/src/scip/cuts.c scip/src/scip/debug.c \
+	scip/src/scip/dialog.c scip/src/scip/disp.c \
 	scip/src/scip/event.c scip/src/scip/fileio.c \
-	scip/src/scip/heur.c scip/src/scip/history.c \
-	scip/src/scip/implics.c scip/src/scip/interrupt.c \
-	scip/src/scip/intervalarith.c scip/src/scip/lp.c \
-	scip/src/scip/matrix.c scip/src/scip/mem.c \
+	scip/src/scip/heur.c scip/src/scip/heuristics.c \
+	scip/src/scip/history.c scip/src/scip/implics.c \
+	scip/src/scip/interrupt.c scip/src/scip/intervalarith.c \
+	scip/src/scip/lp.c scip/src/scip/matrix.c scip/src/scip/mem.c \
 	scip/src/scip/message.c scip/src/scip/misc.c \
 	scip/src/scip/nlp.c scip/src/scip/nodesel.c \
 	scip/src/scip/paramset.c scip/src/scip/presol.c \
@@ -599,12 +627,14 @@ libcoinscip_la_SOURCES = scip/src/scip/bitencode.c \
 	scip/src/scip/prob.c scip/src/scip/prop.c \
 	scip/src/scip/reader.c scip/src/scip/relax.c \
 	scip/src/scip/reopt.c scip/src/scip/retcode.c \
-	scip/src/scip/scip.c scip/src/scip/scipdefplugins.c \
-	scip/src/scip/scipgithash.c scip/src/scip/scipshell.c \
-	scip/src/scip/sepa.c scip/src/scip/sepastore.c \
-	scip/src/scip/set.c scip/src/scip/sol.c scip/src/scip/solve.c \
-	scip/src/scip/stat.c scip/src/scip/tree.c scip/src/scip/var.c \
-	scip/src/scip/visual.c scip/src/scip/branch_allfullstrong.c \
+	scip/src/scip/scip.c scip/src/scip/scipbuildflags.c \
+	scip/src/scip/scipdefplugins.c scip/src/scip/scipgithash.c \
+	scip/src/scip/scipshell.c scip/src/scip/sepa.c \
+	scip/src/scip/sepastore.c scip/src/scip/set.c \
+	scip/src/scip/sol.c scip/src/scip/solve.c scip/src/scip/stat.c \
+	scip/src/scip/syncstore.c scip/src/scip/tree.c \
+	scip/src/scip/var.c scip/src/scip/visual.c \
+	scip/src/scip/branch_allfullstrong.c \
 	scip/src/scip/branch_cloud.c \
 	scip/src/scip/branch_distribution.c \
 	scip/src/scip/branch_fullstrong.c \
@@ -614,9 +644,12 @@ libcoinscip_la_SOURCES = scip/src/scip/bitencode.c \
 	scip/src/scip/branch_nodereopt.c scip/src/scip/branch_pscost.c \
 	scip/src/scip/branch_random.c scip/src/scip/branch_relpscost.c \
 	scip/src/scip/compr_largestrepr.c \
-	scip/src/scip/compr_weakcompr.c scip/src/scip/cons_abspower.c \
+	scip/src/scip/compr_weakcompr.c \
+	scip/src/scip/concsolver_scip.c scip/src/scip/cons_abspower.c \
 	scip/src/scip/cons_and.c scip/src/scip/cons_bivariate.c \
 	scip/src/scip/cons_bounddisjunction.c \
+	scip/src/scip/cons_cardinality.c \
+	scip/src/scip/cons_components.c \
 	scip/src/scip/cons_conjunction.c \
 	scip/src/scip/cons_countsols.c scip/src/scip/cons_cumulative.c \
 	scip/src/scip/cons_disjunction.c \
@@ -631,32 +664,38 @@ libcoinscip_la_SOURCES = scip/src/scip/bitencode.c \
 	scip/src/scip/cons_sos2.c scip/src/scip/cons_superindicator.c \
 	scip/src/scip/cons_varbound.c scip/src/scip/cons_xor.c \
 	scip/src/scip/dialog_default.c scip/src/scip/disp_default.c \
+	scip/src/scip/event_globalbnd.c \
 	scip/src/scip/event_softtimelimit.c \
+	scip/src/scip/event_solvingphase.c \
 	scip/src/scip/heur_actconsdiving.c scip/src/scip/heur_bound.c \
 	scip/src/scip/heur_clique.c scip/src/scip/heur_coefdiving.c \
+	scip/src/scip/heur_completesol.c \
 	scip/src/scip/heur_crossover.c scip/src/scip/heur_dins.c \
 	scip/src/scip/heur_distributiondiving.c \
 	scip/src/scip/heur_dualval.c scip/src/scip/heur_feaspump.c \
 	scip/src/scip/heur_fixandinfer.c \
-	scip/src/scip/heur_fracdiving.c \
+	scip/src/scip/heur_fracdiving.c scip/src/scip/heur_gins.c \
 	scip/src/scip/heur_guideddiving.c \
 	scip/src/scip/heur_indicator.c scip/src/scip/heur_intdiving.c \
 	scip/src/scip/heur_intshifting.c \
 	scip/src/scip/heur_linesearchdiving.c \
 	scip/src/scip/heur_localbranching.c \
-	scip/src/scip/heur_mutation.c scip/src/scip/heur_nlpdiving.c \
+	scip/src/scip/heur_lpface.c scip/src/scip/heur_locks.c \
+	scip/src/scip/heur_multistart.c scip/src/scip/heur_mutation.c \
+	scip/src/scip/heur_nlpdiving.c \
 	scip/src/scip/heur_objpscostdiving.c \
 	scip/src/scip/heur_octane.c scip/src/scip/heur_ofins.c \
 	scip/src/scip/heur_oneopt.c scip/src/scip/heur_proximity.c \
 	scip/src/scip/heur_pscostdiving.c \
 	scip/src/scip/heur_randrounding.c scip/src/scip/heur_rens.c \
-	scip/src/scip/heur_reoptsols.c scip/src/scip/heur_rins.c \
-	scip/src/scip/heur_rootsoldiving.c \
+	scip/src/scip/heur_reoptsols.c scip/src/scip/heur_repair.c \
+	scip/src/scip/heur_rins.c scip/src/scip/heur_rootsoldiving.c \
 	scip/src/scip/heur_rounding.c \
 	scip/src/scip/heur_shiftandpropagate.c \
 	scip/src/scip/heur_shifting.c \
 	scip/src/scip/heur_simplerounding.c \
-	scip/src/scip/heur_subnlp.c scip/src/scip/heur_trivial.c \
+	scip/src/scip/heur_subnlp.c scip/src/scip/heur_sync.c \
+	scip/src/scip/heur_trivial.c \
 	scip/src/scip/heur_trivialnegation.c \
 	scip/src/scip/heur_trysol.c scip/src/scip/heur_twoopt.c \
 	scip/src/scip/heur_undercover.c scip/src/scip/heur_vbounds.c \
@@ -668,35 +707,38 @@ libcoinscip_la_SOURCES = scip/src/scip/bitencode.c \
 	scip/src/scip/nodesel_hybridestim.c \
 	scip/src/scip/nodesel_restartdfs.c scip/src/scip/nodesel_uct.c \
 	scip/src/scip/presol_boundshift.c \
-	scip/src/scip/presol_components.c \
 	scip/src/scip/presol_convertinttobin.c \
 	scip/src/scip/presol_domcol.c scip/src/scip/presol_dualagg.c \
+	scip/src/scip/presol_dualcomp.c \
 	scip/src/scip/presol_dualinfer.c \
 	scip/src/scip/presol_gateextraction.c \
 	scip/src/scip/presol_implfree.c scip/src/scip/presol_implics.c \
 	scip/src/scip/presol_inttobinary.c \
-	scip/src/scip/presol_redvub.c scip/src/scip/presol_stuffing.c \
-	scip/src/scip/presol_trivial.c \
+	scip/src/scip/presol_qpkktref.c scip/src/scip/presol_redvub.c \
+	scip/src/scip/presol_stuffing.c scip/src/scip/presol_trivial.c \
 	scip/src/scip/presol_tworowbnd.c scip/src/scip/prop_dualfix.c \
-	scip/src/scip/prop_genvbounds.c scip/src/scip/prop_obbt.c \
-	scip/src/scip/prop_probing.c scip/src/scip/prop_pseudoobj.c \
-	scip/src/scip/prop_redcost.c scip/src/scip/prop_rootredcost.c \
+	scip/src/scip/prop_genvbounds.c scip/src/scip/prop_nlobbt.c \
+	scip/src/scip/prop_obbt.c scip/src/scip/prop_probing.c \
+	scip/src/scip/prop_pseudoobj.c scip/src/scip/prop_redcost.c \
+	scip/src/scip/prop_rootredcost.c scip/src/scip/prop_sync.c \
 	scip/src/scip/prop_vbounds.c scip/src/scip/reader_bnd.c \
 	scip/src/scip/reader_ccg.c scip/src/scip/reader_cip.c \
 	scip/src/scip/reader_cnf.c scip/src/scip/reader_diff.c \
 	scip/src/scip/reader_fix.c scip/src/scip/reader_fzn.c \
 	scip/src/scip/reader_gms.c scip/src/scip/reader_lp.c \
-	scip/src/scip/reader_mps.c scip/src/scip/reader_opb.c \
-	scip/src/scip/reader_osil.c scip/src/scip/reader_pbm.c \
-	scip/src/scip/reader_pip.c scip/src/scip/reader_ppm.c \
-	scip/src/scip/reader_rlp.c scip/src/scip/reader_sol.c \
-	scip/src/scip/reader_wbo.c scip/src/scip/reader_zpl.c \
-	scip/src/scip/sepa_cgmip.c scip/src/scip/sepa_clique.c \
-	scip/src/scip/sepa_closecuts.c scip/src/scip/sepa_cmir.c \
+	scip/src/scip/reader_mps.c scip/src/scip/reader_mst.c \
+	scip/src/scip/reader_opb.c scip/src/scip/reader_osil.c \
+	scip/src/scip/reader_pbm.c scip/src/scip/reader_pip.c \
+	scip/src/scip/reader_ppm.c scip/src/scip/reader_rlp.c \
+	scip/src/scip/reader_sol.c scip/src/scip/reader_wbo.c \
+	scip/src/scip/reader_zpl.c scip/src/scip/sepa_cgmip.c \
+	scip/src/scip/sepa_clique.c scip/src/scip/sepa_closecuts.c \
+	scip/src/scip/sepa_cmir.c scip/src/scip/sepa_convexproj.c \
 	scip/src/scip/sepa_disjunctive.c scip/src/scip/sepa_eccuts.c \
-	scip/src/scip/sepa_flowcover.c scip/src/scip/sepa_gomory.c \
-	scip/src/scip/sepa_impliedbounds.c scip/src/scip/sepa_intobj.c \
-	scip/src/scip/sepa_mcf.c scip/src/scip/sepa_oddcycle.c \
+	scip/src/scip/sepa_flowcover.c scip/src/scip/sepa_gauge.c \
+	scip/src/scip/sepa_gomory.c scip/src/scip/sepa_impliedbounds.c \
+	scip/src/scip/sepa_intobj.c scip/src/scip/sepa_mcf.c \
+	scip/src/scip/sepa_oddcycle.c \
 	scip/src/scip/sepa_rapidlearning.c \
 	scip/src/scip/sepa_strongcg.c scip/src/scip/sepa_zerohalf.c \
 	scip/src/tclique/tclique_branch.c \
@@ -706,7 +748,7 @@ libcoinscip_la_SOURCES = scip/src/scip/bitencode.c \
 	scip/src/nlpi/nlpi.c scip/src/nlpi/nlpioracle.c \
 	scip/src/nlpi/exprinterpret_cppad.cpp \
 	scip/src/dijkstra/dijkstra.c scip/src/xml/xmlparse.c \
-	$(am__append_13) $(am__append_14)
+	scip/src/tpi/tpi_none.c $(am__append_13) $(am__append_14)
 
 # LP solver interfaces
 libcoinsciplpis_la_SOURCES = lpiswitch.c lpiswitch_init.cpp \
@@ -740,6 +782,8 @@ thirdpartyscipinclude_HEADERS = \
   scip/src/scip/cons_and.h \
   scip/src/scip/cons_bivariate.h \
   scip/src/scip/cons_bounddisjunction.h \
+  scip/src/scip/cons_cardinality.h \
+  scip/src/scip/cons_components.h \
   scip/src/scip/cons_conjunction.h \
   scip/src/scip/cons_countsols.h \
   scip/src/scip/cons_cumulative.h \
@@ -767,7 +811,9 @@ thirdpartyscipinclude_HEADERS = \
   scip/src/scip/dialog_default.h \
   scip/src/scip/disp_default.h \
   scip/src/scip/event.h \
+  scip/src/scip/event_globalbnd.h \
   scip/src/scip/event_softtimelimit.h \
+  scip/src/scip/event_solvingphase.h \
   scip/src/scip/heur_actconsdiving.h \
   scip/src/scip/heur_bound.h \
   scip/src/scip/heur_clique.h \
@@ -779,12 +825,16 @@ thirdpartyscipinclude_HEADERS = \
   scip/src/scip/heur_feaspump.h \
   scip/src/scip/heur_fixandinfer.h \
   scip/src/scip/heur_fracdiving.h \
+  scip/src/scip/heur_gins.h \
   scip/src/scip/heur_guideddiving.h \
   scip/src/scip/heur_indicator.h \
   scip/src/scip/heur_intdiving.h \
   scip/src/scip/heur_intshifting.h \
   scip/src/scip/heur_linesearchdiving.h \
   scip/src/scip/heur_localbranching.h \
+  scip/src/scip/heur_locks.h \
+  scip/src/scip/heur_lpface.h \
+  scip/src/scip/heur_multistart.h \
   scip/src/scip/heur_mutation.h \
   scip/src/scip/heur_nlpdiving.h \
   scip/src/scip/heur_objpscostdiving.h \
@@ -796,6 +846,7 @@ thirdpartyscipinclude_HEADERS = \
   scip/src/scip/heur_randrounding.h \
   scip/src/scip/heur_rens.h \
   scip/src/scip/heur_reoptsols.h \
+  scip/src/scip/heur_repair.h \
   scip/src/scip/heur_rins.h \
   scip/src/scip/heur_rootsoldiving.h \
   scip/src/scip/heur_rounding.h \
@@ -803,6 +854,7 @@ thirdpartyscipinclude_HEADERS = \
   scip/src/scip/heur_shifting.h \
   scip/src/scip/heur_simplerounding.h \
   scip/src/scip/heur_subnlp.h \
+  scip/src/scip/heur_sync.h \
   scip/src/scip/heur_trivial.h \
   scip/src/scip/heur_trivialnegation.h \
   scip/src/scip/heur_trysol.h \
@@ -827,26 +879,29 @@ thirdpartyscipinclude_HEADERS = \
   scip/src/scip/nodesel_uct.h \
   scip/src/scip/presolve.h \
   scip/src/scip/presol_boundshift.h \
-  scip/src/scip/presol_components.h \
   scip/src/scip/presol_convertinttobin.h \
   scip/src/scip/presol_domcol.h \
   scip/src/scip/presol_dualagg.h \
+  scip/src/scip/presol_dualcomp.h \
   scip/src/scip/presol_dualinfer.h \
   scip/src/scip/presol_gateextraction.h \
   scip/src/scip/presol_implfree.h \
   scip/src/scip/presol_implics.h \
   scip/src/scip/presol_inttobinary.h \
+  scip/src/scip/presol_qpkktref.h \
   scip/src/scip/presol_redvub.h \
   scip/src/scip/presol_stuffing.h \
   scip/src/scip/presol_trivial.h \
   scip/src/scip/presol_tworowbnd.h \
   scip/src/scip/prop_dualfix.h \
   scip/src/scip/prop_genvbounds.h \
+  scip/src/scip/prop_nlobbt.h \
   scip/src/scip/prop_obbt.h \
   scip/src/scip/prop_probing.h \
   scip/src/scip/prop_pseudoobj.h \
   scip/src/scip/prop_redcost.h \
   scip/src/scip/prop_rootredcost.h \
+  scip/src/scip/prop_sync.h \
   scip/src/scip/prop_vbounds.h \
   scip/src/scip/pub_branch.h \
   scip/src/scip/pub_compr.h \
@@ -864,6 +919,8 @@ thirdpartyscipinclude_HEADERS = \
   scip/src/scip/pub_matrix.h \
   scip/src/scip/pub_message.h \
   scip/src/scip/pub_misc.h \
+  scip/src/scip/pub_misc_select.h \
+  scip/src/scip/pub_misc_sort.h \
   scip/src/scip/pub_nlp.h \
   scip/src/scip/pub_nodesel.h \
   scip/src/scip/pub_paramset.h \
@@ -905,6 +962,7 @@ thirdpartyscipinclude_HEADERS = \
   scip/src/scip/sepa_disjunctive.h \
   scip/src/scip/sepa_eccuts.h \
   scip/src/scip/sepa_flowcover.h \
+  scip/src/scip/sepa_gauge.h \
   scip/src/scip/sepa_gomory.h \
   scip/src/scip/sepa_impliedbounds.h \
   scip/src/scip/sepa_intobj.h \
@@ -980,8 +1038,8 @@ thirdpartyscipinclude_HEADERS = \
   scip/src/scip/type_prob.h \
   scip/src/scip/type_prop.h \
   scip/src/scip/type_reader.h \
-  scip/src/scip/type_reopt.h \
   scip/src/scip/type_relax.h \
+  scip/src/scip/type_reopt.h \
   scip/src/scip/type_result.h \
   scip/src/scip/type_retcode.h \
   scip/src/scip/type_scip.h \
@@ -1015,6 +1073,11 @@ thirdpartylpiinclude_HEADERS = \
   scip/src/lpi/lpi.h \
   scip/src/lpi/type_lpi.h
 
+
+#thirdpartytpiincludedir = $(includedir)/coin/ThirdParty/tpi
+#thirdpartytpiinclude_HEADERS = \
+#  scip/src/tpi/tpi.h \
+#  scip/src/tpi/type_tpi.h
 pkgconfiglibdir = $(libdir)/pkgconfig
 pkgconfiglib_DATA = coinscip.pc
 
@@ -1126,6 +1189,7 @@ distclean-compile:
 	-rm -f *.tab.c
 
 @AMDEP_TRUE@@am__include@ @am__quote@./$(DEPDIR)/bitencode.Plo@am__quote@
+@AMDEP_TRUE@@am__include@ @am__quote@./$(DEPDIR)/boundstore.Plo@am__quote@
 @AMDEP_TRUE@@am__include@ @am__quote@./$(DEPDIR)/branch.Plo@am__quote@
 @AMDEP_TRUE@@am__include@ @am__quote@./$(DEPDIR)/branch_allfullstrong.Plo@am__quote@
 @AMDEP_TRUE@@am__include@ @am__quote@./$(DEPDIR)/branch_cloud.Plo@am__quote@
@@ -1143,12 +1207,18 @@ distclean-compile:
 @AMDEP_TRUE@@am__include@ @am__quote@./$(DEPDIR)/compr.Plo@am__quote@
 @AMDEP_TRUE@@am__include@ @am__quote@./$(DEPDIR)/compr_largestrepr.Plo@am__quote@
 @AMDEP_TRUE@@am__include@ @am__quote@./$(DEPDIR)/compr_weakcompr.Plo@am__quote@
+@AMDEP_TRUE@@am__include@ @am__quote@./$(DEPDIR)/concsolver.Plo@am__quote@
+@AMDEP_TRUE@@am__include@ @am__quote@./$(DEPDIR)/concsolver_scip.Plo@am__quote@
+@AMDEP_TRUE@@am__include@ @am__quote@./$(DEPDIR)/concurrent.Plo@am__quote@
 @AMDEP_TRUE@@am__include@ @am__quote@./$(DEPDIR)/conflict.Plo@am__quote@
+@AMDEP_TRUE@@am__include@ @am__quote@./$(DEPDIR)/conflictstore.Plo@am__quote@
 @AMDEP_TRUE@@am__include@ @am__quote@./$(DEPDIR)/cons.Plo@am__quote@
 @AMDEP_TRUE@@am__include@ @am__quote@./$(DEPDIR)/cons_abspower.Plo@am__quote@
 @AMDEP_TRUE@@am__include@ @am__quote@./$(DEPDIR)/cons_and.Plo@am__quote@
 @AMDEP_TRUE@@am__include@ @am__quote@./$(DEPDIR)/cons_bivariate.Plo@am__quote@
 @AMDEP_TRUE@@am__include@ @am__quote@./$(DEPDIR)/cons_bounddisjunction.Plo@am__quote@
+@AMDEP_TRUE@@am__include@ @am__quote@./$(DEPDIR)/cons_cardinality.Plo@am__quote@
+@AMDEP_TRUE@@am__include@ @am__quote@./$(DEPDIR)/cons_components.Plo@am__quote@
 @AMDEP_TRUE@@am__include@ @am__quote@./$(DEPDIR)/cons_conjunction.Plo@am__quote@
 @AMDEP_TRUE@@am__include@ @am__quote@./$(DEPDIR)/cons_countsols.Plo@am__quote@
 @AMDEP_TRUE@@am__include@ @am__quote@./$(DEPDIR)/cons_cumulative.Plo@am__quote@
@@ -1172,15 +1242,17 @@ distclean-compile:
 @AMDEP_TRUE@@am__include@ @am__quote@./$(DEPDIR)/cons_varbound.Plo@am__quote@
 @AMDEP_TRUE@@am__include@ @am__quote@./$(DEPDIR)/cons_xor.Plo@am__quote@
 @AMDEP_TRUE@@am__include@ @am__quote@./$(DEPDIR)/cutpool.Plo@am__quote@
+@AMDEP_TRUE@@am__include@ @am__quote@./$(DEPDIR)/cuts.Plo@am__quote@
 @AMDEP_TRUE@@am__include@ @am__quote@./$(DEPDIR)/debug.Plo@am__quote@
 @AMDEP_TRUE@@am__include@ @am__quote@./$(DEPDIR)/dialog.Plo@am__quote@
 @AMDEP_TRUE@@am__include@ @am__quote@./$(DEPDIR)/dialog_default.Plo@am__quote@
 @AMDEP_TRUE@@am__include@ @am__quote@./$(DEPDIR)/dijkstra.Plo@am__quote@
 @AMDEP_TRUE@@am__include@ @am__quote@./$(DEPDIR)/disp.Plo@am__quote@
 @AMDEP_TRUE@@am__include@ @am__quote@./$(DEPDIR)/disp_default.Plo@am__quote@
-@AMDEP_TRUE@@am__include@ @am__quote@./$(DEPDIR)/dive.Plo@am__quote@
 @AMDEP_TRUE@@am__include@ @am__quote@./$(DEPDIR)/event.Plo@am__quote@
+@AMDEP_TRUE@@am__include@ @am__quote@./$(DEPDIR)/event_globalbnd.Plo@am__quote@
 @AMDEP_TRUE@@am__include@ @am__quote@./$(DEPDIR)/event_softtimelimit.Plo@am__quote@
+@AMDEP_TRUE@@am__include@ @am__quote@./$(DEPDIR)/event_solvingphase.Plo@am__quote@
 @AMDEP_TRUE@@am__include@ @am__quote@./$(DEPDIR)/expr.Plo@am__quote@
 @AMDEP_TRUE@@am__include@ @am__quote@./$(DEPDIR)/exprinterpret_cppad.Plo@am__quote@
 @AMDEP_TRUE@@am__include@ @am__quote@./$(DEPDIR)/fileio.Plo@am__quote@
@@ -1189,6 +1261,7 @@ distclean-compile:
 @AMDEP_TRUE@@am__include@ @am__quote@./$(DEPDIR)/heur_bound.Plo@am__quote@
 @AMDEP_TRUE@@am__include@ @am__quote@./$(DEPDIR)/heur_clique.Plo@am__quote@
 @AMDEP_TRUE@@am__include@ @am__quote@./$(DEPDIR)/heur_coefdiving.Plo@am__quote@
+@AMDEP_TRUE@@am__include@ @am__quote@./$(DEPDIR)/heur_completesol.Plo@am__quote@
 @AMDEP_TRUE@@am__include@ @am__quote@./$(DEPDIR)/heur_crossover.Plo@am__quote@
 @AMDEP_TRUE@@am__include@ @am__quote@./$(DEPDIR)/heur_dins.Plo@am__quote@
 @AMDEP_TRUE@@am__include@ @am__quote@./$(DEPDIR)/heur_distributiondiving.Plo@am__quote@
@@ -1196,12 +1269,16 @@ distclean-compile:
 @AMDEP_TRUE@@am__include@ @am__quote@./$(DEPDIR)/heur_feaspump.Plo@am__quote@
 @AMDEP_TRUE@@am__include@ @am__quote@./$(DEPDIR)/heur_fixandinfer.Plo@am__quote@
 @AMDEP_TRUE@@am__include@ @am__quote@./$(DEPDIR)/heur_fracdiving.Plo@am__quote@
+@AMDEP_TRUE@@am__include@ @am__quote@./$(DEPDIR)/heur_gins.Plo@am__quote@
 @AMDEP_TRUE@@am__include@ @am__quote@./$(DEPDIR)/heur_guideddiving.Plo@am__quote@
 @AMDEP_TRUE@@am__include@ @am__quote@./$(DEPDIR)/heur_indicator.Plo@am__quote@
 @AMDEP_TRUE@@am__include@ @am__quote@./$(DEPDIR)/heur_intdiving.Plo@am__quote@
 @AMDEP_TRUE@@am__include@ @am__quote@./$(DEPDIR)/heur_intshifting.Plo@am__quote@
 @AMDEP_TRUE@@am__include@ @am__quote@./$(DEPDIR)/heur_linesearchdiving.Plo@am__quote@
 @AMDEP_TRUE@@am__include@ @am__quote@./$(DEPDIR)/heur_localbranching.Plo@am__quote@
+@AMDEP_TRUE@@am__include@ @am__quote@./$(DEPDIR)/heur_locks.Plo@am__quote@
+@AMDEP_TRUE@@am__include@ @am__quote@./$(DEPDIR)/heur_lpface.Plo@am__quote@
+@AMDEP_TRUE@@am__include@ @am__quote@./$(DEPDIR)/heur_multistart.Plo@am__quote@
 @AMDEP_TRUE@@am__include@ @am__quote@./$(DEPDIR)/heur_mutation.Plo@am__quote@
 @AMDEP_TRUE@@am__include@ @am__quote@./$(DEPDIR)/heur_nlpdiving.Plo@am__quote@
 @AMDEP_TRUE@@am__include@ @am__quote@./$(DEPDIR)/heur_objpscostdiving.Plo@am__quote@
@@ -1213,6 +1290,7 @@ distclean-compile:
 @AMDEP_TRUE@@am__include@ @am__quote@./$(DEPDIR)/heur_randrounding.Plo@am__quote@
 @AMDEP_TRUE@@am__include@ @am__quote@./$(DEPDIR)/heur_rens.Plo@am__quote@
 @AMDEP_TRUE@@am__include@ @am__quote@./$(DEPDIR)/heur_reoptsols.Plo@am__quote@
+@AMDEP_TRUE@@am__include@ @am__quote@./$(DEPDIR)/heur_repair.Plo@am__quote@
 @AMDEP_TRUE@@am__include@ @am__quote@./$(DEPDIR)/heur_rins.Plo@am__quote@
 @AMDEP_TRUE@@am__include@ @am__quote@./$(DEPDIR)/heur_rootsoldiving.Plo@am__quote@
 @AMDEP_TRUE@@am__include@ @am__quote@./$(DEPDIR)/heur_rounding.Plo@am__quote@
@@ -1220,6 +1298,7 @@ distclean-compile:
 @AMDEP_TRUE@@am__include@ @am__quote@./$(DEPDIR)/heur_shifting.Plo@am__quote@
 @AMDEP_TRUE@@am__include@ @am__quote@./$(DEPDIR)/heur_simplerounding.Plo@am__quote@
 @AMDEP_TRUE@@am__include@ @am__quote@./$(DEPDIR)/heur_subnlp.Plo@am__quote@
+@AMDEP_TRUE@@am__include@ @am__quote@./$(DEPDIR)/heur_sync.Plo@am__quote@
 @AMDEP_TRUE@@am__include@ @am__quote@./$(DEPDIR)/heur_trivial.Plo@am__quote@
 @AMDEP_TRUE@@am__include@ @am__quote@./$(DEPDIR)/heur_trivialnegation.Plo@am__quote@
 @AMDEP_TRUE@@am__include@ @am__quote@./$(DEPDIR)/heur_trysol.Plo@am__quote@
@@ -1229,6 +1308,7 @@ distclean-compile:
 @AMDEP_TRUE@@am__include@ @am__quote@./$(DEPDIR)/heur_veclendiving.Plo@am__quote@
 @AMDEP_TRUE@@am__include@ @am__quote@./$(DEPDIR)/heur_zeroobj.Plo@am__quote@
 @AMDEP_TRUE@@am__include@ @am__quote@./$(DEPDIR)/heur_zirounding.Plo@am__quote@
+@AMDEP_TRUE@@am__include@ @am__quote@./$(DEPDIR)/heuristics.Plo@am__quote@
 @AMDEP_TRUE@@am__include@ @am__quote@./$(DEPDIR)/history.Plo@am__quote@
 @AMDEP_TRUE@@am__include@ @am__quote@./$(DEPDIR)/implics.Plo@am__quote@
 @AMDEP_TRUE@@am__include@ @am__quote@./$(DEPDIR)/interrupt.Plo@am__quote@
@@ -1267,15 +1347,16 @@ distclean-compile:
 @AMDEP_TRUE@@am__include@ @am__quote@./$(DEPDIR)/paramset.Plo@am__quote@
 @AMDEP_TRUE@@am__include@ @am__quote@./$(DEPDIR)/presol.Plo@am__quote@
 @AMDEP_TRUE@@am__include@ @am__quote@./$(DEPDIR)/presol_boundshift.Plo@am__quote@
-@AMDEP_TRUE@@am__include@ @am__quote@./$(DEPDIR)/presol_components.Plo@am__quote@
 @AMDEP_TRUE@@am__include@ @am__quote@./$(DEPDIR)/presol_convertinttobin.Plo@am__quote@
 @AMDEP_TRUE@@am__include@ @am__quote@./$(DEPDIR)/presol_domcol.Plo@am__quote@
 @AMDEP_TRUE@@am__include@ @am__quote@./$(DEPDIR)/presol_dualagg.Plo@am__quote@
+@AMDEP_TRUE@@am__include@ @am__quote@./$(DEPDIR)/presol_dualcomp.Plo@am__quote@
 @AMDEP_TRUE@@am__include@ @am__quote@./$(DEPDIR)/presol_dualinfer.Plo@am__quote@
 @AMDEP_TRUE@@am__include@ @am__quote@./$(DEPDIR)/presol_gateextraction.Plo@am__quote@
 @AMDEP_TRUE@@am__include@ @am__quote@./$(DEPDIR)/presol_implfree.Plo@am__quote@
 @AMDEP_TRUE@@am__include@ @am__quote@./$(DEPDIR)/presol_implics.Plo@am__quote@
 @AMDEP_TRUE@@am__include@ @am__quote@./$(DEPDIR)/presol_inttobinary.Plo@am__quote@
+@AMDEP_TRUE@@am__include@ @am__quote@./$(DEPDIR)/presol_qpkktref.Plo@am__quote@
 @AMDEP_TRUE@@am__include@ @am__quote@./$(DEPDIR)/presol_redvub.Plo@am__quote@
 @AMDEP_TRUE@@am__include@ @am__quote@./$(DEPDIR)/presol_stuffing.Plo@am__quote@
 @AMDEP_TRUE@@am__include@ @am__quote@./$(DEPDIR)/presol_trivial.Plo@am__quote@
@@ -1288,11 +1369,13 @@ distclean-compile:
 @AMDEP_TRUE@@am__include@ @am__quote@./$(DEPDIR)/prop.Plo@am__quote@
 @AMDEP_TRUE@@am__include@ @am__quote@./$(DEPDIR)/prop_dualfix.Plo@am__quote@
 @AMDEP_TRUE@@am__include@ @am__quote@./$(DEPDIR)/prop_genvbounds.Plo@am__quote@
+@AMDEP_TRUE@@am__include@ @am__quote@./$(DEPDIR)/prop_nlobbt.Plo@am__quote@
 @AMDEP_TRUE@@am__include@ @am__quote@./$(DEPDIR)/prop_obbt.Plo@am__quote@
 @AMDEP_TRUE@@am__include@ @am__quote@./$(DEPDIR)/prop_probing.Plo@am__quote@
 @AMDEP_TRUE@@am__include@ @am__quote@./$(DEPDIR)/prop_pseudoobj.Plo@am__quote@
 @AMDEP_TRUE@@am__include@ @am__quote@./$(DEPDIR)/prop_redcost.Plo@am__quote@
 @AMDEP_TRUE@@am__include@ @am__quote@./$(DEPDIR)/prop_rootredcost.Plo@am__quote@
+@AMDEP_TRUE@@am__include@ @am__quote@./$(DEPDIR)/prop_sync.Plo@am__quote@
 @AMDEP_TRUE@@am__include@ @am__quote@./$(DEPDIR)/prop_vbounds.Plo@am__quote@
 @AMDEP_TRUE@@am__include@ @am__quote@./$(DEPDIR)/reader.Plo@am__quote@
 @AMDEP_TRUE@@am__include@ @am__quote@./$(DEPDIR)/reader_bnd.Plo@am__quote@
@@ -1305,6 +1388,7 @@ distclean-compile:
 @AMDEP_TRUE@@am__include@ @am__quote@./$(DEPDIR)/reader_gms.Plo@am__quote@
 @AMDEP_TRUE@@am__include@ @am__quote@./$(DEPDIR)/reader_lp.Plo@am__quote@
 @AMDEP_TRUE@@am__include@ @am__quote@./$(DEPDIR)/reader_mps.Plo@am__quote@
+@AMDEP_TRUE@@am__include@ @am__quote@./$(DEPDIR)/reader_mst.Plo@am__quote@
 @AMDEP_TRUE@@am__include@ @am__quote@./$(DEPDIR)/reader_opb.Plo@am__quote@
 @AMDEP_TRUE@@am__include@ @am__quote@./$(DEPDIR)/reader_osil.Plo@am__quote@
 @AMDEP_TRUE@@am__include@ @am__quote@./$(DEPDIR)/reader_pbm.Plo@am__quote@
@@ -1318,6 +1402,7 @@ distclean-compile:
 @AMDEP_TRUE@@am__include@ @am__quote@./$(DEPDIR)/reopt.Plo@am__quote@
 @AMDEP_TRUE@@am__include@ @am__quote@./$(DEPDIR)/retcode.Plo@am__quote@
 @AMDEP_TRUE@@am__include@ @am__quote@./$(DEPDIR)/scip.Plo@am__quote@
+@AMDEP_TRUE@@am__include@ @am__quote@./$(DEPDIR)/scipbuildflags.Plo@am__quote@
 @AMDEP_TRUE@@am__include@ @am__quote@./$(DEPDIR)/scipdefplugins.Plo@am__quote@
 @AMDEP_TRUE@@am__include@ @am__quote@./$(DEPDIR)/scipgithash.Plo@am__quote@
 @AMDEP_TRUE@@am__include@ @am__quote@./$(DEPDIR)/scipshell.Plo@am__quote@
@@ -1326,9 +1411,11 @@ distclean-compile:
 @AMDEP_TRUE@@am__include@ @am__quote@./$(DEPDIR)/sepa_clique.Plo@am__quote@
 @AMDEP_TRUE@@am__include@ @am__quote@./$(DEPDIR)/sepa_closecuts.Plo@am__quote@
 @AMDEP_TRUE@@am__include@ @am__quote@./$(DEPDIR)/sepa_cmir.Plo@am__quote@
+@AMDEP_TRUE@@am__include@ @am__quote@./$(DEPDIR)/sepa_convexproj.Plo@am__quote@
 @AMDEP_TRUE@@am__include@ @am__quote@./$(DEPDIR)/sepa_disjunctive.Plo@am__quote@
 @AMDEP_TRUE@@am__include@ @am__quote@./$(DEPDIR)/sepa_eccuts.Plo@am__quote@
 @AMDEP_TRUE@@am__include@ @am__quote@./$(DEPDIR)/sepa_flowcover.Plo@am__quote@
+@AMDEP_TRUE@@am__include@ @am__quote@./$(DEPDIR)/sepa_gauge.Plo@am__quote@
 @AMDEP_TRUE@@am__include@ @am__quote@./$(DEPDIR)/sepa_gomory.Plo@am__quote@
 @AMDEP_TRUE@@am__include@ @am__quote@./$(DEPDIR)/sepa_impliedbounds.Plo@am__quote@
 @AMDEP_TRUE@@am__include@ @am__quote@./$(DEPDIR)/sepa_intobj.Plo@am__quote@
@@ -1342,9 +1429,11 @@ distclean-compile:
 @AMDEP_TRUE@@am__include@ @am__quote@./$(DEPDIR)/sol.Plo@am__quote@
 @AMDEP_TRUE@@am__include@ @am__quote@./$(DEPDIR)/solve.Plo@am__quote@
 @AMDEP_TRUE@@am__include@ @am__quote@./$(DEPDIR)/stat.Plo@am__quote@
+@AMDEP_TRUE@@am__include@ @am__quote@./$(DEPDIR)/syncstore.Plo@am__quote@
 @AMDEP_TRUE@@am__include@ @am__quote@./$(DEPDIR)/tclique_branch.Plo@am__quote@
 @AMDEP_TRUE@@am__include@ @am__quote@./$(DEPDIR)/tclique_coloring.Plo@am__quote@
 @AMDEP_TRUE@@am__include@ @am__quote@./$(DEPDIR)/tclique_graph.Plo@am__quote@
+@AMDEP_TRUE@@am__include@ @am__quote@./$(DEPDIR)/tpi_none.Plo@am__quote@
 @AMDEP_TRUE@@am__include@ @am__quote@./$(DEPDIR)/tree.Plo@am__quote@
 @AMDEP_TRUE@@am__include@ @am__quote@./$(DEPDIR)/var.Plo@am__quote@
 @AMDEP_TRUE@@am__include@ @am__quote@./$(DEPDIR)/visual.Plo@am__quote@
@@ -1378,6 +1467,13 @@ bitencode.lo: scip/src/scip/bitencode.c
 @AMDEP_TRUE@@am__fastdepCC_FALSE@	DEPDIR=$(DEPDIR) $(CCDEPMODE) $(depcomp) @AMDEPBACKSLASH@
 @am__fastdepCC_FALSE@	$(LIBTOOL) --tag=CC --mode=compile $(CC) $(DEFS) $(DEFAULT_INCLUDES) $(INCLUDES) $(AM_CPPFLAGS) $(CPPFLAGS) $(AM_CFLAGS) $(CFLAGS) -c -o bitencode.lo `test -f 'scip/src/scip/bitencode.c' || echo '$(srcdir)/'`scip/src/scip/bitencode.c
 
+boundstore.lo: scip/src/scip/boundstore.c
+@am__fastdepCC_TRUE@	if $(LIBTOOL) --tag=CC --mode=compile $(CC) $(DEFS) $(DEFAULT_INCLUDES) $(INCLUDES) $(AM_CPPFLAGS) $(CPPFLAGS) $(AM_CFLAGS) $(CFLAGS) -MT boundstore.lo -MD -MP -MF "$(DEPDIR)/boundstore.Tpo" -c -o boundstore.lo `test -f 'scip/src/scip/boundstore.c' || echo '$(srcdir)/'`scip/src/scip/boundstore.c; \
+@am__fastdepCC_TRUE@	then mv -f "$(DEPDIR)/boundstore.Tpo" "$(DEPDIR)/boundstore.Plo"; else rm -f "$(DEPDIR)/boundstore.Tpo"; exit 1; fi
+@AMDEP_TRUE@@am__fastdepCC_FALSE@	source='scip/src/scip/boundstore.c' object='boundstore.lo' libtool=yes @AMDEPBACKSLASH@
+@AMDEP_TRUE@@am__fastdepCC_FALSE@	DEPDIR=$(DEPDIR) $(CCDEPMODE) $(depcomp) @AMDEPBACKSLASH@
+@am__fastdepCC_FALSE@	$(LIBTOOL) --tag=CC --mode=compile $(CC) $(DEFS) $(DEFAULT_INCLUDES) $(INCLUDES) $(AM_CPPFLAGS) $(CPPFLAGS) $(AM_CFLAGS) $(CFLAGS) -c -o boundstore.lo `test -f 'scip/src/scip/boundstore.c' || echo '$(srcdir)/'`scip/src/scip/boundstore.c
+
 branch.lo: scip/src/scip/branch.c
 @am__fastdepCC_TRUE@	if $(LIBTOOL) --tag=CC --mode=compile $(CC) $(DEFS) $(DEFAULT_INCLUDES) $(INCLUDES) $(AM_CPPFLAGS) $(CPPFLAGS) $(AM_CFLAGS) $(CFLAGS) -MT branch.lo -MD -MP -MF "$(DEPDIR)/branch.Tpo" -c -o branch.lo `test -f 'scip/src/scip/branch.c' || echo '$(srcdir)/'`scip/src/scip/branch.c; \
 @am__fastdepCC_TRUE@	then mv -f "$(DEPDIR)/branch.Tpo" "$(DEPDIR)/branch.Plo"; else rm -f "$(DEPDIR)/branch.Tpo"; exit 1; fi
@@ -1399,12 +1495,33 @@ compr.lo: scip/src/scip/compr.c
 @AMDEP_TRUE@@am__fastdepCC_FALSE@	DEPDIR=$(DEPDIR) $(CCDEPMODE) $(depcomp) @AMDEPBACKSLASH@
 @am__fastdepCC_FALSE@	$(LIBTOOL) --tag=CC --mode=compile $(CC) $(DEFS) $(DEFAULT_INCLUDES) $(INCLUDES) $(AM_CPPFLAGS) $(CPPFLAGS) $(AM_CFLAGS) $(CFLAGS) -c -o compr.lo `test -f 'scip/src/scip/compr.c' || echo '$(srcdir)/'`scip/src/scip/compr.c
 
+concurrent.lo: scip/src/scip/concurrent.c
+@am__fastdepCC_TRUE@	if $(LIBTOOL) --tag=CC --mode=compile $(CC) $(DEFS) $(DEFAULT_INCLUDES) $(INCLUDES) $(AM_CPPFLAGS) $(CPPFLAGS) $(AM_CFLAGS) $(CFLAGS) -MT concurrent.lo -MD -MP -MF "$(DEPDIR)/concurrent.Tpo" -c -o concurrent.lo `test -f 'scip/src/scip/concurrent.c' || echo '$(srcdir)/'`scip/src/scip/concurrent.c; \
+@am__fastdepCC_TRUE@	then mv -f "$(DEPDIR)/concurrent.Tpo" "$(DEPDIR)/concurrent.Plo"; else rm -f "$(DEPDIR)/concurrent.Tpo"; exit 1; fi
+@AMDEP_TRUE@@am__fastdepCC_FALSE@	source='scip/src/scip/concurrent.c' object='concurrent.lo' libtool=yes @AMDEPBACKSLASH@
+@AMDEP_TRUE@@am__fastdepCC_FALSE@	DEPDIR=$(DEPDIR) $(CCDEPMODE) $(depcomp) @AMDEPBACKSLASH@
+@am__fastdepCC_FALSE@	$(LIBTOOL) --tag=CC --mode=compile $(CC) $(DEFS) $(DEFAULT_INCLUDES) $(INCLUDES) $(AM_CPPFLAGS) $(CPPFLAGS) $(AM_CFLAGS) $(CFLAGS) -c -o concurrent.lo `test -f 'scip/src/scip/concurrent.c' || echo '$(srcdir)/'`scip/src/scip/concurrent.c
+
+concsolver.lo: scip/src/scip/concsolver.c
+@am__fastdepCC_TRUE@	if $(LIBTOOL) --tag=CC --mode=compile $(CC) $(DEFS) $(DEFAULT_INCLUDES) $(INCLUDES) $(AM_CPPFLAGS) $(CPPFLAGS) $(AM_CFLAGS) $(CFLAGS) -MT concsolver.lo -MD -MP -MF "$(DEPDIR)/concsolver.Tpo" -c -o concsolver.lo `test -f 'scip/src/scip/concsolver.c' || echo '$(srcdir)/'`scip/src/scip/concsolver.c; \
+@am__fastdepCC_TRUE@	then mv -f "$(DEPDIR)/concsolver.Tpo" "$(DEPDIR)/concsolver.Plo"; else rm -f "$(DEPDIR)/concsolver.Tpo"; exit 1; fi
+@AMDEP_TRUE@@am__fastdepCC_FALSE@	source='scip/src/scip/concsolver.c' object='concsolver.lo' libtool=yes @AMDEPBACKSLASH@
+@AMDEP_TRUE@@am__fastdepCC_FALSE@	DEPDIR=$(DEPDIR) $(CCDEPMODE) $(depcomp) @AMDEPBACKSLASH@
+@am__fastdepCC_FALSE@	$(LIBTOOL) --tag=CC --mode=compile $(CC) $(DEFS) $(DEFAULT_INCLUDES) $(INCLUDES) $(AM_CPPFLAGS) $(CPPFLAGS) $(AM_CFLAGS) $(CFLAGS) -c -o concsolver.lo `test -f 'scip/src/scip/concsolver.c' || echo '$(srcdir)/'`scip/src/scip/concsolver.c
+
 conflict.lo: scip/src/scip/conflict.c
 @am__fastdepCC_TRUE@	if $(LIBTOOL) --tag=CC --mode=compile $(CC) $(DEFS) $(DEFAULT_INCLUDES) $(INCLUDES) $(AM_CPPFLAGS) $(CPPFLAGS) $(AM_CFLAGS) $(CFLAGS) -MT conflict.lo -MD -MP -MF "$(DEPDIR)/conflict.Tpo" -c -o conflict.lo `test -f 'scip/src/scip/conflict.c' || echo '$(srcdir)/'`scip/src/scip/conflict.c; \
 @am__fastdepCC_TRUE@	then mv -f "$(DEPDIR)/conflict.Tpo" "$(DEPDIR)/conflict.Plo"; else rm -f "$(DEPDIR)/conflict.Tpo"; exit 1; fi
 @AMDEP_TRUE@@am__fastdepCC_FALSE@	source='scip/src/scip/conflict.c' object='conflict.lo' libtool=yes @AMDEPBACKSLASH@
 @AMDEP_TRUE@@am__fastdepCC_FALSE@	DEPDIR=$(DEPDIR) $(CCDEPMODE) $(depcomp) @AMDEPBACKSLASH@
 @am__fastdepCC_FALSE@	$(LIBTOOL) --tag=CC --mode=compile $(CC) $(DEFS) $(DEFAULT_INCLUDES) $(INCLUDES) $(AM_CPPFLAGS) $(CPPFLAGS) $(AM_CFLAGS) $(CFLAGS) -c -o conflict.lo `test -f 'scip/src/scip/conflict.c' || echo '$(srcdir)/'`scip/src/scip/conflict.c
+
+conflictstore.lo: scip/src/scip/conflictstore.c
+@am__fastdepCC_TRUE@	if $(LIBTOOL) --tag=CC --mode=compile $(CC) $(DEFS) $(DEFAULT_INCLUDES) $(INCLUDES) $(AM_CPPFLAGS) $(CPPFLAGS) $(AM_CFLAGS) $(CFLAGS) -MT conflictstore.lo -MD -MP -MF "$(DEPDIR)/conflictstore.Tpo" -c -o conflictstore.lo `test -f 'scip/src/scip/conflictstore.c' || echo '$(srcdir)/'`scip/src/scip/conflictstore.c; \
+@am__fastdepCC_TRUE@	then mv -f "$(DEPDIR)/conflictstore.Tpo" "$(DEPDIR)/conflictstore.Plo"; else rm -f "$(DEPDIR)/conflictstore.Tpo"; exit 1; fi
+@AMDEP_TRUE@@am__fastdepCC_FALSE@	source='scip/src/scip/conflictstore.c' object='conflictstore.lo' libtool=yes @AMDEPBACKSLASH@
+@AMDEP_TRUE@@am__fastdepCC_FALSE@	DEPDIR=$(DEPDIR) $(CCDEPMODE) $(depcomp) @AMDEPBACKSLASH@
+@am__fastdepCC_FALSE@	$(LIBTOOL) --tag=CC --mode=compile $(CC) $(DEFS) $(DEFAULT_INCLUDES) $(INCLUDES) $(AM_CPPFLAGS) $(CPPFLAGS) $(AM_CFLAGS) $(CFLAGS) -c -o conflictstore.lo `test -f 'scip/src/scip/conflictstore.c' || echo '$(srcdir)/'`scip/src/scip/conflictstore.c
 
 cons.lo: scip/src/scip/cons.c
 @am__fastdepCC_TRUE@	if $(LIBTOOL) --tag=CC --mode=compile $(CC) $(DEFS) $(DEFAULT_INCLUDES) $(INCLUDES) $(AM_CPPFLAGS) $(CPPFLAGS) $(AM_CFLAGS) $(CFLAGS) -MT cons.lo -MD -MP -MF "$(DEPDIR)/cons.Tpo" -c -o cons.lo `test -f 'scip/src/scip/cons.c' || echo '$(srcdir)/'`scip/src/scip/cons.c; \
@@ -1419,6 +1536,13 @@ cutpool.lo: scip/src/scip/cutpool.c
 @AMDEP_TRUE@@am__fastdepCC_FALSE@	source='scip/src/scip/cutpool.c' object='cutpool.lo' libtool=yes @AMDEPBACKSLASH@
 @AMDEP_TRUE@@am__fastdepCC_FALSE@	DEPDIR=$(DEPDIR) $(CCDEPMODE) $(depcomp) @AMDEPBACKSLASH@
 @am__fastdepCC_FALSE@	$(LIBTOOL) --tag=CC --mode=compile $(CC) $(DEFS) $(DEFAULT_INCLUDES) $(INCLUDES) $(AM_CPPFLAGS) $(CPPFLAGS) $(AM_CFLAGS) $(CFLAGS) -c -o cutpool.lo `test -f 'scip/src/scip/cutpool.c' || echo '$(srcdir)/'`scip/src/scip/cutpool.c
+
+cuts.lo: scip/src/scip/cuts.c
+@am__fastdepCC_TRUE@	if $(LIBTOOL) --tag=CC --mode=compile $(CC) $(DEFS) $(DEFAULT_INCLUDES) $(INCLUDES) $(AM_CPPFLAGS) $(CPPFLAGS) $(AM_CFLAGS) $(CFLAGS) -MT cuts.lo -MD -MP -MF "$(DEPDIR)/cuts.Tpo" -c -o cuts.lo `test -f 'scip/src/scip/cuts.c' || echo '$(srcdir)/'`scip/src/scip/cuts.c; \
+@am__fastdepCC_TRUE@	then mv -f "$(DEPDIR)/cuts.Tpo" "$(DEPDIR)/cuts.Plo"; else rm -f "$(DEPDIR)/cuts.Tpo"; exit 1; fi
+@AMDEP_TRUE@@am__fastdepCC_FALSE@	source='scip/src/scip/cuts.c' object='cuts.lo' libtool=yes @AMDEPBACKSLASH@
+@AMDEP_TRUE@@am__fastdepCC_FALSE@	DEPDIR=$(DEPDIR) $(CCDEPMODE) $(depcomp) @AMDEPBACKSLASH@
+@am__fastdepCC_FALSE@	$(LIBTOOL) --tag=CC --mode=compile $(CC) $(DEFS) $(DEFAULT_INCLUDES) $(INCLUDES) $(AM_CPPFLAGS) $(CPPFLAGS) $(AM_CFLAGS) $(CFLAGS) -c -o cuts.lo `test -f 'scip/src/scip/cuts.c' || echo '$(srcdir)/'`scip/src/scip/cuts.c
 
 debug.lo: scip/src/scip/debug.c
 @am__fastdepCC_TRUE@	if $(LIBTOOL) --tag=CC --mode=compile $(CC) $(DEFS) $(DEFAULT_INCLUDES) $(INCLUDES) $(AM_CPPFLAGS) $(CPPFLAGS) $(AM_CFLAGS) $(CFLAGS) -MT debug.lo -MD -MP -MF "$(DEPDIR)/debug.Tpo" -c -o debug.lo `test -f 'scip/src/scip/debug.c' || echo '$(srcdir)/'`scip/src/scip/debug.c; \
@@ -1441,13 +1565,6 @@ disp.lo: scip/src/scip/disp.c
 @AMDEP_TRUE@@am__fastdepCC_FALSE@	DEPDIR=$(DEPDIR) $(CCDEPMODE) $(depcomp) @AMDEPBACKSLASH@
 @am__fastdepCC_FALSE@	$(LIBTOOL) --tag=CC --mode=compile $(CC) $(DEFS) $(DEFAULT_INCLUDES) $(INCLUDES) $(AM_CPPFLAGS) $(CPPFLAGS) $(AM_CFLAGS) $(CFLAGS) -c -o disp.lo `test -f 'scip/src/scip/disp.c' || echo '$(srcdir)/'`scip/src/scip/disp.c
 
-dive.lo: scip/src/scip/dive.c
-@am__fastdepCC_TRUE@	if $(LIBTOOL) --tag=CC --mode=compile $(CC) $(DEFS) $(DEFAULT_INCLUDES) $(INCLUDES) $(AM_CPPFLAGS) $(CPPFLAGS) $(AM_CFLAGS) $(CFLAGS) -MT dive.lo -MD -MP -MF "$(DEPDIR)/dive.Tpo" -c -o dive.lo `test -f 'scip/src/scip/dive.c' || echo '$(srcdir)/'`scip/src/scip/dive.c; \
-@am__fastdepCC_TRUE@	then mv -f "$(DEPDIR)/dive.Tpo" "$(DEPDIR)/dive.Plo"; else rm -f "$(DEPDIR)/dive.Tpo"; exit 1; fi
-@AMDEP_TRUE@@am__fastdepCC_FALSE@	source='scip/src/scip/dive.c' object='dive.lo' libtool=yes @AMDEPBACKSLASH@
-@AMDEP_TRUE@@am__fastdepCC_FALSE@	DEPDIR=$(DEPDIR) $(CCDEPMODE) $(depcomp) @AMDEPBACKSLASH@
-@am__fastdepCC_FALSE@	$(LIBTOOL) --tag=CC --mode=compile $(CC) $(DEFS) $(DEFAULT_INCLUDES) $(INCLUDES) $(AM_CPPFLAGS) $(CPPFLAGS) $(AM_CFLAGS) $(CFLAGS) -c -o dive.lo `test -f 'scip/src/scip/dive.c' || echo '$(srcdir)/'`scip/src/scip/dive.c
-
 event.lo: scip/src/scip/event.c
 @am__fastdepCC_TRUE@	if $(LIBTOOL) --tag=CC --mode=compile $(CC) $(DEFS) $(DEFAULT_INCLUDES) $(INCLUDES) $(AM_CPPFLAGS) $(CPPFLAGS) $(AM_CFLAGS) $(CFLAGS) -MT event.lo -MD -MP -MF "$(DEPDIR)/event.Tpo" -c -o event.lo `test -f 'scip/src/scip/event.c' || echo '$(srcdir)/'`scip/src/scip/event.c; \
 @am__fastdepCC_TRUE@	then mv -f "$(DEPDIR)/event.Tpo" "$(DEPDIR)/event.Plo"; else rm -f "$(DEPDIR)/event.Tpo"; exit 1; fi
@@ -1468,6 +1585,13 @@ heur.lo: scip/src/scip/heur.c
 @AMDEP_TRUE@@am__fastdepCC_FALSE@	source='scip/src/scip/heur.c' object='heur.lo' libtool=yes @AMDEPBACKSLASH@
 @AMDEP_TRUE@@am__fastdepCC_FALSE@	DEPDIR=$(DEPDIR) $(CCDEPMODE) $(depcomp) @AMDEPBACKSLASH@
 @am__fastdepCC_FALSE@	$(LIBTOOL) --tag=CC --mode=compile $(CC) $(DEFS) $(DEFAULT_INCLUDES) $(INCLUDES) $(AM_CPPFLAGS) $(CPPFLAGS) $(AM_CFLAGS) $(CFLAGS) -c -o heur.lo `test -f 'scip/src/scip/heur.c' || echo '$(srcdir)/'`scip/src/scip/heur.c
+
+heuristics.lo: scip/src/scip/heuristics.c
+@am__fastdepCC_TRUE@	if $(LIBTOOL) --tag=CC --mode=compile $(CC) $(DEFS) $(DEFAULT_INCLUDES) $(INCLUDES) $(AM_CPPFLAGS) $(CPPFLAGS) $(AM_CFLAGS) $(CFLAGS) -MT heuristics.lo -MD -MP -MF "$(DEPDIR)/heuristics.Tpo" -c -o heuristics.lo `test -f 'scip/src/scip/heuristics.c' || echo '$(srcdir)/'`scip/src/scip/heuristics.c; \
+@am__fastdepCC_TRUE@	then mv -f "$(DEPDIR)/heuristics.Tpo" "$(DEPDIR)/heuristics.Plo"; else rm -f "$(DEPDIR)/heuristics.Tpo"; exit 1; fi
+@AMDEP_TRUE@@am__fastdepCC_FALSE@	source='scip/src/scip/heuristics.c' object='heuristics.lo' libtool=yes @AMDEPBACKSLASH@
+@AMDEP_TRUE@@am__fastdepCC_FALSE@	DEPDIR=$(DEPDIR) $(CCDEPMODE) $(depcomp) @AMDEPBACKSLASH@
+@am__fastdepCC_FALSE@	$(LIBTOOL) --tag=CC --mode=compile $(CC) $(DEFS) $(DEFAULT_INCLUDES) $(INCLUDES) $(AM_CPPFLAGS) $(CPPFLAGS) $(AM_CFLAGS) $(CFLAGS) -c -o heuristics.lo `test -f 'scip/src/scip/heuristics.c' || echo '$(srcdir)/'`scip/src/scip/heuristics.c
 
 history.lo: scip/src/scip/history.c
 @am__fastdepCC_TRUE@	if $(LIBTOOL) --tag=CC --mode=compile $(CC) $(DEFS) $(DEFAULT_INCLUDES) $(INCLUDES) $(AM_CPPFLAGS) $(CPPFLAGS) $(AM_CFLAGS) $(CFLAGS) -MT history.lo -MD -MP -MF "$(DEPDIR)/history.Tpo" -c -o history.lo `test -f 'scip/src/scip/history.c' || echo '$(srcdir)/'`scip/src/scip/history.c; \
@@ -1637,6 +1761,13 @@ scip.lo: scip/src/scip/scip.c
 @AMDEP_TRUE@@am__fastdepCC_FALSE@	DEPDIR=$(DEPDIR) $(CCDEPMODE) $(depcomp) @AMDEPBACKSLASH@
 @am__fastdepCC_FALSE@	$(LIBTOOL) --tag=CC --mode=compile $(CC) $(DEFS) $(DEFAULT_INCLUDES) $(INCLUDES) $(AM_CPPFLAGS) $(CPPFLAGS) $(AM_CFLAGS) $(CFLAGS) -c -o scip.lo `test -f 'scip/src/scip/scip.c' || echo '$(srcdir)/'`scip/src/scip/scip.c
 
+scipbuildflags.lo: scip/src/scip/scipbuildflags.c
+@am__fastdepCC_TRUE@	if $(LIBTOOL) --tag=CC --mode=compile $(CC) $(DEFS) $(DEFAULT_INCLUDES) $(INCLUDES) $(AM_CPPFLAGS) $(CPPFLAGS) $(AM_CFLAGS) $(CFLAGS) -MT scipbuildflags.lo -MD -MP -MF "$(DEPDIR)/scipbuildflags.Tpo" -c -o scipbuildflags.lo `test -f 'scip/src/scip/scipbuildflags.c' || echo '$(srcdir)/'`scip/src/scip/scipbuildflags.c; \
+@am__fastdepCC_TRUE@	then mv -f "$(DEPDIR)/scipbuildflags.Tpo" "$(DEPDIR)/scipbuildflags.Plo"; else rm -f "$(DEPDIR)/scipbuildflags.Tpo"; exit 1; fi
+@AMDEP_TRUE@@am__fastdepCC_FALSE@	source='scip/src/scip/scipbuildflags.c' object='scipbuildflags.lo' libtool=yes @AMDEPBACKSLASH@
+@AMDEP_TRUE@@am__fastdepCC_FALSE@	DEPDIR=$(DEPDIR) $(CCDEPMODE) $(depcomp) @AMDEPBACKSLASH@
+@am__fastdepCC_FALSE@	$(LIBTOOL) --tag=CC --mode=compile $(CC) $(DEFS) $(DEFAULT_INCLUDES) $(INCLUDES) $(AM_CPPFLAGS) $(CPPFLAGS) $(AM_CFLAGS) $(CFLAGS) -c -o scipbuildflags.lo `test -f 'scip/src/scip/scipbuildflags.c' || echo '$(srcdir)/'`scip/src/scip/scipbuildflags.c
+
 scipdefplugins.lo: scip/src/scip/scipdefplugins.c
 @am__fastdepCC_TRUE@	if $(LIBTOOL) --tag=CC --mode=compile $(CC) $(DEFS) $(DEFAULT_INCLUDES) $(INCLUDES) $(AM_CPPFLAGS) $(CPPFLAGS) $(AM_CFLAGS) $(CFLAGS) -MT scipdefplugins.lo -MD -MP -MF "$(DEPDIR)/scipdefplugins.Tpo" -c -o scipdefplugins.lo `test -f 'scip/src/scip/scipdefplugins.c' || echo '$(srcdir)/'`scip/src/scip/scipdefplugins.c; \
 @am__fastdepCC_TRUE@	then mv -f "$(DEPDIR)/scipdefplugins.Tpo" "$(DEPDIR)/scipdefplugins.Plo"; else rm -f "$(DEPDIR)/scipdefplugins.Tpo"; exit 1; fi
@@ -1699,6 +1830,13 @@ stat.lo: scip/src/scip/stat.c
 @AMDEP_TRUE@@am__fastdepCC_FALSE@	source='scip/src/scip/stat.c' object='stat.lo' libtool=yes @AMDEPBACKSLASH@
 @AMDEP_TRUE@@am__fastdepCC_FALSE@	DEPDIR=$(DEPDIR) $(CCDEPMODE) $(depcomp) @AMDEPBACKSLASH@
 @am__fastdepCC_FALSE@	$(LIBTOOL) --tag=CC --mode=compile $(CC) $(DEFS) $(DEFAULT_INCLUDES) $(INCLUDES) $(AM_CPPFLAGS) $(CPPFLAGS) $(AM_CFLAGS) $(CFLAGS) -c -o stat.lo `test -f 'scip/src/scip/stat.c' || echo '$(srcdir)/'`scip/src/scip/stat.c
+
+syncstore.lo: scip/src/scip/syncstore.c
+@am__fastdepCC_TRUE@	if $(LIBTOOL) --tag=CC --mode=compile $(CC) $(DEFS) $(DEFAULT_INCLUDES) $(INCLUDES) $(AM_CPPFLAGS) $(CPPFLAGS) $(AM_CFLAGS) $(CFLAGS) -MT syncstore.lo -MD -MP -MF "$(DEPDIR)/syncstore.Tpo" -c -o syncstore.lo `test -f 'scip/src/scip/syncstore.c' || echo '$(srcdir)/'`scip/src/scip/syncstore.c; \
+@am__fastdepCC_TRUE@	then mv -f "$(DEPDIR)/syncstore.Tpo" "$(DEPDIR)/syncstore.Plo"; else rm -f "$(DEPDIR)/syncstore.Tpo"; exit 1; fi
+@AMDEP_TRUE@@am__fastdepCC_FALSE@	source='scip/src/scip/syncstore.c' object='syncstore.lo' libtool=yes @AMDEPBACKSLASH@
+@AMDEP_TRUE@@am__fastdepCC_FALSE@	DEPDIR=$(DEPDIR) $(CCDEPMODE) $(depcomp) @AMDEPBACKSLASH@
+@am__fastdepCC_FALSE@	$(LIBTOOL) --tag=CC --mode=compile $(CC) $(DEFS) $(DEFAULT_INCLUDES) $(INCLUDES) $(AM_CPPFLAGS) $(CPPFLAGS) $(AM_CFLAGS) $(CFLAGS) -c -o syncstore.lo `test -f 'scip/src/scip/syncstore.c' || echo '$(srcdir)/'`scip/src/scip/syncstore.c
 
 tree.lo: scip/src/scip/tree.c
 @am__fastdepCC_TRUE@	if $(LIBTOOL) --tag=CC --mode=compile $(CC) $(DEFS) $(DEFAULT_INCLUDES) $(INCLUDES) $(AM_CPPFLAGS) $(CPPFLAGS) $(AM_CFLAGS) $(CFLAGS) -MT tree.lo -MD -MP -MF "$(DEPDIR)/tree.Tpo" -c -o tree.lo `test -f 'scip/src/scip/tree.c' || echo '$(srcdir)/'`scip/src/scip/tree.c; \
@@ -1819,6 +1957,13 @@ compr_weakcompr.lo: scip/src/scip/compr_weakcompr.c
 @AMDEP_TRUE@@am__fastdepCC_FALSE@	DEPDIR=$(DEPDIR) $(CCDEPMODE) $(depcomp) @AMDEPBACKSLASH@
 @am__fastdepCC_FALSE@	$(LIBTOOL) --tag=CC --mode=compile $(CC) $(DEFS) $(DEFAULT_INCLUDES) $(INCLUDES) $(AM_CPPFLAGS) $(CPPFLAGS) $(AM_CFLAGS) $(CFLAGS) -c -o compr_weakcompr.lo `test -f 'scip/src/scip/compr_weakcompr.c' || echo '$(srcdir)/'`scip/src/scip/compr_weakcompr.c
 
+concsolver_scip.lo: scip/src/scip/concsolver_scip.c
+@am__fastdepCC_TRUE@	if $(LIBTOOL) --tag=CC --mode=compile $(CC) $(DEFS) $(DEFAULT_INCLUDES) $(INCLUDES) $(AM_CPPFLAGS) $(CPPFLAGS) $(AM_CFLAGS) $(CFLAGS) -MT concsolver_scip.lo -MD -MP -MF "$(DEPDIR)/concsolver_scip.Tpo" -c -o concsolver_scip.lo `test -f 'scip/src/scip/concsolver_scip.c' || echo '$(srcdir)/'`scip/src/scip/concsolver_scip.c; \
+@am__fastdepCC_TRUE@	then mv -f "$(DEPDIR)/concsolver_scip.Tpo" "$(DEPDIR)/concsolver_scip.Plo"; else rm -f "$(DEPDIR)/concsolver_scip.Tpo"; exit 1; fi
+@AMDEP_TRUE@@am__fastdepCC_FALSE@	source='scip/src/scip/concsolver_scip.c' object='concsolver_scip.lo' libtool=yes @AMDEPBACKSLASH@
+@AMDEP_TRUE@@am__fastdepCC_FALSE@	DEPDIR=$(DEPDIR) $(CCDEPMODE) $(depcomp) @AMDEPBACKSLASH@
+@am__fastdepCC_FALSE@	$(LIBTOOL) --tag=CC --mode=compile $(CC) $(DEFS) $(DEFAULT_INCLUDES) $(INCLUDES) $(AM_CPPFLAGS) $(CPPFLAGS) $(AM_CFLAGS) $(CFLAGS) -c -o concsolver_scip.lo `test -f 'scip/src/scip/concsolver_scip.c' || echo '$(srcdir)/'`scip/src/scip/concsolver_scip.c
+
 cons_abspower.lo: scip/src/scip/cons_abspower.c
 @am__fastdepCC_TRUE@	if $(LIBTOOL) --tag=CC --mode=compile $(CC) $(DEFS) $(DEFAULT_INCLUDES) $(INCLUDES) $(AM_CPPFLAGS) $(CPPFLAGS) $(AM_CFLAGS) $(CFLAGS) -MT cons_abspower.lo -MD -MP -MF "$(DEPDIR)/cons_abspower.Tpo" -c -o cons_abspower.lo `test -f 'scip/src/scip/cons_abspower.c' || echo '$(srcdir)/'`scip/src/scip/cons_abspower.c; \
 @am__fastdepCC_TRUE@	then mv -f "$(DEPDIR)/cons_abspower.Tpo" "$(DEPDIR)/cons_abspower.Plo"; else rm -f "$(DEPDIR)/cons_abspower.Tpo"; exit 1; fi
@@ -1846,6 +1991,20 @@ cons_bounddisjunction.lo: scip/src/scip/cons_bounddisjunction.c
 @AMDEP_TRUE@@am__fastdepCC_FALSE@	source='scip/src/scip/cons_bounddisjunction.c' object='cons_bounddisjunction.lo' libtool=yes @AMDEPBACKSLASH@
 @AMDEP_TRUE@@am__fastdepCC_FALSE@	DEPDIR=$(DEPDIR) $(CCDEPMODE) $(depcomp) @AMDEPBACKSLASH@
 @am__fastdepCC_FALSE@	$(LIBTOOL) --tag=CC --mode=compile $(CC) $(DEFS) $(DEFAULT_INCLUDES) $(INCLUDES) $(AM_CPPFLAGS) $(CPPFLAGS) $(AM_CFLAGS) $(CFLAGS) -c -o cons_bounddisjunction.lo `test -f 'scip/src/scip/cons_bounddisjunction.c' || echo '$(srcdir)/'`scip/src/scip/cons_bounddisjunction.c
+
+cons_cardinality.lo: scip/src/scip/cons_cardinality.c
+@am__fastdepCC_TRUE@	if $(LIBTOOL) --tag=CC --mode=compile $(CC) $(DEFS) $(DEFAULT_INCLUDES) $(INCLUDES) $(AM_CPPFLAGS) $(CPPFLAGS) $(AM_CFLAGS) $(CFLAGS) -MT cons_cardinality.lo -MD -MP -MF "$(DEPDIR)/cons_cardinality.Tpo" -c -o cons_cardinality.lo `test -f 'scip/src/scip/cons_cardinality.c' || echo '$(srcdir)/'`scip/src/scip/cons_cardinality.c; \
+@am__fastdepCC_TRUE@	then mv -f "$(DEPDIR)/cons_cardinality.Tpo" "$(DEPDIR)/cons_cardinality.Plo"; else rm -f "$(DEPDIR)/cons_cardinality.Tpo"; exit 1; fi
+@AMDEP_TRUE@@am__fastdepCC_FALSE@	source='scip/src/scip/cons_cardinality.c' object='cons_cardinality.lo' libtool=yes @AMDEPBACKSLASH@
+@AMDEP_TRUE@@am__fastdepCC_FALSE@	DEPDIR=$(DEPDIR) $(CCDEPMODE) $(depcomp) @AMDEPBACKSLASH@
+@am__fastdepCC_FALSE@	$(LIBTOOL) --tag=CC --mode=compile $(CC) $(DEFS) $(DEFAULT_INCLUDES) $(INCLUDES) $(AM_CPPFLAGS) $(CPPFLAGS) $(AM_CFLAGS) $(CFLAGS) -c -o cons_cardinality.lo `test -f 'scip/src/scip/cons_cardinality.c' || echo '$(srcdir)/'`scip/src/scip/cons_cardinality.c
+
+cons_components.lo: scip/src/scip/cons_components.c
+@am__fastdepCC_TRUE@	if $(LIBTOOL) --tag=CC --mode=compile $(CC) $(DEFS) $(DEFAULT_INCLUDES) $(INCLUDES) $(AM_CPPFLAGS) $(CPPFLAGS) $(AM_CFLAGS) $(CFLAGS) -MT cons_components.lo -MD -MP -MF "$(DEPDIR)/cons_components.Tpo" -c -o cons_components.lo `test -f 'scip/src/scip/cons_components.c' || echo '$(srcdir)/'`scip/src/scip/cons_components.c; \
+@am__fastdepCC_TRUE@	then mv -f "$(DEPDIR)/cons_components.Tpo" "$(DEPDIR)/cons_components.Plo"; else rm -f "$(DEPDIR)/cons_components.Tpo"; exit 1; fi
+@AMDEP_TRUE@@am__fastdepCC_FALSE@	source='scip/src/scip/cons_components.c' object='cons_components.lo' libtool=yes @AMDEPBACKSLASH@
+@AMDEP_TRUE@@am__fastdepCC_FALSE@	DEPDIR=$(DEPDIR) $(CCDEPMODE) $(depcomp) @AMDEPBACKSLASH@
+@am__fastdepCC_FALSE@	$(LIBTOOL) --tag=CC --mode=compile $(CC) $(DEFS) $(DEFAULT_INCLUDES) $(INCLUDES) $(AM_CPPFLAGS) $(CPPFLAGS) $(AM_CFLAGS) $(CFLAGS) -c -o cons_components.lo `test -f 'scip/src/scip/cons_components.c' || echo '$(srcdir)/'`scip/src/scip/cons_components.c
 
 cons_conjunction.lo: scip/src/scip/cons_conjunction.c
 @am__fastdepCC_TRUE@	if $(LIBTOOL) --tag=CC --mode=compile $(CC) $(DEFS) $(DEFAULT_INCLUDES) $(INCLUDES) $(AM_CPPFLAGS) $(CPPFLAGS) $(AM_CFLAGS) $(CFLAGS) -MT cons_conjunction.lo -MD -MP -MF "$(DEPDIR)/cons_conjunction.Tpo" -c -o cons_conjunction.lo `test -f 'scip/src/scip/cons_conjunction.c' || echo '$(srcdir)/'`scip/src/scip/cons_conjunction.c; \
@@ -2015,12 +2174,26 @@ disp_default.lo: scip/src/scip/disp_default.c
 @AMDEP_TRUE@@am__fastdepCC_FALSE@	DEPDIR=$(DEPDIR) $(CCDEPMODE) $(depcomp) @AMDEPBACKSLASH@
 @am__fastdepCC_FALSE@	$(LIBTOOL) --tag=CC --mode=compile $(CC) $(DEFS) $(DEFAULT_INCLUDES) $(INCLUDES) $(AM_CPPFLAGS) $(CPPFLAGS) $(AM_CFLAGS) $(CFLAGS) -c -o disp_default.lo `test -f 'scip/src/scip/disp_default.c' || echo '$(srcdir)/'`scip/src/scip/disp_default.c
 
+event_globalbnd.lo: scip/src/scip/event_globalbnd.c
+@am__fastdepCC_TRUE@	if $(LIBTOOL) --tag=CC --mode=compile $(CC) $(DEFS) $(DEFAULT_INCLUDES) $(INCLUDES) $(AM_CPPFLAGS) $(CPPFLAGS) $(AM_CFLAGS) $(CFLAGS) -MT event_globalbnd.lo -MD -MP -MF "$(DEPDIR)/event_globalbnd.Tpo" -c -o event_globalbnd.lo `test -f 'scip/src/scip/event_globalbnd.c' || echo '$(srcdir)/'`scip/src/scip/event_globalbnd.c; \
+@am__fastdepCC_TRUE@	then mv -f "$(DEPDIR)/event_globalbnd.Tpo" "$(DEPDIR)/event_globalbnd.Plo"; else rm -f "$(DEPDIR)/event_globalbnd.Tpo"; exit 1; fi
+@AMDEP_TRUE@@am__fastdepCC_FALSE@	source='scip/src/scip/event_globalbnd.c' object='event_globalbnd.lo' libtool=yes @AMDEPBACKSLASH@
+@AMDEP_TRUE@@am__fastdepCC_FALSE@	DEPDIR=$(DEPDIR) $(CCDEPMODE) $(depcomp) @AMDEPBACKSLASH@
+@am__fastdepCC_FALSE@	$(LIBTOOL) --tag=CC --mode=compile $(CC) $(DEFS) $(DEFAULT_INCLUDES) $(INCLUDES) $(AM_CPPFLAGS) $(CPPFLAGS) $(AM_CFLAGS) $(CFLAGS) -c -o event_globalbnd.lo `test -f 'scip/src/scip/event_globalbnd.c' || echo '$(srcdir)/'`scip/src/scip/event_globalbnd.c
+
 event_softtimelimit.lo: scip/src/scip/event_softtimelimit.c
 @am__fastdepCC_TRUE@	if $(LIBTOOL) --tag=CC --mode=compile $(CC) $(DEFS) $(DEFAULT_INCLUDES) $(INCLUDES) $(AM_CPPFLAGS) $(CPPFLAGS) $(AM_CFLAGS) $(CFLAGS) -MT event_softtimelimit.lo -MD -MP -MF "$(DEPDIR)/event_softtimelimit.Tpo" -c -o event_softtimelimit.lo `test -f 'scip/src/scip/event_softtimelimit.c' || echo '$(srcdir)/'`scip/src/scip/event_softtimelimit.c; \
 @am__fastdepCC_TRUE@	then mv -f "$(DEPDIR)/event_softtimelimit.Tpo" "$(DEPDIR)/event_softtimelimit.Plo"; else rm -f "$(DEPDIR)/event_softtimelimit.Tpo"; exit 1; fi
 @AMDEP_TRUE@@am__fastdepCC_FALSE@	source='scip/src/scip/event_softtimelimit.c' object='event_softtimelimit.lo' libtool=yes @AMDEPBACKSLASH@
 @AMDEP_TRUE@@am__fastdepCC_FALSE@	DEPDIR=$(DEPDIR) $(CCDEPMODE) $(depcomp) @AMDEPBACKSLASH@
 @am__fastdepCC_FALSE@	$(LIBTOOL) --tag=CC --mode=compile $(CC) $(DEFS) $(DEFAULT_INCLUDES) $(INCLUDES) $(AM_CPPFLAGS) $(CPPFLAGS) $(AM_CFLAGS) $(CFLAGS) -c -o event_softtimelimit.lo `test -f 'scip/src/scip/event_softtimelimit.c' || echo '$(srcdir)/'`scip/src/scip/event_softtimelimit.c
+
+event_solvingphase.lo: scip/src/scip/event_solvingphase.c
+@am__fastdepCC_TRUE@	if $(LIBTOOL) --tag=CC --mode=compile $(CC) $(DEFS) $(DEFAULT_INCLUDES) $(INCLUDES) $(AM_CPPFLAGS) $(CPPFLAGS) $(AM_CFLAGS) $(CFLAGS) -MT event_solvingphase.lo -MD -MP -MF "$(DEPDIR)/event_solvingphase.Tpo" -c -o event_solvingphase.lo `test -f 'scip/src/scip/event_solvingphase.c' || echo '$(srcdir)/'`scip/src/scip/event_solvingphase.c; \
+@am__fastdepCC_TRUE@	then mv -f "$(DEPDIR)/event_solvingphase.Tpo" "$(DEPDIR)/event_solvingphase.Plo"; else rm -f "$(DEPDIR)/event_solvingphase.Tpo"; exit 1; fi
+@AMDEP_TRUE@@am__fastdepCC_FALSE@	source='scip/src/scip/event_solvingphase.c' object='event_solvingphase.lo' libtool=yes @AMDEPBACKSLASH@
+@AMDEP_TRUE@@am__fastdepCC_FALSE@	DEPDIR=$(DEPDIR) $(CCDEPMODE) $(depcomp) @AMDEPBACKSLASH@
+@am__fastdepCC_FALSE@	$(LIBTOOL) --tag=CC --mode=compile $(CC) $(DEFS) $(DEFAULT_INCLUDES) $(INCLUDES) $(AM_CPPFLAGS) $(CPPFLAGS) $(AM_CFLAGS) $(CFLAGS) -c -o event_solvingphase.lo `test -f 'scip/src/scip/event_solvingphase.c' || echo '$(srcdir)/'`scip/src/scip/event_solvingphase.c
 
 heur_actconsdiving.lo: scip/src/scip/heur_actconsdiving.c
 @am__fastdepCC_TRUE@	if $(LIBTOOL) --tag=CC --mode=compile $(CC) $(DEFS) $(DEFAULT_INCLUDES) $(INCLUDES) $(AM_CPPFLAGS) $(CPPFLAGS) $(AM_CFLAGS) $(CFLAGS) -MT heur_actconsdiving.lo -MD -MP -MF "$(DEPDIR)/heur_actconsdiving.Tpo" -c -o heur_actconsdiving.lo `test -f 'scip/src/scip/heur_actconsdiving.c' || echo '$(srcdir)/'`scip/src/scip/heur_actconsdiving.c; \
@@ -2049,6 +2222,13 @@ heur_coefdiving.lo: scip/src/scip/heur_coefdiving.c
 @AMDEP_TRUE@@am__fastdepCC_FALSE@	source='scip/src/scip/heur_coefdiving.c' object='heur_coefdiving.lo' libtool=yes @AMDEPBACKSLASH@
 @AMDEP_TRUE@@am__fastdepCC_FALSE@	DEPDIR=$(DEPDIR) $(CCDEPMODE) $(depcomp) @AMDEPBACKSLASH@
 @am__fastdepCC_FALSE@	$(LIBTOOL) --tag=CC --mode=compile $(CC) $(DEFS) $(DEFAULT_INCLUDES) $(INCLUDES) $(AM_CPPFLAGS) $(CPPFLAGS) $(AM_CFLAGS) $(CFLAGS) -c -o heur_coefdiving.lo `test -f 'scip/src/scip/heur_coefdiving.c' || echo '$(srcdir)/'`scip/src/scip/heur_coefdiving.c
+
+heur_completesol.lo: scip/src/scip/heur_completesol.c
+@am__fastdepCC_TRUE@	if $(LIBTOOL) --tag=CC --mode=compile $(CC) $(DEFS) $(DEFAULT_INCLUDES) $(INCLUDES) $(AM_CPPFLAGS) $(CPPFLAGS) $(AM_CFLAGS) $(CFLAGS) -MT heur_completesol.lo -MD -MP -MF "$(DEPDIR)/heur_completesol.Tpo" -c -o heur_completesol.lo `test -f 'scip/src/scip/heur_completesol.c' || echo '$(srcdir)/'`scip/src/scip/heur_completesol.c; \
+@am__fastdepCC_TRUE@	then mv -f "$(DEPDIR)/heur_completesol.Tpo" "$(DEPDIR)/heur_completesol.Plo"; else rm -f "$(DEPDIR)/heur_completesol.Tpo"; exit 1; fi
+@AMDEP_TRUE@@am__fastdepCC_FALSE@	source='scip/src/scip/heur_completesol.c' object='heur_completesol.lo' libtool=yes @AMDEPBACKSLASH@
+@AMDEP_TRUE@@am__fastdepCC_FALSE@	DEPDIR=$(DEPDIR) $(CCDEPMODE) $(depcomp) @AMDEPBACKSLASH@
+@am__fastdepCC_FALSE@	$(LIBTOOL) --tag=CC --mode=compile $(CC) $(DEFS) $(DEFAULT_INCLUDES) $(INCLUDES) $(AM_CPPFLAGS) $(CPPFLAGS) $(AM_CFLAGS) $(CFLAGS) -c -o heur_completesol.lo `test -f 'scip/src/scip/heur_completesol.c' || echo '$(srcdir)/'`scip/src/scip/heur_completesol.c
 
 heur_crossover.lo: scip/src/scip/heur_crossover.c
 @am__fastdepCC_TRUE@	if $(LIBTOOL) --tag=CC --mode=compile $(CC) $(DEFS) $(DEFAULT_INCLUDES) $(INCLUDES) $(AM_CPPFLAGS) $(CPPFLAGS) $(AM_CFLAGS) $(CFLAGS) -MT heur_crossover.lo -MD -MP -MF "$(DEPDIR)/heur_crossover.Tpo" -c -o heur_crossover.lo `test -f 'scip/src/scip/heur_crossover.c' || echo '$(srcdir)/'`scip/src/scip/heur_crossover.c; \
@@ -2099,6 +2279,13 @@ heur_fracdiving.lo: scip/src/scip/heur_fracdiving.c
 @AMDEP_TRUE@@am__fastdepCC_FALSE@	DEPDIR=$(DEPDIR) $(CCDEPMODE) $(depcomp) @AMDEPBACKSLASH@
 @am__fastdepCC_FALSE@	$(LIBTOOL) --tag=CC --mode=compile $(CC) $(DEFS) $(DEFAULT_INCLUDES) $(INCLUDES) $(AM_CPPFLAGS) $(CPPFLAGS) $(AM_CFLAGS) $(CFLAGS) -c -o heur_fracdiving.lo `test -f 'scip/src/scip/heur_fracdiving.c' || echo '$(srcdir)/'`scip/src/scip/heur_fracdiving.c
 
+heur_gins.lo: scip/src/scip/heur_gins.c
+@am__fastdepCC_TRUE@	if $(LIBTOOL) --tag=CC --mode=compile $(CC) $(DEFS) $(DEFAULT_INCLUDES) $(INCLUDES) $(AM_CPPFLAGS) $(CPPFLAGS) $(AM_CFLAGS) $(CFLAGS) -MT heur_gins.lo -MD -MP -MF "$(DEPDIR)/heur_gins.Tpo" -c -o heur_gins.lo `test -f 'scip/src/scip/heur_gins.c' || echo '$(srcdir)/'`scip/src/scip/heur_gins.c; \
+@am__fastdepCC_TRUE@	then mv -f "$(DEPDIR)/heur_gins.Tpo" "$(DEPDIR)/heur_gins.Plo"; else rm -f "$(DEPDIR)/heur_gins.Tpo"; exit 1; fi
+@AMDEP_TRUE@@am__fastdepCC_FALSE@	source='scip/src/scip/heur_gins.c' object='heur_gins.lo' libtool=yes @AMDEPBACKSLASH@
+@AMDEP_TRUE@@am__fastdepCC_FALSE@	DEPDIR=$(DEPDIR) $(CCDEPMODE) $(depcomp) @AMDEPBACKSLASH@
+@am__fastdepCC_FALSE@	$(LIBTOOL) --tag=CC --mode=compile $(CC) $(DEFS) $(DEFAULT_INCLUDES) $(INCLUDES) $(AM_CPPFLAGS) $(CPPFLAGS) $(AM_CFLAGS) $(CFLAGS) -c -o heur_gins.lo `test -f 'scip/src/scip/heur_gins.c' || echo '$(srcdir)/'`scip/src/scip/heur_gins.c
+
 heur_guideddiving.lo: scip/src/scip/heur_guideddiving.c
 @am__fastdepCC_TRUE@	if $(LIBTOOL) --tag=CC --mode=compile $(CC) $(DEFS) $(DEFAULT_INCLUDES) $(INCLUDES) $(AM_CPPFLAGS) $(CPPFLAGS) $(AM_CFLAGS) $(CFLAGS) -MT heur_guideddiving.lo -MD -MP -MF "$(DEPDIR)/heur_guideddiving.Tpo" -c -o heur_guideddiving.lo `test -f 'scip/src/scip/heur_guideddiving.c' || echo '$(srcdir)/'`scip/src/scip/heur_guideddiving.c; \
 @am__fastdepCC_TRUE@	then mv -f "$(DEPDIR)/heur_guideddiving.Tpo" "$(DEPDIR)/heur_guideddiving.Plo"; else rm -f "$(DEPDIR)/heur_guideddiving.Tpo"; exit 1; fi
@@ -2140,6 +2327,27 @@ heur_localbranching.lo: scip/src/scip/heur_localbranching.c
 @AMDEP_TRUE@@am__fastdepCC_FALSE@	source='scip/src/scip/heur_localbranching.c' object='heur_localbranching.lo' libtool=yes @AMDEPBACKSLASH@
 @AMDEP_TRUE@@am__fastdepCC_FALSE@	DEPDIR=$(DEPDIR) $(CCDEPMODE) $(depcomp) @AMDEPBACKSLASH@
 @am__fastdepCC_FALSE@	$(LIBTOOL) --tag=CC --mode=compile $(CC) $(DEFS) $(DEFAULT_INCLUDES) $(INCLUDES) $(AM_CPPFLAGS) $(CPPFLAGS) $(AM_CFLAGS) $(CFLAGS) -c -o heur_localbranching.lo `test -f 'scip/src/scip/heur_localbranching.c' || echo '$(srcdir)/'`scip/src/scip/heur_localbranching.c
+
+heur_lpface.lo: scip/src/scip/heur_lpface.c
+@am__fastdepCC_TRUE@	if $(LIBTOOL) --tag=CC --mode=compile $(CC) $(DEFS) $(DEFAULT_INCLUDES) $(INCLUDES) $(AM_CPPFLAGS) $(CPPFLAGS) $(AM_CFLAGS) $(CFLAGS) -MT heur_lpface.lo -MD -MP -MF "$(DEPDIR)/heur_lpface.Tpo" -c -o heur_lpface.lo `test -f 'scip/src/scip/heur_lpface.c' || echo '$(srcdir)/'`scip/src/scip/heur_lpface.c; \
+@am__fastdepCC_TRUE@	then mv -f "$(DEPDIR)/heur_lpface.Tpo" "$(DEPDIR)/heur_lpface.Plo"; else rm -f "$(DEPDIR)/heur_lpface.Tpo"; exit 1; fi
+@AMDEP_TRUE@@am__fastdepCC_FALSE@	source='scip/src/scip/heur_lpface.c' object='heur_lpface.lo' libtool=yes @AMDEPBACKSLASH@
+@AMDEP_TRUE@@am__fastdepCC_FALSE@	DEPDIR=$(DEPDIR) $(CCDEPMODE) $(depcomp) @AMDEPBACKSLASH@
+@am__fastdepCC_FALSE@	$(LIBTOOL) --tag=CC --mode=compile $(CC) $(DEFS) $(DEFAULT_INCLUDES) $(INCLUDES) $(AM_CPPFLAGS) $(CPPFLAGS) $(AM_CFLAGS) $(CFLAGS) -c -o heur_lpface.lo `test -f 'scip/src/scip/heur_lpface.c' || echo '$(srcdir)/'`scip/src/scip/heur_lpface.c
+
+heur_locks.lo: scip/src/scip/heur_locks.c
+@am__fastdepCC_TRUE@	if $(LIBTOOL) --tag=CC --mode=compile $(CC) $(DEFS) $(DEFAULT_INCLUDES) $(INCLUDES) $(AM_CPPFLAGS) $(CPPFLAGS) $(AM_CFLAGS) $(CFLAGS) -MT heur_locks.lo -MD -MP -MF "$(DEPDIR)/heur_locks.Tpo" -c -o heur_locks.lo `test -f 'scip/src/scip/heur_locks.c' || echo '$(srcdir)/'`scip/src/scip/heur_locks.c; \
+@am__fastdepCC_TRUE@	then mv -f "$(DEPDIR)/heur_locks.Tpo" "$(DEPDIR)/heur_locks.Plo"; else rm -f "$(DEPDIR)/heur_locks.Tpo"; exit 1; fi
+@AMDEP_TRUE@@am__fastdepCC_FALSE@	source='scip/src/scip/heur_locks.c' object='heur_locks.lo' libtool=yes @AMDEPBACKSLASH@
+@AMDEP_TRUE@@am__fastdepCC_FALSE@	DEPDIR=$(DEPDIR) $(CCDEPMODE) $(depcomp) @AMDEPBACKSLASH@
+@am__fastdepCC_FALSE@	$(LIBTOOL) --tag=CC --mode=compile $(CC) $(DEFS) $(DEFAULT_INCLUDES) $(INCLUDES) $(AM_CPPFLAGS) $(CPPFLAGS) $(AM_CFLAGS) $(CFLAGS) -c -o heur_locks.lo `test -f 'scip/src/scip/heur_locks.c' || echo '$(srcdir)/'`scip/src/scip/heur_locks.c
+
+heur_multistart.lo: scip/src/scip/heur_multistart.c
+@am__fastdepCC_TRUE@	if $(LIBTOOL) --tag=CC --mode=compile $(CC) $(DEFS) $(DEFAULT_INCLUDES) $(INCLUDES) $(AM_CPPFLAGS) $(CPPFLAGS) $(AM_CFLAGS) $(CFLAGS) -MT heur_multistart.lo -MD -MP -MF "$(DEPDIR)/heur_multistart.Tpo" -c -o heur_multistart.lo `test -f 'scip/src/scip/heur_multistart.c' || echo '$(srcdir)/'`scip/src/scip/heur_multistart.c; \
+@am__fastdepCC_TRUE@	then mv -f "$(DEPDIR)/heur_multistart.Tpo" "$(DEPDIR)/heur_multistart.Plo"; else rm -f "$(DEPDIR)/heur_multistart.Tpo"; exit 1; fi
+@AMDEP_TRUE@@am__fastdepCC_FALSE@	source='scip/src/scip/heur_multistart.c' object='heur_multistart.lo' libtool=yes @AMDEPBACKSLASH@
+@AMDEP_TRUE@@am__fastdepCC_FALSE@	DEPDIR=$(DEPDIR) $(CCDEPMODE) $(depcomp) @AMDEPBACKSLASH@
+@am__fastdepCC_FALSE@	$(LIBTOOL) --tag=CC --mode=compile $(CC) $(DEFS) $(DEFAULT_INCLUDES) $(INCLUDES) $(AM_CPPFLAGS) $(CPPFLAGS) $(AM_CFLAGS) $(CFLAGS) -c -o heur_multistart.lo `test -f 'scip/src/scip/heur_multistart.c' || echo '$(srcdir)/'`scip/src/scip/heur_multistart.c
 
 heur_mutation.lo: scip/src/scip/heur_mutation.c
 @am__fastdepCC_TRUE@	if $(LIBTOOL) --tag=CC --mode=compile $(CC) $(DEFS) $(DEFAULT_INCLUDES) $(INCLUDES) $(AM_CPPFLAGS) $(CPPFLAGS) $(AM_CFLAGS) $(CFLAGS) -MT heur_mutation.lo -MD -MP -MF "$(DEPDIR)/heur_mutation.Tpo" -c -o heur_mutation.lo `test -f 'scip/src/scip/heur_mutation.c' || echo '$(srcdir)/'`scip/src/scip/heur_mutation.c; \
@@ -2218,6 +2426,13 @@ heur_reoptsols.lo: scip/src/scip/heur_reoptsols.c
 @AMDEP_TRUE@@am__fastdepCC_FALSE@	DEPDIR=$(DEPDIR) $(CCDEPMODE) $(depcomp) @AMDEPBACKSLASH@
 @am__fastdepCC_FALSE@	$(LIBTOOL) --tag=CC --mode=compile $(CC) $(DEFS) $(DEFAULT_INCLUDES) $(INCLUDES) $(AM_CPPFLAGS) $(CPPFLAGS) $(AM_CFLAGS) $(CFLAGS) -c -o heur_reoptsols.lo `test -f 'scip/src/scip/heur_reoptsols.c' || echo '$(srcdir)/'`scip/src/scip/heur_reoptsols.c
 
+heur_repair.lo: scip/src/scip/heur_repair.c
+@am__fastdepCC_TRUE@	if $(LIBTOOL) --tag=CC --mode=compile $(CC) $(DEFS) $(DEFAULT_INCLUDES) $(INCLUDES) $(AM_CPPFLAGS) $(CPPFLAGS) $(AM_CFLAGS) $(CFLAGS) -MT heur_repair.lo -MD -MP -MF "$(DEPDIR)/heur_repair.Tpo" -c -o heur_repair.lo `test -f 'scip/src/scip/heur_repair.c' || echo '$(srcdir)/'`scip/src/scip/heur_repair.c; \
+@am__fastdepCC_TRUE@	then mv -f "$(DEPDIR)/heur_repair.Tpo" "$(DEPDIR)/heur_repair.Plo"; else rm -f "$(DEPDIR)/heur_repair.Tpo"; exit 1; fi
+@AMDEP_TRUE@@am__fastdepCC_FALSE@	source='scip/src/scip/heur_repair.c' object='heur_repair.lo' libtool=yes @AMDEPBACKSLASH@
+@AMDEP_TRUE@@am__fastdepCC_FALSE@	DEPDIR=$(DEPDIR) $(CCDEPMODE) $(depcomp) @AMDEPBACKSLASH@
+@am__fastdepCC_FALSE@	$(LIBTOOL) --tag=CC --mode=compile $(CC) $(DEFS) $(DEFAULT_INCLUDES) $(INCLUDES) $(AM_CPPFLAGS) $(CPPFLAGS) $(AM_CFLAGS) $(CFLAGS) -c -o heur_repair.lo `test -f 'scip/src/scip/heur_repair.c' || echo '$(srcdir)/'`scip/src/scip/heur_repair.c
+
 heur_rins.lo: scip/src/scip/heur_rins.c
 @am__fastdepCC_TRUE@	if $(LIBTOOL) --tag=CC --mode=compile $(CC) $(DEFS) $(DEFAULT_INCLUDES) $(INCLUDES) $(AM_CPPFLAGS) $(CPPFLAGS) $(AM_CFLAGS) $(CFLAGS) -MT heur_rins.lo -MD -MP -MF "$(DEPDIR)/heur_rins.Tpo" -c -o heur_rins.lo `test -f 'scip/src/scip/heur_rins.c' || echo '$(srcdir)/'`scip/src/scip/heur_rins.c; \
 @am__fastdepCC_TRUE@	then mv -f "$(DEPDIR)/heur_rins.Tpo" "$(DEPDIR)/heur_rins.Plo"; else rm -f "$(DEPDIR)/heur_rins.Tpo"; exit 1; fi
@@ -2266,6 +2481,13 @@ heur_subnlp.lo: scip/src/scip/heur_subnlp.c
 @AMDEP_TRUE@@am__fastdepCC_FALSE@	source='scip/src/scip/heur_subnlp.c' object='heur_subnlp.lo' libtool=yes @AMDEPBACKSLASH@
 @AMDEP_TRUE@@am__fastdepCC_FALSE@	DEPDIR=$(DEPDIR) $(CCDEPMODE) $(depcomp) @AMDEPBACKSLASH@
 @am__fastdepCC_FALSE@	$(LIBTOOL) --tag=CC --mode=compile $(CC) $(DEFS) $(DEFAULT_INCLUDES) $(INCLUDES) $(AM_CPPFLAGS) $(CPPFLAGS) $(AM_CFLAGS) $(CFLAGS) -c -o heur_subnlp.lo `test -f 'scip/src/scip/heur_subnlp.c' || echo '$(srcdir)/'`scip/src/scip/heur_subnlp.c
+
+heur_sync.lo: scip/src/scip/heur_sync.c
+@am__fastdepCC_TRUE@	if $(LIBTOOL) --tag=CC --mode=compile $(CC) $(DEFS) $(DEFAULT_INCLUDES) $(INCLUDES) $(AM_CPPFLAGS) $(CPPFLAGS) $(AM_CFLAGS) $(CFLAGS) -MT heur_sync.lo -MD -MP -MF "$(DEPDIR)/heur_sync.Tpo" -c -o heur_sync.lo `test -f 'scip/src/scip/heur_sync.c' || echo '$(srcdir)/'`scip/src/scip/heur_sync.c; \
+@am__fastdepCC_TRUE@	then mv -f "$(DEPDIR)/heur_sync.Tpo" "$(DEPDIR)/heur_sync.Plo"; else rm -f "$(DEPDIR)/heur_sync.Tpo"; exit 1; fi
+@AMDEP_TRUE@@am__fastdepCC_FALSE@	source='scip/src/scip/heur_sync.c' object='heur_sync.lo' libtool=yes @AMDEPBACKSLASH@
+@AMDEP_TRUE@@am__fastdepCC_FALSE@	DEPDIR=$(DEPDIR) $(CCDEPMODE) $(depcomp) @AMDEPBACKSLASH@
+@am__fastdepCC_FALSE@	$(LIBTOOL) --tag=CC --mode=compile $(CC) $(DEFS) $(DEFAULT_INCLUDES) $(INCLUDES) $(AM_CPPFLAGS) $(CPPFLAGS) $(AM_CFLAGS) $(CFLAGS) -c -o heur_sync.lo `test -f 'scip/src/scip/heur_sync.c' || echo '$(srcdir)/'`scip/src/scip/heur_sync.c
 
 heur_trivial.lo: scip/src/scip/heur_trivial.c
 @am__fastdepCC_TRUE@	if $(LIBTOOL) --tag=CC --mode=compile $(CC) $(DEFS) $(DEFAULT_INCLUDES) $(INCLUDES) $(AM_CPPFLAGS) $(CPPFLAGS) $(AM_CFLAGS) $(CFLAGS) -MT heur_trivial.lo -MD -MP -MF "$(DEPDIR)/heur_trivial.Tpo" -c -o heur_trivial.lo `test -f 'scip/src/scip/heur_trivial.c' || echo '$(srcdir)/'`scip/src/scip/heur_trivial.c; \
@@ -2393,13 +2615,6 @@ presol_boundshift.lo: scip/src/scip/presol_boundshift.c
 @AMDEP_TRUE@@am__fastdepCC_FALSE@	DEPDIR=$(DEPDIR) $(CCDEPMODE) $(depcomp) @AMDEPBACKSLASH@
 @am__fastdepCC_FALSE@	$(LIBTOOL) --tag=CC --mode=compile $(CC) $(DEFS) $(DEFAULT_INCLUDES) $(INCLUDES) $(AM_CPPFLAGS) $(CPPFLAGS) $(AM_CFLAGS) $(CFLAGS) -c -o presol_boundshift.lo `test -f 'scip/src/scip/presol_boundshift.c' || echo '$(srcdir)/'`scip/src/scip/presol_boundshift.c
 
-presol_components.lo: scip/src/scip/presol_components.c
-@am__fastdepCC_TRUE@	if $(LIBTOOL) --tag=CC --mode=compile $(CC) $(DEFS) $(DEFAULT_INCLUDES) $(INCLUDES) $(AM_CPPFLAGS) $(CPPFLAGS) $(AM_CFLAGS) $(CFLAGS) -MT presol_components.lo -MD -MP -MF "$(DEPDIR)/presol_components.Tpo" -c -o presol_components.lo `test -f 'scip/src/scip/presol_components.c' || echo '$(srcdir)/'`scip/src/scip/presol_components.c; \
-@am__fastdepCC_TRUE@	then mv -f "$(DEPDIR)/presol_components.Tpo" "$(DEPDIR)/presol_components.Plo"; else rm -f "$(DEPDIR)/presol_components.Tpo"; exit 1; fi
-@AMDEP_TRUE@@am__fastdepCC_FALSE@	source='scip/src/scip/presol_components.c' object='presol_components.lo' libtool=yes @AMDEPBACKSLASH@
-@AMDEP_TRUE@@am__fastdepCC_FALSE@	DEPDIR=$(DEPDIR) $(CCDEPMODE) $(depcomp) @AMDEPBACKSLASH@
-@am__fastdepCC_FALSE@	$(LIBTOOL) --tag=CC --mode=compile $(CC) $(DEFS) $(DEFAULT_INCLUDES) $(INCLUDES) $(AM_CPPFLAGS) $(CPPFLAGS) $(AM_CFLAGS) $(CFLAGS) -c -o presol_components.lo `test -f 'scip/src/scip/presol_components.c' || echo '$(srcdir)/'`scip/src/scip/presol_components.c
-
 presol_convertinttobin.lo: scip/src/scip/presol_convertinttobin.c
 @am__fastdepCC_TRUE@	if $(LIBTOOL) --tag=CC --mode=compile $(CC) $(DEFS) $(DEFAULT_INCLUDES) $(INCLUDES) $(AM_CPPFLAGS) $(CPPFLAGS) $(AM_CFLAGS) $(CFLAGS) -MT presol_convertinttobin.lo -MD -MP -MF "$(DEPDIR)/presol_convertinttobin.Tpo" -c -o presol_convertinttobin.lo `test -f 'scip/src/scip/presol_convertinttobin.c' || echo '$(srcdir)/'`scip/src/scip/presol_convertinttobin.c; \
 @am__fastdepCC_TRUE@	then mv -f "$(DEPDIR)/presol_convertinttobin.Tpo" "$(DEPDIR)/presol_convertinttobin.Plo"; else rm -f "$(DEPDIR)/presol_convertinttobin.Tpo"; exit 1; fi
@@ -2420,6 +2635,13 @@ presol_dualagg.lo: scip/src/scip/presol_dualagg.c
 @AMDEP_TRUE@@am__fastdepCC_FALSE@	source='scip/src/scip/presol_dualagg.c' object='presol_dualagg.lo' libtool=yes @AMDEPBACKSLASH@
 @AMDEP_TRUE@@am__fastdepCC_FALSE@	DEPDIR=$(DEPDIR) $(CCDEPMODE) $(depcomp) @AMDEPBACKSLASH@
 @am__fastdepCC_FALSE@	$(LIBTOOL) --tag=CC --mode=compile $(CC) $(DEFS) $(DEFAULT_INCLUDES) $(INCLUDES) $(AM_CPPFLAGS) $(CPPFLAGS) $(AM_CFLAGS) $(CFLAGS) -c -o presol_dualagg.lo `test -f 'scip/src/scip/presol_dualagg.c' || echo '$(srcdir)/'`scip/src/scip/presol_dualagg.c
+
+presol_dualcomp.lo: scip/src/scip/presol_dualcomp.c
+@am__fastdepCC_TRUE@	if $(LIBTOOL) --tag=CC --mode=compile $(CC) $(DEFS) $(DEFAULT_INCLUDES) $(INCLUDES) $(AM_CPPFLAGS) $(CPPFLAGS) $(AM_CFLAGS) $(CFLAGS) -MT presol_dualcomp.lo -MD -MP -MF "$(DEPDIR)/presol_dualcomp.Tpo" -c -o presol_dualcomp.lo `test -f 'scip/src/scip/presol_dualcomp.c' || echo '$(srcdir)/'`scip/src/scip/presol_dualcomp.c; \
+@am__fastdepCC_TRUE@	then mv -f "$(DEPDIR)/presol_dualcomp.Tpo" "$(DEPDIR)/presol_dualcomp.Plo"; else rm -f "$(DEPDIR)/presol_dualcomp.Tpo"; exit 1; fi
+@AMDEP_TRUE@@am__fastdepCC_FALSE@	source='scip/src/scip/presol_dualcomp.c' object='presol_dualcomp.lo' libtool=yes @AMDEPBACKSLASH@
+@AMDEP_TRUE@@am__fastdepCC_FALSE@	DEPDIR=$(DEPDIR) $(CCDEPMODE) $(depcomp) @AMDEPBACKSLASH@
+@am__fastdepCC_FALSE@	$(LIBTOOL) --tag=CC --mode=compile $(CC) $(DEFS) $(DEFAULT_INCLUDES) $(INCLUDES) $(AM_CPPFLAGS) $(CPPFLAGS) $(AM_CFLAGS) $(CFLAGS) -c -o presol_dualcomp.lo `test -f 'scip/src/scip/presol_dualcomp.c' || echo '$(srcdir)/'`scip/src/scip/presol_dualcomp.c
 
 presol_dualinfer.lo: scip/src/scip/presol_dualinfer.c
 @am__fastdepCC_TRUE@	if $(LIBTOOL) --tag=CC --mode=compile $(CC) $(DEFS) $(DEFAULT_INCLUDES) $(INCLUDES) $(AM_CPPFLAGS) $(CPPFLAGS) $(AM_CFLAGS) $(CFLAGS) -MT presol_dualinfer.lo -MD -MP -MF "$(DEPDIR)/presol_dualinfer.Tpo" -c -o presol_dualinfer.lo `test -f 'scip/src/scip/presol_dualinfer.c' || echo '$(srcdir)/'`scip/src/scip/presol_dualinfer.c; \
@@ -2455,6 +2677,13 @@ presol_inttobinary.lo: scip/src/scip/presol_inttobinary.c
 @AMDEP_TRUE@@am__fastdepCC_FALSE@	source='scip/src/scip/presol_inttobinary.c' object='presol_inttobinary.lo' libtool=yes @AMDEPBACKSLASH@
 @AMDEP_TRUE@@am__fastdepCC_FALSE@	DEPDIR=$(DEPDIR) $(CCDEPMODE) $(depcomp) @AMDEPBACKSLASH@
 @am__fastdepCC_FALSE@	$(LIBTOOL) --tag=CC --mode=compile $(CC) $(DEFS) $(DEFAULT_INCLUDES) $(INCLUDES) $(AM_CPPFLAGS) $(CPPFLAGS) $(AM_CFLAGS) $(CFLAGS) -c -o presol_inttobinary.lo `test -f 'scip/src/scip/presol_inttobinary.c' || echo '$(srcdir)/'`scip/src/scip/presol_inttobinary.c
+
+presol_qpkktref.lo: scip/src/scip/presol_qpkktref.c
+@am__fastdepCC_TRUE@	if $(LIBTOOL) --tag=CC --mode=compile $(CC) $(DEFS) $(DEFAULT_INCLUDES) $(INCLUDES) $(AM_CPPFLAGS) $(CPPFLAGS) $(AM_CFLAGS) $(CFLAGS) -MT presol_qpkktref.lo -MD -MP -MF "$(DEPDIR)/presol_qpkktref.Tpo" -c -o presol_qpkktref.lo `test -f 'scip/src/scip/presol_qpkktref.c' || echo '$(srcdir)/'`scip/src/scip/presol_qpkktref.c; \
+@am__fastdepCC_TRUE@	then mv -f "$(DEPDIR)/presol_qpkktref.Tpo" "$(DEPDIR)/presol_qpkktref.Plo"; else rm -f "$(DEPDIR)/presol_qpkktref.Tpo"; exit 1; fi
+@AMDEP_TRUE@@am__fastdepCC_FALSE@	source='scip/src/scip/presol_qpkktref.c' object='presol_qpkktref.lo' libtool=yes @AMDEPBACKSLASH@
+@AMDEP_TRUE@@am__fastdepCC_FALSE@	DEPDIR=$(DEPDIR) $(CCDEPMODE) $(depcomp) @AMDEPBACKSLASH@
+@am__fastdepCC_FALSE@	$(LIBTOOL) --tag=CC --mode=compile $(CC) $(DEFS) $(DEFAULT_INCLUDES) $(INCLUDES) $(AM_CPPFLAGS) $(CPPFLAGS) $(AM_CFLAGS) $(CFLAGS) -c -o presol_qpkktref.lo `test -f 'scip/src/scip/presol_qpkktref.c' || echo '$(srcdir)/'`scip/src/scip/presol_qpkktref.c
 
 presol_redvub.lo: scip/src/scip/presol_redvub.c
 @am__fastdepCC_TRUE@	if $(LIBTOOL) --tag=CC --mode=compile $(CC) $(DEFS) $(DEFAULT_INCLUDES) $(INCLUDES) $(AM_CPPFLAGS) $(CPPFLAGS) $(AM_CFLAGS) $(CFLAGS) -MT presol_redvub.lo -MD -MP -MF "$(DEPDIR)/presol_redvub.Tpo" -c -o presol_redvub.lo `test -f 'scip/src/scip/presol_redvub.c' || echo '$(srcdir)/'`scip/src/scip/presol_redvub.c; \
@@ -2498,6 +2727,13 @@ prop_genvbounds.lo: scip/src/scip/prop_genvbounds.c
 @AMDEP_TRUE@@am__fastdepCC_FALSE@	DEPDIR=$(DEPDIR) $(CCDEPMODE) $(depcomp) @AMDEPBACKSLASH@
 @am__fastdepCC_FALSE@	$(LIBTOOL) --tag=CC --mode=compile $(CC) $(DEFS) $(DEFAULT_INCLUDES) $(INCLUDES) $(AM_CPPFLAGS) $(CPPFLAGS) $(AM_CFLAGS) $(CFLAGS) -c -o prop_genvbounds.lo `test -f 'scip/src/scip/prop_genvbounds.c' || echo '$(srcdir)/'`scip/src/scip/prop_genvbounds.c
 
+prop_nlobbt.lo: scip/src/scip/prop_nlobbt.c
+@am__fastdepCC_TRUE@	if $(LIBTOOL) --tag=CC --mode=compile $(CC) $(DEFS) $(DEFAULT_INCLUDES) $(INCLUDES) $(AM_CPPFLAGS) $(CPPFLAGS) $(AM_CFLAGS) $(CFLAGS) -MT prop_nlobbt.lo -MD -MP -MF "$(DEPDIR)/prop_nlobbt.Tpo" -c -o prop_nlobbt.lo `test -f 'scip/src/scip/prop_nlobbt.c' || echo '$(srcdir)/'`scip/src/scip/prop_nlobbt.c; \
+@am__fastdepCC_TRUE@	then mv -f "$(DEPDIR)/prop_nlobbt.Tpo" "$(DEPDIR)/prop_nlobbt.Plo"; else rm -f "$(DEPDIR)/prop_nlobbt.Tpo"; exit 1; fi
+@AMDEP_TRUE@@am__fastdepCC_FALSE@	source='scip/src/scip/prop_nlobbt.c' object='prop_nlobbt.lo' libtool=yes @AMDEPBACKSLASH@
+@AMDEP_TRUE@@am__fastdepCC_FALSE@	DEPDIR=$(DEPDIR) $(CCDEPMODE) $(depcomp) @AMDEPBACKSLASH@
+@am__fastdepCC_FALSE@	$(LIBTOOL) --tag=CC --mode=compile $(CC) $(DEFS) $(DEFAULT_INCLUDES) $(INCLUDES) $(AM_CPPFLAGS) $(CPPFLAGS) $(AM_CFLAGS) $(CFLAGS) -c -o prop_nlobbt.lo `test -f 'scip/src/scip/prop_nlobbt.c' || echo '$(srcdir)/'`scip/src/scip/prop_nlobbt.c
+
 prop_obbt.lo: scip/src/scip/prop_obbt.c
 @am__fastdepCC_TRUE@	if $(LIBTOOL) --tag=CC --mode=compile $(CC) $(DEFS) $(DEFAULT_INCLUDES) $(INCLUDES) $(AM_CPPFLAGS) $(CPPFLAGS) $(AM_CFLAGS) $(CFLAGS) -MT prop_obbt.lo -MD -MP -MF "$(DEPDIR)/prop_obbt.Tpo" -c -o prop_obbt.lo `test -f 'scip/src/scip/prop_obbt.c' || echo '$(srcdir)/'`scip/src/scip/prop_obbt.c; \
 @am__fastdepCC_TRUE@	then mv -f "$(DEPDIR)/prop_obbt.Tpo" "$(DEPDIR)/prop_obbt.Plo"; else rm -f "$(DEPDIR)/prop_obbt.Tpo"; exit 1; fi
@@ -2532,6 +2768,13 @@ prop_rootredcost.lo: scip/src/scip/prop_rootredcost.c
 @AMDEP_TRUE@@am__fastdepCC_FALSE@	source='scip/src/scip/prop_rootredcost.c' object='prop_rootredcost.lo' libtool=yes @AMDEPBACKSLASH@
 @AMDEP_TRUE@@am__fastdepCC_FALSE@	DEPDIR=$(DEPDIR) $(CCDEPMODE) $(depcomp) @AMDEPBACKSLASH@
 @am__fastdepCC_FALSE@	$(LIBTOOL) --tag=CC --mode=compile $(CC) $(DEFS) $(DEFAULT_INCLUDES) $(INCLUDES) $(AM_CPPFLAGS) $(CPPFLAGS) $(AM_CFLAGS) $(CFLAGS) -c -o prop_rootredcost.lo `test -f 'scip/src/scip/prop_rootredcost.c' || echo '$(srcdir)/'`scip/src/scip/prop_rootredcost.c
+
+prop_sync.lo: scip/src/scip/prop_sync.c
+@am__fastdepCC_TRUE@	if $(LIBTOOL) --tag=CC --mode=compile $(CC) $(DEFS) $(DEFAULT_INCLUDES) $(INCLUDES) $(AM_CPPFLAGS) $(CPPFLAGS) $(AM_CFLAGS) $(CFLAGS) -MT prop_sync.lo -MD -MP -MF "$(DEPDIR)/prop_sync.Tpo" -c -o prop_sync.lo `test -f 'scip/src/scip/prop_sync.c' || echo '$(srcdir)/'`scip/src/scip/prop_sync.c; \
+@am__fastdepCC_TRUE@	then mv -f "$(DEPDIR)/prop_sync.Tpo" "$(DEPDIR)/prop_sync.Plo"; else rm -f "$(DEPDIR)/prop_sync.Tpo"; exit 1; fi
+@AMDEP_TRUE@@am__fastdepCC_FALSE@	source='scip/src/scip/prop_sync.c' object='prop_sync.lo' libtool=yes @AMDEPBACKSLASH@
+@AMDEP_TRUE@@am__fastdepCC_FALSE@	DEPDIR=$(DEPDIR) $(CCDEPMODE) $(depcomp) @AMDEPBACKSLASH@
+@am__fastdepCC_FALSE@	$(LIBTOOL) --tag=CC --mode=compile $(CC) $(DEFS) $(DEFAULT_INCLUDES) $(INCLUDES) $(AM_CPPFLAGS) $(CPPFLAGS) $(AM_CFLAGS) $(CFLAGS) -c -o prop_sync.lo `test -f 'scip/src/scip/prop_sync.c' || echo '$(srcdir)/'`scip/src/scip/prop_sync.c
 
 prop_vbounds.lo: scip/src/scip/prop_vbounds.c
 @am__fastdepCC_TRUE@	if $(LIBTOOL) --tag=CC --mode=compile $(CC) $(DEFS) $(DEFAULT_INCLUDES) $(INCLUDES) $(AM_CPPFLAGS) $(CPPFLAGS) $(AM_CFLAGS) $(CFLAGS) -MT prop_vbounds.lo -MD -MP -MF "$(DEPDIR)/prop_vbounds.Tpo" -c -o prop_vbounds.lo `test -f 'scip/src/scip/prop_vbounds.c' || echo '$(srcdir)/'`scip/src/scip/prop_vbounds.c; \
@@ -2609,6 +2852,13 @@ reader_mps.lo: scip/src/scip/reader_mps.c
 @AMDEP_TRUE@@am__fastdepCC_FALSE@	source='scip/src/scip/reader_mps.c' object='reader_mps.lo' libtool=yes @AMDEPBACKSLASH@
 @AMDEP_TRUE@@am__fastdepCC_FALSE@	DEPDIR=$(DEPDIR) $(CCDEPMODE) $(depcomp) @AMDEPBACKSLASH@
 @am__fastdepCC_FALSE@	$(LIBTOOL) --tag=CC --mode=compile $(CC) $(DEFS) $(DEFAULT_INCLUDES) $(INCLUDES) $(AM_CPPFLAGS) $(CPPFLAGS) $(AM_CFLAGS) $(CFLAGS) -c -o reader_mps.lo `test -f 'scip/src/scip/reader_mps.c' || echo '$(srcdir)/'`scip/src/scip/reader_mps.c
+
+reader_mst.lo: scip/src/scip/reader_mst.c
+@am__fastdepCC_TRUE@	if $(LIBTOOL) --tag=CC --mode=compile $(CC) $(DEFS) $(DEFAULT_INCLUDES) $(INCLUDES) $(AM_CPPFLAGS) $(CPPFLAGS) $(AM_CFLAGS) $(CFLAGS) -MT reader_mst.lo -MD -MP -MF "$(DEPDIR)/reader_mst.Tpo" -c -o reader_mst.lo `test -f 'scip/src/scip/reader_mst.c' || echo '$(srcdir)/'`scip/src/scip/reader_mst.c; \
+@am__fastdepCC_TRUE@	then mv -f "$(DEPDIR)/reader_mst.Tpo" "$(DEPDIR)/reader_mst.Plo"; else rm -f "$(DEPDIR)/reader_mst.Tpo"; exit 1; fi
+@AMDEP_TRUE@@am__fastdepCC_FALSE@	source='scip/src/scip/reader_mst.c' object='reader_mst.lo' libtool=yes @AMDEPBACKSLASH@
+@AMDEP_TRUE@@am__fastdepCC_FALSE@	DEPDIR=$(DEPDIR) $(CCDEPMODE) $(depcomp) @AMDEPBACKSLASH@
+@am__fastdepCC_FALSE@	$(LIBTOOL) --tag=CC --mode=compile $(CC) $(DEFS) $(DEFAULT_INCLUDES) $(INCLUDES) $(AM_CPPFLAGS) $(CPPFLAGS) $(AM_CFLAGS) $(CFLAGS) -c -o reader_mst.lo `test -f 'scip/src/scip/reader_mst.c' || echo '$(srcdir)/'`scip/src/scip/reader_mst.c
 
 reader_opb.lo: scip/src/scip/reader_opb.c
 @am__fastdepCC_TRUE@	if $(LIBTOOL) --tag=CC --mode=compile $(CC) $(DEFS) $(DEFAULT_INCLUDES) $(INCLUDES) $(AM_CPPFLAGS) $(CPPFLAGS) $(AM_CFLAGS) $(CFLAGS) -MT reader_opb.lo -MD -MP -MF "$(DEPDIR)/reader_opb.Tpo" -c -o reader_opb.lo `test -f 'scip/src/scip/reader_opb.c' || echo '$(srcdir)/'`scip/src/scip/reader_opb.c; \
@@ -2701,6 +2951,13 @@ sepa_cmir.lo: scip/src/scip/sepa_cmir.c
 @AMDEP_TRUE@@am__fastdepCC_FALSE@	DEPDIR=$(DEPDIR) $(CCDEPMODE) $(depcomp) @AMDEPBACKSLASH@
 @am__fastdepCC_FALSE@	$(LIBTOOL) --tag=CC --mode=compile $(CC) $(DEFS) $(DEFAULT_INCLUDES) $(INCLUDES) $(AM_CPPFLAGS) $(CPPFLAGS) $(AM_CFLAGS) $(CFLAGS) -c -o sepa_cmir.lo `test -f 'scip/src/scip/sepa_cmir.c' || echo '$(srcdir)/'`scip/src/scip/sepa_cmir.c
 
+sepa_convexproj.lo: scip/src/scip/sepa_convexproj.c
+@am__fastdepCC_TRUE@	if $(LIBTOOL) --tag=CC --mode=compile $(CC) $(DEFS) $(DEFAULT_INCLUDES) $(INCLUDES) $(AM_CPPFLAGS) $(CPPFLAGS) $(AM_CFLAGS) $(CFLAGS) -MT sepa_convexproj.lo -MD -MP -MF "$(DEPDIR)/sepa_convexproj.Tpo" -c -o sepa_convexproj.lo `test -f 'scip/src/scip/sepa_convexproj.c' || echo '$(srcdir)/'`scip/src/scip/sepa_convexproj.c; \
+@am__fastdepCC_TRUE@	then mv -f "$(DEPDIR)/sepa_convexproj.Tpo" "$(DEPDIR)/sepa_convexproj.Plo"; else rm -f "$(DEPDIR)/sepa_convexproj.Tpo"; exit 1; fi
+@AMDEP_TRUE@@am__fastdepCC_FALSE@	source='scip/src/scip/sepa_convexproj.c' object='sepa_convexproj.lo' libtool=yes @AMDEPBACKSLASH@
+@AMDEP_TRUE@@am__fastdepCC_FALSE@	DEPDIR=$(DEPDIR) $(CCDEPMODE) $(depcomp) @AMDEPBACKSLASH@
+@am__fastdepCC_FALSE@	$(LIBTOOL) --tag=CC --mode=compile $(CC) $(DEFS) $(DEFAULT_INCLUDES) $(INCLUDES) $(AM_CPPFLAGS) $(CPPFLAGS) $(AM_CFLAGS) $(CFLAGS) -c -o sepa_convexproj.lo `test -f 'scip/src/scip/sepa_convexproj.c' || echo '$(srcdir)/'`scip/src/scip/sepa_convexproj.c
+
 sepa_disjunctive.lo: scip/src/scip/sepa_disjunctive.c
 @am__fastdepCC_TRUE@	if $(LIBTOOL) --tag=CC --mode=compile $(CC) $(DEFS) $(DEFAULT_INCLUDES) $(INCLUDES) $(AM_CPPFLAGS) $(CPPFLAGS) $(AM_CFLAGS) $(CFLAGS) -MT sepa_disjunctive.lo -MD -MP -MF "$(DEPDIR)/sepa_disjunctive.Tpo" -c -o sepa_disjunctive.lo `test -f 'scip/src/scip/sepa_disjunctive.c' || echo '$(srcdir)/'`scip/src/scip/sepa_disjunctive.c; \
 @am__fastdepCC_TRUE@	then mv -f "$(DEPDIR)/sepa_disjunctive.Tpo" "$(DEPDIR)/sepa_disjunctive.Plo"; else rm -f "$(DEPDIR)/sepa_disjunctive.Tpo"; exit 1; fi
@@ -2721,6 +2978,13 @@ sepa_flowcover.lo: scip/src/scip/sepa_flowcover.c
 @AMDEP_TRUE@@am__fastdepCC_FALSE@	source='scip/src/scip/sepa_flowcover.c' object='sepa_flowcover.lo' libtool=yes @AMDEPBACKSLASH@
 @AMDEP_TRUE@@am__fastdepCC_FALSE@	DEPDIR=$(DEPDIR) $(CCDEPMODE) $(depcomp) @AMDEPBACKSLASH@
 @am__fastdepCC_FALSE@	$(LIBTOOL) --tag=CC --mode=compile $(CC) $(DEFS) $(DEFAULT_INCLUDES) $(INCLUDES) $(AM_CPPFLAGS) $(CPPFLAGS) $(AM_CFLAGS) $(CFLAGS) -c -o sepa_flowcover.lo `test -f 'scip/src/scip/sepa_flowcover.c' || echo '$(srcdir)/'`scip/src/scip/sepa_flowcover.c
+
+sepa_gauge.lo: scip/src/scip/sepa_gauge.c
+@am__fastdepCC_TRUE@	if $(LIBTOOL) --tag=CC --mode=compile $(CC) $(DEFS) $(DEFAULT_INCLUDES) $(INCLUDES) $(AM_CPPFLAGS) $(CPPFLAGS) $(AM_CFLAGS) $(CFLAGS) -MT sepa_gauge.lo -MD -MP -MF "$(DEPDIR)/sepa_gauge.Tpo" -c -o sepa_gauge.lo `test -f 'scip/src/scip/sepa_gauge.c' || echo '$(srcdir)/'`scip/src/scip/sepa_gauge.c; \
+@am__fastdepCC_TRUE@	then mv -f "$(DEPDIR)/sepa_gauge.Tpo" "$(DEPDIR)/sepa_gauge.Plo"; else rm -f "$(DEPDIR)/sepa_gauge.Tpo"; exit 1; fi
+@AMDEP_TRUE@@am__fastdepCC_FALSE@	source='scip/src/scip/sepa_gauge.c' object='sepa_gauge.lo' libtool=yes @AMDEPBACKSLASH@
+@AMDEP_TRUE@@am__fastdepCC_FALSE@	DEPDIR=$(DEPDIR) $(CCDEPMODE) $(depcomp) @AMDEPBACKSLASH@
+@am__fastdepCC_FALSE@	$(LIBTOOL) --tag=CC --mode=compile $(CC) $(DEFS) $(DEFAULT_INCLUDES) $(INCLUDES) $(AM_CPPFLAGS) $(CPPFLAGS) $(AM_CFLAGS) $(CFLAGS) -c -o sepa_gauge.lo `test -f 'scip/src/scip/sepa_gauge.c' || echo '$(srcdir)/'`scip/src/scip/sepa_gauge.c
 
 sepa_gomory.lo: scip/src/scip/sepa_gomory.c
 @am__fastdepCC_TRUE@	if $(LIBTOOL) --tag=CC --mode=compile $(CC) $(DEFS) $(DEFAULT_INCLUDES) $(INCLUDES) $(AM_CPPFLAGS) $(CPPFLAGS) $(AM_CFLAGS) $(CFLAGS) -MT sepa_gomory.lo -MD -MP -MF "$(DEPDIR)/sepa_gomory.Tpo" -c -o sepa_gomory.lo `test -f 'scip/src/scip/sepa_gomory.c' || echo '$(srcdir)/'`scip/src/scip/sepa_gomory.c; \
@@ -2840,6 +3104,13 @@ xmlparse.lo: scip/src/xml/xmlparse.c
 @AMDEP_TRUE@@am__fastdepCC_FALSE@	source='scip/src/xml/xmlparse.c' object='xmlparse.lo' libtool=yes @AMDEPBACKSLASH@
 @AMDEP_TRUE@@am__fastdepCC_FALSE@	DEPDIR=$(DEPDIR) $(CCDEPMODE) $(depcomp) @AMDEPBACKSLASH@
 @am__fastdepCC_FALSE@	$(LIBTOOL) --tag=CC --mode=compile $(CC) $(DEFS) $(DEFAULT_INCLUDES) $(INCLUDES) $(AM_CPPFLAGS) $(CPPFLAGS) $(AM_CFLAGS) $(CFLAGS) -c -o xmlparse.lo `test -f 'scip/src/xml/xmlparse.c' || echo '$(srcdir)/'`scip/src/xml/xmlparse.c
+
+tpi_none.lo: scip/src/tpi/tpi_none.c
+@am__fastdepCC_TRUE@	if $(LIBTOOL) --tag=CC --mode=compile $(CC) $(DEFS) $(DEFAULT_INCLUDES) $(INCLUDES) $(AM_CPPFLAGS) $(CPPFLAGS) $(AM_CFLAGS) $(CFLAGS) -MT tpi_none.lo -MD -MP -MF "$(DEPDIR)/tpi_none.Tpo" -c -o tpi_none.lo `test -f 'scip/src/tpi/tpi_none.c' || echo '$(srcdir)/'`scip/src/tpi/tpi_none.c; \
+@am__fastdepCC_TRUE@	then mv -f "$(DEPDIR)/tpi_none.Tpo" "$(DEPDIR)/tpi_none.Plo"; else rm -f "$(DEPDIR)/tpi_none.Tpo"; exit 1; fi
+@AMDEP_TRUE@@am__fastdepCC_FALSE@	source='scip/src/tpi/tpi_none.c' object='tpi_none.lo' libtool=yes @AMDEPBACKSLASH@
+@AMDEP_TRUE@@am__fastdepCC_FALSE@	DEPDIR=$(DEPDIR) $(CCDEPMODE) $(depcomp) @AMDEPBACKSLASH@
+@am__fastdepCC_FALSE@	$(LIBTOOL) --tag=CC --mode=compile $(CC) $(DEFS) $(DEFAULT_INCLUDES) $(INCLUDES) $(AM_CPPFLAGS) $(CPPFLAGS) $(AM_CFLAGS) $(CFLAGS) -c -o tpi_none.lo `test -f 'scip/src/tpi/tpi_none.c' || echo '$(srcdir)/'`scip/src/tpi/tpi_none.c
 
 nlpi_ipopt_dummy.lo: scip/src/nlpi/nlpi_ipopt_dummy.c
 @am__fastdepCC_TRUE@	if $(LIBTOOL) --tag=CC --mode=compile $(CC) $(DEFS) $(DEFAULT_INCLUDES) $(INCLUDES) $(AM_CPPFLAGS) $(CPPFLAGS) $(AM_CFLAGS) $(CFLAGS) -MT nlpi_ipopt_dummy.lo -MD -MP -MF "$(DEPDIR)/nlpi_ipopt_dummy.Tpo" -c -o nlpi_ipopt_dummy.lo `test -f 'scip/src/nlpi/nlpi_ipopt_dummy.c' || echo '$(srcdir)/'`scip/src/nlpi/nlpi_ipopt_dummy.c; \
