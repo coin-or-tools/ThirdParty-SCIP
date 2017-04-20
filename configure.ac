@@ -10,7 +10,7 @@
 
 AC_PREREQ(2.59)
 
-AC_INIT([ThirdPartyScip],[1.6],[http://projects.coin-or.org/BuildTools/newticket])
+AC_INIT([ThirdPartyScip],[trunk],[http://projects.coin-or.org/BuildTools/newticket])
 
 AC_COPYRIGHT([
 Copyright 2011-2012 Stefan Vigerske and others.
