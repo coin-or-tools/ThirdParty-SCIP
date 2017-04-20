@@ -329,6 +329,7 @@ thirdpartyscipinclude_HEADERS = \
   scip/src/scip/compr_largestrepr.h \
   scip/src/scip/compr_weakcompr.h \
   scip/src/scip/conflict.h \
+  scip/src/scip/cons.h \
   scip/src/scip/cons_abspower.h \
   scip/src/scip/cons_and.h \
   scip/src/scip/cons_bivariate.h \
@@ -357,6 +358,7 @@ thirdpartyscipinclude_HEADERS = \
   scip/src/scip/cons_superindicator.h \
   scip/src/scip/cons_varbound.h \
   scip/src/scip/cons_xor.h \
+  scip/src/scip/cuts.h \
   scip/src/scip/debug.h \
   scip/src/scip/def.h \
   scip/src/scip/dialog_default.h \
@@ -415,6 +417,7 @@ thirdpartyscipinclude_HEADERS = \
   scip/src/scip/heur_veclendiving.h \
   scip/src/scip/heur_zeroobj.h \
   scip/src/scip/heur_zirounding.h \
+  scip/src/scip/heuristics.h \
   scip/src/scip/history.h \
   scip/src/scip/implics.h \
   scip/src/scip/intervalarith.h \
@@ -523,6 +526,7 @@ thirdpartyscipinclude_HEADERS = \
   scip/src/scip/sepa_strongcg.h \
   scip/src/scip/sepa_zerohalf.h \
   scip/src/scip/set.h \
+  scip/src/scip/solve.h \
   scip/src/scip/struct_branch.h \
   scip/src/scip/struct_clock.h \
   scip/src/scip/struct_compr.h \
@@ -564,7 +568,10 @@ thirdpartyscipinclude_HEADERS = \
   scip/src/scip/type_branch.h \
   scip/src/scip/type_clock.h \
   scip/src/scip/type_compr.h \
+  scip/src/scip/type_concurrent.h \
+  scip/src/scip/type_concsolver.h \
   scip/src/scip/type_conflict.h \
+  scip/src/scip/type_conflictstore.h \
   scip/src/scip/type_cons.h \
   scip/src/scip/type_cutpool.h \
   scip/src/scip/type_dialog.h \
@@ -599,6 +606,7 @@ thirdpartyscipinclude_HEADERS = \
   scip/src/scip/type_set.h \
   scip/src/scip/type_sol.h \
   scip/src/scip/type_stat.h \
+  scip/src/scip/type_syncstore.h \
   scip/src/scip/type_timing.h \
   scip/src/scip/type_tree.h \
   scip/src/scip/type_var.h \
