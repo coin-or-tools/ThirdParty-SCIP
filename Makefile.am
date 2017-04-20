@@ -328,6 +328,7 @@ thirdpartyscipinclude_HEADERS = \
   scip/src/scip/compr.h \
   scip/src/scip/compr_largestrepr.h \
   scip/src/scip/compr_weakcompr.h \
+  scip/src/scip/concsolver_scip.h \
   scip/src/scip/conflict.h \
   scip/src/scip/cons.h \
   scip/src/scip/cons_abspower.h \
@@ -371,6 +372,7 @@ thirdpartyscipinclude_HEADERS = \
   scip/src/scip/heur_bound.h \
   scip/src/scip/heur_clique.h \
   scip/src/scip/heur_coefdiving.h \
+  scip/src/scip/heur_completesol.h \
   scip/src/scip/heur_crossover.h \
   scip/src/scip/heur_dins.h \
   scip/src/scip/heur_distributiondiving.h \
@@ -497,6 +499,7 @@ thirdpartyscipinclude_HEADERS = \
   scip/src/scip/reader_gms.h \
   scip/src/scip/reader_lp.h \
   scip/src/scip/reader_mps.h \
+  scip/src/scip/reader_mst.h \
   scip/src/scip/reader_opb.h \
   scip/src/scip/reader_osil.h \
   scip/src/scip/reader_pbm.h \
@@ -513,6 +516,7 @@ thirdpartyscipinclude_HEADERS = \
   scip/src/scip/sepa_clique.h \
   scip/src/scip/sepa_closecuts.h \
   scip/src/scip/sepa_cmir.h \
+  scip/src/scip/sepa_convexproj.h \
   scip/src/scip/sepa_disjunctive.h \
   scip/src/scip/sepa_eccuts.h \
   scip/src/scip/sepa_flowcover.h \
