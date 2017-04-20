@@ -24971,6 +24971,9 @@ case "$CC" in
     ;;
 esac
 
+# recent autotools versions can recognize OpenMP with the following macro
+# this would be useful to set TPI
+# AC_OPENMP
 EXTRAFLAGS="$EXTRAFLAGS -DTPI_NONE"
 
 CFLAGS="$CFLAGS $EXTRAFLAGS"
