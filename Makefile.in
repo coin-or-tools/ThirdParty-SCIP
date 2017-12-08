@@ -68,11 +68,12 @@ host_triplet = @host@
 
 # graph isomorphism interfaces
 @COIN_HAS_BLISS_TRUE@am__append_13 = scip/src/symmetry/compute_symmetry_bliss.cpp
-@COIN_HAS_BLISS_FALSE@am__append_14 = scip/src/symmetry/compute_symmetry_none.cpp
+@COIN_HAS_BLISSINCDIR_TRUE@@COIN_HAS_BLISS_TRUE@am__append_14 = -I`$(CYGPATH_W) $(BLISSINCDIR)`
+@COIN_HAS_BLISS_FALSE@am__append_15 = scip/src/symmetry/compute_symmetry_none.cpp
 
 # add IPOPT as nonlinear solver, if available
-@COIN_HAS_IPOPT_TRUE@am__append_15 = scip/src/nlpi/nlpi_ipopt.cpp
-@COIN_HAS_IPOPT_FALSE@am__append_16 = scip/src/nlpi/nlpi_ipopt_dummy.c
+@COIN_HAS_IPOPT_TRUE@am__append_16 = scip/src/nlpi/nlpi_ipopt.cpp
+@COIN_HAS_IPOPT_FALSE@am__append_17 = scip/src/nlpi/nlpi_ipopt_dummy.c
 DIST_COMMON = $(am__configure_deps) $(srcdir)/BuildTools/Makemain.inc \
 	$(srcdir)/Makefile.am $(srcdir)/Makefile.in \
 	$(srcdir)/coinscip-uninstalled.pc.in $(srcdir)/coinscip.pc.in \
@@ -83,8 +84,8 @@ DIST_COMMON = $(am__configure_deps) $(srcdir)/BuildTools/Makemain.inc \
 	$(thirdpartysymmetryinclude_HEADERS) $(top_srcdir)/configure \
 	compile config.guess config.sub depcomp install-sh ltmain.sh \
 	missing
-@HAVE_EXTERNALS_TRUE@am__append_17 = Dependencies
-@HAVE_EXTERNALS_TRUE@am__append_18 = .Dependencies-stamp
+@HAVE_EXTERNALS_TRUE@am__append_18 = Dependencies
+@HAVE_EXTERNALS_TRUE@am__append_19 = .Dependencies-stamp
 subdir = .
 ACLOCAL_M4 = $(top_srcdir)/aclocal.m4
 am__aclocal_m4_deps = $(top_srcdir)/acinclude.m4 \
@@ -430,6 +431,8 @@ AUTOHEADER = @AUTOHEADER@
 AUTOMAKE = @AUTOMAKE@
 AUX_DIR = @AUX_DIR@
 AWK = @AWK@
+BLISSINCDIR = @BLISSINCDIR@
+BLISSLIB = @BLISSLIB@
 BUILDTOOLSDIR = @BUILDTOOLSDIR@
 CC = @CC@
 CCDEPMODE = @CCDEPMODE@
@@ -446,6 +449,8 @@ COIN_CC_IS_CL_FALSE = @COIN_CC_IS_CL_FALSE@
 COIN_CC_IS_CL_TRUE = @COIN_CC_IS_CL_TRUE@
 COIN_CXX_IS_CL_FALSE = @COIN_CXX_IS_CL_FALSE@
 COIN_CXX_IS_CL_TRUE = @COIN_CXX_IS_CL_TRUE@
+COIN_HAS_BLISSINCDIR_FALSE = @COIN_HAS_BLISSINCDIR_FALSE@
+COIN_HAS_BLISSINCDIR_TRUE = @COIN_HAS_BLISSINCDIR_TRUE@
 COIN_HAS_BLISS_FALSE = @COIN_HAS_BLISS_FALSE@
 COIN_HAS_BLISS_TRUE = @COIN_HAS_BLISS_TRUE@
 COIN_HAS_CLP_FALSE = @COIN_HAS_CLP_FALSE@
@@ -619,11 +624,11 @@ sol_cc_compiler = @sol_cc_compiler@
 sysconfdir = @sysconfdir@
 target_alias = @target_alias@
 AUTOMAKE_OPTIONS = foreign
-EXTRA_DIST = $(am__append_17)
+EXTRA_DIST = $(am__append_18)
 lib_LTLIBRARIES = libcoinscip.la libcoinsciplpis.la
 AM_CPPFLAGS = -I`$(CYGPATH_W) $(srcdir)/scip/src` $(SCIPLIB_CFLAGS) \
 	$(am__append_4) $(am__append_6) $(am__append_8) \
-	$(am__append_10) $(am__append_12)
+	$(am__append_10) $(am__append_12) $(am__append_14)
 DEFAULT_INCLUDES = -I. -I`$(CYGPATH_W) $(srcdir)`
 libcoinscip_la_LDFLAGS = $(LT_LDFLAGS)
 libcoinsciplpis_la_LDFLAGS = $(LT_LDFLAGS)
@@ -779,8 +784,8 @@ libcoinscip_la_SOURCES = scip/src/scip/bandit.c \
 	scip/src/nlpi/nlpi.c scip/src/nlpi/nlpioracle.c \
 	scip/src/nlpi/nlpi_all.c scip/src/nlpi/exprinterpret_cppad.cpp \
 	scip/src/dijkstra/dijkstra.c scip/src/xml/xmlparse.c \
-	scip/src/tpi/tpi_none.c $(am__append_13) $(am__append_14) \
-	$(am__append_15) $(am__append_16) \
+	scip/src/tpi/tpi_none.c $(am__append_13) $(am__append_15) \
+	$(am__append_16) $(am__append_17) \
 	scip/src/nlpi/nlpi_filtersqp_dummy.c \
 	scip/src/nlpi/nlpi_worhp_dummy.c
 
@@ -1165,7 +1170,7 @@ pkgconfiglib_DATA = coinscip.pc
 ########################################################################
 
 # Files that are generated and should be cleaned with make distclean
-DISTCLEANFILES = $(am__append_18) $(VPATH_DISTCLEANFILES)
+DISTCLEANFILES = $(am__append_19) $(VPATH_DISTCLEANFILES)
 DocFiles = README AUTHORS LICENSE 
 DocInstallDir = $(datadir)/coin/doc/$(PACKAGE_NAME)
 COIN_HAS_DOXYGEN = @COIN_HAS_DOXYGEN_TRUE@TRUE

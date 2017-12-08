@@ -472,7 +472,7 @@ ac_includes_default="\
 # include <unistd.h>
 #endif"
 
-ac_subst_vars='SHELL PATH_SEPARATOR PACKAGE_NAME PACKAGE_TARNAME PACKAGE_VERSION PACKAGE_STRING PACKAGE_BUGREPORT exec_prefix prefix program_transform_name bindir sbindir libexecdir datadir sysconfdir sharedstatedir localstatedir libdir includedir oldincludedir infodir mandir build_alias host_alias target_alias DEFS ECHO_C ECHO_N ECHO_T LIBS ALWAYS_FALSE_TRUE ALWAYS_FALSE_FALSE have_svnversion SCIP_SVN_REV build build_cpu build_vendor build_os CDEFS ADD_CFLAGS DBG_CFLAGS OPT_CFLAGS sol_cc_compiler CC CFLAGS LDFLAGS CPPFLAGS ac_ct_CC EXEEXT OBJEXT COIN_CC_IS_CL_TRUE COIN_CC_IS_CL_FALSE MPICC CXXDEFS ADD_CXXFLAGS DBG_CXXFLAGS OPT_CXXFLAGS CXX CXXFLAGS ac_ct_CXX COIN_CXX_IS_CL_TRUE COIN_CXX_IS_CL_FALSE MPICXX EGREP LN_S INSTALL_PROGRAM INSTALL_SCRIPT INSTALL_DATA CYGPATH_W PACKAGE VERSION ACLOCAL AUTOCONF AUTOMAKE AUTOHEADER MAKEINFO install_sh STRIP ac_ct_STRIP INSTALL_STRIP_PROGRAM mkdir_p AWK SET_MAKE am__leading_dot AMTAR am__tar am__untar DEPDIR am__include am__quote AMDEP_TRUE AMDEP_FALSE AMDEPBACKSLASH CCDEPMODE am__fastdepCC_TRUE am__fastdepCC_FALSE CXXDEPMODE am__fastdepCXX_TRUE am__fastdepCXX_FALSE MAINTAINER_MODE_TRUE MAINTAINER_MODE_FALSE MAINT LIBTOOLM4 have_autoconf have_automake have_svn BUILDTOOLSDIR AUX_DIR abs_source_dir abs_lib_dir abs_include_dir abs_bin_dir HAVE_EXTERNALS_TRUE HAVE_EXTERNALS_FALSE host host_cpu host_vendor host_os ECHO AR ac_ct_AR RANLIB ac_ct_RANLIB CPP CXXCPP F77 FFLAGS ac_ct_F77 LIBTOOL ac_c_preproc_warn_flag ac_cxx_preproc_warn_flag RPATH_FLAGS DEPENDENCY_LINKING_TRUE DEPENDENCY_LINKING_FALSE LT_LDFLAGS PKG_CONFIG ac_ct_PKG_CONFIG COIN_HAS_PKGCONFIG_TRUE COIN_HAS_PKGCONFIG_FALSE COIN_PKG_CONFIG_PATH COIN_PKG_CONFIG_PATH_UNINSTALLED SOPLEX_LIBS SOPLEX_CFLAGS SOPLEX_DATA SOPLEX_DEPENDENCIES SOPLEX_LIBS_INSTALLED SOPLEX_CFLAGS_INSTALLED SOPLEX_DATA_INSTALLED SCIPLIB_CFLAGS SCIPLIB_LIBS SCIPLIB_PCLIBS SCIPLIB_PCREQUIRES SCIPLIB_DEPENDENCIES SCIPLIB_CFLAGS_INSTALLED SCIPLIB_LIBS_INSTALLED COIN_HAS_SOPLEX_TRUE COIN_HAS_SOPLEX_FALSE CLP_LIBS CLP_CFLAGS CLP_DATA CLP_DEPENDENCIES CLP_LIBS_INSTALLED CLP_CFLAGS_INSTALLED CLP_DATA_INSTALLED COIN_HAS_CLP_TRUE COIN_HAS_CLP_FALSE CPXINCDIR CPXLIB COIN_HAS_CPX_TRUE COIN_HAS_CPX_FALSE MSKINCDIR MSKLIB COIN_HAS_MSK_TRUE COIN_HAS_MSK_FALSE XPRINCDIR XPRLIB COIN_HAS_XPR_TRUE COIN_HAS_XPR_FALSE GRBINCDIR GRBLIB COIN_HAS_GRB_TRUE COIN_HAS_GRB_FALSE QSOINCDIR QSOLIB COIN_HAS_QSO_TRUE COIN_HAS_QSO_FALSE IPOPT_LIBS IPOPT_CFLAGS IPOPT_DATA IPOPT_DEPENDENCIES IPOPT_LIBS_INSTALLED IPOPT_CFLAGS_INSTALLED IPOPT_DATA_INSTALLED COIN_HAS_IPOPT_TRUE COIN_HAS_IPOPT_FALSE COIN_HAS_ZLIB_TRUE COIN_HAS_ZLIB_FALSE COIN_HAS_BLISS_TRUE COIN_HAS_BLISS_FALSE LIBEXT VPATH_DISTCLEANFILES ABSBUILDDIR LIBOBJS LTLIBOBJS'
+ac_subst_vars='SHELL PATH_SEPARATOR PACKAGE_NAME PACKAGE_TARNAME PACKAGE_VERSION PACKAGE_STRING PACKAGE_BUGREPORT exec_prefix prefix program_transform_name bindir sbindir libexecdir datadir sysconfdir sharedstatedir localstatedir libdir includedir oldincludedir infodir mandir build_alias host_alias target_alias DEFS ECHO_C ECHO_N ECHO_T LIBS ALWAYS_FALSE_TRUE ALWAYS_FALSE_FALSE have_svnversion SCIP_SVN_REV build build_cpu build_vendor build_os CDEFS ADD_CFLAGS DBG_CFLAGS OPT_CFLAGS sol_cc_compiler CC CFLAGS LDFLAGS CPPFLAGS ac_ct_CC EXEEXT OBJEXT COIN_CC_IS_CL_TRUE COIN_CC_IS_CL_FALSE MPICC CXXDEFS ADD_CXXFLAGS DBG_CXXFLAGS OPT_CXXFLAGS CXX CXXFLAGS ac_ct_CXX COIN_CXX_IS_CL_TRUE COIN_CXX_IS_CL_FALSE MPICXX EGREP LN_S INSTALL_PROGRAM INSTALL_SCRIPT INSTALL_DATA CYGPATH_W PACKAGE VERSION ACLOCAL AUTOCONF AUTOMAKE AUTOHEADER MAKEINFO install_sh STRIP ac_ct_STRIP INSTALL_STRIP_PROGRAM mkdir_p AWK SET_MAKE am__leading_dot AMTAR am__tar am__untar DEPDIR am__include am__quote AMDEP_TRUE AMDEP_FALSE AMDEPBACKSLASH CCDEPMODE am__fastdepCC_TRUE am__fastdepCC_FALSE CXXDEPMODE am__fastdepCXX_TRUE am__fastdepCXX_FALSE MAINTAINER_MODE_TRUE MAINTAINER_MODE_FALSE MAINT LIBTOOLM4 have_autoconf have_automake have_svn BUILDTOOLSDIR AUX_DIR abs_source_dir abs_lib_dir abs_include_dir abs_bin_dir HAVE_EXTERNALS_TRUE HAVE_EXTERNALS_FALSE host host_cpu host_vendor host_os ECHO AR ac_ct_AR RANLIB ac_ct_RANLIB CPP CXXCPP F77 FFLAGS ac_ct_F77 LIBTOOL ac_c_preproc_warn_flag ac_cxx_preproc_warn_flag RPATH_FLAGS DEPENDENCY_LINKING_TRUE DEPENDENCY_LINKING_FALSE LT_LDFLAGS PKG_CONFIG ac_ct_PKG_CONFIG COIN_HAS_PKGCONFIG_TRUE COIN_HAS_PKGCONFIG_FALSE COIN_PKG_CONFIG_PATH COIN_PKG_CONFIG_PATH_UNINSTALLED SOPLEX_LIBS SOPLEX_CFLAGS SOPLEX_DATA SOPLEX_DEPENDENCIES SOPLEX_LIBS_INSTALLED SOPLEX_CFLAGS_INSTALLED SOPLEX_DATA_INSTALLED SCIPLIB_CFLAGS SCIPLIB_LIBS SCIPLIB_PCLIBS SCIPLIB_PCREQUIRES SCIPLIB_DEPENDENCIES SCIPLIB_CFLAGS_INSTALLED SCIPLIB_LIBS_INSTALLED COIN_HAS_SOPLEX_TRUE COIN_HAS_SOPLEX_FALSE CLP_LIBS CLP_CFLAGS CLP_DATA CLP_DEPENDENCIES CLP_LIBS_INSTALLED CLP_CFLAGS_INSTALLED CLP_DATA_INSTALLED COIN_HAS_CLP_TRUE COIN_HAS_CLP_FALSE CPXINCDIR CPXLIB COIN_HAS_CPX_TRUE COIN_HAS_CPX_FALSE MSKINCDIR MSKLIB COIN_HAS_MSK_TRUE COIN_HAS_MSK_FALSE XPRINCDIR XPRLIB COIN_HAS_XPR_TRUE COIN_HAS_XPR_FALSE GRBINCDIR GRBLIB COIN_HAS_GRB_TRUE COIN_HAS_GRB_FALSE QSOINCDIR QSOLIB COIN_HAS_QSO_TRUE COIN_HAS_QSO_FALSE IPOPT_LIBS IPOPT_CFLAGS IPOPT_DATA IPOPT_DEPENDENCIES IPOPT_LIBS_INSTALLED IPOPT_CFLAGS_INSTALLED IPOPT_DATA_INSTALLED COIN_HAS_IPOPT_TRUE COIN_HAS_IPOPT_FALSE COIN_HAS_ZLIB_TRUE COIN_HAS_ZLIB_FALSE BLISSINCDIR BLISSLIB COIN_HAS_BLISS_TRUE COIN_HAS_BLISS_FALSE COIN_HAS_BLISSINCDIR_TRUE COIN_HAS_BLISSINCDIR_FALSE LIBEXT VPATH_DISTCLEANFILES ABSBUILDDIR LIBOBJS LTLIBOBJS'
 ac_subst_files=''
 
 # Initialize some variables set by options.
@@ -1116,6 +1116,8 @@ Optional Features:
   --disable-zlib          do not compile with compression library zlib
   --disable-gmp           do not compile with GNU multiple precision library
   --enable-gnu-packages   compile with GNU packages (disabled by default)
+  --disable-bliss-libcheck
+                          skip the link check at configuration time
 
 Optional Packages:
   --with-PACKAGE[=ARG]    use PACKAGE [ARG=yes]
@@ -1152,6 +1154,8 @@ Optional Packages:
   --with-ipopt-lib linker flags for using package Ipopt
   --with-ipopt-incdir directory with header files for using package Ipopt
   --with-ipopt-datadir directory with data files for using package Ipopt
+  --with-bliss-incdir specify the header file directory for library Bliss
+  --with-bliss-lib specify the flags used to link with the library Bliss
 
 Some influential environment variables:
   CDEFS       Additional -D flags to be used when compiling C code.
@@ -5827,7 +5831,7 @@ ia64-*-hpux*)
   ;;
 *-*-irix6*)
   # Find out which ABI we are using.
-  echo '#line 5830 "configure"' > conftest.$ac_ext
+  echo '#line 5834 "configure"' > conftest.$ac_ext
   if { (eval echo "$as_me:$LINENO: \"$ac_compile\"") >&5
   (eval $ac_compile) 2>&5
   ac_status=$?
@@ -6961,7 +6965,7 @@ fi
 
 
 # Provide some information about the compiler.
-echo "$as_me:6964:" \
+echo "$as_me:6968:" \
      "checking for Fortran 77 compiler version" >&5
 ac_compiler=`set X $ac_compile; echo $2`
 { (eval echo "$as_me:$LINENO: \"$ac_compiler --version </dev/null >&5\"") >&5
@@ -8028,11 +8032,11 @@ else
    -e 's:.*FLAGS}\{0,1\} :&$lt_compiler_flag :; t' \
    -e 's: [^ ]*conftest\.: $lt_compiler_flag&:; t' \
    -e 's:$: $lt_compiler_flag:'`
-   (eval echo "\"\$as_me:8031: $lt_compile\"" >&5)
+   (eval echo "\"\$as_me:8035: $lt_compile\"" >&5)
    (eval "$lt_compile" 2>conftest.err)
    ac_status=$?
    cat conftest.err >&5
-   echo "$as_me:8035: \$? = $ac_status" >&5
+   echo "$as_me:8039: \$? = $ac_status" >&5
    if (exit $ac_status) && test -s "$ac_outfile"; then
      # The compiler can only warn and ignore the option if not recognized
      # So say no if there are warnings other than the usual output.
@@ -8296,11 +8300,11 @@ else
    -e 's:.*FLAGS}\{0,1\} :&$lt_compiler_flag :; t' \
    -e 's: [^ ]*conftest\.: $lt_compiler_flag&:; t' \
    -e 's:$: $lt_compiler_flag:'`
-   (eval echo "\"\$as_me:8299: $lt_compile\"" >&5)
+   (eval echo "\"\$as_me:8303: $lt_compile\"" >&5)
    (eval "$lt_compile" 2>conftest.err)
    ac_status=$?
    cat conftest.err >&5
-   echo "$as_me:8303: \$? = $ac_status" >&5
+   echo "$as_me:8307: \$? = $ac_status" >&5
    if (exit $ac_status) && test -s "$ac_outfile"; then
      # The compiler can only warn and ignore the option if not recognized
      # So say no if there are warnings other than the usual output.
@@ -8400,11 +8404,11 @@ else
    -e 's:.*FLAGS}\{0,1\} :&$lt_compiler_flag :; t' \
    -e 's: [^ ]*conftest\.: $lt_compiler_flag&:; t' \
    -e 's:$: $lt_compiler_flag:'`
-   (eval echo "\"\$as_me:8403: $lt_compile\"" >&5)
+   (eval echo "\"\$as_me:8407: $lt_compile\"" >&5)
    (eval "$lt_compile" 2>out/conftest.err)
    ac_status=$?
    cat out/conftest.err >&5
-   echo "$as_me:8407: \$? = $ac_status" >&5
+   echo "$as_me:8411: \$? = $ac_status" >&5
    if (exit $ac_status) && test -s out/conftest2.$ac_objext
    then
      # The compiler can only warn and ignore the option if not recognized
@@ -10745,7 +10749,7 @@ else
   lt_dlunknown=0; lt_dlno_uscore=1; lt_dlneed_uscore=2
   lt_status=$lt_dlunknown
   cat > conftest.$ac_ext <<EOF
-#line 10748 "configure"
+#line 10752 "configure"
 #include "confdefs.h"
 
 #if HAVE_DLFCN_H
@@ -10845,7 +10849,7 @@ else
   lt_dlunknown=0; lt_dlno_uscore=1; lt_dlneed_uscore=2
   lt_status=$lt_dlunknown
   cat > conftest.$ac_ext <<EOF
-#line 10848 "configure"
+#line 10852 "configure"
 #include "confdefs.h"
 
 #if HAVE_DLFCN_H
@@ -13189,11 +13193,11 @@ else
    -e 's:.*FLAGS}\{0,1\} :&$lt_compiler_flag :; t' \
    -e 's: [^ ]*conftest\.: $lt_compiler_flag&:; t' \
    -e 's:$: $lt_compiler_flag:'`
-   (eval echo "\"\$as_me:13192: $lt_compile\"" >&5)
+   (eval echo "\"\$as_me:13196: $lt_compile\"" >&5)
    (eval "$lt_compile" 2>conftest.err)
    ac_status=$?
    cat conftest.err >&5
-   echo "$as_me:13196: \$? = $ac_status" >&5
+   echo "$as_me:13200: \$? = $ac_status" >&5
    if (exit $ac_status) && test -s "$ac_outfile"; then
      # The compiler can only warn and ignore the option if not recognized
      # So say no if there are warnings other than the usual output.
@@ -13293,11 +13297,11 @@ else
    -e 's:.*FLAGS}\{0,1\} :&$lt_compiler_flag :; t' \
    -e 's: [^ ]*conftest\.: $lt_compiler_flag&:; t' \
    -e 's:$: $lt_compiler_flag:'`
-   (eval echo "\"\$as_me:13296: $lt_compile\"" >&5)
+   (eval echo "\"\$as_me:13300: $lt_compile\"" >&5)
    (eval "$lt_compile" 2>out/conftest.err)
    ac_status=$?
    cat out/conftest.err >&5
-   echo "$as_me:13300: \$? = $ac_status" >&5
+   echo "$as_me:13304: \$? = $ac_status" >&5
    if (exit $ac_status) && test -s out/conftest2.$ac_objext
    then
      # The compiler can only warn and ignore the option if not recognized
@@ -14863,11 +14867,11 @@ else
    -e 's:.*FLAGS}\{0,1\} :&$lt_compiler_flag :; t' \
    -e 's: [^ ]*conftest\.: $lt_compiler_flag&:; t' \
    -e 's:$: $lt_compiler_flag:'`
-   (eval echo "\"\$as_me:14866: $lt_compile\"" >&5)
+   (eval echo "\"\$as_me:14870: $lt_compile\"" >&5)
    (eval "$lt_compile" 2>conftest.err)
    ac_status=$?
    cat conftest.err >&5
-   echo "$as_me:14870: \$? = $ac_status" >&5
+   echo "$as_me:14874: \$? = $ac_status" >&5
    if (exit $ac_status) && test -s "$ac_outfile"; then
      # The compiler can only warn and ignore the option if not recognized
      # So say no if there are warnings other than the usual output.
@@ -14967,11 +14971,11 @@ else
    -e 's:.*FLAGS}\{0,1\} :&$lt_compiler_flag :; t' \
    -e 's: [^ ]*conftest\.: $lt_compiler_flag&:; t' \
    -e 's:$: $lt_compiler_flag:'`
-   (eval echo "\"\$as_me:14970: $lt_compile\"" >&5)
+   (eval echo "\"\$as_me:14974: $lt_compile\"" >&5)
    (eval "$lt_compile" 2>out/conftest.err)
    ac_status=$?
    cat out/conftest.err >&5
-   echo "$as_me:14974: \$? = $ac_status" >&5
+   echo "$as_me:14978: \$? = $ac_status" >&5
    if (exit $ac_status) && test -s out/conftest2.$ac_objext
    then
      # The compiler can only warn and ignore the option if not recognized
@@ -17174,11 +17178,11 @@ else
    -e 's:.*FLAGS}\{0,1\} :&$lt_compiler_flag :; t' \
    -e 's: [^ ]*conftest\.: $lt_compiler_flag&:; t' \
    -e 's:$: $lt_compiler_flag:'`
-   (eval echo "\"\$as_me:17177: $lt_compile\"" >&5)
+   (eval echo "\"\$as_me:17181: $lt_compile\"" >&5)
    (eval "$lt_compile" 2>conftest.err)
    ac_status=$?
    cat conftest.err >&5
-   echo "$as_me:17181: \$? = $ac_status" >&5
+   echo "$as_me:17185: \$? = $ac_status" >&5
    if (exit $ac_status) && test -s "$ac_outfile"; then
      # The compiler can only warn and ignore the option if not recognized
      # So say no if there are warnings other than the usual output.
@@ -17442,11 +17446,11 @@ else
    -e 's:.*FLAGS}\{0,1\} :&$lt_compiler_flag :; t' \
    -e 's: [^ ]*conftest\.: $lt_compiler_flag&:; t' \
    -e 's:$: $lt_compiler_flag:'`
-   (eval echo "\"\$as_me:17445: $lt_compile\"" >&5)
+   (eval echo "\"\$as_me:17449: $lt_compile\"" >&5)
    (eval "$lt_compile" 2>conftest.err)
    ac_status=$?
    cat conftest.err >&5
-   echo "$as_me:17449: \$? = $ac_status" >&5
+   echo "$as_me:17453: \$? = $ac_status" >&5
    if (exit $ac_status) && test -s "$ac_outfile"; then
      # The compiler can only warn and ignore the option if not recognized
      # So say no if there are warnings other than the usual output.
@@ -17546,11 +17550,11 @@ else
    -e 's:.*FLAGS}\{0,1\} :&$lt_compiler_flag :; t' \
    -e 's: [^ ]*conftest\.: $lt_compiler_flag&:; t' \
    -e 's:$: $lt_compiler_flag:'`
-   (eval echo "\"\$as_me:17549: $lt_compile\"" >&5)
+   (eval echo "\"\$as_me:17553: $lt_compile\"" >&5)
    (eval "$lt_compile" 2>out/conftest.err)
    ac_status=$?
    cat out/conftest.err >&5
-   echo "$as_me:17553: \$? = $ac_status" >&5
+   echo "$as_me:17557: \$? = $ac_status" >&5
    if (exit $ac_status) && test -s out/conftest2.$ac_objext
    then
      # The compiler can only warn and ignore the option if not recognized
@@ -24965,14 +24969,216 @@ fi
 
 
 
-have_bliss=no
+# check if user specifies bliss
 ac_ext=cc
 ac_cpp='$CXXCPP $CPPFLAGS'
 ac_compile='$CXX -c $CXXFLAGS $CPPFLAGS conftest.$ac_ext >&5'
 ac_link='$CXX -o conftest$ac_exeext $CXXFLAGS $CPPFLAGS $LDFLAGS conftest.$ac_ext $LIBS >&5'
 ac_compiler_gnu=$ac_cv_cxx_compiler_gnu
 
-echo "$as_me:$LINENO: checking for bliss_new in -lbliss" >&5
+
+  echo "$as_me:$LINENO: checking if user provides library for Bliss" >&5
+echo $ECHO_N "checking if user provides library for Bliss... $ECHO_C" >&6
+
+# Check for header file directory
+
+
+# Check whether --with-bliss-incdir or --without-bliss-incdir was given.
+if test "${with_bliss_incdir+set}" = set; then
+  withval="$with_bliss_incdir"
+  BLISSINCDIR=`cd $withval; pwd`
+fi;
+
+# Check for library directory
+
+
+# Check whether --with-bliss-lib or --without-bliss-lib was given.
+if test "${with_bliss_lib+set}" = set; then
+  withval="$with_bliss_lib"
+  BLISSLIB=$withval
+fi;
+
+# Switch to disable library check if requested
+
+  # Check whether --enable-bliss-libcheck or --disable-bliss-libcheck was given.
+if test "${enable_bliss_libcheck+set}" = set; then
+  enableval="$enable_bliss_libcheck"
+  bliss_libcheck=$enableval
+else
+  bliss_libcheck=yes
+fi;
+
+# At this point, if we're going to use the library, both LBRYINCDIR and
+# LBRYLIB must be defined and not empty.
+
+  if test x"$BLISSINCDIR" != x || test x"$BLISSLIB" != x; then
+    if test x"$BLISSINCDIR" = x || test x"$BLISSLIB" = x; then
+      { { echo "$as_me:$LINENO: error: You need to specify both an include directory and link flags to use library Bliss. Use --with-bliss-incdir of environment variable $BLISSINCDIR to specify the include directory. Use --with-bliss-lib or environment variable $BLISSLIB to specify link flags." >&5
+echo "$as_me: error: You need to specify both an include directory and link flags to use library Bliss. Use --with-bliss-incdir of environment variable $BLISSINCDIR to specify the include directory. Use --with-bliss-lib or environment variable $BLISSLIB to specify link flags." >&2;}
+   { (exit 1); exit 1; }; }
+    fi
+    coin_has_bliss=true
+    echo "$as_me:$LINENO: result: yes" >&5
+echo "${ECHO_T}yes" >&6
+  else
+    coin_has_bliss=false
+    echo "$as_me:$LINENO: result: no" >&5
+echo "${ECHO_T}no" >&6
+  fi
+
+# If we have instructions for use, consider header and link checks.
+
+  if test $coin_has_bliss = true; then
+
+# If argument 3 (file) is given, check for the file. Typically this will be a
+# header file, but that's not assumed.
+
+    if test -r $BLISSINCDIR/bliss/graph.hh; then
+
+  :
+else
+  { { echo "$as_me:$LINENO: error: Cannot find file bliss/graph.hh in $BLISSINCDIR" >&5
+echo "$as_me: error: Cannot find file bliss/graph.hh in $BLISSINCDIR" >&2;}
+   { (exit 1); exit 1; }; }
+  :
+fi
+
+
+# Now see if we can link the function. There are arguments for and against
+# assuming argument 3 is a header file declaring the function. A correct
+# function declaration is the main argument in favour. Having to cope with
+# possible dependencies or other oddities are the main arguments against.
+# Force the use of C as the best single choice amongst C++, C, and Fortran.
+# Obviously, this has limits.
+
+    if test x"$bliss_libcheck" != xno; then
+	   coin_save_LIBS="$LIBS"
+	   LIBS="$BLISSLIB "
+	   coin_BLISS_link=no
+	   ac_ext=c
+ac_cpp='$CPP $CPPFLAGS'
+ac_compile='$CC -c $CFLAGS $CPPFLAGS conftest.$ac_ext >&5'
+ac_link='$CC -o conftest$ac_exeext $CFLAGS $CPPFLAGS $LDFLAGS conftest.$ac_ext $LIBS >&5'
+ac_compiler_gnu=$ac_cv_c_compiler_gnu
+
+	   for fnm in bliss_new ; do
+	     echo "$as_me:$LINENO: checking whether symbol $fnm is available with BLISS" >&5
+echo $ECHO_N "checking whether symbol $fnm is available with BLISS... $ECHO_C" >&6
+	     cat >conftest.$ac_ext <<_ACEOF
+/* confdefs.h.  */
+_ACEOF
+cat confdefs.h >>conftest.$ac_ext
+cat >>conftest.$ac_ext <<_ACEOF
+/* end confdefs.h.  */
+
+int
+main ()
+{
+$fnm()
+  ;
+  return 0;
+}
+_ACEOF
+rm -f conftest.$ac_objext conftest$ac_exeext
+if { (eval echo "$as_me:$LINENO: \"$ac_link\"") >&5
+  (eval $ac_link) 2>conftest.er1
+  ac_status=$?
+  grep -v '^ *+' conftest.er1 >conftest.err
+  rm -f conftest.er1
+  cat conftest.err >&5
+  echo "$as_me:$LINENO: \$? = $ac_status" >&5
+  (exit $ac_status); } &&
+	 { ac_try='test -z "$ac_c_werror_flag"
+			 || test ! -s conftest.err'
+  { (eval echo "$as_me:$LINENO: \"$ac_try\"") >&5
+  (eval $ac_try) 2>&5
+  ac_status=$?
+  echo "$as_me:$LINENO: \$? = $ac_status" >&5
+  (exit $ac_status); }; } &&
+	 { ac_try='test -s conftest$ac_exeext'
+  { (eval echo "$as_me:$LINENO: \"$ac_try\"") >&5
+  (eval $ac_try) 2>&5
+  ac_status=$?
+  echo "$as_me:$LINENO: \$? = $ac_status" >&5
+  (exit $ac_status); }; }; then
+  echo "$as_me:$LINENO: result: yes" >&5
+echo "${ECHO_T}yes" >&6
+		  coin_BLISS_link=yes
+		  break
+else
+  echo "$as_me: failed program was:" >&5
+sed 's/^/| /' conftest.$ac_ext >&5
+
+echo "$as_me:$LINENO: result: no" >&5
+echo "${ECHO_T}no" >&6
+fi
+rm -f conftest.err conftest.$ac_objext \
+      conftest$ac_exeext conftest.$ac_ext
+	   done
+	   ac_ext=cc
+ac_cpp='$CXXCPP $CPPFLAGS'
+ac_compile='$CXX -c $CXXFLAGS $CPPFLAGS conftest.$ac_ext >&5'
+ac_link='$CXX -o conftest$ac_exeext $CXXFLAGS $CPPFLAGS $LDFLAGS conftest.$ac_ext $LIBS >&5'
+ac_compiler_gnu=$ac_cv_cxx_compiler_gnu
+
+           LIBS="$coin_save_LIBS"
+	   if test x"$coin_BLISS_link" != xyes ; then
+	     { { echo "$as_me:$LINENO: error: Cannot find symbol(s) bliss_new with BLISS" >&5
+echo "$as_me: error: Cannot find symbol(s) bliss_new with BLISS" >&2;}
+   { (exit 1); exit 1; }; }
+	   fi
+	 fi
+
+
+# If we make it this far, we've verified the file and linked the function. Add
+# the necessary link flags to SCIPLib_{PC}LIBS and define the preprocessor symbol
+# COIN_HAS_LBRY.
+
+
+      SCIPLIB_LIBS="$BLISSLIB $SCIPLIB_LIBS"
+      SCIPLIB_PCLIBS="$BLISSLIB $SCIPLIB_PCLIBS"
+      SCIPLIB_LIBS_INSTALLED="$BLISSLIB $SCIPLIB_LIBS_INSTALLED"
+
+
+
+cat >>confdefs.h <<\_ACEOF
+#define COIN_HAS_BLISS 1
+_ACEOF
+
+  fi
+
+# Arrange for configure to substitute LBRYINCDIR and LBRYLIB and create the
+# automake conditional. These actions must occur unconditionally.
+
+
+
+
+
+if test $coin_has_bliss = true; then
+  COIN_HAS_BLISS_TRUE=
+  COIN_HAS_BLISS_FALSE='#'
+else
+  COIN_HAS_BLISS_TRUE='#'
+  COIN_HAS_BLISS_FALSE=
+fi
+
+
+ac_ext=c
+ac_cpp='$CPP $CPPFLAGS'
+ac_compile='$CC -c $CFLAGS $CPPFLAGS conftest.$ac_ext >&5'
+ac_link='$CC -o conftest$ac_exeext $CFLAGS $CPPFLAGS $LDFLAGS conftest.$ac_ext $LIBS >&5'
+ac_compiler_gnu=$ac_cv_c_compiler_gnu
+
+
+# check for bliss system installation
+if test $coin_has_bliss = false ; then
+  ac_ext=cc
+ac_cpp='$CXXCPP $CPPFLAGS'
+ac_compile='$CXX -c $CXXFLAGS $CPPFLAGS conftest.$ac_ext >&5'
+ac_link='$CXX -o conftest$ac_exeext $CXXFLAGS $CPPFLAGS $LDFLAGS conftest.$ac_ext $LIBS >&5'
+ac_compiler_gnu=$ac_cv_cxx_compiler_gnu
+
+  echo "$as_me:$LINENO: checking for bliss_new in -lbliss" >&5
 echo $ECHO_N "checking for bliss_new in -lbliss... $ECHO_C" >&6
 if test "${ac_cv_lib_bliss_bliss_new+set}" = set; then
   echo $ECHO_N "(cached) $ECHO_C" >&6
@@ -25038,8 +25244,8 @@ echo "$as_me:$LINENO: result: $ac_cv_lib_bliss_bliss_new" >&5
 echo "${ECHO_T}$ac_cv_lib_bliss_bliss_new" >&6
 if test $ac_cv_lib_bliss_bliss_new = yes; then
   SCIPLIB_LIBS="$SCIPLIB_LIBS -lbliss"
-   SCIPLIB_PCLIBS="$SCIPLIB_PCLIBS -lbliss"
-   have_bliss=yes
+     SCIPLIB_PCLIBS="$SCIPLIB_PCLIBS -lbliss"
+     coin_has_bliss=true
 
 fi
 
@@ -25188,21 +25394,31 @@ else
 fi
 
 
-ac_ext=c
+  ac_ext=c
 ac_cpp='$CPP $CPPFLAGS'
 ac_compile='$CC -c $CFLAGS $CPPFLAGS conftest.$ac_ext >&5'
 ac_link='$CC -o conftest$ac_exeext $CFLAGS $CPPFLAGS $LDFLAGS conftest.$ac_ext $LIBS >&5'
 ac_compiler_gnu=$ac_cv_c_compiler_gnu
 
+fi
 
 
-
-if test $have_bliss = yes; then
+if test $coin_has_bliss = true; then
   COIN_HAS_BLISS_TRUE=
   COIN_HAS_BLISS_FALSE='#'
 else
   COIN_HAS_BLISS_TRUE='#'
   COIN_HAS_BLISS_FALSE=
+fi
+
+
+
+if test -n "$BLISSINCDIR"; then
+  COIN_HAS_BLISSINCDIR_TRUE=
+  COIN_HAS_BLISSINCDIR_FALSE='#'
+else
+  COIN_HAS_BLISSINCDIR_TRUE='#'
+  COIN_HAS_BLISSINCDIR_FALSE=
 fi
 
 
@@ -25541,6 +25757,20 @@ if test -z "${COIN_HAS_BLISS_TRUE}" && test -z "${COIN_HAS_BLISS_FALSE}"; then
   { { echo "$as_me:$LINENO: error: conditional \"COIN_HAS_BLISS\" was never defined.
 Usually this means the macro was only invoked conditionally." >&5
 echo "$as_me: error: conditional \"COIN_HAS_BLISS\" was never defined.
+Usually this means the macro was only invoked conditionally." >&2;}
+   { (exit 1); exit 1; }; }
+fi
+if test -z "${COIN_HAS_BLISS_TRUE}" && test -z "${COIN_HAS_BLISS_FALSE}"; then
+  { { echo "$as_me:$LINENO: error: conditional \"COIN_HAS_BLISS\" was never defined.
+Usually this means the macro was only invoked conditionally." >&5
+echo "$as_me: error: conditional \"COIN_HAS_BLISS\" was never defined.
+Usually this means the macro was only invoked conditionally." >&2;}
+   { (exit 1); exit 1; }; }
+fi
+if test -z "${COIN_HAS_BLISSINCDIR_TRUE}" && test -z "${COIN_HAS_BLISSINCDIR_FALSE}"; then
+  { { echo "$as_me:$LINENO: error: conditional \"COIN_HAS_BLISSINCDIR\" was never defined.
+Usually this means the macro was only invoked conditionally." >&5
+echo "$as_me: error: conditional \"COIN_HAS_BLISSINCDIR\" was never defined.
 Usually this means the macro was only invoked conditionally." >&2;}
    { (exit 1); exit 1; }; }
 fi
@@ -26245,8 +26475,12 @@ s,@COIN_HAS_IPOPT_TRUE@,$COIN_HAS_IPOPT_TRUE,;t t
 s,@COIN_HAS_IPOPT_FALSE@,$COIN_HAS_IPOPT_FALSE,;t t
 s,@COIN_HAS_ZLIB_TRUE@,$COIN_HAS_ZLIB_TRUE,;t t
 s,@COIN_HAS_ZLIB_FALSE@,$COIN_HAS_ZLIB_FALSE,;t t
+s,@BLISSINCDIR@,$BLISSINCDIR,;t t
+s,@BLISSLIB@,$BLISSLIB,;t t
 s,@COIN_HAS_BLISS_TRUE@,$COIN_HAS_BLISS_TRUE,;t t
 s,@COIN_HAS_BLISS_FALSE@,$COIN_HAS_BLISS_FALSE,;t t
+s,@COIN_HAS_BLISSINCDIR_TRUE@,$COIN_HAS_BLISSINCDIR_TRUE,;t t
+s,@COIN_HAS_BLISSINCDIR_FALSE@,$COIN_HAS_BLISSINCDIR_FALSE,;t t
 s,@LIBEXT@,$LIBEXT,;t t
 s,@VPATH_DISTCLEANFILES@,$VPATH_DISTCLEANFILES,;t t
 s,@ABSBUILDDIR@,$ABSBUILDDIR,;t t

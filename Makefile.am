@@ -319,6 +319,9 @@ libcoinscip_la_SOURCES += scip/src/tpi/tpi_none.c
 # graph isomorphism interfaces
 if COIN_HAS_BLISS
 libcoinscip_la_SOURCES += scip/src/symmetry/compute_symmetry_bliss.cpp
+if COIN_HAS_BLISSINCDIR
+AM_CPPFLAGS += -I`$(CYGPATH_W) $(BLISSINCDIR)`
+endif
 else
 libcoinscip_la_SOURCES += scip/src/symmetry/compute_symmetry_none.cpp
 endif

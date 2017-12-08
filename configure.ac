@@ -220,17 +220,24 @@ AC_CHECK_FUNC(strerror_r,,
 AC_CHECK_HEADER([fenv.h],[EXTRAFLAGS="$EXTRAFLAGS -DROUNDING_FE"],
   [AC_CHECK_HEADER([float.h],[EXTRAFLAGS="$EXTRAFLAGS -DROUNDING_MS"])])
 
-have_bliss=no
+# check if user specifies bliss
 AC_LANG_PUSH(C++)
-AC_CHECK_LIB(bliss, bliss_new,
-  [SCIPLIB_LIBS="$SCIPLIB_LIBS -lbliss"
-   SCIPLIB_PCLIBS="$SCIPLIB_PCLIBS -lbliss"
-   have_bliss=yes
-  ])
-AC_CHECK_HEADER([bliss/orbit.hh],[have_bliss=yes],[have_bliss=no])
+AC_COIN_CHECK_USER_LIBRARY([Bliss],[BLISS],[bliss/graph.hh],[bliss_new],,[SCIPLib])
 AC_LANG_POP
 
-AM_CONDITIONAL(COIN_HAS_BLISS, [test $have_bliss = yes])
+# check for bliss system installation
+if test $coin_has_bliss = false ; then
+  AC_LANG_PUSH(C++)
+  AC_CHECK_LIB(bliss, bliss_new,
+    [SCIPLIB_LIBS="$SCIPLIB_LIBS -lbliss"
+     SCIPLIB_PCLIBS="$SCIPLIB_PCLIBS -lbliss"
+     coin_has_bliss=true
+    ])
+  AC_CHECK_HEADER([bliss/orbit.hh],[have_bliss=yes],[have_bliss=no])
+  AC_LANG_POP
+fi
+AM_CONDITIONAL(COIN_HAS_BLISS, [test $coin_has_bliss = true])
+AM_CONDITIONAL(COIN_HAS_BLISSINCDIR, [test -n "$BLISSINCDIR"])
 
 case "$CC" in
   *gcc* )
