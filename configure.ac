@@ -220,6 +220,18 @@ AC_CHECK_FUNC(strerror_r,,
 AC_CHECK_HEADER([fenv.h],[EXTRAFLAGS="$EXTRAFLAGS -DROUNDING_FE"],
   [AC_CHECK_HEADER([float.h],[EXTRAFLAGS="$EXTRAFLAGS -DROUNDING_MS"])])
 
+have_bliss=no
+AC_LANG_PUSH(C++)
+AC_CHECK_LIB(bliss, bliss_new,
+  [SCIPLIB_LIBS="$SCIPLIB_LIBS -lbliss"
+   SCIPLIB_PCLIBS="$SCIPLIB_PCLIBS -lbliss"
+   have_bliss=yes
+  ])
+AC_CHECK_HEADER([bliss/orbit.hh],[have_bliss=yes],[have_bliss=no])
+AC_LANG_POP
+
+AM_CONDITIONAL(COIN_HAS_BLISS, [test $have_bliss = yes])
+
 case "$CC" in
   *gcc* )
     EXTRAFLAGS="$EXTRAFLAGS -Wno-overlength-strings"

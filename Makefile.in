@@ -66,9 +66,13 @@ host_triplet = @host@
 @COIN_HAS_QSO_TRUE@am__append_11 = lpiswitch_qso.c
 @COIN_HAS_QSO_TRUE@am__append_12 = -I`$(CYGPATH_W) $(QSOINCDIR)`
 
+# graph isomorphism interfaces
+@COIN_HAS_BLISS_TRUE@am__append_13 = scip/src/symmetry/compute_symmetry_bliss.cpp
+@COIN_HAS_BLISS_FALSE@am__append_14 = scip/src/symmetry/compute_symmetry_none.cpp
+
 # add IPOPT as nonlinear solver, if available
-@COIN_HAS_IPOPT_TRUE@am__append_13 = scip/src/nlpi/nlpi_ipopt.cpp
-@COIN_HAS_IPOPT_FALSE@am__append_14 = scip/src/nlpi/nlpi_ipopt_dummy.c
+@COIN_HAS_IPOPT_TRUE@am__append_15 = scip/src/nlpi/nlpi_ipopt.cpp
+@COIN_HAS_IPOPT_FALSE@am__append_16 = scip/src/nlpi/nlpi_ipopt_dummy.c
 DIST_COMMON = $(am__configure_deps) $(srcdir)/BuildTools/Makemain.inc \
 	$(srcdir)/Makefile.am $(srcdir)/Makefile.in \
 	$(srcdir)/coinscip-uninstalled.pc.in $(srcdir)/coinscip.pc.in \
@@ -79,8 +83,8 @@ DIST_COMMON = $(am__configure_deps) $(srcdir)/BuildTools/Makemain.inc \
 	$(thirdpartysymmetryinclude_HEADERS) $(top_srcdir)/configure \
 	compile config.guess config.sub depcomp install-sh ltmain.sh \
 	missing
-@HAVE_EXTERNALS_TRUE@am__append_15 = Dependencies
-@HAVE_EXTERNALS_TRUE@am__append_16 = .Dependencies-stamp
+@HAVE_EXTERNALS_TRUE@am__append_17 = Dependencies
+@HAVE_EXTERNALS_TRUE@am__append_18 = .Dependencies-stamp
 subdir = .
 ACLOCAL_M4 = $(top_srcdir)/aclocal.m4
 am__aclocal_m4_deps = $(top_srcdir)/acinclude.m4 \
@@ -255,13 +259,16 @@ am__libcoinscip_la_SOURCES_DIST = scip/src/scip/bandit.c \
 	scip/src/nlpi/nlpi.c scip/src/nlpi/nlpioracle.c \
 	scip/src/nlpi/nlpi_all.c scip/src/nlpi/exprinterpret_cppad.cpp \
 	scip/src/dijkstra/dijkstra.c scip/src/xml/xmlparse.c \
+	scip/src/tpi/tpi_none.c \
+	scip/src/symmetry/compute_symmetry_bliss.cpp \
 	scip/src/symmetry/compute_symmetry_none.cpp \
-	scip/src/tpi/tpi_none.c scip/src/nlpi/nlpi_ipopt.cpp \
-	scip/src/nlpi/nlpi_ipopt_dummy.c \
+	scip/src/nlpi/nlpi_ipopt.cpp scip/src/nlpi/nlpi_ipopt_dummy.c \
 	scip/src/nlpi/nlpi_filtersqp_dummy.c \
 	scip/src/nlpi/nlpi_worhp_dummy.c
-@COIN_HAS_IPOPT_TRUE@am__objects_1 = nlpi_ipopt.lo
-@COIN_HAS_IPOPT_FALSE@am__objects_2 = nlpi_ipopt_dummy.lo
+@COIN_HAS_BLISS_TRUE@am__objects_1 = compute_symmetry_bliss.lo
+@COIN_HAS_BLISS_FALSE@am__objects_2 = compute_symmetry_none.lo
+@COIN_HAS_IPOPT_TRUE@am__objects_3 = nlpi_ipopt.lo
+@COIN_HAS_IPOPT_FALSE@am__objects_4 = nlpi_ipopt_dummy.lo
 am_libcoinscip_la_OBJECTS = bandit.lo bandit_epsgreedy.lo \
 	bandit_exp3.lo bandit_ucb.lo bitencode.lo boundstore.lo \
 	branch_allfullstrong.lo branch.lo branch_cloud.lo \
@@ -336,8 +343,8 @@ am_libcoinscip_la_OBJECTS = bandit.lo bandit_epsgreedy.lo \
 	tree.lo var.lo visual.lo tclique_branch.lo tclique_coloring.lo \
 	tclique_graph.lo memory.lo expr.lo nlpi.lo nlpioracle.lo \
 	nlpi_all.lo exprinterpret_cppad.lo dijkstra.lo xmlparse.lo \
-	compute_symmetry_none.lo tpi_none.lo $(am__objects_1) \
-	$(am__objects_2) nlpi_filtersqp_dummy.lo nlpi_worhp_dummy.lo
+	tpi_none.lo $(am__objects_1) $(am__objects_2) $(am__objects_3) \
+	$(am__objects_4) nlpi_filtersqp_dummy.lo nlpi_worhp_dummy.lo
 libcoinscip_la_OBJECTS = $(am_libcoinscip_la_OBJECTS)
 am__DEPENDENCIES_1 =
 @DEPENDENCY_LINKING_TRUE@libcoinsciplpis_la_DEPENDENCIES =  \
@@ -348,18 +355,18 @@ am__libcoinsciplpis_la_SOURCES_DIST = lpiswitch.c lpiswitch_init.cpp \
 	lpiswitch_spx.cpp lpiswitch_spx2.cpp lpiswitch_clp.cpp \
 	lpiswitch_cpx.c lpiswitch_msk.c lpiswitch_xprs.c \
 	lpiswitch_grb.c lpiswitch_qso.c
-@COIN_HAS_SOPLEX_TRUE@am__objects_3 = bitencode.lo lpiswitch_spx.lo \
+@COIN_HAS_SOPLEX_TRUE@am__objects_5 = bitencode.lo lpiswitch_spx.lo \
 @COIN_HAS_SOPLEX_TRUE@	lpiswitch_spx2.lo
-@COIN_HAS_CLP_TRUE@am__objects_4 = lpiswitch_clp.lo
-@COIN_HAS_CPX_TRUE@am__objects_5 = lpiswitch_cpx.lo
-@COIN_HAS_MSK_TRUE@am__objects_6 = lpiswitch_msk.lo
-@COIN_HAS_XPR_TRUE@am__objects_7 = lpiswitch_xprs.lo
-@COIN_HAS_GRB_TRUE@am__objects_8 = lpiswitch_grb.lo
-@COIN_HAS_QSO_TRUE@am__objects_9 = lpiswitch_qso.lo
+@COIN_HAS_CLP_TRUE@am__objects_6 = lpiswitch_clp.lo
+@COIN_HAS_CPX_TRUE@am__objects_7 = lpiswitch_cpx.lo
+@COIN_HAS_MSK_TRUE@am__objects_8 = lpiswitch_msk.lo
+@COIN_HAS_XPR_TRUE@am__objects_9 = lpiswitch_xprs.lo
+@COIN_HAS_GRB_TRUE@am__objects_10 = lpiswitch_grb.lo
+@COIN_HAS_QSO_TRUE@am__objects_11 = lpiswitch_qso.lo
 am_libcoinsciplpis_la_OBJECTS = lpiswitch.lo lpiswitch_init.lo \
-	lpiswitch_none.lo memory.lo message.lo $(am__objects_3) \
-	$(am__objects_4) $(am__objects_5) $(am__objects_6) \
-	$(am__objects_7) $(am__objects_8) $(am__objects_9)
+	lpiswitch_none.lo memory.lo message.lo $(am__objects_5) \
+	$(am__objects_6) $(am__objects_7) $(am__objects_8) \
+	$(am__objects_9) $(am__objects_10) $(am__objects_11)
 libcoinsciplpis_la_OBJECTS = $(am_libcoinsciplpis_la_OBJECTS)
 depcomp = $(SHELL) $(top_srcdir)/depcomp
 am__depfiles_maybe = depfiles
@@ -439,6 +446,8 @@ COIN_CC_IS_CL_FALSE = @COIN_CC_IS_CL_FALSE@
 COIN_CC_IS_CL_TRUE = @COIN_CC_IS_CL_TRUE@
 COIN_CXX_IS_CL_FALSE = @COIN_CXX_IS_CL_FALSE@
 COIN_CXX_IS_CL_TRUE = @COIN_CXX_IS_CL_TRUE@
+COIN_HAS_BLISS_FALSE = @COIN_HAS_BLISS_FALSE@
+COIN_HAS_BLISS_TRUE = @COIN_HAS_BLISS_TRUE@
 COIN_HAS_CLP_FALSE = @COIN_HAS_CLP_FALSE@
 COIN_HAS_CLP_TRUE = @COIN_HAS_CLP_TRUE@
 COIN_HAS_CPX_FALSE = @COIN_HAS_CPX_FALSE@
@@ -610,7 +619,7 @@ sol_cc_compiler = @sol_cc_compiler@
 sysconfdir = @sysconfdir@
 target_alias = @target_alias@
 AUTOMAKE_OPTIONS = foreign
-EXTRA_DIST = $(am__append_15)
+EXTRA_DIST = $(am__append_17)
 lib_LTLIBRARIES = libcoinscip.la libcoinsciplpis.la
 AM_CPPFLAGS = -I`$(CYGPATH_W) $(srcdir)/scip/src` $(SCIPLIB_CFLAGS) \
 	$(am__append_4) $(am__append_6) $(am__append_8) \
@@ -770,8 +779,8 @@ libcoinscip_la_SOURCES = scip/src/scip/bandit.c \
 	scip/src/nlpi/nlpi.c scip/src/nlpi/nlpioracle.c \
 	scip/src/nlpi/nlpi_all.c scip/src/nlpi/exprinterpret_cppad.cpp \
 	scip/src/dijkstra/dijkstra.c scip/src/xml/xmlparse.c \
-	scip/src/symmetry/compute_symmetry_none.cpp \
 	scip/src/tpi/tpi_none.c $(am__append_13) $(am__append_14) \
+	$(am__append_15) $(am__append_16) \
 	scip/src/nlpi/nlpi_filtersqp_dummy.c \
 	scip/src/nlpi/nlpi_worhp_dummy.c
 
@@ -1156,7 +1165,7 @@ pkgconfiglib_DATA = coinscip.pc
 ########################################################################
 
 # Files that are generated and should be cleaned with make distclean
-DISTCLEANFILES = $(am__append_16) $(VPATH_DISTCLEANFILES)
+DISTCLEANFILES = $(am__append_18) $(VPATH_DISTCLEANFILES)
 DocFiles = README AUTHORS LICENSE 
 DocInstallDir = $(datadir)/coin/doc/$(PACKAGE_NAME)
 COIN_HAS_DOXYGEN = @COIN_HAS_DOXYGEN_TRUE@TRUE
@@ -1281,6 +1290,7 @@ distclean-compile:
 @AMDEP_TRUE@@am__include@ @am__quote@./$(DEPDIR)/compr.Plo@am__quote@
 @AMDEP_TRUE@@am__include@ @am__quote@./$(DEPDIR)/compr_largestrepr.Plo@am__quote@
 @AMDEP_TRUE@@am__include@ @am__quote@./$(DEPDIR)/compr_weakcompr.Plo@am__quote@
+@AMDEP_TRUE@@am__include@ @am__quote@./$(DEPDIR)/compute_symmetry_bliss.Plo@am__quote@
 @AMDEP_TRUE@@am__include@ @am__quote@./$(DEPDIR)/compute_symmetry_none.Plo@am__quote@
 @AMDEP_TRUE@@am__include@ @am__quote@./$(DEPDIR)/concsolver.Plo@am__quote@
 @AMDEP_TRUE@@am__include@ @am__quote@./$(DEPDIR)/concsolver_scip.Plo@am__quote@
@@ -3369,6 +3379,13 @@ exprinterpret_cppad.lo: scip/src/nlpi/exprinterpret_cppad.cpp
 @AMDEP_TRUE@@am__fastdepCXX_FALSE@	source='scip/src/nlpi/exprinterpret_cppad.cpp' object='exprinterpret_cppad.lo' libtool=yes @AMDEPBACKSLASH@
 @AMDEP_TRUE@@am__fastdepCXX_FALSE@	DEPDIR=$(DEPDIR) $(CXXDEPMODE) $(depcomp) @AMDEPBACKSLASH@
 @am__fastdepCXX_FALSE@	$(LIBTOOL) --tag=CXX --mode=compile $(CXX) $(DEFS) $(DEFAULT_INCLUDES) $(INCLUDES) $(AM_CPPFLAGS) $(CPPFLAGS) $(AM_CXXFLAGS) $(CXXFLAGS) -c -o exprinterpret_cppad.lo `test -f 'scip/src/nlpi/exprinterpret_cppad.cpp' || echo '$(srcdir)/'`scip/src/nlpi/exprinterpret_cppad.cpp
+
+compute_symmetry_bliss.lo: scip/src/symmetry/compute_symmetry_bliss.cpp
+@am__fastdepCXX_TRUE@	if $(LIBTOOL) --tag=CXX --mode=compile $(CXX) $(DEFS) $(DEFAULT_INCLUDES) $(INCLUDES) $(AM_CPPFLAGS) $(CPPFLAGS) $(AM_CXXFLAGS) $(CXXFLAGS) -MT compute_symmetry_bliss.lo -MD -MP -MF "$(DEPDIR)/compute_symmetry_bliss.Tpo" -c -o compute_symmetry_bliss.lo `test -f 'scip/src/symmetry/compute_symmetry_bliss.cpp' || echo '$(srcdir)/'`scip/src/symmetry/compute_symmetry_bliss.cpp; \
+@am__fastdepCXX_TRUE@	then mv -f "$(DEPDIR)/compute_symmetry_bliss.Tpo" "$(DEPDIR)/compute_symmetry_bliss.Plo"; else rm -f "$(DEPDIR)/compute_symmetry_bliss.Tpo"; exit 1; fi
+@AMDEP_TRUE@@am__fastdepCXX_FALSE@	source='scip/src/symmetry/compute_symmetry_bliss.cpp' object='compute_symmetry_bliss.lo' libtool=yes @AMDEPBACKSLASH@
+@AMDEP_TRUE@@am__fastdepCXX_FALSE@	DEPDIR=$(DEPDIR) $(CXXDEPMODE) $(depcomp) @AMDEPBACKSLASH@
+@am__fastdepCXX_FALSE@	$(LIBTOOL) --tag=CXX --mode=compile $(CXX) $(DEFS) $(DEFAULT_INCLUDES) $(INCLUDES) $(AM_CPPFLAGS) $(CPPFLAGS) $(AM_CXXFLAGS) $(CXXFLAGS) -c -o compute_symmetry_bliss.lo `test -f 'scip/src/symmetry/compute_symmetry_bliss.cpp' || echo '$(srcdir)/'`scip/src/symmetry/compute_symmetry_bliss.cpp
 
 compute_symmetry_none.lo: scip/src/symmetry/compute_symmetry_none.cpp
 @am__fastdepCXX_TRUE@	if $(LIBTOOL) --tag=CXX --mode=compile $(CXX) $(DEFS) $(DEFAULT_INCLUDES) $(INCLUDES) $(AM_CPPFLAGS) $(CPPFLAGS) $(AM_CXXFLAGS) $(CXXFLAGS) -MT compute_symmetry_none.lo -MD -MP -MF "$(DEPDIR)/compute_symmetry_none.Tpo" -c -o compute_symmetry_none.lo `test -f 'scip/src/symmetry/compute_symmetry_none.cpp' || echo '$(srcdir)/'`scip/src/symmetry/compute_symmetry_none.cpp; \

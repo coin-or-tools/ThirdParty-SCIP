@@ -276,8 +276,7 @@ libcoinscip_la_SOURCES = \
   scip/src/nlpi/nlpi_all.c \
   scip/src/nlpi/exprinterpret_cppad.cpp \
   scip/src/dijkstra/dijkstra.c \
-  scip/src/xml/xmlparse.c \
-  scip/src/symmetry/compute_symmetry_none.cpp
+  scip/src/xml/xmlparse.c
 
 # LP solver interfaces
 libcoinsciplpis_la_SOURCES = lpiswitch.c lpiswitch_init.cpp lpiswitch_none.c \
@@ -316,6 +315,13 @@ endif
 
 # thread-parallelism interfaces (TODO add at least OpenMP option)
 libcoinscip_la_SOURCES += scip/src/tpi/tpi_none.c
+
+# graph isomorphism interfaces
+if COIN_HAS_BLISS
+libcoinscip_la_SOURCES += scip/src/symmetry/compute_symmetry_bliss.cpp
+else
+libcoinscip_la_SOURCES += scip/src/symmetry/compute_symmetry_none.cpp
+endif
 
 # add IPOPT as nonlinear solver, if available
 if COIN_HAS_IPOPT
