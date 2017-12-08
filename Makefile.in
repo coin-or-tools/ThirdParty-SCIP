@@ -75,7 +75,8 @@ DIST_COMMON = $(am__configure_deps) $(srcdir)/BuildTools/Makemain.inc \
 	$(srcdir)/config_scip.h.in $(thirdpartybmsinclude_HEADERS) \
 	$(thirdpartyinclude_HEADERS) $(thirdpartylpiinclude_HEADERS) \
 	$(thirdpartynlpiinclude_HEADERS) \
-	$(thirdpartyscipinclude_HEADERS) $(top_srcdir)/configure \
+	$(thirdpartyscipinclude_HEADERS) \
+	$(thirdpartysymmetryinclude_HEADERS) $(top_srcdir)/configure \
 	compile config.guess config.sub depcomp install-sh ltmain.sh \
 	missing
 @HAVE_EXTERNALS_TRUE@am__append_15 = Dependencies
@@ -102,7 +103,8 @@ am__installdirs = "$(DESTDIR)$(libdir)" "$(DESTDIR)$(pkgconfiglibdir)" \
 	"$(DESTDIR)$(thirdpartyincludedir)" \
 	"$(DESTDIR)$(thirdpartylpiincludedir)" \
 	"$(DESTDIR)$(thirdpartynlpiincludedir)" \
-	"$(DESTDIR)$(thirdpartyscipincludedir)"
+	"$(DESTDIR)$(thirdpartyscipincludedir)" \
+	"$(DESTDIR)$(thirdpartysymmetryincludedir)"
 libLTLIBRARIES_INSTALL = $(INSTALL)
 LTLIBRARIES = $(lib_LTLIBRARIES)
 @DEPENDENCY_LINKING_TRUE@libcoinscip_la_DEPENDENCIES =  \
@@ -387,10 +389,12 @@ thirdpartyincludeHEADERS_INSTALL = $(INSTALL_HEADER)
 thirdpartylpiincludeHEADERS_INSTALL = $(INSTALL_HEADER)
 thirdpartynlpiincludeHEADERS_INSTALL = $(INSTALL_HEADER)
 thirdpartyscipincludeHEADERS_INSTALL = $(INSTALL_HEADER)
+thirdpartysymmetryincludeHEADERS_INSTALL = $(INSTALL_HEADER)
 HEADERS = $(thirdpartybmsinclude_HEADERS) $(thirdpartyinclude_HEADERS) \
 	$(thirdpartylpiinclude_HEADERS) \
 	$(thirdpartynlpiinclude_HEADERS) \
-	$(thirdpartyscipinclude_HEADERS)
+	$(thirdpartyscipinclude_HEADERS) \
+	$(thirdpartysymmetryinclude_HEADERS)
 ETAGS = etags
 CTAGS = ctags
 DISTFILES = $(DIST_COMMON) $(DIST_SOURCES) $(TEXINFOS) $(EXTRA_DIST)
@@ -823,6 +827,7 @@ thirdpartyscipinclude_HEADERS = \
   scip/src/scip/cons_logicor.h \
   scip/src/scip/cons_nonlinear.h \
   scip/src/scip/cons_or.h \
+  scip/src/scip/cons_orbisack.h \
   scip/src/scip/cons_orbitope.h \
   scip/src/scip/cons_pseudoboolean.h \
   scip/src/scip/cons_quadratic.h \
@@ -831,9 +836,11 @@ thirdpartyscipinclude_HEADERS = \
   scip/src/scip/cons_sos1.h \
   scip/src/scip/cons_sos2.h \
   scip/src/scip/cons_superindicator.h \
+  scip/src/scip/cons_symresack.h \
   scip/src/scip/cons_varbound.h \
   scip/src/scip/cons_xor.h \
   scip/src/scip/cuts.h \
+  scip/src/scip/dbldblarith.h \
   scip/src/scip/debug.h \
   scip/src/scip/def.h \
   scip/src/scip/dialog_default.h \
@@ -864,6 +871,7 @@ thirdpartyscipinclude_HEADERS = \
   scip/src/scip/heur_localbranching.h \
   scip/src/scip/heur_locks.h \
   scip/src/scip/heur_lpface.h \
+  scip/src/scip/heur_mpec.h \
   scip/src/scip/heur_multistart.h \
   scip/src/scip/heur_mutation.h \
   scip/src/scip/heur_nlpdiving.h \
@@ -923,6 +931,8 @@ thirdpartyscipinclude_HEADERS = \
   scip/src/scip/presol_redvub.h \
   scip/src/scip/presol_sparsify.h \
   scip/src/scip/presol_stuffing.h \
+  scip/src/scip/presol_symbreak.h \
+  scip/src/scip/presol_symmetry.h \
   scip/src/scip/presol_trivial.h \
   scip/src/scip/presol_tworowbnd.h \
   scip/src/scip/prop_dualfix.h \
@@ -1066,6 +1076,7 @@ thirdpartyscipinclude_HEADERS = \
   scip/src/scip/type_conflictstore.h \
   scip/src/scip/type_cons.h \
   scip/src/scip/type_cutpool.h \
+  scip/src/scip/type_cuts.h \
   scip/src/scip/type_dialog.h \
   scip/src/scip/type_disp.h \
   scip/src/scip/type_event.h \
@@ -1133,6 +1144,10 @@ thirdpartylpiinclude_HEADERS = \
 #thirdpartytpiinclude_HEADERS = \
 #  scip/src/tpi/tpi.h \
 #  scip/src/tpi/type_tpi.h
+thirdpartysymmetryincludedir = $(includedir)/coin/ThirdParty/symmetry
+thirdpartysymmetryinclude_HEADERS = \
+  scip/src/symmetry/type_symmetry.h
+
 pkgconfiglibdir = $(libdir)/pkgconfig
 pkgconfiglib_DATA = coinscip.pc
 
@@ -3480,6 +3495,23 @@ uninstall-thirdpartyscipincludeHEADERS:
 	  echo " rm -f '$(DESTDIR)$(thirdpartyscipincludedir)/$$f'"; \
 	  rm -f "$(DESTDIR)$(thirdpartyscipincludedir)/$$f"; \
 	done
+install-thirdpartysymmetryincludeHEADERS: $(thirdpartysymmetryinclude_HEADERS)
+	@$(NORMAL_INSTALL)
+	test -z "$(thirdpartysymmetryincludedir)" || $(mkdir_p) "$(DESTDIR)$(thirdpartysymmetryincludedir)"
+	@list='$(thirdpartysymmetryinclude_HEADERS)'; for p in $$list; do \
+	  if test -f "$$p"; then d=; else d="$(srcdir)/"; fi; \
+	  f=$(am__strip_dir) \
+	  echo " $(thirdpartysymmetryincludeHEADERS_INSTALL) '$$d$$p' '$(DESTDIR)$(thirdpartysymmetryincludedir)/$$f'"; \
+	  $(thirdpartysymmetryincludeHEADERS_INSTALL) "$$d$$p" "$(DESTDIR)$(thirdpartysymmetryincludedir)/$$f"; \
+	done
+
+uninstall-thirdpartysymmetryincludeHEADERS:
+	@$(NORMAL_UNINSTALL)
+	@list='$(thirdpartysymmetryinclude_HEADERS)'; for p in $$list; do \
+	  f=$(am__strip_dir) \
+	  echo " rm -f '$(DESTDIR)$(thirdpartysymmetryincludedir)/$$f'"; \
+	  rm -f "$(DESTDIR)$(thirdpartysymmetryincludedir)/$$f"; \
+	done
 
 ID: $(HEADERS) $(SOURCES) $(LISP) $(TAGS_FILES)
 	list='$(SOURCES) $(HEADERS) $(LISP) $(TAGS_FILES)'; \
@@ -3532,7 +3564,7 @@ distclean-tags:
 distdir: $(DISTFILES)
 	$(am__remove_distdir)
 	mkdir $(distdir)
-	$(mkdir_p) $(distdir)/. $(distdir)/BuildTools $(distdir)/scip/src/blockmemshell $(distdir)/scip/src/lpi $(distdir)/scip/src/nlpi $(distdir)/scip/src/scip
+	$(mkdir_p) $(distdir)/. $(distdir)/BuildTools $(distdir)/scip/src/blockmemshell $(distdir)/scip/src/lpi $(distdir)/scip/src/nlpi $(distdir)/scip/src/scip $(distdir)/scip/src/symmetry
 	@srcdirstrip=`echo "$(srcdir)" | sed 's|.|.|g'`; \
 	topsrcdirstrip=`echo "$(top_srcdir)" | sed 's|.|.|g'`; \
 	list='$(DISTFILES)'; for file in $$list; do \
@@ -3660,7 +3692,7 @@ check-am: all-am
 check: check-am
 all-am: Makefile $(LTLIBRARIES) $(DATA) $(HEADERS) config_scip.h
 installdirs:
-	for dir in "$(DESTDIR)$(libdir)" "$(DESTDIR)$(pkgconfiglibdir)" "$(DESTDIR)$(thirdpartybmsincludedir)" "$(DESTDIR)$(thirdpartyincludedir)" "$(DESTDIR)$(thirdpartylpiincludedir)" "$(DESTDIR)$(thirdpartynlpiincludedir)" "$(DESTDIR)$(thirdpartyscipincludedir)"; do \
+	for dir in "$(DESTDIR)$(libdir)" "$(DESTDIR)$(pkgconfiglibdir)" "$(DESTDIR)$(thirdpartybmsincludedir)" "$(DESTDIR)$(thirdpartyincludedir)" "$(DESTDIR)$(thirdpartylpiincludedir)" "$(DESTDIR)$(thirdpartynlpiincludedir)" "$(DESTDIR)$(thirdpartyscipincludedir)" "$(DESTDIR)$(thirdpartysymmetryincludedir)"; do \
 	  test -z "$$dir" || $(mkdir_p) "$$dir"; \
 	done
 install: install-am
@@ -3715,7 +3747,8 @@ install-data-am: install-pkgconfiglibDATA \
 	install-thirdpartyincludeHEADERS \
 	install-thirdpartylpiincludeHEADERS \
 	install-thirdpartynlpiincludeHEADERS \
-	install-thirdpartyscipincludeHEADERS
+	install-thirdpartyscipincludeHEADERS \
+	install-thirdpartysymmetryincludeHEADERS
 
 install-exec-am: install-libLTLIBRARIES
 
@@ -3751,7 +3784,8 @@ uninstall-am: uninstall-info-am uninstall-libLTLIBRARIES \
 	uninstall-thirdpartyincludeHEADERS \
 	uninstall-thirdpartylpiincludeHEADERS \
 	uninstall-thirdpartynlpiincludeHEADERS \
-	uninstall-thirdpartyscipincludeHEADERS
+	uninstall-thirdpartyscipincludeHEADERS \
+	uninstall-thirdpartysymmetryincludeHEADERS
 
 .PHONY: CTAGS GTAGS all all-am am--refresh check check-am clean \
 	clean-generic clean-libLTLIBRARIES clean-libtool ctags dist \
@@ -3766,7 +3800,8 @@ uninstall-am: uninstall-info-am uninstall-libLTLIBRARIES \
 	install-thirdpartyincludeHEADERS \
 	install-thirdpartylpiincludeHEADERS \
 	install-thirdpartynlpiincludeHEADERS \
-	install-thirdpartyscipincludeHEADERS installcheck \
+	install-thirdpartyscipincludeHEADERS \
+	install-thirdpartysymmetryincludeHEADERS installcheck \
 	installcheck-am installdirs maintainer-clean \
 	maintainer-clean-generic mostlyclean mostlyclean-compile \
 	mostlyclean-generic mostlyclean-libtool pdf pdf-am ps ps-am \
@@ -3776,7 +3811,8 @@ uninstall-am: uninstall-info-am uninstall-libLTLIBRARIES \
 	uninstall-thirdpartyincludeHEADERS \
 	uninstall-thirdpartylpiincludeHEADERS \
 	uninstall-thirdpartynlpiincludeHEADERS \
-	uninstall-thirdpartyscipincludeHEADERS
+	uninstall-thirdpartyscipincludeHEADERS \
+	uninstall-thirdpartysymmetryincludeHEADERS
 
 @COIN_HAS_SOPLEX_TRUE@  # for static builds, we need bitencode also in the lpis library,
 @COIN_HAS_SOPLEX_TRUE@  # because it is listed after the scip lib on the linker line but

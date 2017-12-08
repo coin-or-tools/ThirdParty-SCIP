@@ -373,6 +373,7 @@ thirdpartyscipinclude_HEADERS = \
   scip/src/scip/cons_logicor.h \
   scip/src/scip/cons_nonlinear.h \
   scip/src/scip/cons_or.h \
+  scip/src/scip/cons_orbisack.h \
   scip/src/scip/cons_orbitope.h \
   scip/src/scip/cons_pseudoboolean.h \
   scip/src/scip/cons_quadratic.h \
@@ -381,9 +382,11 @@ thirdpartyscipinclude_HEADERS = \
   scip/src/scip/cons_sos1.h \
   scip/src/scip/cons_sos2.h \
   scip/src/scip/cons_superindicator.h \
+  scip/src/scip/cons_symresack.h \
   scip/src/scip/cons_varbound.h \
   scip/src/scip/cons_xor.h \
   scip/src/scip/cuts.h \
+  scip/src/scip/dbldblarith.h \
   scip/src/scip/debug.h \
   scip/src/scip/def.h \
   scip/src/scip/dialog_default.h \
@@ -414,6 +417,7 @@ thirdpartyscipinclude_HEADERS = \
   scip/src/scip/heur_localbranching.h \
   scip/src/scip/heur_locks.h \
   scip/src/scip/heur_lpface.h \
+  scip/src/scip/heur_mpec.h \
   scip/src/scip/heur_multistart.h \
   scip/src/scip/heur_mutation.h \
   scip/src/scip/heur_nlpdiving.h \
@@ -473,6 +477,8 @@ thirdpartyscipinclude_HEADERS = \
   scip/src/scip/presol_redvub.h \
   scip/src/scip/presol_sparsify.h \
   scip/src/scip/presol_stuffing.h \
+  scip/src/scip/presol_symbreak.h \
+  scip/src/scip/presol_symmetry.h \
   scip/src/scip/presol_trivial.h \
   scip/src/scip/presol_tworowbnd.h \
   scip/src/scip/prop_dualfix.h \
@@ -616,6 +622,7 @@ thirdpartyscipinclude_HEADERS = \
   scip/src/scip/type_conflictstore.h \
   scip/src/scip/type_cons.h \
   scip/src/scip/type_cutpool.h \
+  scip/src/scip/type_cuts.h \
   scip/src/scip/type_dialog.h \
   scip/src/scip/type_disp.h \
   scip/src/scip/type_event.h \
@@ -683,6 +690,10 @@ thirdpartylpiinclude_HEADERS = \
 #thirdpartytpiinclude_HEADERS = \
 #  scip/src/tpi/tpi.h \
 #  scip/src/tpi/type_tpi.h
+
+thirdpartysymmetryincludedir = $(includedir)/coin/ThirdParty/symmetry
+thirdpartysymmetryinclude_HEADERS = \
+  scip/src/symmetry/type_symmetry.h
 
 pkgconfiglibdir = $(libdir)/pkgconfig
 pkgconfiglib_DATA = coinscip.pc
