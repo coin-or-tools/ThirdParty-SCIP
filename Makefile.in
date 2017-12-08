@@ -243,19 +243,21 @@ am__libcoinscip_la_SOURCES_DIST = scip/src/scip/bandit.c \
 	scip/src/scip/sepa_rapidlearning.c scip/src/scip/sepastore.c \
 	scip/src/scip/sepa_strongcg.c scip/src/scip/sepa_zerohalf.c \
 	scip/src/scip/set.c scip/src/scip/sol.c scip/src/scip/solve.c \
-	scip/src/scip/sorttpl.c scip/src/scip/stat.c \
-	scip/src/scip/syncstore.c scip/src/scip/table.c \
-	scip/src/scip/table_default.c scip/src/scip/tree.c \
-	scip/src/scip/var.c scip/src/scip/visual.c \
-	scip/src/tclique/tclique_branch.c \
+	scip/src/scip/stat.c scip/src/scip/syncstore.c \
+	scip/src/scip/table.c scip/src/scip/table_default.c \
+	scip/src/scip/tree.c scip/src/scip/var.c \
+	scip/src/scip/visual.c scip/src/tclique/tclique_branch.c \
 	scip/src/tclique/tclique_coloring.c \
 	scip/src/tclique/tclique_graph.c \
 	scip/src/blockmemshell/memory.c scip/src/nlpi/expr.c \
 	scip/src/nlpi/nlpi.c scip/src/nlpi/nlpioracle.c \
-	scip/src/nlpi/exprinterpret_cppad.cpp \
+	scip/src/nlpi/nlpi_all.c scip/src/nlpi/exprinterpret_cppad.cpp \
 	scip/src/dijkstra/dijkstra.c scip/src/xml/xmlparse.c \
+	scip/src/symmetry/compute_symmetry_none.cpp \
 	scip/src/tpi/tpi_none.c scip/src/nlpi/nlpi_ipopt.cpp \
-	scip/src/nlpi/nlpi_ipopt_dummy.c
+	scip/src/nlpi/nlpi_ipopt_dummy.c \
+	scip/src/nlpi/nlpi_filtersqp_dummy.c \
+	scip/src/nlpi/nlpi_worhp_dummy.c
 @COIN_HAS_IPOPT_TRUE@am__objects_1 = nlpi_ipopt.lo
 @COIN_HAS_IPOPT_FALSE@am__objects_2 = nlpi_ipopt_dummy.lo
 am_libcoinscip_la_OBJECTS = bandit.lo bandit_epsgreedy.lo \
@@ -328,11 +330,12 @@ am_libcoinscip_la_OBJECTS = bandit.lo bandit_epsgreedy.lo \
 	sepa_gomory.lo sepa_impliedbounds.lo sepa_intobj.lo \
 	sepa_mcf.lo sepa_oddcycle.lo sepa_rapidlearning.lo \
 	sepastore.lo sepa_strongcg.lo sepa_zerohalf.lo set.lo sol.lo \
-	solve.lo sorttpl.lo stat.lo syncstore.lo table.lo \
-	table_default.lo tree.lo var.lo visual.lo tclique_branch.lo \
-	tclique_coloring.lo tclique_graph.lo memory.lo expr.lo nlpi.lo \
-	nlpioracle.lo exprinterpret_cppad.lo dijkstra.lo xmlparse.lo \
-	tpi_none.lo $(am__objects_1) $(am__objects_2)
+	solve.lo stat.lo syncstore.lo table.lo table_default.lo \
+	tree.lo var.lo visual.lo tclique_branch.lo tclique_coloring.lo \
+	tclique_graph.lo memory.lo expr.lo nlpi.lo nlpioracle.lo \
+	nlpi_all.lo exprinterpret_cppad.lo dijkstra.lo xmlparse.lo \
+	compute_symmetry_none.lo tpi_none.lo $(am__objects_1) \
+	$(am__objects_2) nlpi_filtersqp_dummy.lo nlpi_worhp_dummy.lo
 libcoinscip_la_OBJECTS = $(am_libcoinscip_la_OBJECTS)
 am__DEPENDENCIES_1 =
 @DEPENDENCY_LINKING_TRUE@libcoinsciplpis_la_DEPENDENCIES =  \
@@ -753,18 +756,20 @@ libcoinscip_la_SOURCES = scip/src/scip/bandit.c \
 	scip/src/scip/sepa_rapidlearning.c scip/src/scip/sepastore.c \
 	scip/src/scip/sepa_strongcg.c scip/src/scip/sepa_zerohalf.c \
 	scip/src/scip/set.c scip/src/scip/sol.c scip/src/scip/solve.c \
-	scip/src/scip/sorttpl.c scip/src/scip/stat.c \
-	scip/src/scip/syncstore.c scip/src/scip/table.c \
-	scip/src/scip/table_default.c scip/src/scip/tree.c \
-	scip/src/scip/var.c scip/src/scip/visual.c \
-	scip/src/tclique/tclique_branch.c \
+	scip/src/scip/stat.c scip/src/scip/syncstore.c \
+	scip/src/scip/table.c scip/src/scip/table_default.c \
+	scip/src/scip/tree.c scip/src/scip/var.c \
+	scip/src/scip/visual.c scip/src/tclique/tclique_branch.c \
 	scip/src/tclique/tclique_coloring.c \
 	scip/src/tclique/tclique_graph.c \
 	scip/src/blockmemshell/memory.c scip/src/nlpi/expr.c \
 	scip/src/nlpi/nlpi.c scip/src/nlpi/nlpioracle.c \
-	scip/src/nlpi/exprinterpret_cppad.cpp \
+	scip/src/nlpi/nlpi_all.c scip/src/nlpi/exprinterpret_cppad.cpp \
 	scip/src/dijkstra/dijkstra.c scip/src/xml/xmlparse.c \
-	scip/src/tpi/tpi_none.c $(am__append_13) $(am__append_14)
+	scip/src/symmetry/compute_symmetry_none.cpp \
+	scip/src/tpi/tpi_none.c $(am__append_13) $(am__append_14) \
+	scip/src/nlpi/nlpi_filtersqp_dummy.c \
+	scip/src/nlpi/nlpi_worhp_dummy.c
 
 # LP solver interfaces
 libcoinsciplpis_la_SOURCES = lpiswitch.c lpiswitch_init.cpp \
@@ -1108,6 +1113,9 @@ thirdpartynlpiincludedir = $(includedir)/coin/ThirdParty/nlpi
 thirdpartynlpiinclude_HEADERS = \
   scip/src/nlpi/exprinterpret.h \
   scip/src/nlpi/nlpi_ipopt.h \
+  scip/src/nlpi/nlpi_worhp.h \
+  scip/src/nlpi/nlpi_filtersqp.h \
+  scip/src/nlpi/nlpi_all.h \
   scip/src/nlpi/pub_expr.h \
   scip/src/nlpi/struct_expr.h \
   scip/src/nlpi/struct_nlpi.h \
@@ -1258,6 +1266,7 @@ distclean-compile:
 @AMDEP_TRUE@@am__include@ @am__quote@./$(DEPDIR)/compr.Plo@am__quote@
 @AMDEP_TRUE@@am__include@ @am__quote@./$(DEPDIR)/compr_largestrepr.Plo@am__quote@
 @AMDEP_TRUE@@am__include@ @am__quote@./$(DEPDIR)/compr_weakcompr.Plo@am__quote@
+@AMDEP_TRUE@@am__include@ @am__quote@./$(DEPDIR)/compute_symmetry_none.Plo@am__quote@
 @AMDEP_TRUE@@am__include@ @am__quote@./$(DEPDIR)/concsolver.Plo@am__quote@
 @AMDEP_TRUE@@am__include@ @am__quote@./$(DEPDIR)/concsolver_scip.Plo@am__quote@
 @AMDEP_TRUE@@am__include@ @am__quote@./$(DEPDIR)/concurrent.Plo@am__quote@
@@ -1388,8 +1397,11 @@ distclean-compile:
 @AMDEP_TRUE@@am__include@ @am__quote@./$(DEPDIR)/misc.Plo@am__quote@
 @AMDEP_TRUE@@am__include@ @am__quote@./$(DEPDIR)/nlp.Plo@am__quote@
 @AMDEP_TRUE@@am__include@ @am__quote@./$(DEPDIR)/nlpi.Plo@am__quote@
+@AMDEP_TRUE@@am__include@ @am__quote@./$(DEPDIR)/nlpi_all.Plo@am__quote@
+@AMDEP_TRUE@@am__include@ @am__quote@./$(DEPDIR)/nlpi_filtersqp_dummy.Plo@am__quote@
 @AMDEP_TRUE@@am__include@ @am__quote@./$(DEPDIR)/nlpi_ipopt.Plo@am__quote@
 @AMDEP_TRUE@@am__include@ @am__quote@./$(DEPDIR)/nlpi_ipopt_dummy.Plo@am__quote@
+@AMDEP_TRUE@@am__include@ @am__quote@./$(DEPDIR)/nlpi_worhp_dummy.Plo@am__quote@
 @AMDEP_TRUE@@am__include@ @am__quote@./$(DEPDIR)/nlpioracle.Plo@am__quote@
 @AMDEP_TRUE@@am__include@ @am__quote@./$(DEPDIR)/nodesel.Plo@am__quote@
 @AMDEP_TRUE@@am__include@ @am__quote@./$(DEPDIR)/nodesel_bfs.Plo@am__quote@
@@ -1489,7 +1501,6 @@ distclean-compile:
 @AMDEP_TRUE@@am__include@ @am__quote@./$(DEPDIR)/set.Plo@am__quote@
 @AMDEP_TRUE@@am__include@ @am__quote@./$(DEPDIR)/sol.Plo@am__quote@
 @AMDEP_TRUE@@am__include@ @am__quote@./$(DEPDIR)/solve.Plo@am__quote@
-@AMDEP_TRUE@@am__include@ @am__quote@./$(DEPDIR)/sorttpl.Plo@am__quote@
 @AMDEP_TRUE@@am__include@ @am__quote@./$(DEPDIR)/stat.Plo@am__quote@
 @AMDEP_TRUE@@am__include@ @am__quote@./$(DEPDIR)/syncstore.Plo@am__quote@
 @AMDEP_TRUE@@am__include@ @am__quote@./$(DEPDIR)/table.Plo@am__quote@
@@ -3169,13 +3180,6 @@ solve.lo: scip/src/scip/solve.c
 @AMDEP_TRUE@@am__fastdepCC_FALSE@	DEPDIR=$(DEPDIR) $(CCDEPMODE) $(depcomp) @AMDEPBACKSLASH@
 @am__fastdepCC_FALSE@	$(LIBTOOL) --tag=CC --mode=compile $(CC) $(DEFS) $(DEFAULT_INCLUDES) $(INCLUDES) $(AM_CPPFLAGS) $(CPPFLAGS) $(AM_CFLAGS) $(CFLAGS) -c -o solve.lo `test -f 'scip/src/scip/solve.c' || echo '$(srcdir)/'`scip/src/scip/solve.c
 
-sorttpl.lo: scip/src/scip/sorttpl.c
-@am__fastdepCC_TRUE@	if $(LIBTOOL) --tag=CC --mode=compile $(CC) $(DEFS) $(DEFAULT_INCLUDES) $(INCLUDES) $(AM_CPPFLAGS) $(CPPFLAGS) $(AM_CFLAGS) $(CFLAGS) -MT sorttpl.lo -MD -MP -MF "$(DEPDIR)/sorttpl.Tpo" -c -o sorttpl.lo `test -f 'scip/src/scip/sorttpl.c' || echo '$(srcdir)/'`scip/src/scip/sorttpl.c; \
-@am__fastdepCC_TRUE@	then mv -f "$(DEPDIR)/sorttpl.Tpo" "$(DEPDIR)/sorttpl.Plo"; else rm -f "$(DEPDIR)/sorttpl.Tpo"; exit 1; fi
-@AMDEP_TRUE@@am__fastdepCC_FALSE@	source='scip/src/scip/sorttpl.c' object='sorttpl.lo' libtool=yes @AMDEPBACKSLASH@
-@AMDEP_TRUE@@am__fastdepCC_FALSE@	DEPDIR=$(DEPDIR) $(CCDEPMODE) $(depcomp) @AMDEPBACKSLASH@
-@am__fastdepCC_FALSE@	$(LIBTOOL) --tag=CC --mode=compile $(CC) $(DEFS) $(DEFAULT_INCLUDES) $(INCLUDES) $(AM_CPPFLAGS) $(CPPFLAGS) $(AM_CFLAGS) $(CFLAGS) -c -o sorttpl.lo `test -f 'scip/src/scip/sorttpl.c' || echo '$(srcdir)/'`scip/src/scip/sorttpl.c
-
 stat.lo: scip/src/scip/stat.c
 @am__fastdepCC_TRUE@	if $(LIBTOOL) --tag=CC --mode=compile $(CC) $(DEFS) $(DEFAULT_INCLUDES) $(INCLUDES) $(AM_CPPFLAGS) $(CPPFLAGS) $(AM_CFLAGS) $(CFLAGS) -MT stat.lo -MD -MP -MF "$(DEPDIR)/stat.Tpo" -c -o stat.lo `test -f 'scip/src/scip/stat.c' || echo '$(srcdir)/'`scip/src/scip/stat.c; \
 @am__fastdepCC_TRUE@	then mv -f "$(DEPDIR)/stat.Tpo" "$(DEPDIR)/stat.Plo"; else rm -f "$(DEPDIR)/stat.Tpo"; exit 1; fi
@@ -3274,6 +3278,13 @@ nlpioracle.lo: scip/src/nlpi/nlpioracle.c
 @AMDEP_TRUE@@am__fastdepCC_FALSE@	DEPDIR=$(DEPDIR) $(CCDEPMODE) $(depcomp) @AMDEPBACKSLASH@
 @am__fastdepCC_FALSE@	$(LIBTOOL) --tag=CC --mode=compile $(CC) $(DEFS) $(DEFAULT_INCLUDES) $(INCLUDES) $(AM_CPPFLAGS) $(CPPFLAGS) $(AM_CFLAGS) $(CFLAGS) -c -o nlpioracle.lo `test -f 'scip/src/nlpi/nlpioracle.c' || echo '$(srcdir)/'`scip/src/nlpi/nlpioracle.c
 
+nlpi_all.lo: scip/src/nlpi/nlpi_all.c
+@am__fastdepCC_TRUE@	if $(LIBTOOL) --tag=CC --mode=compile $(CC) $(DEFS) $(DEFAULT_INCLUDES) $(INCLUDES) $(AM_CPPFLAGS) $(CPPFLAGS) $(AM_CFLAGS) $(CFLAGS) -MT nlpi_all.lo -MD -MP -MF "$(DEPDIR)/nlpi_all.Tpo" -c -o nlpi_all.lo `test -f 'scip/src/nlpi/nlpi_all.c' || echo '$(srcdir)/'`scip/src/nlpi/nlpi_all.c; \
+@am__fastdepCC_TRUE@	then mv -f "$(DEPDIR)/nlpi_all.Tpo" "$(DEPDIR)/nlpi_all.Plo"; else rm -f "$(DEPDIR)/nlpi_all.Tpo"; exit 1; fi
+@AMDEP_TRUE@@am__fastdepCC_FALSE@	source='scip/src/nlpi/nlpi_all.c' object='nlpi_all.lo' libtool=yes @AMDEPBACKSLASH@
+@AMDEP_TRUE@@am__fastdepCC_FALSE@	DEPDIR=$(DEPDIR) $(CCDEPMODE) $(depcomp) @AMDEPBACKSLASH@
+@am__fastdepCC_FALSE@	$(LIBTOOL) --tag=CC --mode=compile $(CC) $(DEFS) $(DEFAULT_INCLUDES) $(INCLUDES) $(AM_CPPFLAGS) $(CPPFLAGS) $(AM_CFLAGS) $(CFLAGS) -c -o nlpi_all.lo `test -f 'scip/src/nlpi/nlpi_all.c' || echo '$(srcdir)/'`scip/src/nlpi/nlpi_all.c
+
 dijkstra.lo: scip/src/dijkstra/dijkstra.c
 @am__fastdepCC_TRUE@	if $(LIBTOOL) --tag=CC --mode=compile $(CC) $(DEFS) $(DEFAULT_INCLUDES) $(INCLUDES) $(AM_CPPFLAGS) $(CPPFLAGS) $(AM_CFLAGS) $(CFLAGS) -MT dijkstra.lo -MD -MP -MF "$(DEPDIR)/dijkstra.Tpo" -c -o dijkstra.lo `test -f 'scip/src/dijkstra/dijkstra.c' || echo '$(srcdir)/'`scip/src/dijkstra/dijkstra.c; \
 @am__fastdepCC_TRUE@	then mv -f "$(DEPDIR)/dijkstra.Tpo" "$(DEPDIR)/dijkstra.Plo"; else rm -f "$(DEPDIR)/dijkstra.Tpo"; exit 1; fi
@@ -3302,6 +3313,20 @@ nlpi_ipopt_dummy.lo: scip/src/nlpi/nlpi_ipopt_dummy.c
 @AMDEP_TRUE@@am__fastdepCC_FALSE@	DEPDIR=$(DEPDIR) $(CCDEPMODE) $(depcomp) @AMDEPBACKSLASH@
 @am__fastdepCC_FALSE@	$(LIBTOOL) --tag=CC --mode=compile $(CC) $(DEFS) $(DEFAULT_INCLUDES) $(INCLUDES) $(AM_CPPFLAGS) $(CPPFLAGS) $(AM_CFLAGS) $(CFLAGS) -c -o nlpi_ipopt_dummy.lo `test -f 'scip/src/nlpi/nlpi_ipopt_dummy.c' || echo '$(srcdir)/'`scip/src/nlpi/nlpi_ipopt_dummy.c
 
+nlpi_filtersqp_dummy.lo: scip/src/nlpi/nlpi_filtersqp_dummy.c
+@am__fastdepCC_TRUE@	if $(LIBTOOL) --tag=CC --mode=compile $(CC) $(DEFS) $(DEFAULT_INCLUDES) $(INCLUDES) $(AM_CPPFLAGS) $(CPPFLAGS) $(AM_CFLAGS) $(CFLAGS) -MT nlpi_filtersqp_dummy.lo -MD -MP -MF "$(DEPDIR)/nlpi_filtersqp_dummy.Tpo" -c -o nlpi_filtersqp_dummy.lo `test -f 'scip/src/nlpi/nlpi_filtersqp_dummy.c' || echo '$(srcdir)/'`scip/src/nlpi/nlpi_filtersqp_dummy.c; \
+@am__fastdepCC_TRUE@	then mv -f "$(DEPDIR)/nlpi_filtersqp_dummy.Tpo" "$(DEPDIR)/nlpi_filtersqp_dummy.Plo"; else rm -f "$(DEPDIR)/nlpi_filtersqp_dummy.Tpo"; exit 1; fi
+@AMDEP_TRUE@@am__fastdepCC_FALSE@	source='scip/src/nlpi/nlpi_filtersqp_dummy.c' object='nlpi_filtersqp_dummy.lo' libtool=yes @AMDEPBACKSLASH@
+@AMDEP_TRUE@@am__fastdepCC_FALSE@	DEPDIR=$(DEPDIR) $(CCDEPMODE) $(depcomp) @AMDEPBACKSLASH@
+@am__fastdepCC_FALSE@	$(LIBTOOL) --tag=CC --mode=compile $(CC) $(DEFS) $(DEFAULT_INCLUDES) $(INCLUDES) $(AM_CPPFLAGS) $(CPPFLAGS) $(AM_CFLAGS) $(CFLAGS) -c -o nlpi_filtersqp_dummy.lo `test -f 'scip/src/nlpi/nlpi_filtersqp_dummy.c' || echo '$(srcdir)/'`scip/src/nlpi/nlpi_filtersqp_dummy.c
+
+nlpi_worhp_dummy.lo: scip/src/nlpi/nlpi_worhp_dummy.c
+@am__fastdepCC_TRUE@	if $(LIBTOOL) --tag=CC --mode=compile $(CC) $(DEFS) $(DEFAULT_INCLUDES) $(INCLUDES) $(AM_CPPFLAGS) $(CPPFLAGS) $(AM_CFLAGS) $(CFLAGS) -MT nlpi_worhp_dummy.lo -MD -MP -MF "$(DEPDIR)/nlpi_worhp_dummy.Tpo" -c -o nlpi_worhp_dummy.lo `test -f 'scip/src/nlpi/nlpi_worhp_dummy.c' || echo '$(srcdir)/'`scip/src/nlpi/nlpi_worhp_dummy.c; \
+@am__fastdepCC_TRUE@	then mv -f "$(DEPDIR)/nlpi_worhp_dummy.Tpo" "$(DEPDIR)/nlpi_worhp_dummy.Plo"; else rm -f "$(DEPDIR)/nlpi_worhp_dummy.Tpo"; exit 1; fi
+@AMDEP_TRUE@@am__fastdepCC_FALSE@	source='scip/src/nlpi/nlpi_worhp_dummy.c' object='nlpi_worhp_dummy.lo' libtool=yes @AMDEPBACKSLASH@
+@AMDEP_TRUE@@am__fastdepCC_FALSE@	DEPDIR=$(DEPDIR) $(CCDEPMODE) $(depcomp) @AMDEPBACKSLASH@
+@am__fastdepCC_FALSE@	$(LIBTOOL) --tag=CC --mode=compile $(CC) $(DEFS) $(DEFAULT_INCLUDES) $(INCLUDES) $(AM_CPPFLAGS) $(CPPFLAGS) $(AM_CFLAGS) $(CFLAGS) -c -o nlpi_worhp_dummy.lo `test -f 'scip/src/nlpi/nlpi_worhp_dummy.c' || echo '$(srcdir)/'`scip/src/nlpi/nlpi_worhp_dummy.c
+
 .cpp.o:
 @am__fastdepCXX_TRUE@	if $(CXXCOMPILE) -MT $@ -MD -MP -MF "$(DEPDIR)/$*.Tpo" -c -o $@ $<; \
 @am__fastdepCXX_TRUE@	then mv -f "$(DEPDIR)/$*.Tpo" "$(DEPDIR)/$*.Po"; else rm -f "$(DEPDIR)/$*.Tpo"; exit 1; fi
@@ -3329,6 +3354,13 @@ exprinterpret_cppad.lo: scip/src/nlpi/exprinterpret_cppad.cpp
 @AMDEP_TRUE@@am__fastdepCXX_FALSE@	source='scip/src/nlpi/exprinterpret_cppad.cpp' object='exprinterpret_cppad.lo' libtool=yes @AMDEPBACKSLASH@
 @AMDEP_TRUE@@am__fastdepCXX_FALSE@	DEPDIR=$(DEPDIR) $(CXXDEPMODE) $(depcomp) @AMDEPBACKSLASH@
 @am__fastdepCXX_FALSE@	$(LIBTOOL) --tag=CXX --mode=compile $(CXX) $(DEFS) $(DEFAULT_INCLUDES) $(INCLUDES) $(AM_CPPFLAGS) $(CPPFLAGS) $(AM_CXXFLAGS) $(CXXFLAGS) -c -o exprinterpret_cppad.lo `test -f 'scip/src/nlpi/exprinterpret_cppad.cpp' || echo '$(srcdir)/'`scip/src/nlpi/exprinterpret_cppad.cpp
+
+compute_symmetry_none.lo: scip/src/symmetry/compute_symmetry_none.cpp
+@am__fastdepCXX_TRUE@	if $(LIBTOOL) --tag=CXX --mode=compile $(CXX) $(DEFS) $(DEFAULT_INCLUDES) $(INCLUDES) $(AM_CPPFLAGS) $(CPPFLAGS) $(AM_CXXFLAGS) $(CXXFLAGS) -MT compute_symmetry_none.lo -MD -MP -MF "$(DEPDIR)/compute_symmetry_none.Tpo" -c -o compute_symmetry_none.lo `test -f 'scip/src/symmetry/compute_symmetry_none.cpp' || echo '$(srcdir)/'`scip/src/symmetry/compute_symmetry_none.cpp; \
+@am__fastdepCXX_TRUE@	then mv -f "$(DEPDIR)/compute_symmetry_none.Tpo" "$(DEPDIR)/compute_symmetry_none.Plo"; else rm -f "$(DEPDIR)/compute_symmetry_none.Tpo"; exit 1; fi
+@AMDEP_TRUE@@am__fastdepCXX_FALSE@	source='scip/src/symmetry/compute_symmetry_none.cpp' object='compute_symmetry_none.lo' libtool=yes @AMDEPBACKSLASH@
+@AMDEP_TRUE@@am__fastdepCXX_FALSE@	DEPDIR=$(DEPDIR) $(CXXDEPMODE) $(depcomp) @AMDEPBACKSLASH@
+@am__fastdepCXX_FALSE@	$(LIBTOOL) --tag=CXX --mode=compile $(CXX) $(DEFS) $(DEFAULT_INCLUDES) $(INCLUDES) $(AM_CPPFLAGS) $(CPPFLAGS) $(AM_CXXFLAGS) $(CXXFLAGS) -c -o compute_symmetry_none.lo `test -f 'scip/src/symmetry/compute_symmetry_none.cpp' || echo '$(srcdir)/'`scip/src/symmetry/compute_symmetry_none.cpp
 
 nlpi_ipopt.lo: scip/src/nlpi/nlpi_ipopt.cpp
 @am__fastdepCXX_TRUE@	if $(LIBTOOL) --tag=CXX --mode=compile $(CXX) $(DEFS) $(DEFAULT_INCLUDES) $(INCLUDES) $(AM_CPPFLAGS) $(CPPFLAGS) $(AM_CXXFLAGS) $(CXXFLAGS) -MT nlpi_ipopt.lo -MD -MP -MF "$(DEPDIR)/nlpi_ipopt.Tpo" -c -o nlpi_ipopt.lo `test -f 'scip/src/nlpi/nlpi_ipopt.cpp' || echo '$(srcdir)/'`scip/src/nlpi/nlpi_ipopt.cpp; \

@@ -259,7 +259,6 @@ libcoinscip_la_SOURCES = \
   scip/src/scip/set.c \
   scip/src/scip/sol.c \
   scip/src/scip/solve.c \
-  scip/src/scip/sorttpl.c \
   scip/src/scip/stat.c \
   scip/src/scip/syncstore.c \
   scip/src/scip/table.c \
@@ -274,9 +273,11 @@ libcoinscip_la_SOURCES = \
   scip/src/nlpi/expr.c \
   scip/src/nlpi/nlpi.c \
   scip/src/nlpi/nlpioracle.c \
+  scip/src/nlpi/nlpi_all.c \
   scip/src/nlpi/exprinterpret_cppad.cpp \
   scip/src/dijkstra/dijkstra.c \
-  scip/src/xml/xmlparse.c
+  scip/src/xml/xmlparse.c \
+  scip/src/symmetry/compute_symmetry_none.cpp
 
 # LP solver interfaces
 libcoinsciplpis_la_SOURCES = lpiswitch.c lpiswitch_init.cpp lpiswitch_none.c \
@@ -322,6 +323,8 @@ libcoinscip_la_SOURCES += scip/src/nlpi/nlpi_ipopt.cpp
 else
 libcoinscip_la_SOURCES += scip/src/nlpi/nlpi_ipopt_dummy.c
 endif
+libcoinscip_la_SOURCES += scip/src/nlpi/nlpi_filtersqp_dummy.c
+libcoinscip_la_SOURCES += scip/src/nlpi/nlpi_worhp_dummy.c
 
 thirdpartyincludedir = $(includedir)/coin/ThirdParty
 thirdpartyinclude_HEADERS = lpiswitch.h
@@ -661,6 +664,9 @@ thirdpartynlpiincludedir = $(includedir)/coin/ThirdParty/nlpi
 thirdpartynlpiinclude_HEADERS = \
   scip/src/nlpi/exprinterpret.h \
   scip/src/nlpi/nlpi_ipopt.h \
+  scip/src/nlpi/nlpi_worhp.h \
+  scip/src/nlpi/nlpi_filtersqp.h \
+  scip/src/nlpi/nlpi_all.h \
   scip/src/nlpi/pub_expr.h \
   scip/src/nlpi/struct_expr.h \
   scip/src/nlpi/struct_nlpi.h \
