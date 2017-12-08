@@ -57,8 +57,8 @@ AC_MSG_CHECKING([SCIP version])
 scipver=`awk '/define SCIP_VERSION/ {print $3}' ${srcdir}/scip/src/scip/def.h`
 scipsubver=`awk '/define SCIP_SUBVERSION/ {print $3}' ${srcdir}/scip/src/scip/def.h`
 AC_MSG_RESULT([${scipver}.${scipsubver}])
-if test $scipver -lt 400 -o $scipver -ge 410 ; then
-  AC_MSG_ERROR(["Incorrect SCIP version. This build system is made for SCIP 4.0.x"])
+if test $scipver -lt 500 -o $scipver -ge 510 ; then
+  AC_MSG_ERROR(["Incorrect SCIP version. This build system is made for SCIP 5.0.x"])
 fi
 
 #############################################################################
