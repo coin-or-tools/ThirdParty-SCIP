@@ -238,6 +238,14 @@ if test $coin_has_bliss = false ; then
 fi
 AM_CONDITIONAL(COIN_HAS_BLISS, [test $coin_has_bliss = true])
 AM_CONDITIONAL(COIN_HAS_BLISSINCDIR, [test -n "$BLISSINCDIR"])
+AC_ARG_ENABLE([bliss-gmp],
+  AS_HELP_STRING([--enable-bliss-gmp],[indicate whether to assume that Bliss was build with GMP (default=yes, if GMP available, otherwise no)]),
+  [bliss_has_gmp=$enableval],
+  [bliss_has_gmp=$coin_has_gmp])
+if test $bliss_has_gmp = yes ;
+then
+  EXTRAFLAGS="$EXTRAFLAGS -DBLISS_USE_GMP"
+fi
 
 case "$CC" in
   *gcc* )
