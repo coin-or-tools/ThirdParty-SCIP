@@ -12,6 +12,9 @@
 #define SCIPlpiGetSolverDesc EVALCONCAT(SCIPlpiGetSolverDesc,LPISW_RENAME_SUFFIX)
 #define SCIPlpiGetSolverPointer EVALCONCAT(SCIPlpiGetSolverPointer,LPISW_RENAME_SUFFIX)
 #define SCIPlpiSetIntegralityInformation EVALCONCAT(SCIPlpiSetIntegralityInformation,LPISW_RENAME_SUFFIX)
+#define SCIPlpiHasPrimalSolve EVALCONCAT(SCIPlpiHasPrimalSolve,LPISW_RENAME_SUFFIX)
+#define SCIPlpiHasDualSolve EVALCONCAT(SCIPlpiHasDualSolve,LPISW_RENAME_SUFFIX)
+#define SCIPlpiHasBarrierSolve EVALCONCAT(SCIPlpiHasBarrierSolve,LPISW_RENAME_SUFFIX)
 #define SCIPlpiCreate EVALCONCAT(SCIPlpiCreate,LPISW_RENAME_SUFFIX)
 #define SCIPlpiFree EVALCONCAT(SCIPlpiFree,LPISW_RENAME_SUFFIX)
 #define SCIPlpiLoadColLP EVALCONCAT(SCIPlpiLoadColLP,LPISW_RENAME_SUFFIX)
@@ -101,3 +104,22 @@
 #define SCIPlpiIsInfinity EVALCONCAT(SCIPlpiIsInfinity,LPISW_RENAME_SUFFIX)
 #define SCIPlpiReadLP EVALCONCAT(SCIPlpiReadLP,LPISW_RENAME_SUFFIX)
 #define SCIPlpiWriteLP EVALCONCAT(SCIPlpiWriteLP,LPISW_RENAME_SUFFIX)
+
+#if 0
+#include "scip/def.h"
+
+SCIP_Bool SCIPlpiHasPrimalSolve (void)
+{
+   return FALSE;
+}
+
+SCIP_Bool SCIPlpiHasDualSolve (void)
+{
+   return FALSE;
+}
+
+SCIP_Bool SCIPlpiHasBarrierSolve (void)
+{
+   return FALSE;
+}
+#endif
