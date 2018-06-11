@@ -23,11 +23,20 @@ libcoinsciplpis_la_LIBADD = $(SCIPLIB_LIBS)
 libcoinscip_la_LIBADD = libcoinsciplpis.la
 endif
 
+# ls -1 scip/src/scip/*c | grep -v _xyz | sort | awk '{printf("  %s \\\n", $0)}'
 libcoinscip_la_SOURCES = \
   scip/src/scip/bandit.c \
   scip/src/scip/bandit_epsgreedy.c \
   scip/src/scip/bandit_exp3.c \
   scip/src/scip/bandit_ucb.c \
+  scip/src/scip/benders.c \
+  scip/src/scip/benderscut.c \
+  scip/src/scip/benderscut_feas.c \
+  scip/src/scip/benderscut_int.c \
+  scip/src/scip/benderscut_nogood.c \
+  scip/src/scip/benderscut_opt.c \
+  scip/src/scip/benders_default.c \
+  scip/src/scip/bendersdefcuts.c \
   scip/src/scip/bitencode.c \
   scip/src/scip/boundstore.c \
   scip/src/scip/branch_allfullstrong.c \
@@ -37,6 +46,7 @@ libcoinscip_la_SOURCES = \
   scip/src/scip/branch_fullstrong.c \
   scip/src/scip/branch_inference.c \
   scip/src/scip/branch_leastinf.c \
+  scip/src/scip/branch_lookahead.c \
   scip/src/scip/branch_mostinf.c \
   scip/src/scip/branch_multaggr.c \
   scip/src/scip/branch_nodereopt.c \
@@ -54,6 +64,8 @@ libcoinscip_la_SOURCES = \
   scip/src/scip/conflictstore.c \
   scip/src/scip/cons_abspower.c \
   scip/src/scip/cons_and.c \
+  scip/src/scip/cons_benders.c \
+  scip/src/scip/cons_benderslp.c \
   scip/src/scip/cons_bivariate.c \
   scip/src/scip/cons_bounddisjunction.c \
   scip/src/scip/cons.c \
@@ -102,10 +114,12 @@ libcoinscip_la_SOURCES = \
   scip/src/scip/heur_clique.c \
   scip/src/scip/heur_coefdiving.c \
   scip/src/scip/heur_completesol.c \
+  scip/src/scip/heur_conflictdiving.c \
   scip/src/scip/heur_crossover.c \
   scip/src/scip/heur_dins.c \
   scip/src/scip/heur_distributiondiving.c \
   scip/src/scip/heur_dualval.c \
+  scip/src/scip/heur_farkasdiving.c \
   scip/src/scip/heur_feaspump.c \
   scip/src/scip/heur_fixandinfer.c \
   scip/src/scip/heur_fracdiving.c \
@@ -160,6 +174,7 @@ libcoinscip_la_SOURCES = \
   scip/src/scip/message.c \
   scip/src/scip/message_default.c \
   scip/src/scip/misc.c \
+  scip/src/scip/misc_linear.c \
   scip/src/scip/nlp.c \
   scip/src/scip/nodesel_bfs.c \
   scip/src/scip/nodesel_breadthfirst.c \
@@ -178,7 +193,6 @@ libcoinscip_la_SOURCES = \
   scip/src/scip/presol_dualcomp.c \
   scip/src/scip/presol_dualinfer.c \
   scip/src/scip/presol_gateextraction.c \
-  scip/src/scip/presol_implfree.c \
   scip/src/scip/presol_implics.c \
   scip/src/scip/presol_inttobinary.c \
   scip/src/scip/presol_qpkktref.c \
@@ -212,6 +226,7 @@ libcoinscip_la_SOURCES = \
   scip/src/scip/reader_ccg.c \
   scip/src/scip/reader_cip.c \
   scip/src/scip/reader_cnf.c \
+  scip/src/scip/reader_cor.c \
   scip/src/scip/reader_diff.c \
   scip/src/scip/reader_fix.c \
   scip/src/scip/reader_fzn.c \
@@ -225,19 +240,63 @@ libcoinscip_la_SOURCES = \
   scip/src/scip/reader_pip.c \
   scip/src/scip/reader_ppm.c \
   scip/src/scip/reader_rlp.c \
+  scip/src/scip/reader_smps.c \
   scip/src/scip/reader_sol.c \
+  scip/src/scip/reader_sto.c \
+  scip/src/scip/reader_tim.c \
   scip/src/scip/reader_wbo.c \
   scip/src/scip/reader_zpl.c \
   scip/src/scip/relax.c \
   scip/src/scip/reopt.c \
   scip/src/scip/retcode.c \
   scip/src/scip/scip_bandit.c \
+  scip/src/scip/scip_benders.c \
+  scip/src/scip/scip_branch.c \
   scip/src/scip/scipbuildflags.c \
-  scip/src/scip/scip.c \
+  scip/src/scip/scip_compr.c \
+  scip/src/scip/scip_concurrent.c \
+  scip/src/scip/scip_conflict.c \
+  scip/src/scip/scip_cons.c \
+  scip/src/scip/scip_copy.c \
   scip/src/scip/scipcoreplugins.c \
+  scip/src/scip/scip_cut.c \
+  scip/src/scip/scip_datastructures.c \
+  scip/src/scip/scip_debug.c \
   scip/src/scip/scipdefplugins.c \
+  scip/src/scip/scip_dialog.c \
+  scip/src/scip/scip_disp.c \
+  scip/src/scip/scip_event.c \
+  scip/src/scip/scip_expr.c \
+  scip/src/scip/scip_general.c \
   scip/src/scip/scipgithash.c \
+  scip/src/scip/scip_heur.c \
+  scip/src/scip/scip_lp.c \
+  scip/src/scip/scip_mem.c \
+  scip/src/scip/scip_message.c \
+  scip/src/scip/scip_nlp.c \
+  scip/src/scip/scip_nodesel.c \
+  scip/src/scip/scip_nonlinear.c \
+  scip/src/scip/scip_numerics.c \
+  scip/src/scip/scip_param.c \
+  scip/src/scip/scip_presol.c \
+  scip/src/scip/scip_pricer.c \
+  scip/src/scip/scip_prob.c \
+  scip/src/scip/scip_probing.c \
+  scip/src/scip/scip_prop.c \
+  scip/src/scip/scip_randnumgen.c \
+  scip/src/scip/scip_reader.c \
+  scip/src/scip/scip_relax.c \
+  scip/src/scip/scip_reopt.c \
+  scip/src/scip/scip_sepa.c \
   scip/src/scip/scipshell.c \
+  scip/src/scip/scip_sol.c \
+  scip/src/scip/scip_solve.c \
+  scip/src/scip/scip_solvingstats.c \
+  scip/src/scip/scip_table.c \
+  scip/src/scip/scip_timing.c \
+  scip/src/scip/scip_tree.c \
+  scip/src/scip/scip_validation.c \
+  scip/src/scip/scip_var.c \
   scip/src/scip/sepa_aggregation.c \
   scip/src/scip/sepa.c \
   scip/src/scip/sepa_cgmip.c \
@@ -344,13 +403,24 @@ thirdpartyscipinclude_HEADERS = \
   scip/src/scip/bandit_exp3.h \
   scip/src/scip/bandit.h \
   scip/src/scip/bandit_ucb.h \
+  scip/src/scip/benderscut_feas.h \
+  scip/src/scip/benderscut.h \
+  scip/src/scip/benderscut_int.h \
+  scip/src/scip/benderscut_nogood.h \
+  scip/src/scip/benderscut_opt.h \
+  scip/src/scip/benders_default.h \
+  scip/src/scip/bendersdefcuts.h \
+  scip/src/scip/benders.h \
   scip/src/scip/bitencode.h \
+  scip/src/scip/boundstore.h \
   scip/src/scip/branch_allfullstrong.h \
   scip/src/scip/branch_cloud.h \
   scip/src/scip/branch_distribution.h \
   scip/src/scip/branch_fullstrong.h \
+  scip/src/scip/branch.h \
   scip/src/scip/branch_inference.h \
   scip/src/scip/branch_leastinf.h \
+  scip/src/scip/branch_lookahead.h \
   scip/src/scip/branch_mostinf.h \
   scip/src/scip/branch_multaggr.h \
   scip/src/scip/branch_nodereopt.h \
@@ -361,11 +431,15 @@ thirdpartyscipinclude_HEADERS = \
   scip/src/scip/compr.h \
   scip/src/scip/compr_largestrepr.h \
   scip/src/scip/compr_weakcompr.h \
+  scip/src/scip/concsolver.h \
   scip/src/scip/concsolver_scip.h \
+  scip/src/scip/concurrent.h \
   scip/src/scip/conflict.h \
-  scip/src/scip/cons.h \
+  scip/src/scip/conflictstore.h \
   scip/src/scip/cons_abspower.h \
   scip/src/scip/cons_and.h \
+  scip/src/scip/cons_benders.h \
+  scip/src/scip/cons_benderslp.h \
   scip/src/scip/cons_bivariate.h \
   scip/src/scip/cons_bounddisjunction.h \
   scip/src/scip/cons_cardinality.h \
@@ -374,6 +448,7 @@ thirdpartyscipinclude_HEADERS = \
   scip/src/scip/cons_countsols.h \
   scip/src/scip/cons_cumulative.h \
   scip/src/scip/cons_disjunction.h \
+  scip/src/scip/cons.h \
   scip/src/scip/cons_indicator.h \
   scip/src/scip/cons_integral.h \
   scip/src/scip/cons_knapsack.h \
@@ -381,9 +456,9 @@ thirdpartyscipinclude_HEADERS = \
   scip/src/scip/cons_linking.h \
   scip/src/scip/cons_logicor.h \
   scip/src/scip/cons_nonlinear.h \
-  scip/src/scip/cons_or.h \
   scip/src/scip/cons_orbisack.h \
   scip/src/scip/cons_orbitope.h \
+  scip/src/scip/cons_or.h \
   scip/src/scip/cons_pseudoboolean.h \
   scip/src/scip/cons_quadratic.h \
   scip/src/scip/cons_setppc.h \
@@ -394,14 +469,17 @@ thirdpartyscipinclude_HEADERS = \
   scip/src/scip/cons_symresack.h \
   scip/src/scip/cons_varbound.h \
   scip/src/scip/cons_xor.h \
+  scip/src/scip/cutpool.h \
   scip/src/scip/cuts.h \
   scip/src/scip/dbldblarith.h \
   scip/src/scip/debug.h \
   scip/src/scip/def.h \
   scip/src/scip/dialog_default.h \
+  scip/src/scip/dialog.h \
   scip/src/scip/disp_default.h \
-  scip/src/scip/event.h \
+  scip/src/scip/disp.h \
   scip/src/scip/event_globalbnd.h \
+  scip/src/scip/event.h \
   scip/src/scip/event_softtimelimit.h \
   scip/src/scip/event_solvingphase.h \
   scip/src/scip/heur_actconsdiving.h \
@@ -410,18 +488,22 @@ thirdpartyscipinclude_HEADERS = \
   scip/src/scip/heur_clique.h \
   scip/src/scip/heur_coefdiving.h \
   scip/src/scip/heur_completesol.h \
+  scip/src/scip/heur_conflictdiving.h \
   scip/src/scip/heur_crossover.h \
   scip/src/scip/heur_dins.h \
   scip/src/scip/heur_distributiondiving.h \
   scip/src/scip/heur_dualval.h \
+  scip/src/scip/heur_farkasdiving.h \
   scip/src/scip/heur_feaspump.h \
   scip/src/scip/heur_fixandinfer.h \
   scip/src/scip/heur_fracdiving.h \
   scip/src/scip/heur_gins.h \
   scip/src/scip/heur_guideddiving.h \
+  scip/src/scip/heur.h \
   scip/src/scip/heur_indicator.h \
   scip/src/scip/heur_intdiving.h \
   scip/src/scip/heur_intshifting.h \
+  scip/src/scip/heuristics.h \
   scip/src/scip/heur_linesearchdiving.h \
   scip/src/scip/heur_localbranching.h \
   scip/src/scip/heur_locks.h \
@@ -457,21 +539,25 @@ thirdpartyscipinclude_HEADERS = \
   scip/src/scip/heur_veclendiving.h \
   scip/src/scip/heur_zeroobj.h \
   scip/src/scip/heur_zirounding.h \
-  scip/src/scip/heuristics.h \
   scip/src/scip/history.h \
   scip/src/scip/implics.h \
+  scip/src/scip/interrupt.h \
   scip/src/scip/intervalarith.h \
-  scip/src/scip/message.h \
+  scip/src/scip/lp.h \
+  scip/src/scip/mem.h \
   scip/src/scip/message_default.h \
+  scip/src/scip/message.h \
   scip/src/scip/misc.h \
+  scip/src/scip/nlp.h \
   scip/src/scip/nodesel_bfs.h \
   scip/src/scip/nodesel_breadthfirst.h \
   scip/src/scip/nodesel_dfs.h \
   scip/src/scip/nodesel_estimate.h \
+  scip/src/scip/nodesel.h \
   scip/src/scip/nodesel_hybridestim.h \
   scip/src/scip/nodesel_restartdfs.h \
   scip/src/scip/nodesel_uct.h \
-  scip/src/scip/presolve.h \
+  scip/src/scip/paramset.h \
   scip/src/scip/presol_boundshift.h \
   scip/src/scip/presol_convertinttobin.h \
   scip/src/scip/presol_domcol.h \
@@ -479,7 +565,7 @@ thirdpartyscipinclude_HEADERS = \
   scip/src/scip/presol_dualcomp.h \
   scip/src/scip/presol_dualinfer.h \
   scip/src/scip/presol_gateextraction.h \
-  scip/src/scip/presol_implfree.h \
+  scip/src/scip/presol.h \
   scip/src/scip/presol_implics.h \
   scip/src/scip/presol_inttobinary.h \
   scip/src/scip/presol_qpkktref.h \
@@ -490,8 +576,14 @@ thirdpartyscipinclude_HEADERS = \
   scip/src/scip/presol_symmetry.h \
   scip/src/scip/presol_trivial.h \
   scip/src/scip/presol_tworowbnd.h \
+  scip/src/scip/presolve.h \
+  scip/src/scip/pricer.h \
+  scip/src/scip/pricestore.h \
+  scip/src/scip/primal.h \
+  scip/src/scip/prob.h \
   scip/src/scip/prop_dualfix.h \
   scip/src/scip/prop_genvbounds.h \
+  scip/src/scip/prop.h \
   scip/src/scip/prop_nlobbt.h \
   scip/src/scip/prop_obbt.h \
   scip/src/scip/prop_orbitalfixing.h \
@@ -505,6 +597,8 @@ thirdpartyscipinclude_HEADERS = \
   scip/src/scip/pub_bandit_exp3.h \
   scip/src/scip/pub_bandit.h \
   scip/src/scip/pub_bandit_ucb.h \
+  scip/src/scip/pub_benderscut.h \
+  scip/src/scip/pub_benders.h \
   scip/src/scip/pub_branch.h \
   scip/src/scip/pub_compr.h \
   scip/src/scip/pub_conflict.h \
@@ -521,6 +615,7 @@ thirdpartyscipinclude_HEADERS = \
   scip/src/scip/pub_matrix.h \
   scip/src/scip/pub_message.h \
   scip/src/scip/pub_misc.h \
+  scip/src/scip/pub_misc_linear.h \
   scip/src/scip/pub_misc_select.h \
   scip/src/scip/pub_misc_sort.h \
   scip/src/scip/pub_nlp.h \
@@ -537,14 +632,17 @@ thirdpartyscipinclude_HEADERS = \
   scip/src/scip/pub_table.h \
   scip/src/scip/pub_tree.h \
   scip/src/scip/pub_var.h \
+  scip/src/scip/rbtree.h \
   scip/src/scip/reader_bnd.h \
   scip/src/scip/reader_ccg.h \
   scip/src/scip/reader_cip.h \
   scip/src/scip/reader_cnf.h \
+  scip/src/scip/reader_cor.h \
   scip/src/scip/reader_diff.h \
   scip/src/scip/reader_fix.h \
   scip/src/scip/reader_fzn.h \
   scip/src/scip/reader_gms.h \
+  scip/src/scip/reader.h \
   scip/src/scip/reader_lp.h \
   scip/src/scip/reader_mps.h \
   scip/src/scip/reader_mst.h \
@@ -554,12 +652,64 @@ thirdpartyscipinclude_HEADERS = \
   scip/src/scip/reader_pip.h \
   scip/src/scip/reader_ppm.h \
   scip/src/scip/reader_rlp.h \
+  scip/src/scip/reader_smps.h \
   scip/src/scip/reader_sol.h \
+  scip/src/scip/reader_sto.h \
+  scip/src/scip/reader_tim.h \
   scip/src/scip/reader_wbo.h \
   scip/src/scip/reader_zpl.h \
+  scip/src/scip/relax.h \
+  scip/src/scip/reopt.h \
+  scip/src/scip/retcode.h \
+  scip/src/scip/scip_bandit.h \
+  scip/src/scip/scip_benders.h \
+  scip/src/scip/scip_branch.h \
+  scip/src/scip/scipbuildflags.h \
+  scip/src/scip/scip_compr.h \
+  scip/src/scip/scip_concurrent.h \
+  scip/src/scip/scip_conflict.h \
+  scip/src/scip/scip_cons.h \
+  scip/src/scip/scip_copy.h \
+  scip/src/scip/scipcoreplugins.h \
+  scip/src/scip/scip_cut.h \
+  scip/src/scip/scip_datastructures.h \
+  scip/src/scip/scip_debug.h \
   scip/src/scip/scipdefplugins.h \
+  scip/src/scip/scip_dialog.h \
+  scip/src/scip/scip_disp.h \
+  scip/src/scip/scip_event.h \
+  scip/src/scip/scip_expr.h \
+  scip/src/scip/scip_general.h \
+  scip/src/scip/scipgithash.h \
   scip/src/scip/scip.h \
+  scip/src/scip/scip_heur.h \
+  scip/src/scip/scip_lp.h \
+  scip/src/scip/scip_mem.h \
+  scip/src/scip/scip_message.h \
+  scip/src/scip/scip_nlp.h \
+  scip/src/scip/scip_nodesel.h \
+  scip/src/scip/scip_nonlinear.h \
+  scip/src/scip/scip_numerics.h \
+  scip/src/scip/scip_param.h \
+  scip/src/scip/scip_presol.h \
+  scip/src/scip/scip_pricer.h \
+  scip/src/scip/scip_prob.h \
+  scip/src/scip/scip_probing.h \
+  scip/src/scip/scip_prop.h \
+  scip/src/scip/scip_randnumgen.h \
+  scip/src/scip/scip_reader.h \
+  scip/src/scip/scip_relax.h \
+  scip/src/scip/scip_reopt.h \
+  scip/src/scip/scip_sepa.h \
   scip/src/scip/scipshell.h \
+  scip/src/scip/scip_sol.h \
+  scip/src/scip/scip_solve.h \
+  scip/src/scip/scip_solvingstats.h \
+  scip/src/scip/scip_table.h \
+  scip/src/scip/scip_timing.h \
+  scip/src/scip/scip_tree.h \
+  scip/src/scip/scip_validation.h \
+  scip/src/scip/scip_var.h \
   scip/src/scip/sepa_aggregation.h \
   scip/src/scip/sepa_cgmip.h \
   scip/src/scip/sepa_clique.h \
@@ -569,19 +719,27 @@ thirdpartyscipinclude_HEADERS = \
   scip/src/scip/sepa_eccuts.h \
   scip/src/scip/sepa_gauge.h \
   scip/src/scip/sepa_gomory.h \
+  scip/src/scip/sepa.h \
   scip/src/scip/sepa_impliedbounds.h \
   scip/src/scip/sepa_intobj.h \
   scip/src/scip/sepa_mcf.h \
   scip/src/scip/sepa_oddcycle.h \
   scip/src/scip/sepa_rapidlearning.h \
+  scip/src/scip/sepastore.h \
   scip/src/scip/sepa_strongcg.h \
   scip/src/scip/sepa_zerohalf.h \
   scip/src/scip/set.h \
+  scip/src/scip/sol.h \
   scip/src/scip/solve.h \
+  scip/src/scip/stat.h \
   scip/src/scip/struct_bandit.h \
+  scip/src/scip/struct_benderscut.h \
+  scip/src/scip/struct_benders.h \
   scip/src/scip/struct_branch.h \
   scip/src/scip/struct_clock.h \
   scip/src/scip/struct_compr.h \
+  scip/src/scip/struct_concsolver.h \
+  scip/src/scip/struct_concurrent.h \
   scip/src/scip/struct_conflict.h \
   scip/src/scip/struct_conflictstore.h \
   scip/src/scip/struct_cons.h \
@@ -609,24 +767,30 @@ thirdpartyscipinclude_HEADERS = \
   scip/src/scip/struct_prop.h \
   scip/src/scip/struct_reader.h \
   scip/src/scip/struct_relax.h \
+  scip/src/scip/struct_reopt.h \
   scip/src/scip/struct_scip.h \
   scip/src/scip/struct_sepa.h \
   scip/src/scip/struct_sepastore.h \
   scip/src/scip/struct_set.h \
   scip/src/scip/struct_sol.h \
   scip/src/scip/struct_stat.h \
+  scip/src/scip/struct_syncstore.h \
+  scip/src/scip/struct_table.h \
   scip/src/scip/struct_tree.h \
   scip/src/scip/struct_var.h \
   scip/src/scip/struct_visual.h \
-  scip/src/scip/table.h \
+  scip/src/scip/syncstore.h \
   scip/src/scip/table_default.h \
+  scip/src/scip/table.h \
   scip/src/scip/tree.h \
   scip/src/scip/type_bandit.h \
+  scip/src/scip/type_benderscut.h \
+  scip/src/scip/type_benders.h \
   scip/src/scip/type_branch.h \
   scip/src/scip/type_clock.h \
   scip/src/scip/type_compr.h \
-  scip/src/scip/type_concurrent.h \
   scip/src/scip/type_concsolver.h \
+  scip/src/scip/type_concurrent.h \
   scip/src/scip/type_conflict.h \
   scip/src/scip/type_conflictstore.h \
   scip/src/scip/type_cons.h \
@@ -671,6 +835,7 @@ thirdpartyscipinclude_HEADERS = \
   scip/src/scip/type_var.h \
   scip/src/scip/type_visual.h \
   scip/src/scip/var.h \
+  scip/src/scip/visual.h \
   scip/src/scip/githash.c
 
 thirdpartybmsincludedir = $(includedir)/coin/ThirdParty/blockmemshell

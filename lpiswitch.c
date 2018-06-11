@@ -109,6 +109,12 @@
    int*                  intInfo    \
    )
 
+#define LPISW_DECL_LPIHASPRIMALSOLVE(x) SCIP_Bool x (void)
+
+#define LPISW_DECL_LPIHASDUALSOLVE(x) SCIP_Bool x (void)
+
+#define LPISW_DECL_LPIHASBARRIERSOLVE(x) SCIP_Bool x (void)
+
 #define LPISW_DECL_LPICREATE(x) SCIP_RETCODE x ( \
    SCIP_LPI**            lpi,         \
    SCIP_MESSAGEHDLR*     messagehdlr, \
@@ -667,6 +673,9 @@ static LPISW_DECL_LPIGETSOLVERNAME((*lpiGetSolverName)) = NULL;
 static LPISW_DECL_LPIGETSOLVERDESC((*lpiGetSolverDesc)) = NULL;
 static LPISW_DECL_LPIGETSOLVERPOINTER((*lpiGetSolverPointer)) = NULL;
 static LPISW_DECL_LPISETINTEGRALITYINFORMATION((*lpiSetIntegralityInformation)) = NULL;
+static LPISW_DECL_LPIHASPRIMALSOLVE((*lpiHasPrimalSolve)) = NULL;
+static LPISW_DECL_LPIHASDUALSOLVE((*lpiHasDualSolve)) = NULL;
+static LPISW_DECL_LPIHASBARRIERSOLVE((*lpiHasBarrierSolve)) = NULL;
 static LPISW_DECL_LPICREATE((*lpiCreate)) = NULL;
 static LPISW_DECL_LPIFREE((*lpiFree)) = NULL;
 static LPISW_DECL_LPILOADCOLLP((*lpiLoadColLP)) = NULL;
@@ -761,6 +770,9 @@ static SCIP_LPISW_LPSOLVER currentsolver = SCIP_LPISW_NSOLVERS;
 /** macro to set static function pointers to LPI functions of a particular solver
  */
 #define LPISW_ASSIGN_FUNCPTRS(x) \
+   lpiHasPrimalSolve = SCIPlpiHasPrimalSolve ## x ; \
+   lpiHasDualSolve = SCIPlpiHasDualSolve ## x ; \
+   lpiHasBarrierSolve = SCIPlpiHasBarrierSolve ## x ; \
    lpiGetSolverName = SCIPlpiGetSolverName ## x ; \
    lpiGetSolverDesc = SCIPlpiGetSolverDesc ## x ; \
    lpiGetSolverPointer = SCIPlpiGetSolverPointer ## x ; \
@@ -1033,6 +1045,21 @@ SCIP_RETCODE SCIPlpiSetIntegralityInformation(
    )
 {
    return (*lpiSetIntegralityInformation)(lpi, ncols, intInfo);
+}
+
+SCIP_Bool SCIPlpiHasPrimalSolve(void)
+{
+   return (*lpiHasPrimalSolve)();
+}
+
+SCIP_Bool SCIPlpiHasDualSolve(void)
+{
+   return (*lpiHasDualSolve)();
+}
+
+SCIP_Bool SCIPlpiHasBarrierSolve(void)
+{
+   return (*lpiHasBarrierSolve)();
 }
 
 /** deletes an LP problem object */
