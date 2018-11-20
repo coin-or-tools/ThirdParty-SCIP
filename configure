@@ -23339,7 +23339,7 @@ fi
 #                       Check for system header and libraries               #
 #############################################################################
 
-EXTRAFLAGS="-DWITH_SCIPDEF"
+EXTRAFLAGS="-DWITH_SCIPDEF -DNO_CONFIG_HEADER"
 
 # Check whether --enable-scip-threadsafe or --disable-scip-threadsafe was given.
 if test "${enable_scip_threadsafe+set}" = set; then
@@ -23709,7 +23709,7 @@ fi
 
 
 if test $coin_has_zlib = "yes"; then
-  EXTRAFLAGS="$EXTRAFLAGS -DWITH_ZLIB"
+  EXTRAFLAGS="$EXTRAFLAGS -DWITH_ZLIB -DSCIP_WITH_ZLIB"
 fi
 
 
@@ -23968,7 +23968,7 @@ _ACEOF
 fi
 
 if test $coin_has_gmp = yes; then
-  EXTRAFLAGS="$EXTRAFLAGS -DWITH_GMP"
+  EXTRAFLAGS="$EXTRAFLAGS -DWITH_GMP -DSCIP_WITH_GMP"
 fi
 
 # Check whether --enable-gnu-packages or --disable-gnu-packages was given.
@@ -24281,7 +24281,7 @@ _ACEOF
 fi
 
 if test $coin_has_readline = yes; then
-  EXTRAFLAGS="$EXTRAFLAGS -DWITH_READLINE"
+  EXTRAFLAGS="$EXTRAFLAGS -DWITH_READLINE -DSCIP_WITH_READLINE"
 fi
 
 echo "$as_me:$LINENO: checking for struct sigaction.sa_handler" >&5
@@ -24390,7 +24390,7 @@ echo "${ECHO_T}$ac_cv_member_struct_sigaction_sa_handler" >&6
 if test $ac_cv_member_struct_sigaction_sa_handler = yes; then
   :
 else
-  EXTRAFLAGS="$EXTRAFLAGS -DNO_SIGACTION"
+  EXTRAFLAGS="$EXTRAFLAGS -DNO_SIGACTION -DSCIP_NO_SIGACTION"
 fi
 
 
@@ -24584,7 +24584,7 @@ echo "${ECHO_T}$ac_cv_func_strtok_r" >&6
 if test $ac_cv_func_strtok_r = yes; then
   :
 else
-  EXTRAFLAGS="$EXTRAFLAGS -DNO_STRTOK_R"
+  EXTRAFLAGS="$EXTRAFLAGS -DNO_STRTOK_R -DSCIP_NO_STRTOK_R"
 fi
 
 
@@ -24823,7 +24823,7 @@ echo "${ECHO_T}$ac_cv_header_fenv_h" >&6
 
 fi
 if test $ac_cv_header_fenv_h = yes; then
-  EXTRAFLAGS="$EXTRAFLAGS -DROUNDING_FE"
+  EXTRAFLAGS="$EXTRAFLAGS -DSCIP_ROUNDING_FE"
 else
   if test "${ac_cv_header_float_h+set}" = set; then
   echo "$as_me:$LINENO: checking for float.h" >&5
@@ -24963,7 +24963,7 @@ echo "${ECHO_T}$ac_cv_header_float_h" >&6
 
 fi
 if test $ac_cv_header_float_h = yes; then
-  EXTRAFLAGS="$EXTRAFLAGS -DROUNDING_MS"
+  EXTRAFLAGS="$EXTRAFLAGS -DSCIP_ROUNDING_MS"
 fi
 
 

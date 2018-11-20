@@ -166,7 +166,7 @@ AC_COIN_CHECK_PACKAGE(Ipopt, ipopt, SCIPLib)
 #                       Check for system header and libraries               #
 #############################################################################
 
-EXTRAFLAGS="-DWITH_SCIPDEF"
+EXTRAFLAGS="-DWITH_SCIPDEF -DNO_CONFIG_HEADER"
 
 AC_ARG_ENABLE([scip-threadsafe],
   AS_HELP_STRING([--disable-scip-threadsafe],[do not build SCIP threadsafe (default=auto)]),
@@ -191,34 +191,34 @@ fi
 
 AC_COIN_CHECK_GNU_ZLIB(SCIPlib)
 if test $coin_has_zlib = "yes"; then
-  EXTRAFLAGS="$EXTRAFLAGS -DWITH_ZLIB"  
+  EXTRAFLAGS="$EXTRAFLAGS -DWITH_ZLIB -DSCIP_WITH_ZLIB"  
 fi
 
 AC_COIN_CHECK_GMP(SCIPLib)
 if test $coin_has_gmp = yes; then
-  EXTRAFLAGS="$EXTRAFLAGS -DWITH_GMP"  
+  EXTRAFLAGS="$EXTRAFLAGS -DWITH_GMP -DSCIP_WITH_GMP"  
 fi
 
 AC_COIN_CHECK_GNU_READLINE(SCIPLib)
 if test $coin_has_readline = yes; then
-  EXTRAFLAGS="$EXTRAFLAGS -DWITH_READLINE"  
+  EXTRAFLAGS="$EXTRAFLAGS -DWITH_READLINE -DSCIP_WITH_READLINE"
 fi
 
 AC_CHECK_MEMBER(struct sigaction.sa_handler,,
-  [EXTRAFLAGS="$EXTRAFLAGS -DNO_SIGACTION"],
+  [EXTRAFLAGS="$EXTRAFLAGS -DNO_SIGACTION -DSCIP_NO_SIGACTION"],
   [#include <signal.h>])
     
 AC_CHECK_FUNC(rand_r,,
   [EXTRAFLAGS="$EXTRAFLAGS -DNO_RAND_R"])
     
 AC_CHECK_FUNC(strtok_r,,
-  [EXTRAFLAGS="$EXTRAFLAGS -DNO_STRTOK_R"])
+  [EXTRAFLAGS="$EXTRAFLAGS -DNO_STRTOK_R -DSCIP_NO_STRTOK_R"])
 
 AC_CHECK_FUNC(strerror_r,,
   [EXTRAFLAGS="$EXTRAFLAGS -DNO_STRERROR_R"])
     
-AC_CHECK_HEADER([fenv.h],[EXTRAFLAGS="$EXTRAFLAGS -DROUNDING_FE"],
-  [AC_CHECK_HEADER([float.h],[EXTRAFLAGS="$EXTRAFLAGS -DROUNDING_MS"])])
+AC_CHECK_HEADER([fenv.h],[EXTRAFLAGS="$EXTRAFLAGS -DSCIP_ROUNDING_FE"],
+  [AC_CHECK_HEADER([float.h],[EXTRAFLAGS="$EXTRAFLAGS -DSCIP_ROUNDING_MS"])])
 
 # check if user specifies bliss
 AC_LANG_PUSH(C++)
