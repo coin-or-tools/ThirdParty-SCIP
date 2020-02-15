@@ -1,5 +1,6 @@
 * text=auto !eol
 /INSTALL.SCIP -text
+/LICENSE -text
 /Makefile.am -text
 /Makefile.in -text
 /coinscip-uninstalled.pc.in -text
